@@ -18,7 +18,7 @@ stack or Beacon services.
 
 Install dependencies: `uv sync --extra test`.
 
-Profiles are the primary entry point. Export profiles (with `kind: export`) wire together fetch, export, mapping,
+Profiles ([profile directory](./src/schema_bridge/resources/profiles)] are the primary entry point. Export profiles (with `kind: export`) wire together fetch, export, mapping,
 and validation steps. You can pass a profile name, a profile folder, or a direct path to `profile.yml`.
 
 - `uv run schema-bridge export --profile dcat --format ttl`
@@ -123,10 +123,3 @@ Common keys:
 - `upload.batch_size`: rows per mutation batch
 - `graphql.base_url` + `graphql.schema`: default GraphQL location (optional)
 - `graphql.token`: bearer token for auth (optional)
-
-## Resource tree
-
-```
-src/schema_bridge/resources/
-  profiles/  # profile folders (profile.yml + graphql/sparql, SHACL shapes)
-```
