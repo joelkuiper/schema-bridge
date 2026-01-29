@@ -1,0 +1,101 @@
+PREFIX schema: <http://schema.org/>
+PREFIX field: <https://catalogue.org/field/>
+PREFIX entity: <https://catalogue.org/entity/>
+
+CONSTRUCT {
+  ?catalog a schema:DataCatalog ;
+           schema:name ?catalogTitle ;
+           schema:description ?catalogDescription ;
+           schema:url ?catalogHomepage ;
+           schema:dataset ?res .
+
+  ?res a schema:Dataset ;
+       schema:name ?title ;
+       schema:description ?desc ;
+       schema:url ?websiteIri ;
+       schema:identifier ?identifier ;
+       schema:keywords ?keyword ;
+       schema:about ?themeIri ;
+       schema:conditionsOfAccess ?accessCondition ;
+       schema:publisher ?publisher ;
+       schema:distribution ?distribution ;
+       schema:contactPoint ?contactPoint .
+
+  ?publisher a schema:Organization ;
+             schema:name ?publisherName ;
+             schema:url ?publisherWebsiteIri .
+
+  ?distribution a schema:DataDownload ;
+                schema:contentUrl ?accessUrl ;
+                schema:conditionsOfAccess ?accessCondition .
+
+  ?contactPoint a schema:ContactPoint ;
+                schema:email ?contactEmailLiteral ;
+                schema:name ?contactName .
+}
+WHERE {
+  BIND(IRI("https://molgeniscatalogue.org/catalogue") AS ?catalog)
+  BIND("MOLGENIS Catalogue" AS ?catalogTitle)
+  BIND("MOLGENIS Catalogue datasets (Schema.org export)" AS ?catalogDescription)
+  BIND(IRI("https://molgeniscatalogue.org/") AS ?catalogHomepage)
+
+  ?res a ?entity .
+  VALUES ?entity { entity:Resource entity:Dataset }
+
+  OPTIONAL { ?res field:title ?titleValue . }
+  OPTIONAL { ?res field:name ?nameValue . }
+  BIND(COALESCE(?titleValue, ?nameValue) AS ?title)
+  FILTER(BOUND(?title))
+
+  OPTIONAL { ?res field:description ?desc . }
+  OPTIONAL { ?res field:id ?identifier . }
+  OPTIONAL { ?res field:website ?website . }
+  BIND(IRI(STR(?website)) AS ?websiteIri)
+  BIND(COALESCE(?websiteIri, ?catalogHomepage) AS ?accessUrl)
+
+  OPTIONAL { ?res field:keywords ?keyword . }
+  OPTIONAL {
+    ?res field:themeUris ?themeUri .
+    BIND(IRI(STR(?themeUri)) AS ?themeIri)
+  }
+  OPTIONAL {
+    ?res field:accessRightsUris ?accessRightsUri .
+    BIND(IRI(STR(?accessRightsUri)) AS ?accessCondition)
+  }
+  OPTIONAL {
+    ?res field:dataAccessConditionUris ?dataAccessConditionUri .
+    BIND(IRI(STR(?dataAccessConditionUri)) AS ?accessCondition)
+  }
+  OPTIONAL {
+    ?res field:dataUseConditionUris ?dataUseConditionUri .
+    BIND(IRI(STR(?dataUseConditionUri)) AS ?accessCondition)
+  }
+
+  OPTIONAL { ?res field:publisherName ?publisherName . }
+  OPTIONAL {
+    FILTER(BOUND(?publisherName))
+    BIND(
+      IRI(CONCAT("https://catalogue.org/publisher/", ENCODE_FOR_URI(STR(?publisherName))))
+      AS ?publisher
+    )
+  }
+  OPTIONAL {
+    ?res field:publisherWebsite ?publisherWebsite .
+    BIND(IRI(STR(?publisherWebsite)) AS ?publisherWebsiteIri)
+  }
+
+  OPTIONAL { ?res field:contactName ?contactName . }
+  OPTIONAL {
+    ?res field:contactEmail ?contactEmail .
+    BIND(REPLACE(STR(?contactEmail), "^mailto:", "") AS ?contactEmailLiteral)
+  }
+  OPTIONAL {
+    FILTER(BOUND(?contactName) || BOUND(?contactEmailLiteral))
+    BIND(BNODE() AS ?contactPoint)
+  }
+
+  OPTIONAL {
+    FILTER(BOUND(?landingPageIri))
+    BIND(IRI(CONCAT(STR(?res), "/distribution")) AS ?distribution)
+  }
+}

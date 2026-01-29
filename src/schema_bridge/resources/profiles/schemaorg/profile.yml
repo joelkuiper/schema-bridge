@@ -1,0 +1,42 @@
+name: schemaorg
+kind: export
+description: Schema.org Dataset/DataCatalog export (optional Bioschemas alignment)
+fetch:
+  graphql: graphql/query.graphql
+  root_key: Resources
+export:
+  construct: sparql/construct.sparql
+mapping:
+  entity_name: Resource
+  subject_path: resource
+  id_field: id
+  drop_nested: true
+  iri_fields:
+    - website
+    - publisherWebsite
+    - themeUris
+    - accessRightsUris
+    - dataAccessConditionUris
+    - dataUseConditionUris
+  field_paths:
+    contactEmail:
+      - contactPoint.email
+    contactName:
+      - contactPoint.displayName
+      - contactPoint.firstName
+      - contactPoint.lastName
+    publisherName:
+      - publisher.organisationName
+      - publisher.name
+      - publisher.otherOrganisation
+      - publisher.id
+    publisherWebsite:
+      - publisher.organisationWebsite
+      - publisher.website
+    themeUris: type[].ontologyTermURI
+    themeLabels: type[].label
+    keywords: keywords[]
+    accessRightsUris: accessRights[].ontologyTermURI
+    accessRightsLabels: accessRights[].name
+    dataAccessConditionUris: dataAccessConditions[].ontologyTermURI
+    dataUseConditionUris: dataUseConditions[].ontologyTermURI

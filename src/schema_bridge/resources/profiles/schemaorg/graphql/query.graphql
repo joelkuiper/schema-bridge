@@ -1,0 +1,38 @@
+query Resources($limit: Int, $offset: Int, $filter: ResourcesFilter) {
+  Resources(limit: $limit, offset: $offset, filter: $filter, orderby: { id: ASC }) {
+    id
+    name
+    description
+    website
+    keywords
+    contactPoint {
+      displayName
+      firstName
+      lastName
+      email
+    }
+    publisher {
+      id
+      name
+      organisationName
+      otherOrganisation
+      organisationWebsite
+      website
+    }
+    type {
+      name
+      label
+      ontologyTermURI
+    }
+    accessRights {
+      name
+      ontologyTermURI
+    }
+    dataAccessConditions {
+      ontologyTermURI
+    }
+    dataUseConditions {
+      ontologyTermURI
+    }
+  }
+}

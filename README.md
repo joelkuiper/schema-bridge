@@ -5,7 +5,7 @@
 ## Table of Contents
 
 * [Summary](#summary)
-* [Example: MOLGENIS Catalogue → Health-DCAT-AP](#example-molgenis-catalogue--health-dcat-ap)
+* [Example: MOLGENIS Catalogue → Health-DCAT-AP + Schema.org](#example-molgenis-catalogue--health-dcat-ap--schemaorg)
 * [Architecture](#architecture)
   * [Pipeline overview](#pipeline-overview)
   * [Why a canonical RDF layer?](#why-a-canonical-rdf-layer)
@@ -46,11 +46,14 @@ RDF backend: [Oxigraph](https://github.com/oxigraph/oxigraph) store via [oxrdfli
 
 ---
 
-## Example: MOLGENIS Catalogue → Health-DCAT-AP
+## Example: MOLGENIS Catalogue → Health-DCAT-AP + Schema.org
 
-A concrete use case is exporting the **MOLGENIS Catalogue** to **Health-DCAT-AP Release 5** ([ref](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-5/)), as used by [molgeniscatalogue.org](https://molgeniscatalogue.org).
+A concrete use case is exporting the **MOLGENIS Catalogue** to **Health-DCAT-AP Release 5** ([ref](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-5/)) and to **Schema.org Dataset/DataCatalog** for web-scale dataset discovery ([https://schema.org/Dataset](https://schema.org/Dataset)), as used by [molgeniscatalogue.org](https://molgeniscatalogue.org).
 
-Schema Bridge provides a packaged profile, `healthdcat-ap-r5-molgenis`, which maps catalogue data exposed via GraphQL into a Health-DCAT-AP Release 5–compatible RDF representation.
+Schema Bridge provides two packaged profiles for this catalogue:
+
+* `healthdcat-ap-r5-molgenis` — Health-DCAT-AP Release 5 export (partially complete)
+* `schemaorg` — Schema.org Dataset/DataCatalog JSON-LD export, optionally aligned with Bioschemas (partially complete)
 
 This profile emits:
 
@@ -58,8 +61,6 @@ This profile emits:
 * A `dcat:CatalogRecord` for each dataset
 * A `dcat:Dataset` with landing page, publisher, contact point, spatial and temporal coverage, and themes/keywords
 * One or more `dcat:Distribution` resources per dataset, including access URLs and access-rights or policy links when available
-* **Notes on scope:** The mapping reflects a pragmatic interpretation of Health-DCAT-AP applied to the fields currently exposed by the catalogue schema; coverage of optional constructs is therefore partial.
-
 Example usage:
 
 ```bash
@@ -75,7 +76,16 @@ uv run schema-bridge export \
   --limit 10
 ```
 
-Sample output (live run, public endpoint, January 29, 2026):
+Schema.org example usage:
+
+```bash
+uv run schema-bridge export \
+  --profile schemaorg \
+  --format jsonld \
+  --limit 10
+```
+
+Health-DCAT-AP sample output (live run, public endpoint, January 29, 2026):
 
 ```ttl
 <https://catalogue.org/resource/AHON> a dcat:Dataset ;
@@ -92,6 +102,26 @@ Sample output (live run, public endpoint, January 29, 2026):
     dcat:accessURL <https://www.umcg.nl/-/ahon> ;
     odrl:hasPolicy <http://purl.obolibrary.org/obo/DUO_0000006>,
         <http://purl.obolibrary.org/obo/DUO_0000042> .
+```
+
+Schema.org sample output (live run, public endpoint, January 29, 2026):
+
+```json
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcterms": "http://purl.org/dc/terms/"
+  },
+  "@id": "https://catalogue.org/resource/BIG",
+  "@type": "http://schema.org/Dataset",
+  "http://schema.org/name": "Brain imaging Genomics",
+  "http://schema.org/identifier": "BIG",
+  "http://schema.org/about": {
+    "@id": "http://edamontology.org/topic_3337"
+  },
+  "http://schema.org/contactPoint": [...]
+}
 ```
 
 This section is illustrative: the same pipeline can target other domains, schemas, or metadata standards by swapping profiles.

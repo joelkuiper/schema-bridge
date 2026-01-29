@@ -73,7 +73,7 @@ def _run_export(
     ("profile", "output_format", "marker"),
     [
         ("dcat", "json", '"rows"'),
-        ("fdp", "ttl", "@prefix"),
+        ("schemaorg", "ttl", "@prefix"),
         ("healthdcat-ap-r5-molgenis", "ttl", "@prefix"),
     ],
 )
