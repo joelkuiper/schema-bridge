@@ -19,7 +19,11 @@ from schema_bridge.rdf import (
 )
 from schema_bridge.rdf.mapping import ConceptField, NodeField
 from schema_bridge.resources import load_text, load_yaml
-from schema_bridge.profiles import load_mapping_override, load_profile, resolve_profile_path
+from schema_bridge.profiles import (
+    load_mapping_override,
+    load_profile,
+    resolve_profile_path,
+)
 from schema_bridge.workflows import materialize_rml
 
 EX = Namespace("https://catalogue.org/")
