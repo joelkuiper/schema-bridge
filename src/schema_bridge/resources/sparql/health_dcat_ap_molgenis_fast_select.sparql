@@ -1,0 +1,57 @@
+PREFIX field: <https://catalogue.org/field/>
+PREFIX entity: <https://catalogue.org/entity/>
+
+SELECT
+  ?id
+  ?name
+  ?description
+  ?website
+  ?contactEmail
+  ?contactName
+  ?publisherName
+  ?publisherWebsite
+  ?typeName
+  ?collectionTypeName
+  ?startYear
+  ?endYear
+  ?dataAccessFee
+  (GROUP_CONCAT(?countryName;separator="|") AS ?countries)
+  (GROUP_CONCAT(?regionName;separator="|") AS ?regions)
+  (GROUP_CONCAT(?keyword;separator="|") AS ?keywords)
+  (GROUP_CONCAT(?dataAccessConditionUri;separator="|") AS ?dataAccessConditionUris)
+  (GROUP_CONCAT(?dataUseConditionUri;separator="|") AS ?dataUseConditionUris)
+WHERE {
+  ?res a entity:Resource ;
+       field:id ?id ;
+       field:name ?name .
+  OPTIONAL { ?res field:description ?description . }
+  OPTIONAL { ?res field:website ?website . }
+  OPTIONAL { ?res field:contactEmail ?contactEmail . }
+  OPTIONAL { ?res field:contactName ?contactName . }
+  OPTIONAL { ?res field:publisherName ?publisherName . }
+  OPTIONAL { ?res field:publisherWebsite ?publisherWebsite . }
+  OPTIONAL { ?res field:typeName ?typeName . }
+  OPTIONAL { ?res field:collectionTypeName ?collectionTypeName . }
+  OPTIONAL { ?res field:startYear ?startYear . }
+  OPTIONAL { ?res field:endYear ?endYear . }
+  OPTIONAL { ?res field:dataAccessFee ?dataAccessFee . }
+  OPTIONAL { ?res field:countryNames ?countryName . }
+  OPTIONAL { ?res field:regionNames ?regionName . }
+  OPTIONAL { ?res field:keywords ?keyword . }
+  OPTIONAL { ?res field:dataAccessConditionUris ?dataAccessConditionUri . }
+  OPTIONAL { ?res field:dataUseConditionUris ?dataUseConditionUri . }
+}
+GROUP BY
+  ?id
+  ?name
+  ?description
+  ?website
+  ?contactEmail
+  ?contactName
+  ?publisherName
+  ?publisherWebsite
+  ?typeName
+  ?collectionTypeName
+  ?startYear
+  ?endYear
+  ?dataAccessFee

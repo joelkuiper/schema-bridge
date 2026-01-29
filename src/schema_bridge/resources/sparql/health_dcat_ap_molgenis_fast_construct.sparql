@@ -18,7 +18,6 @@ CONSTRUCT {
        dct:temporal ?temporal ;
        dct:accessRights ?accessRightsValue ;
        odrl:hasPolicy ?policyValue ;
-       dct:conformsTo ?conformsToIri ;
        dct:spatial ?spatialIri ;
        dcat:theme ?themeIri ;
        dcat:keyword ?keywordLiteral ;
@@ -42,7 +41,6 @@ WHERE {
        field:name ?name .
 
   OPTIONAL { ?res field:description ?description . }
-  OPTIONAL { ?res field:acronym ?acronym . }
   OPTIONAL {
     ?res field:website ?website .
     BIND(IRI(STR(?website)) AS ?websiteIri)
@@ -58,13 +56,10 @@ WHERE {
   }
   OPTIONAL { ?res field:contactName ?contactName . }
 
-  OPTIONAL { ?res field:leadOrganisationAcronym ?leadOrgName . }
   OPTIONAL { ?res field:publisherName ?publisherName . }
-  BIND(COALESCE(?publisherName, ?leadOrgName) AS ?publisherLabel)
   OPTIONAL {
-    FILTER(BOUND(?publisherLabel))
-    BIND(IRI(CONCAT("https://catalogue.org/org/", ENCODE_FOR_URI(STR(?publisherLabel)))) AS ?publisher)
-    BIND(?publisherLabel AS ?publisherName)
+    FILTER(BOUND(?publisherName))
+    BIND(IRI(CONCAT("https://catalogue.org/org/", ENCODE_FOR_URI(STR(?publisherName)))) AS ?publisher)
   }
   OPTIONAL {
     ?res field:publisherWebsite ?publisherWebsite .
@@ -88,19 +83,10 @@ WHERE {
     ?res field:dataAccessConditionUris ?accessRightsUri .
     BIND(IRI(STR(?accessRightsUri)) AS ?accessRightsValue)
   }
-  OPTIONAL { ?res field:accessRightsConcept ?accessRightsConcept . BIND(?accessRightsConcept AS ?accessRightsValue) }
-
   OPTIONAL {
     ?res field:dataUseConditionUris ?policyUri .
     BIND(IRI(STR(?policyUri)) AS ?policyValue)
   }
-  OPTIONAL { ?res field:policyConcept ?policyConcept . BIND(?policyConcept AS ?policyValue) }
-
-  OPTIONAL {
-    ?res field:inclusionCriteriaCodes ?conformsToCode .
-    BIND(IRI(CONCAT("https://catalogue.org/criteria/", ENCODE_FOR_URI(STR(?conformsToCode)))) AS ?conformsToIri)
-  }
-  OPTIONAL { ?res field:conformsToConcept ?conformsToConcept . BIND(?conformsToConcept AS ?conformsToIri) }
 
   OPTIONAL {
     ?res field:countryNames ?countryName .

@@ -59,10 +59,16 @@ Available export profiles in this repo:
 
 ## MOLGENIS Catalogue (Health-DCAT-AP)
 
-For molgeniscatalogue.org, use the `health-dcat-ap-molgenis` profile. It includes a
-maximum-coverage GraphQL query aligned to the live schema at `https://molgeniscatalogue.org/catalogue/graphql`.
+For molgeniscatalogue.org, use the `health-dcat-ap-molgenis` profile. It uses the live schema at
+`https://molgeniscatalogue.org/catalogue/graphql`, but the construct is simplified.
 
 To export from molgeniscatalogue.org, point `--base-url` to `https://molgeniscatalogue.org/` and `--schema` to `catalogue`.
+
+Caveats (demo profile):
+
+- The construct is trimmed for speed and does not emit every optional Health-DCAT-AP enrichment.
+- Fields like detailed age-group hierarchy, inclusion criteria details, and design publications are not fully materialized.
+- Access-rights and policy nodes are derived from URI fields only; vocabulary labels/definitions may be omitted.
 
 ## CLI flags (pagination + incremental sync)
 
