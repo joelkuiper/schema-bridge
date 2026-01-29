@@ -300,8 +300,8 @@ At a minimum, creating a new profile involves:
 * GraphQL operations that retrieve source data (queries, for export profiles) and optionally write extracted rows back to the target schema (mutations, for ingest profiles).
 * One or more SPARQL queries:
 
-  * `CONSTRUCT` queries for RDF-based exports (Turtle, JSON-LD, RDF/XML, N-Triples).
-  * `SELECT` queries for tabular exports (JSON, CSV) or for ingest extraction.
+  * `CONSTRUCT` a query for RDF-based exports (Turtle, JSON-LD, RDF/XML, N-Triples).
+  * `SELECT` a query for tabular exports (JSON, CSV) or for ingest extraction.
 * A `profile.yml` file that ties these assets together and configures optional mapping and validation steps.
 * A stable ID strategy (`mapping.id_strategy`) and optional nested-node defaults (`mapping.node_defaults`) for the canonical RDF layer.
 
