@@ -41,7 +41,7 @@ def test_minimal_profile_smoke(tmp_path: Path) -> None:
     assert convert.returncode == 0, (
         f"convert failed:\nSTDOUT: {convert.stdout}\nSTDERR: {convert.stderr}"
     )
-    assert "\"rows\"" in convert.stdout
+    assert '"rows"' in convert.stdout
 
     run = subprocess.run(
         [
@@ -65,7 +65,7 @@ def test_minimal_profile_smoke(tmp_path: Path) -> None:
         text=True,
     )
     assert run.returncode == 0, f"run failed:\nSTDERR: {run.stderr}"
-    assert "\"rows\"" in run.stdout
+    assert '"rows"' in run.stdout
 
     ingest_profile = resources / "profiles" / "ingest-demo"
     ingest_input = ingest_profile / "input.ttl"

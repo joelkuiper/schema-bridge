@@ -74,8 +74,12 @@ def rows_from_rdf(
 ) -> list[dict]:
     select_query = select_override or profile.select_query
     if not select_query:
-        raise ValueError("Ingest requires a select query (set in profile or via --select)")
-    resolved_select = resolve_profile_path(profile, select_query, "schema_bridge.resources")
+        raise ValueError(
+            "Ingest requires a select query (set in profile or via --select)"
+        )
+    resolved_select = resolve_profile_path(
+        profile, select_query, "schema_bridge.resources"
+    )
     raw_rows = sparql_select_rows(graph, resolved_select)
     rows: list[dict] = []
     for raw in raw_rows:
@@ -105,7 +109,9 @@ def validate_if_requested(
     if not validate or not shacl:
         return
     logger.debug("Validating ingest graph with SHACL: %s", shacl.shapes)
-    conforms, report = validate_graph(graph, ShaclConfig(shapes=shacl.shapes, validate=True))
+    conforms, report = validate_graph(
+        graph, ShaclConfig(shapes=shacl.shapes, validate=True)
+    )
     if not conforms:
         report_text = report.serialize(format="turtle")
         raise SystemExit(f"SHACL validation failed:\n{report_text}")

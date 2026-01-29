@@ -89,7 +89,9 @@ def _resolve_profile_file(name_or_path: str) -> Path:
     return profile_path
 
 
-def _load_profile_data(name_or_path: str, expected_kind: str | None) -> tuple[dict[str, object], Path]:
+def _load_profile_data(
+    name_or_path: str, expected_kind: str | None
+) -> tuple[dict[str, object], Path]:
     profile_path = _resolve_profile_file(name_or_path)
     profile_path_str = str(profile_path)
     profile_data = load_yaml(profile_path_str, "schema_bridge.resources")
@@ -98,13 +100,17 @@ def _load_profile_data(name_or_path: str, expected_kind: str | None) -> tuple[di
     if Path(profile_path_str).exists():
         base_dir = Path(profile_path_str).parent
     else:
-        resolved_profile_path = resolve_resource_path(profile_path_str, "schema_bridge.resources")
+        resolved_profile_path = resolve_resource_path(
+            profile_path_str, "schema_bridge.resources"
+        )
         base_dir = Path(resolved_profile_path).parent
     raw_kind = profile_data.get("kind")
     kind = str(raw_kind).lower() if raw_kind else None
     if expected_kind:
         if not kind:
-            raise ValueError(f"Profile kind is required for {name_or_path} (expected {expected_kind})")
+            raise ValueError(
+                f"Profile kind is required for {name_or_path} (expected {expected_kind})"
+            )
         if kind != expected_kind:
             raise ValueError(
                 f"Profile kind mismatch for {name_or_path}: expected {expected_kind}, got {kind}"
@@ -112,14 +118,14 @@ def _load_profile_data(name_or_path: str, expected_kind: str | None) -> tuple[di
     return cast(dict[str, object], profile_data), base_dir
 
 
-def load_profile(name_or_path: str, *, expected_kind: str | None = None) -> ProfileConfig:
+def load_profile(
+    name_or_path: str, *, expected_kind: str | None = None
+) -> ProfileConfig:
     profile_data, base_dir = _load_profile_data(name_or_path, expected_kind)
     fetch_data = _as_dict(profile_data.get("fetch"))
     export_data = _as_dict(profile_data.get("export"))
     validate_data = _as_dict(profile_data.get("validate"))
-    mapping = MappingConfig.from_dict(
-        _as_dict(profile_data.get("mapping")) or None
-    )
+    mapping = MappingConfig.from_dict(_as_dict(profile_data.get("mapping")) or None)
     shacl_data = profile_data.get("shacl") or validate_data
     shacl = None
     if isinstance(shacl_data, dict) and shacl_data.get("shapes"):
@@ -146,21 +152,33 @@ def load_profile(name_or_path: str, *, expected_kind: str | None = None) -> Prof
         profile_data.get("graphql_fallbacks", fetch_data.get("graphql_fallbacks", []))
     )
     graphql_query = (
-        _as_str(graphql_fallbacks[0]) if graphql_fallbacks else None
+        _as_str(graphql_fallbacks[0])
         if graphql_fallbacks
-        else _as_str(profile_data.get("graphql_query")) or _as_str(fetch_data.get("graphql"))
+        else None
+        if graphql_fallbacks
+        else _as_str(profile_data.get("graphql_query"))
+        or _as_str(fetch_data.get("graphql"))
     )
     return ProfileConfig(
         name=str(profile_data.get("name", name_or_path)),
-        kind=str(profile_data.get("kind")).lower() if profile_data.get("kind") else None,
+        kind=str(profile_data.get("kind")).lower()
+        if profile_data.get("kind")
+        else None,
         graphql_query=graphql_query,
-        graphql_endpoint=_as_str(fetch_data.get("endpoint")) or _as_str(profile_data.get("graphql_endpoint")),
-        base_url=_as_str(fetch_data.get("base_url")) or _as_str(profile_data.get("base_url")),
+        graphql_endpoint=_as_str(fetch_data.get("endpoint"))
+        or _as_str(profile_data.get("graphql_endpoint")),
+        base_url=_as_str(fetch_data.get("base_url"))
+        or _as_str(profile_data.get("base_url")),
         schema=_as_str(fetch_data.get("schema")) or _as_str(profile_data.get("schema")),
-        root_key=str(profile_data.get("root_key", fetch_data.get("root_key", "Resources"))),
-        select_query=_as_str(profile_data.get("select_query")) or _as_str(export_data.get("select")),
-        construct_query=_as_str(profile_data.get("construct_query")) or _as_str(export_data.get("construct")),
-        ingest_select_query=_as_str(profile_data.get("ingest_select_query")) or _as_str(export_data.get("ingest_select")),
+        root_key=str(
+            profile_data.get("root_key", fetch_data.get("root_key", "Resources"))
+        ),
+        select_query=_as_str(profile_data.get("select_query"))
+        or _as_str(export_data.get("select")),
+        construct_query=_as_str(profile_data.get("construct_query"))
+        or _as_str(export_data.get("construct")),
+        ingest_select_query=_as_str(profile_data.get("ingest_select_query"))
+        or _as_str(export_data.get("ingest_select")),
         mapping=mapping,
         shacl=shacl,
         mapping_format=str(profile_data.get("mapping_format", "raw")).lower(),
@@ -179,7 +197,9 @@ def _coerce_shacl(data: dict | None) -> ShaclConfig | None:
             validate=bool(data.get("validate", True)),
         )
     if isinstance(data, dict) and data.get("shacl"):
-        return ShaclConfig(shapes=str(data["shacl"]), validate=bool(data.get("validate", True)))
+        return ShaclConfig(
+            shapes=str(data["shacl"]), validate=bool(data.get("validate", True))
+        )
     return None
 
 
@@ -203,7 +223,9 @@ def load_ingest_profile(name_or_path: str) -> IngestProfileConfig:
                 "schema_bridge.resources",
             )
         shacl = ShaclConfig(shapes=resolved_shapes, validate=shacl.validate)
-    validate_enabled = bool(validate_block.get("enabled", validate_block.get("validate", True)))
+    validate_enabled = bool(
+        validate_block.get("enabled", validate_block.get("validate", True))
+    )
 
     select_query = (
         _as_str(profile_data.get("select_query"))
@@ -216,16 +238,23 @@ def load_ingest_profile(name_or_path: str) -> IngestProfileConfig:
 
     return IngestProfileConfig(
         name=str(profile_data.get("name", name_or_path)),
-        kind=str(profile_data.get("kind")).lower() if profile_data.get("kind") else None,
+        kind=str(profile_data.get("kind")).lower()
+        if profile_data.get("kind")
+        else None,
         shacl=shacl,
         validate=validate_enabled,
         select_query=str(select_query) if select_query else None,
         table=_as_str(upload_block.get("table")) or _as_str(profile_data.get("table")),
         mode=_as_str(upload_block.get("mode")) or _as_str(profile_data.get("mode")),
-        id_prefix=_as_str(upload_block.get("id_prefix")) or _as_str(profile_data.get("id_prefix")),
-        batch_size=cast(int | None, upload_block.get("batch_size") or profile_data.get("batch_size")),
-        base_url=_as_str(graphql_block.get("base_url")) or _as_str(profile_data.get("base_url")),
-        schema=_as_str(graphql_block.get("schema")) or _as_str(profile_data.get("schema")),
+        id_prefix=_as_str(upload_block.get("id_prefix"))
+        or _as_str(profile_data.get("id_prefix")),
+        batch_size=cast(
+            int | None, upload_block.get("batch_size") or profile_data.get("batch_size")
+        ),
+        base_url=_as_str(graphql_block.get("base_url"))
+        or _as_str(profile_data.get("base_url")),
+        schema=_as_str(graphql_block.get("schema"))
+        or _as_str(profile_data.get("schema")),
         token=_as_str(graphql_block.get("token")) or _as_str(profile_data.get("token")),
         graphql_mutation=str(graphql_mutation) if graphql_mutation else None,
         base_dir=base_dir,

@@ -45,7 +45,9 @@ def _run_convert(profile: str, output_format: str) -> subprocess.CompletedProces
     )
 
 
-def _run_export(profile: str, output_format: str, limit: int) -> subprocess.CompletedProcess[str]:
+def _run_export(
+    profile: str, output_format: str, limit: int
+) -> subprocess.CompletedProcess[str]:
     env = _env_for_profile(profile)
     return subprocess.run(
         [
@@ -69,7 +71,7 @@ def _run_export(profile: str, output_format: str, limit: int) -> subprocess.Comp
 @pytest.mark.parametrize(
     ("profile", "output_format", "marker"),
     [
-        ("dcat", "json", "\"rows\""),
+        ("dcat", "json", '"rows"'),
         ("fdp", "ttl", "@prefix"),
         ("healthdcat-ap-r5-molgenis", "ttl", "@prefix"),
     ],

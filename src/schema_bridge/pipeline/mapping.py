@@ -125,7 +125,9 @@ class NodeField:
             id_field=str(data.get("id_field", "id")),
             type_iri=str(data.get("type_iri")) if data.get("type_iri") else None,
             fields={str(k): str(v) for k, v in fields.items()},
-            iri_fields={str(item) for item in iri_fields_raw} if isinstance(iri_fields_raw, list) else set(),
+            iri_fields={str(item) for item in iri_fields_raw}
+            if isinstance(iri_fields_raw, list)
+            else set(),
         )
 
 
@@ -257,7 +259,12 @@ def _concept_iri(
         else:
             label_value = value
     if uri_value:
-        return URIRef(str(uri_value)), str(code_value) if code_value else None, str(label_value) if label_value else None, str(uri_value)
+        return (
+            URIRef(str(uri_value)),
+            str(code_value) if code_value else None,
+            str(label_value) if label_value else None,
+            str(uri_value),
+        )
     if code_value:
         code_str = str(code_value)
         return (
@@ -277,7 +284,9 @@ def _concept_iri(
     return BNode(), None, None, None
 
 
-def _add_concepts(subject: URIRef, row: dict, graph: Graph, mapping: MappingConfig) -> None:
+def _add_concepts(
+    subject: URIRef, row: dict, graph: Graph, mapping: MappingConfig
+) -> None:
     for key, cfg in mapping.concept_fields.items():
         if not cfg.path:
             continue
@@ -301,7 +310,9 @@ def _add_concepts(subject: URIRef, row: dict, graph: Graph, mapping: MappingConf
                 graph.add((concept, OWL.sameAs, URIRef(uri_value)))
 
 
-def _add_nodes(subject: URIRef, row: dict, graph: Graph, mapping: MappingConfig) -> None:
+def _add_nodes(
+    subject: URIRef, row: dict, graph: Graph, mapping: MappingConfig
+) -> None:
     for cfg in mapping.node_fields.values():
         if not cfg.path or not cfg.predicate or not cfg.subject_path:
             continue
@@ -333,16 +344,24 @@ def _add_nodes(subject: URIRef, row: dict, graph: Graph, mapping: MappingConfig)
                     graph.add((node, pred, _coerce_object(item_value, use_iri)))
 
 
-def load_raw_from_rows(rows: Iterable[dict], graph: Graph, mapping: MappingConfig) -> None:
+def load_raw_from_rows(
+    rows: Iterable[dict], graph: Graph, mapping: MappingConfig
+) -> None:
     rows_list = list(rows)
-    logger.debug("Loading %s row(s) into RDF graph for %s", len(rows_list), mapping.raw.entity_name)
+    logger.debug(
+        "Loading %s row(s) into RDF graph for %s",
+        len(rows_list),
+        mapping.raw.entity_name,
+    )
     entity_type = URIRef(f"{mapping.raw.entity_ns}{mapping.raw.entity_name}")
     for row in rows_list:
         normalized = _resolve_id_alias(_normalized_row(row, mapping), mapping)
         if mapping.raw.id_field not in normalized:
             raise ValueError(f"Missing id field '{mapping.raw.id_field}' in row")
         subject_id = quote(str(normalized[mapping.raw.id_field]), safe="")
-        subject = URIRef(f"{mapping.raw.base_uri}{mapping.raw.subject_path}/{subject_id}")
+        subject = URIRef(
+            f"{mapping.raw.base_uri}{mapping.raw.subject_path}/{subject_id}"
+        )
         graph.add((subject, RDF.type, entity_type))
         for key, value in normalized.items():
             mapped_key = mapping.field_aliases.get(key, key)

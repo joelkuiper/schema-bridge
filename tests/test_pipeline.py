@@ -117,7 +117,6 @@ def test_catalogs_use_case_dcat_fields():
     assert (None, RDF.type, VCARD["Individual"]) in dcat
 
 
-
 def test_select_rows():
     raw = new_graph()
     rows = [
@@ -140,6 +139,7 @@ def test_select_rows():
     assert len(result) == 2
     ids = {row["id"] for row in result}
     assert ids == {"R1", "R2"}
+
 
 def test_export_profile_load_and_shacl_validation():
     profile = load_profile("dcat", expected_kind="export")
@@ -270,7 +270,11 @@ def test_concept_fields_create_skos_nodes():
     res = URIRef("https://catalogue.org/resource/R3")
     concept = URIRef("http://example.org/terms/genomics")
     assert (res, FIELD["keywordConcept"], concept) in raw
-    assert (concept, RDF.type, Namespace("http://www.w3.org/2004/02/skos/core#")["Concept"]) in raw
+    assert (
+        concept,
+        RDF.type,
+        Namespace("http://www.w3.org/2004/02/skos/core#")["Concept"],
+    ) in raw
     assert (
         concept,
         Namespace("http://www.w3.org/2004/02/skos/core#")["prefLabel"],
@@ -311,9 +315,10 @@ def test_node_fields_create_distribution_nodes():
     assert (dist, FIELD["releaseDate"], None) in raw
 
 
-
 def test_export_profiles_reference_existing_queries():
-    profiles_dir = Path(__file__).parents[1] / "src" / "schema_bridge" / "resources" / "profiles"
+    profiles_dir = (
+        Path(__file__).parents[1] / "src" / "schema_bridge" / "resources" / "profiles"
+    )
     for profile_path in profiles_dir.glob("**/profile.yml"):
         data = load_yaml(str(profile_path), "schema_bridge.resources")
         if str(data.get("kind", "")).lower() != "export":

@@ -43,7 +43,9 @@ def _materialize_graph(
         mapping_path = rml_mapping or profile.rml_mapping or str(input_path)
         if not mapping_path:
             raise ValueError("RML mapping path is required for RML conversion")
-        resolved_mapping = resolve_profile_path(profile, mapping_path, "schema_bridge.resources")
+        resolved_mapping = resolve_profile_path(
+            profile, mapping_path, "schema_bridge.resources"
+        )
         resolved_source = None
         if rml_source or profile.rml_source:
             source_path = rml_source or profile.rml_source

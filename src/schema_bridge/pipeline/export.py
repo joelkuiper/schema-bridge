@@ -92,7 +92,9 @@ def export_formats(
     targets: list[str],
     emit: Callable[[str], None] | None = None,
 ) -> Graph | None:
-    targets_set = {_normalize_export_format(target) for target in targets if target.strip()}
+    targets_set = {
+        _normalize_export_format(target) for target in targets if target.strip()
+    }
     logger.debug("Export targets: %s", sorted(targets_set))
     if out_dir is None and len(targets_set) != 1:
         raise ValueError("Stdout output requires exactly one target format")

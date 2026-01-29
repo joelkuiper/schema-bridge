@@ -20,15 +20,9 @@ def resolve_graphql_target(
         or os.getenv("SCHEMA_BRIDGE_GRAPHQL_ENDPOINT")
     )
     resolved_base_url = (
-        base_url
-        or profile.base_url
-        or os.getenv("SCHEMA_BRIDGE_BASE_URL")
+        base_url or profile.base_url or os.getenv("SCHEMA_BRIDGE_BASE_URL")
     )
-    resolved_schema = (
-        schema
-        or profile.schema
-        or os.getenv("SCHEMA_BRIDGE_SCHEMA")
-    )
+    resolved_schema = schema or profile.schema or os.getenv("SCHEMA_BRIDGE_SCHEMA")
     if not resolved_endpoint and (not resolved_base_url or not resolved_schema):
         if not os.getenv("SCHEMA_BRIDGE_GRAPHQL_FIXTURE"):
             raise SystemExit(

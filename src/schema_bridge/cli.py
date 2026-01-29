@@ -41,7 +41,7 @@ def _main(
         False,
         "--debug",
         help="Enable debug logging",
-    )
+    ),
 ) -> None:
     configure_logging(debug)
 
@@ -94,7 +94,13 @@ def fetch(
     ),
 ) -> None:
     configure_logging(debug)
-    logger.debug("Starting fetch: base_url=%s schema=%s profile=%s endpoint=%s", base_url, schema, profile, endpoint)
+    logger.debug(
+        "Starting fetch: base_url=%s schema=%s profile=%s endpoint=%s",
+        base_url,
+        schema,
+        profile,
+        endpoint,
+    )
     profile_cfg = load_profile(profile, expected_kind="export")
     resolved_endpoint, resolved_base_url, resolved_schema = resolve_graphql_target(
         profile=profile_cfg,
@@ -102,9 +108,15 @@ def fetch(
         schema=schema,
         endpoint=endpoint,
     )
-    pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
-    query_path = query or profile_cfg.graphql_query or "profiles/dcat/graphql/query.graphql"
-    query_path = resolve_profile_path(profile_cfg, query_path, "schema_bridge.resources")
+    pagination = PaginationConfig(
+        page_size=page_size, max_rows=None if limit <= 0 else limit
+    )
+    query_path = (
+        query or profile_cfg.graphql_query or "profiles/dcat/graphql/query.graphql"
+    )
+    query_path = resolve_profile_path(
+        profile_cfg, query_path, "schema_bridge.resources"
+    )
     query_text = load_text(query_path, "schema_bridge.resources")
     data = fetch_graphql(
         resolved_base_url,
@@ -122,7 +134,9 @@ def fetch(
 
 @app.command()
 def convert(
-    input_path: Path = typer.Argument(..., help="Input GraphQL JSON or RML mapping file"),
+    input_path: Path = typer.Argument(
+        ..., help="Input GraphQL JSON or RML mapping file"
+    ),
     profile: str = typer.Option(
         os.getenv("SCHEMA_BRIDGE_PROFILE", "dcat"),
         "--profile",
@@ -178,7 +192,12 @@ def convert(
     ),
 ) -> None:
     configure_logging(debug)
-    logger.debug("Starting convert: input=%s profile=%s format=%s", input_path, profile, output_format)
+    logger.debug(
+        "Starting convert: input=%s profile=%s format=%s",
+        input_path,
+        profile,
+        output_format,
+    )
     export = resolve_export(
         profile_name=profile,
         mapping_override=mapping,
@@ -294,7 +313,9 @@ def export(
     )
     profile_cfg = load_profile(profile, expected_kind="export")
     if profile_cfg.mapping_format == "rml":
-        raise SystemExit("RML profiles are not supported with export; use convert instead.")
+        raise SystemExit(
+            "RML profiles are not supported with export; use convert instead."
+        )
     export = resolve_export(
         profile_name=profile,
         mapping_override=mapping,
@@ -304,15 +325,21 @@ def export(
         target_format=output_format.lower(),
         validate_override=validate,
     )
-    pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
+    pagination = PaginationConfig(
+        page_size=page_size, max_rows=None if limit <= 0 else limit
+    )
     resolved_endpoint, resolved_base_url, resolved_schema = resolve_graphql_target(
         profile=export.profile,
         base_url=base_url,
         schema=schema,
         endpoint=endpoint,
     )
-    query_path = query or export.profile.graphql_query or "profiles/dcat/graphql/query.graphql"
-    query_path = resolve_profile_path(export.profile, query_path, "schema_bridge.resources")
+    query_path = (
+        query or export.profile.graphql_query or "profiles/dcat/graphql/query.graphql"
+    )
+    query_path = resolve_profile_path(
+        export.profile, query_path, "schema_bridge.resources"
+    )
     query_text = load_text(query_path, "schema_bridge.resources")
     graphql_data = fetch_graphql(
         resolved_base_url,
@@ -355,8 +382,12 @@ def ingest(
         "--profile",
         help="Profile name, folder, or YAML path",
     ),
-    table: str | None = typer.Option(None, help="Target EMX2 table name (overrides profile)"),
-    mode: str | None = typer.Option(None, help="Mutation mode: upsert or insert (overrides profile)"),
+    table: str | None = typer.Option(
+        None, help="Target EMX2 table name (overrides profile)"
+    ),
+    mode: str | None = typer.Option(
+        None, help="Mutation mode: upsert or insert (overrides profile)"
+    ),
     rdf_format: str | None = typer.Option(
         None,
         "--format",
@@ -404,13 +435,21 @@ def ingest(
     configure_logging(debug)
     logger.debug("Starting ingest: input=%s profile=%s", input_path, profile)
     profile_cfg = load_ingest_profile(profile)
-    final_base_url = base_url or profile_cfg.base_url or os.getenv(
-        "SCHEMA_BRIDGE_BASE_URL",
-        "https://emx2.dev.molgenis.org/",
+    final_base_url = (
+        base_url
+        or profile_cfg.base_url
+        or os.getenv(
+            "SCHEMA_BRIDGE_BASE_URL",
+            "https://emx2.dev.molgenis.org/",
+        )
     )
-    final_schema = schema or profile_cfg.schema or os.getenv(
-        "SCHEMA_BRIDGE_SCHEMA",
-        "catalogue-demo",
+    final_schema = (
+        schema
+        or profile_cfg.schema
+        or os.getenv(
+            "SCHEMA_BRIDGE_SCHEMA",
+            "catalogue-demo",
+        )
     )
     final_table = table or profile_cfg.table or "Resource"
     final_mode = (mode or profile_cfg.mode or "upsert").lower()
@@ -444,7 +483,9 @@ def ingest(
         raise ValueError("Mode must be 'upsert' or 'insert'")
 
     if final_mutation_file:
-        mutation_path = resolve_profile_path(profile_cfg, final_mutation_file, "schema_bridge.resources")
+        mutation_path = resolve_profile_path(
+            profile_cfg, final_mutation_file, "schema_bridge.resources"
+        )
         query = Path(mutation_path).read_text(encoding="utf-8")
     else:
         query = f"mutation ingest($value:[{final_table}Input]){{{final_mode}({final_table}:$value){{message}}}}"
@@ -453,7 +494,9 @@ def ingest(
         batch = rows[i : i + final_batch_size]
         payload = {"query": query, "variables": {"value": batch}}
         graphql_post(final_base_url, final_schema, payload, final_token)
-    typer.echo(f"Uploaded {len(rows)} row(s) to {final_schema}.{final_table} via {final_mode}")
+    typer.echo(
+        f"Uploaded {len(rows)} row(s) to {final_schema}.{final_table} via {final_mode}"
+    )
     logger.debug("Ingest complete")
 
 

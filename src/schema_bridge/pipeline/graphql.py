@@ -28,7 +28,9 @@ def load_graphql_file(path: Path) -> dict:
         return json.load(handle)
 
 
-def _build_updated_filter(updated_since: str | None, updated_until: str | None) -> dict | None:
+def _build_updated_filter(
+    updated_since: str | None, updated_until: str | None
+) -> dict | None:
     if not updated_since and not updated_until:
         return None
     start = updated_since or "0001-01-01T00:00:00Z"
@@ -65,7 +67,12 @@ def _paginate_graphql(
     pagination: PaginationConfig,
     updated_filter: dict | None,
 ) -> dict:
-    logger.debug("Paginating GraphQL results: root_key=%s page_size=%s max_rows=%s", root_key, pagination.page_size, pagination.max_rows)
+    logger.debug(
+        "Paginating GraphQL results: root_key=%s page_size=%s max_rows=%s",
+        root_key,
+        pagination.page_size,
+        pagination.max_rows,
+    )
     rows: list[dict] = []
     total = 0
     offset = pagination.offset
@@ -80,11 +87,15 @@ def _paginate_graphql(
         page_vars["limit"] = page_limit
         page_vars["offset"] = offset
         if updated_filter is not None or "filter" in page_vars:
-            page_vars["filter"] = _merge_filters(page_vars.get("filter"), updated_filter)
+            page_vars["filter"] = _merge_filters(
+                page_vars.get("filter"), updated_filter
+            )
         result = execute(query, page_vars)
         data = result.get(root_key)
         if not isinstance(data, list):
-            raise RuntimeError(f"Expected list for '{root_key}', got {type(data).__name__}")
+            raise RuntimeError(
+                f"Expected list for '{root_key}', got {type(data).__name__}"
+            )
         rows.extend(data)
         total += len(data)
         logger.debug("Fetched %s rows (total=%s)", len(data), total)
@@ -114,7 +125,9 @@ def fetch_graphql(
         url = endpoint
     else:
         if not base_url or not schema:
-            raise ValueError("GraphQL base_url and schema are required when endpoint is not set")
+            raise ValueError(
+                "GraphQL base_url and schema are required when endpoint is not set"
+            )
         url = f"{base_url.rstrip('/')}/{schema}/graphql"
     logger.debug("Fetching GraphQL from %s (root_key=%s)", url, root_key)
     transport = RequestsHTTPTransport(url=url, timeout=30)
@@ -133,7 +146,9 @@ def fetch_graphql(
         )
     merged_vars = dict(variables or {})
     if updated_filter is not None:
-        merged_vars["filter"] = _merge_filters(merged_vars.get("filter"), updated_filter)
+        merged_vars["filter"] = _merge_filters(
+            merged_vars.get("filter"), updated_filter
+        )
     logger.debug("Executing GraphQL query (no pagination)")
     result = _execute_graphql(client, query, merged_vars)
     return {"data": result}

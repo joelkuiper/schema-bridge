@@ -1,4 +1,8 @@
-from schema_bridge.pipeline.graphql import PaginationConfig, _build_updated_filter, _paginate_graphql
+from schema_bridge.pipeline.graphql import (
+    PaginationConfig,
+    _build_updated_filter,
+    _paginate_graphql,
+)
 
 
 def test_paginate_graphql_merges_rows():
