@@ -25,6 +25,7 @@ Profiles are the primary entry point. A profile wires together the fetch, export
 - `uv run schema-bridge run --profile health-dcat-ap-molgenis --format ttl`
 
 Add `--debug` to any command to enable verbose logging (both `schema-bridge` and `schema-bridge-ingest`).
+Use e.g. `uv run schema-bridge run --help` for detailed help.
 
 You can set a limit (`--limit`) to adjust the number of GraphQL results to be fetched. For large
 catalogues, `--page-size` enables server-side paging, and `--updated-since`/`--updated-until` allow
