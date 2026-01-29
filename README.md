@@ -57,7 +57,7 @@ A concrete use case is the export of the **MOLGENIS Catalogue** to **Health-DCAT
 Schema Bridge provides two packaged profiles for this catalogue:
 
 * `healthdcat-ap-r5-molgenis` — Health-DCAT-AP Release 5 export (partially complete)
-* `schemaorg-molgenis` — Schema.org Dataset/DataCatalog JSON-LD export (partially complete)
+* `schemaorg-molgenis` — Schema.org Dataset/DataCatalog export (partially complete)
 
 Health-DCAT-AP focuses on rich catalog semantics (catalog records, distributions, policies, coverage), while Schema.org focuses on web-scale discovery semantics (Dataset/DataCatalog).
 
