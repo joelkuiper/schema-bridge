@@ -78,7 +78,7 @@ Available export profiles in this repo:
 
 - `dcat` (demo)
 - `fdp` (demo)
-- `health-dcat-ap-molgenis` (slightly more comprehensive)
+- `health-dcat-ap-molgenis` (best-effort HealthDCAT-AP Release 5 coverage)
 
 ### Ingest profiles
 
@@ -116,9 +116,9 @@ environment (`SCHEMA_BRIDGE_BASE_URL`/`SCHEMA_BRIDGE_SCHEMA`), and finally the b
 
 ## MOLGENIS Catalogue (Health-DCAT-AP)
 
-For molgeniscatalogue.org, use the `health-dcat-ap-molgenis` profile as a demonstration.
+For molgeniscatalogue.org, use the `health-dcat-ap-molgenis` profile as the current best-effort mapping to HealthDCAT-AP Release 5.
 
-Caveats:
+Caveats (best-effort):
 
 - The construct is limited and does not emit every optional Health-DCAT-AP enrichment.
 - Fields like detailed age-group hierarchy, inclusion criteria details, and design publications are not fully materialized.

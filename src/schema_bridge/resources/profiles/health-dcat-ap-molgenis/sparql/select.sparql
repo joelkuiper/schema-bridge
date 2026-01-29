@@ -15,11 +15,25 @@ SELECT
   ?startYear
   ?endYear
   ?dataAccessFee
+  ?releaseDescription
+  ?dataAccessConditionsDescription
+  ?numberOfParticipants
+  ?numberOfParticipantsWithSamples
   (GROUP_CONCAT(?countryName;separator="|") AS ?countries)
   (GROUP_CONCAT(?regionName;separator="|") AS ?regions)
   (GROUP_CONCAT(?keyword;separator="|") AS ?keywords)
   (GROUP_CONCAT(?dataAccessConditionUri;separator="|") AS ?dataAccessConditionUris)
   (GROUP_CONCAT(?dataUseConditionUri;separator="|") AS ?dataUseConditionUris)
+  (GROUP_CONCAT(?accessRightsUri;separator="|") AS ?accessRightsUris)
+  (GROUP_CONCAT(?accessRightsLabel;separator="|") AS ?accessRightsLabels)
+  (GROUP_CONCAT(?healthThemeUri;separator="|") AS ?healthThemeUris)
+  (GROUP_CONCAT(?healthThemeLabel;separator="|") AS ?healthThemeLabels)
+  (GROUP_CONCAT(?populationCoverageUri;separator="|") AS ?populationCoverageUris)
+  (GROUP_CONCAT(?populationCoverageLabel;separator="|") AS ?populationCoverageLabels)
+  (GROUP_CONCAT(?leadOrgName;separator="|") AS ?leadOrganisationName)
+  (GROUP_CONCAT(?leadOrgWebsite;separator="|") AS ?leadOrganisationWebsite)
+  (GROUP_CONCAT(?publicationTitle;separator="|") AS ?designPublicationTitles)
+  (GROUP_CONCAT(?publicationDoi;separator="|") AS ?designPublicationDois)
 WHERE {
   ?res a entity:Resource ;
        field:id ?id ;
@@ -35,11 +49,25 @@ WHERE {
   OPTIONAL { ?res field:startYear ?startYear . }
   OPTIONAL { ?res field:endYear ?endYear . }
   OPTIONAL { ?res field:dataAccessFee ?dataAccessFee . }
+  OPTIONAL { ?res field:releaseDescription ?releaseDescription . }
+  OPTIONAL { ?res field:dataAccessConditionsDescription ?dataAccessConditionsDescription . }
+  OPTIONAL { ?res field:numberOfParticipants ?numberOfParticipants . }
+  OPTIONAL { ?res field:numberOfParticipantsWithSamples ?numberOfParticipantsWithSamples . }
   OPTIONAL { ?res field:countryNames ?countryName . }
   OPTIONAL { ?res field:regionNames ?regionName . }
   OPTIONAL { ?res field:keywords ?keyword . }
   OPTIONAL { ?res field:dataAccessConditionUris ?dataAccessConditionUri . }
   OPTIONAL { ?res field:dataUseConditionUris ?dataUseConditionUri . }
+  OPTIONAL { ?res field:accessRightsUris ?accessRightsUri . }
+  OPTIONAL { ?res field:accessRightsLabels ?accessRightsLabel . }
+  OPTIONAL { ?res field:healthThemeUris ?healthThemeUri . }
+  OPTIONAL { ?res field:healthThemeLabels ?healthThemeLabel . }
+  OPTIONAL { ?res field:populationCoverageUris ?populationCoverageUri . }
+  OPTIONAL { ?res field:populationCoverageLabels ?populationCoverageLabel . }
+  OPTIONAL { ?res field:leadOrganisationName ?leadOrgName . }
+  OPTIONAL { ?res field:leadOrganisationWebsite ?leadOrgWebsite . }
+  OPTIONAL { ?res field:designPublicationTitles ?publicationTitle . }
+  OPTIONAL { ?res field:designPublicationDois ?publicationDoi . }
 }
 GROUP BY
   ?id
@@ -55,3 +83,7 @@ GROUP BY
   ?startYear
   ?endYear
   ?dataAccessFee
+  ?releaseDescription
+  ?dataAccessConditionsDescription
+  ?numberOfParticipants
+  ?numberOfParticipantsWithSamples

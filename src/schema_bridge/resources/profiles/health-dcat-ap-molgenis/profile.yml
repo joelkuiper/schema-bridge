@@ -1,6 +1,6 @@
 name: health-dcat-ap-molgenis
 kind: export
-description: Health-DCAT-AP export tuned for molgeniscatalogue.org (fast demo construct)
+description: HealthDCAT-AP Release 5 export for molgeniscatalogue.org (best-effort coverage with available fields)
 fetch:
   graphql: graphql/query.graphql
   base_url: https://molgeniscatalogue.org/
@@ -17,6 +17,13 @@ mapping:
   iri_fields:
     - website
     - publisherWebsite
+    - accessRightsUris
+    - healthThemeUris
+    - populationCoverageUris
+    - dataAccessConditionUris
+    - dataUseConditionUris
+    - inclusionCriteriaUris
+    - leadOrganisationWebsite
   field_paths:
     contactEmail:
       - contactPoint.email
@@ -43,4 +50,28 @@ mapping:
     regionNames: regions[].name
     dataAccessConditionUris: dataAccessConditions[].ontologyTermURI
     dataUseConditionUris: dataUseConditions[].ontologyTermURI
+    accessRightsUris: accessRights[].ontologyTermURI
+    accessRightsLabels: accessRights[].name
+    healthThemeUris: type[].ontologyTermURI
+    healthThemeLabels: type[].label
+    populationCoverageUris: populationAgeGroups[].ontologyTermURI
+    populationCoverageLabels: populationAgeGroups[].name
+    inclusionCriteriaUris: inclusionCriteria[].ontologyTermURI
+    inclusionCriteriaLabels: inclusionCriteria[].name
     keywords: keywords[]
+    leadOrganisationName:
+      - leadOrganisations[].organisationName
+      - leadOrganisations[].name
+      - leadOrganisations[].otherOrganisation
+      - leadOrganisations[].organisation.name
+    leadOrganisationWebsite:
+      - leadOrganisations[].organisationWebsite
+      - leadOrganisations[].website
+    publisherPid:
+      - publisher.organisationPid
+    designName:
+      - design.name
+    designDefinition:
+      - design.definition
+    designPublicationTitles: designPublications[].title
+    designPublicationDois: designPublications[].doi

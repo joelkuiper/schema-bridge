@@ -6,8 +6,26 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
 PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX healthdcatap: <http://healthdataportal.eu/ns/health#>
 
 CONSTRUCT {
+  ?catalog a dcat:Catalog ;
+           dct:title ?catalogTitle ;
+           dct:description ?catalogDescription ;
+           foaf:homepage ?catalogHomepage ;
+           dct:publisher ?catalogPublisher ;
+           dcat:dataset ?res ;
+           dcat:record ?record .
+
+  ?catalogPublisher a foaf:Organization ;
+                    foaf:name ?catalogPublisherName ;
+                    foaf:homepage ?catalogHomepage .
+
+  ?record a dcat:CatalogRecord ;
+          foaf:primaryTopic ?res ;
+          dct:modified ?recordModified .
+
   ?res a dcat:Dataset ;
        dct:identifier ?id ;
        dct:title ?name ;
@@ -21,7 +39,15 @@ CONSTRUCT {
        dct:spatial ?spatialIri ;
        dcat:theme ?themeIri ;
        dcat:keyword ?keywordLiteral ;
-       dct:rights ?rightsLiteral .
+       dct:rights ?rightsLiteral ;
+       dcat:distribution ?distribution ;
+       dct:isReferencedBy ?publication ;
+       dct:creator ?leadOrg ;
+       healthdcatap:healthTheme ?healthThemeIri ;
+       healthdcatap:populationCoverage ?populationCoverageIri ;
+       healthdcatap:numberOfUniqueIndividuals ?participantsValue ;
+       healthdcatap:numberOfRecords ?participantsWithSamplesValue ;
+       healthdcatap:hdab ?hdab .
 
   ?contact a vcard:Individual ;
            vcard:fn ?contactName ;
@@ -31,14 +57,53 @@ CONSTRUCT {
              foaf:name ?publisherName ;
              foaf:homepage ?publisherWebsiteIri .
 
+  ?leadOrg a foaf:Organization ;
+           foaf:name ?leadOrgName ;
+           foaf:homepage ?leadOrgWebsiteIri .
+
   ?temporal a dct:PeriodOfTime ;
             dcat:startDate ?startDateValue ;
             dcat:endDate ?endDateValue .
+
+  ?accessRightsValue a skos:Concept ;
+                     skos:prefLabel ?accessRightsLabel .
+
+  ?healthThemeIri a skos:Concept ;
+                  skos:prefLabel ?healthThemeLabel .
+
+  ?populationCoverageIri a skos:Concept ;
+                         skos:prefLabel ?populationCoverageLabel .
+
+  ?distribution a dcat:Distribution ;
+                dct:description ?distributionDescription ;
+                dcat:accessURL ?accessUrl ;
+                dct:accessRights ?accessRightsValue ;
+                odrl:hasPolicy ?policyValue ;
+                dct:rights ?rightsLiteral ;
+                healthdcatap:hdab ?hdab .
+
+  ?publication a dct:BibliographicResource ;
+               dct:title ?publicationTitle ;
+               dct:identifier ?publicationDoi .
+
+  ?hdab a foaf:Organization ;
+        foaf:name ?hdabName ;
+        foaf:homepage ?catalogHomepage .
 }
 WHERE {
+  BIND(IRI("https://molgeniscatalogue.org/catalogue") AS ?catalog)
+  BIND("MOLGENIS Catalogue" AS ?catalogTitle)
+  BIND("MOLGENIS Catalogue datasets (HealthDCAT-AP Release 5 export)" AS ?catalogDescription)
+  BIND(IRI("https://molgeniscatalogue.org/") AS ?catalogHomepage)
+  BIND(IRI("https://molgeniscatalogue.org/catalogue#publisher") AS ?catalogPublisher)
+  BIND("MOLGENIS Catalogue" AS ?catalogPublisherName)
+  BIND(NOW() AS ?recordModified)
+
   ?res a entity:Resource ;
        field:id ?id ;
        field:name ?name .
+
+  BIND(IRI(CONCAT("https://molgeniscatalogue.org/catalogue/record/", ENCODE_FOR_URI(STR(?id)))) AS ?record)
 
   OPTIONAL { ?res field:description ?description . }
   OPTIONAL {
@@ -80,12 +145,17 @@ WHERE {
   }
 
   OPTIONAL {
-    ?res field:dataAccessConditionUris ?accessRightsUri .
+    ?res field:accessRightsUris ?accessRightsUri .
     BIND(IRI(STR(?accessRightsUri)) AS ?accessRightsValue)
   }
+  OPTIONAL { ?res field:accessRightsLabels ?accessRightsLabel . }
   OPTIONAL {
     ?res field:dataUseConditionUris ?policyUri .
     BIND(IRI(STR(?policyUri)) AS ?policyValue)
+  }
+  OPTIONAL {
+    ?res field:dataAccessConditionUris ?policyAccessUri .
+    BIND(IRI(STR(?policyAccessUri)) AS ?policyValue)
   }
 
   OPTIONAL {
@@ -112,5 +182,61 @@ WHERE {
   OPTIONAL {
     ?res field:dataAccessFee ?dataAccessFee .
     BIND(CONCAT("Access fee: ", STR(?dataAccessFee)) AS ?rightsLiteral)
+  }
+
+  OPTIONAL {
+    ?res field:healthThemeUris ?healthThemeUri .
+    BIND(IRI(STR(?healthThemeUri)) AS ?healthThemeIri)
+  }
+  OPTIONAL { ?res field:healthThemeLabels ?healthThemeLabel . }
+
+  OPTIONAL {
+    ?res field:populationCoverageUris ?populationCoverageUri .
+    BIND(IRI(STR(?populationCoverageUri)) AS ?populationCoverageIri)
+  }
+  OPTIONAL { ?res field:populationCoverageLabels ?populationCoverageLabel . }
+
+  OPTIONAL {
+    ?res field:numberOfParticipants ?participants .
+    BIND(xsd:nonNegativeInteger(?participants) AS ?participantsValue)
+  }
+  OPTIONAL {
+    ?res field:numberOfParticipantsWithSamples ?participantsWithSamples .
+    BIND(xsd:nonNegativeInteger(?participantsWithSamples) AS ?participantsWithSamplesValue)
+  }
+
+  OPTIONAL {
+    ?res field:leadOrganisationName ?leadOrgName .
+    BIND(IRI(CONCAT("https://catalogue.org/org/", ENCODE_FOR_URI(STR(?leadOrgName)))) AS ?leadOrg)
+  }
+  OPTIONAL {
+    ?res field:leadOrganisationWebsite ?leadOrgWebsite .
+    BIND(IRI(STR(?leadOrgWebsite)) AS ?leadOrgWebsiteIri)
+  }
+
+  OPTIONAL { ?res field:designPublicationTitles ?publicationTitle . }
+  OPTIONAL { ?res field:designPublicationDois ?publicationDoi . }
+  OPTIONAL {
+    FILTER(BOUND(?publicationTitle) || BOUND(?publicationDoi))
+    BIND(BNODE() AS ?publication)
+  }
+
+  BIND(IRI(CONCAT("https://molgeniscatalogue.org/catalogue/distribution/", ENCODE_FOR_URI(STR(?id)))) AS ?distribution)
+  OPTIONAL { ?res field:releaseDescription ?releaseDescription . }
+  OPTIONAL { ?res field:dataAccessConditionsDescription ?dataAccessConditionsDescription . }
+  BIND(STR(COALESCE(?releaseDescription, ?dataAccessConditionsDescription)) AS ?distributionDescription)
+  BIND(IRI(CONCAT("https://molgeniscatalogue.org/catalogue/resource/", ENCODE_FOR_URI(STR(?id)))) AS ?resourcePage)
+  BIND(COALESCE(?websiteIri, ?resourcePage, ?catalogHomepage) AS ?accessUrl)
+
+  OPTIONAL {
+    FILTER(BOUND(?accessRightsValue))
+    BIND(LCASE(STR(?accessRightsValue)) AS ?accessRightsLower)
+    FILTER(
+      CONTAINS(?accessRightsLower, "non_public")
+      || CONTAINS(?accessRightsLower, "non-public")
+      || CONTAINS(?accessRightsLower, "restricted")
+    )
+    BIND(IRI("https://molgeniscatalogue.org/hdab") AS ?hdab)
+    BIND("Health Data Access Body" AS ?hdabName)
   }
 }
