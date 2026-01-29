@@ -287,6 +287,19 @@ Each profile declares a `kind` (`export` or `ingest`) that determines which pipe
 * `profile.yml` at the root
 * Any referenced files alongside it (GraphQL query, SPARQL SELECT/CONSTRUCT, SHACL shapes, mapping YAML), or with resolvable paths
 
+### Creating a new profile
+
+A profile defines how Schema Bridge fetches data, projects it into the canonical RDF graph, and materializes the result.
+
+At a minimum, creating a new profile involves:
+
+* GraphQL operations that retrieve source data (queries, for export profiles) and optionally write extracted rows back to the target schema (mutations, for ingest profiles).
+* One or more SPARQL queries:
+
+  * `CONSTRUCT` queries for RDF-based exports (Turtle, JSON-LD, RDF/XML, N-Triples).
+  * `SELECT` queries for tabular exports (JSON, CSV) or for ingest extraction.
+* A `profile.yml` file that ties these assets together and configures optional mapping and validation steps.
+
 ### Export profiles
 
 Export profiles are YAML files with four sections:
