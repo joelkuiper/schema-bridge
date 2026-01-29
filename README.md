@@ -6,22 +6,17 @@
 
 * [Summary](#summary)
 * [Example: MOLGENIS Catalogue → Health-DCAT-AP](#example-molgenis-catalogue--health-dcat-ap)
-* [Conceptual overview](#conceptual-overview)
+* [Architecture](#architecture)
+  * [Pipeline overview](#pipeline-overview)
+  * [Why a canonical RDF layer?](#why-a-canonical-rdf-layer)
+  * [How mappings bridge GraphQL and RDF](#how-mappings-bridge-graphql-and-rdf)
 * [Installation](#installation)
+* [Quick start](#quick-start)
 * [Profiles](#profiles)
-
-  * [Profile kinds](#profile-kinds)
   * [Export profiles](#export-profiles)
   * [Ingest profiles](#ingest-profiles)
 * [GraphQL endpoint resolution](#graphql-endpoint-resolution)
-* [Why a canonical RDF layer?](#why-a-canonical-rdf-layer)
-* [Export pipeline](#export-pipeline)
-
-  * [Quick start (export)](#quick-start-export)
-  * [Output formats](#output-formats)
-* [Ingest pipeline](#ingest-pipeline)
-
-  * [Quick start (ingest)](#quick-start-ingest)
+* [Output formats](#output-formats)
 
 ---
 
@@ -94,74 +89,36 @@ This section is illustrative: the same pipeline can target other domains, schema
 
 ---
 
-## Conceptual overview
+## Architecture
 
-Schema Bridge implements two symmetric pipelines:
+### Pipeline overview
 
-1. **Export**: GraphQL → canonical RDF → serialized outputs
-2. **Ingest**: RDF → extracted rows → GraphQL mutations
+Schema Bridge implements two symmetric pipelines, both configured entirely through profiles:
 
-Both pipelines are configured entirely through profiles.
-
----
-
-## Installation
-
-```bash
-uv sync --extra test
+```text
+Export:  GraphQL → canonical RDF graph → serialized outputs
+Ingest:  RDF     → extracted rows      → GraphQL mutations
 ```
 
----
+The key insight is that GraphQL APIs and RDF metadata standards represent the same information differently. Rather than translating directly between them, Schema Bridge introduces a **canonical RDF graph** as an intermediate layer. This keeps mappings declarative, validation orthogonal, and export/ingest conceptually symmetric.
 
-## Profiles
+### Why a canonical RDF layer?
 
-Profiles are the primary configuration unit. They live under:
+Schema Bridge uses RDF as a canonical intermediate representation because it provides a stable, schema-flexible graph model for heterogeneous data. GraphQL results are lifted into a canonical graph, transformed and optionally validated declaratively, then serialized or re-materialized. RDF is used strictly as an interchange layer; no persistent triple store, reasoning engine, or ontology commitment is assumed.
 
-```
-src/schema_bridge/resources/profiles/<profile>/profile.yml
-```
+At its core, RDF provides a minimal way of expressing relationships between entities. Information is represented as triples consisting of a subject, a predicate, and an object. Each element is identified by a URI, which allows relationships to be named explicitly rather than implied by structure. Taken together, these triples form a directed, labeled graph.
 
-A profile can be referenced by name, profile directory, or direct path to `profile.yml`.
+This representation has practical consequences: schemas can evolve without invalidating existing data, and data from independent systems can be merged without prior coordination because shared identifiers act as join points. Partial data is representable without placeholders, and absence of information does not require schema changes.
 
-### Profile kinds
+GraphQL APIs tend to expose application-specific structures, while metadata standards impose different conceptual models. A canonical graph representation provides a neutral middle layer in which these differences can be reconciled explicitly.
 
-Each profile declares a `kind`:
+### How mappings bridge GraphQL and RDF
 
-* `export` → drives the export pipeline
-* `ingest` → drives the ingest pipeline
-
-### Export profiles
-
-Export profiles are YAML files with these sections:
-
-* `fetch` — GraphQL query and data root
-* `mapping` — rules for projecting API-shaped data into the canonical RDF graph
-* `export` — SPARQL SELECT / CONSTRUCT
-* `validate` — SHACL shapes and toggle
-
-Common export keys:
-
-* `fetch.graphql`
-* `fetch.root_key`
-* `fetch.endpoint` (optional)
-* `fetch.base_url` + `fetch.schema` (optional)
-* `export.select` / `export.construct`
-* `validate.shacl`
-* `validate.enabled`
-
-Available export profiles in this repo:
-
-* `dcat` (demo)
-* `fdp` (demo)
-* `healthdcat-ap-r5-molgenis` (Health-DCAT-AP Release 5, partial coverage)
-
-#### Mapping example (why it exists)
-
-Mappings define how **GraphQL-shaped rows** are projected into a **canonical RDF graph** that remains stable across profiles and exports.
+Mappings define how **GraphQL-shaped rows** are projected into the **canonical RDF graph**.
 
 GraphQL APIs expose tree-shaped results: nested objects, optional branches, repeated structures, and multiple fields that encode the same concept. Their meaning is implicit in structure. SPARQL, by contrast, operates strictly over **triples** (subject–predicate–object relations), with no notion of nesting or application-level shape. The mapping layer translates between these representations.
 
-Rather than running SPARQL directly over API-shaped data, Schema Bridge first normalizes the input into a canonical graph. SPARQL then operates over that intermediate representation.
+Rather than running SPARQL directly over API-shaped data, Schema Bridge first normalizes the input into a canonical graph. SPARQL then operates over that intermediate representation. This is what allows SPARQL constructs to be written once against a stable intermediate graph, while the source API schema remains free to evolve.
 
 Minimal example:
 
@@ -179,86 +136,21 @@ What this expresses:
 * `countries[].name` flattens nested lists into a repeated field (`countryNames`).
 * `contactEmail` defines a fallback across alternative source fields.
 
-Across a full profile, mappings typically:
-
-* flatten nested collections into repeatable fields,
-* unify multiple source paths under one canonical field name,
-* mark selected fields as IRIs rather than literals.
-
-This is what allows SPARQL constructs to be written once against a stable intermediate graph, while the source API schema remains free to evolve.
-
-### Ingest profiles
-
-Ingest profiles are YAML files with these sections:
-
-* `validate` — SHACL validation
-* `extract` — SPARQL SELECT over RDF
-* `upload` — target table and mutation behavior
-* `graphql` — default GraphQL configuration (optional)
-
-Common ingest keys:
-
-* `validate.shacl`
-* `validate.enabled`
-* `extract.sparql`
-* `upload.table`
-* `upload.mode` (`insert` or `upsert`)
-* `upload.id_prefix`
-* `upload.batch_size`
-* `graphql.base_url` + `graphql.schema`
-* `graphql.token` (optional)
+Across a full profile, mappings typically flatten nested collections into repeatable fields, unify multiple source paths under one canonical field name, and mark selected fields as IRIs rather than literals.
 
 ---
 
-## GraphQL endpoint resolution
+## Installation
 
-Schema Bridge resolves the GraphQL endpoint (base URL + schema, or a full endpoint URL) the same way across export and ingest: CLI overrides profile, which overrides environment. If no location can be resolved, the CLI errors.
-
-Resolution order (highest priority first):
-
-1. CLI full endpoint `--graphql-endpoint` *(if supported by the command)*
-2. Profile full endpoint (e.g. `fetch.endpoint` or `graphql.endpoint`)
-3. Environment `SCHEMA_BRIDGE_GRAPHQL_ENDPOINT`
-4. CLI `--base-url` + `--schema`
-5. Profile base URL + schema (e.g. `fetch.base_url` + `fetch.schema`, or `graphql.base_url` + `graphql.schema`)
-6. Environment `SCHEMA_BRIDGE_BASE_URL` + `SCHEMA_BRIDGE_SCHEMA`
-
-If a full endpoint is provided, `base_url/schema` are ignored. Otherwise the endpoint is constructed as:
-
-```text
-{base_url}/{schema}/graphql
+```bash
+uv sync --extra test
 ```
 
 ---
 
-## Why a canonical RDF layer?
+## Quick start
 
-### TL;DR
-
-Schema Bridge uses RDF as a canonical intermediate representation because it provides a stable, schema-flexible graph model for heterogeneous data. GraphQL results are lifted into a canonical graph, transformed and optionally validated declaratively, then serialized or re-materialized. RDF is used strictly as an interchange layer; no persistent triple store, reasoning engine, or ontology commitment is assumed.
-
-### Explanation
-
-At its core, RDF provides a minimal way of expressing relationships between entities. Information is represented as triples consisting of a subject, a predicate, and an object. Each element is identified by a URI, which allows relationships to be named explicitly rather than implied by structure. Taken together, these triples form a directed, labeled graph.
-
-This representation has practical consequences: schemas can evolve without invalidating existing data, and data from independent systems can be merged without prior coordination because shared identifiers act as join points. Partial data is representable without placeholders, and absence of information does not require schema changes.
-
-GraphQL APIs tend to expose application-specific structures, while metadata standards impose different conceptual models. A canonical graph representation provides a neutral middle layer in which these differences can be reconciled explicitly.
-
-Schema Bridge treats RDF as a temporary, inspectable representation that sits between concrete systems:
-
-```text
-GraphQL rows  →  canonical RDF graph  →  standard exports
-standard RDF →  extracted rows       →  GraphQL mutations
-```
-
-This keeps mappings declarative, validation orthogonal, and export and ingest conceptually symmetric.
-
----
-
-# Export pipeline
-
-## Quick start (export)
+### Export
 
 Export profiles wire together **fetch → mapping → export → validation**.
 
@@ -270,31 +162,13 @@ uv run schema-bridge export --profile healthdcat-ap-r5-molgenis --format ttl
 
 Useful options:
 
-* `--format` — output format
+* `--format` — output format (see [Output formats](#output-formats))
 * `--limit` — limit GraphQL rows fetched
 * `--debug` — verbose logging
 
-For full CLI options:
+For full CLI options: `uv run schema-bridge export --help`
 
-```bash
-uv run schema-bridge export --help
-```
-
----
-
-## Output formats
-
-Use `--format` to select a single output format:
-
-`csv | json | jsonld | ttl | rdfxml | nt`
-
-Export commands write to `stdout`. Redirect to a file to persist output.
-
----
-
-# Ingest pipeline
-
-## Quick start (ingest)
+### Ingest
 
 Ingest profiles control how RDF is converted into rows and uploaded via GraphQL mutations.
 
@@ -317,3 +191,127 @@ Notes:
 
 * `--format` is optional; RDF format is inferred from the file extension
 * Use `--dry-run` or `--out` to inspect rows without uploading
+
+---
+
+## Profiles
+
+Profiles are the primary configuration unit. They live under:
+
+```
+src/schema_bridge/resources/profiles/<profile>/profile.yml
+```
+
+A profile can be referenced by name, profile directory, or direct path to `profile.yml`. Each profile declares a `kind` (`export` or `ingest`) that determines which pipeline it drives.
+
+### Export profiles
+
+Export profiles are YAML files with four sections:
+
+| Section | Purpose |
+|---------|---------|
+| `fetch` | GraphQL query and data root |
+| `mapping` | Rules for projecting API-shaped data into the canonical RDF graph |
+| `export` | SPARQL SELECT / CONSTRUCT |
+| `validate` | SHACL shapes and toggle |
+
+**Configuration keys:**
+
+```yaml
+fetch:
+  graphql: <query file or inline>
+  root_key: <path to data in response>
+  endpoint: <full URL>              # optional, overrides base_url + schema
+  base_url: <base URL>              # optional
+  schema: <schema name>             # optional
+
+mapping:
+  field_paths: <field mappings>     # see Architecture > How mappings work
+
+export:
+  select: <SPARQL SELECT>           # use one of select or construct
+  construct: <SPARQL CONSTRUCT>
+
+validate:
+  shacl: <shapes file>
+  enabled: true|false
+```
+
+**Available export profiles:**
+
+| Profile | Description |
+|---------|-------------|
+| `dcat` | Demo profile |
+| `fdp` | Demo profile |
+| `healthdcat-ap-r5-molgenis` | Health-DCAT-AP Release 5 (partial coverage) |
+
+### Ingest profiles
+
+Ingest profiles are YAML files with four sections:
+
+| Section | Purpose |
+|---------|---------|
+| `validate` | SHACL validation |
+| `extract` | SPARQL SELECT over RDF |
+| `upload` | Target table and mutation behavior |
+| `graphql` | Default GraphQL configuration (optional) |
+
+**Configuration keys:**
+
+```yaml
+validate:
+  shacl: <shapes file>
+  enabled: true|false
+
+extract:
+  sparql: <SPARQL SELECT>
+
+upload:
+  table: <target table>
+  mode: insert|upsert
+  id_prefix: <prefix for generated IDs>
+  batch_size: <number>
+
+graphql:
+  base_url: <base URL>
+  schema: <schema name>
+  token: <auth token>               # optional
+```
+
+---
+
+## GraphQL endpoint resolution
+
+Schema Bridge resolves the GraphQL endpoint the same way across export and ingest: CLI overrides profile, which overrides environment. If no location can be resolved, the CLI errors.
+
+Resolution order (highest priority first):
+
+1. CLI full endpoint `--graphql-endpoint` *(if supported by the command)*
+2. Profile full endpoint (e.g. `fetch.endpoint` or `graphql.endpoint`)
+3. Environment `SCHEMA_BRIDGE_GRAPHQL_ENDPOINT`
+4. CLI `--base-url` + `--schema`
+5. Profile base URL + schema (e.g. `fetch.base_url` + `fetch.schema`, or `graphql.base_url` + `graphql.schema`)
+6. Environment `SCHEMA_BRIDGE_BASE_URL` + `SCHEMA_BRIDGE_SCHEMA`
+
+If a full endpoint is provided, `base_url/schema` are ignored. Otherwise the endpoint is constructed as:
+
+```text
+{base_url}/{schema}/graphql
+```
+
+---
+
+## Output formats
+
+Use `--format` to select an output format for export:
+
+| Format | Extension |
+|--------|-----------|
+| `csv` | Tabular CSV |
+| `json` | JSON |
+| `jsonld` | JSON-LD |
+| `ttl` | Turtle |
+| `rdfxml` | RDF/XML |
+| `nt` | N-Triples |
+
+Export commands write to `stdout`. Redirect to a file to persist output.
