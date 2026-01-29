@@ -289,11 +289,7 @@ Notes:
 
 ## Profiles
 
-Profiles are the primary configuration unit. Packaged profiles live under:
-
-```
-src/schema_bridge/resources/profiles/<profile>/profile.yml
-```
+Profiles are the primary configuration unit. Packaged profiles live [here](src/schema_bridge/resources/profiles/<profile>/profile.yml).
 
 You can also supply your own profiles. The `--profile` flag accepts:
 
