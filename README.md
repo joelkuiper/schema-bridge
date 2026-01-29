@@ -216,13 +216,24 @@ Notes:
 
 ## Profiles
 
-Profiles are the primary configuration unit. They live under:
+Profiles are the primary configuration unit. Packaged profiles live under:
 
 ```
 src/schema_bridge/resources/profiles/<profile>/profile.yml
 ```
 
-A profile can be referenced by name, profile directory, or direct path to `profile.yml`. Each profile declares a `kind` (`export` or `ingest`) that determines which pipeline it drives.
+You can also supply your own profiles. The `--profile` flag accepts:
+
+* A packaged profile name (e.g. `dcat`)
+* A profile folder (relative or absolute) containing `profile.yml`
+* A direct path to `profile.yml` (relative or absolute)
+
+Each profile declares a `kind` (`export` or `ingest`) that determines which pipeline it drives.
+
+**Custom profile folder requirements:**
+
+* `profile.yml` at the root
+* Any referenced files alongside it (GraphQL query, SPARQL SELECT/CONSTRUCT, SHACL shapes, mapping YAML), or with resolvable paths
 
 ### Export profiles
 
@@ -257,7 +268,7 @@ validate:
   enabled: true|false
 ```
 
-**Available export profiles:**
+**Packaged export profiles:**
 
 | Profile | Description |
 |---------|-------------|
