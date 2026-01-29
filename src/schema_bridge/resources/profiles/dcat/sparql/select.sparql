@@ -1,7 +1,12 @@
 PREFIX field: <https://catalogue.org/field/>
 PREFIX entity: <https://catalogue.org/entity/>
 
-SELECT ?id ?name ?desc ?website ?email
+SELECT
+  ?id
+  ?name
+  ?desc
+  ?website
+  ?email
 WHERE {
   ?res a entity:Resource ;
        field:id ?id ;

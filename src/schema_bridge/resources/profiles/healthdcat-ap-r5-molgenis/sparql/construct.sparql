@@ -103,7 +103,10 @@ WHERE {
        field:id ?id ;
        field:name ?name .
 
-  BIND(IRI(CONCAT("https://molgeniscatalogue.org/catalogue/record/", ENCODE_FOR_URI(STR(?id)))) AS ?record)
+  BIND(
+    IRI(CONCAT("https://molgeniscatalogue.org/catalogue/record/", ENCODE_FOR_URI(STR(?id))))
+    AS ?record
+  )
 
   OPTIONAL { ?res field:description ?description . }
   OPTIONAL {
@@ -113,18 +116,30 @@ WHERE {
   OPTIONAL {
     ?res field:contactEmail ?contactEmail .
     BIND(STR(?contactEmail) AS ?contactEmailRaw)
-    BIND(IF(CONTAINS(?contactEmailRaw, ","), STRBEFORE(?contactEmailRaw, ","), ?contactEmailRaw) AS ?contactEmailTmp)
-    BIND(IF(CONTAINS(?contactEmailTmp, ";"), STRBEFORE(?contactEmailTmp, ";"), ?contactEmailTmp) AS ?contactEmailTmp2)
+    BIND(
+      IF(CONTAINS(?contactEmailRaw, ","), STRBEFORE(?contactEmailRaw, ","), ?contactEmailRaw)
+      AS ?contactEmailTmp
+    )
+    BIND(
+      IF(CONTAINS(?contactEmailTmp, ";"), STRBEFORE(?contactEmailTmp, ";"), ?contactEmailTmp)
+      AS ?contactEmailTmp2
+    )
     BIND(REPLACE(?contactEmailTmp2, "^mailto:", "") AS ?contactEmailClean)
     BIND(IRI(CONCAT("mailto:", ?contactEmailClean)) AS ?contactEmailIri)
-    BIND(IRI(CONCAT("https://catalogue.org/contact/", ENCODE_FOR_URI(?contactEmailClean))) AS ?contact)
+    BIND(
+      IRI(CONCAT("https://catalogue.org/contact/", ENCODE_FOR_URI(?contactEmailClean)))
+      AS ?contact
+    )
   }
   OPTIONAL { ?res field:contactName ?contactName . }
 
   OPTIONAL { ?res field:publisherName ?publisherName . }
   OPTIONAL {
     FILTER(BOUND(?publisherName))
-    BIND(IRI(CONCAT("https://catalogue.org/org/", ENCODE_FOR_URI(STR(?publisherName)))) AS ?publisher)
+    BIND(
+      IRI(CONCAT("https://catalogue.org/org/", ENCODE_FOR_URI(STR(?publisherName))))
+      AS ?publisher
+    )
   }
   OPTIONAL {
     ?res field:publisherWebsite ?publisherWebsite .
@@ -160,21 +175,33 @@ WHERE {
 
   OPTIONAL {
     ?res field:countryNames ?countryName .
-    BIND(IRI(CONCAT("https://catalogue.org/geo/", ENCODE_FOR_URI(STR(?countryName)))) AS ?spatialIri)
+    BIND(
+      IRI(CONCAT("https://catalogue.org/geo/", ENCODE_FOR_URI(STR(?countryName))))
+      AS ?spatialIri
+    )
   }
   OPTIONAL {
     ?res field:regionNames ?regionName .
-    BIND(IRI(CONCAT("https://catalogue.org/geo/", ENCODE_FOR_URI(STR(?regionName)))) AS ?spatialIri)
+    BIND(
+      IRI(CONCAT("https://catalogue.org/geo/", ENCODE_FOR_URI(STR(?regionName))))
+      AS ?spatialIri
+    )
   }
 
   OPTIONAL {
     ?res field:typeName ?typeName .
-    BIND(IRI(CONCAT("https://catalogue.org/theme/", ENCODE_FOR_URI(STR(?typeName)))) AS ?themeIri)
+    BIND(
+      IRI(CONCAT("https://catalogue.org/theme/", ENCODE_FOR_URI(STR(?typeName))))
+      AS ?themeIri
+    )
     BIND(STR(?typeName) AS ?keywordLiteral)
   }
   OPTIONAL {
     ?res field:collectionTypeName ?collectionTypeName .
-    BIND(IRI(CONCAT("https://catalogue.org/theme/", ENCODE_FOR_URI(STR(?collectionTypeName)))) AS ?themeIri)
+    BIND(
+      IRI(CONCAT("https://catalogue.org/theme/", ENCODE_FOR_URI(STR(?collectionTypeName))))
+      AS ?themeIri
+    )
     BIND(STR(?collectionTypeName) AS ?keywordLiteral)
   }
   OPTIONAL { ?res field:keywords ?keywordLiteral . }
@@ -207,7 +234,10 @@ WHERE {
 
   OPTIONAL {
     ?res field:leadOrganisationName ?leadOrgName .
-    BIND(IRI(CONCAT("https://catalogue.org/org/", ENCODE_FOR_URI(STR(?leadOrgName)))) AS ?leadOrg)
+    BIND(
+      IRI(CONCAT("https://catalogue.org/org/", ENCODE_FOR_URI(STR(?leadOrgName))))
+      AS ?leadOrg
+    )
   }
   OPTIONAL {
     ?res field:leadOrganisationWebsite ?leadOrgWebsite .
@@ -221,11 +251,17 @@ WHERE {
     BIND(BNODE() AS ?publication)
   }
 
-  BIND(IRI(CONCAT("https://molgeniscatalogue.org/catalogue/distribution/", ENCODE_FOR_URI(STR(?id)))) AS ?distribution)
+  BIND(
+    IRI(CONCAT("https://molgeniscatalogue.org/catalogue/distribution/", ENCODE_FOR_URI(STR(?id))))
+    AS ?distribution
+  )
   OPTIONAL { ?res field:releaseDescription ?releaseDescription . }
   OPTIONAL { ?res field:dataAccessConditionsDescription ?dataAccessConditionsDescription . }
   BIND(STR(COALESCE(?releaseDescription, ?dataAccessConditionsDescription)) AS ?distributionDescription)
-  BIND(IRI(CONCAT("https://molgeniscatalogue.org/catalogue/resource/", ENCODE_FOR_URI(STR(?id)))) AS ?resourcePage)
+  BIND(
+    IRI(CONCAT("https://molgeniscatalogue.org/catalogue/resource/", ENCODE_FOR_URI(STR(?id))))
+    AS ?resourcePage
+  )
   BIND(COALESCE(?websiteIri, ?resourcePage, ?catalogHomepage) AS ?accessUrl)
 
   OPTIONAL {
