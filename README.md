@@ -210,6 +210,58 @@ Export profiles are YAML files with the following sections:
 * `export` — SPARQL SELECT / CONSTRUCT
 * `validate` — SHACL shapes and toggle
 
+
+Here’s a tightened version, ~25% shorter, with no loss of technical precision and the same conceptual spine. I trimmed repetition, compressed the “what the full mapping does” section, and sharpened the close.
+
+---
+
+### Mapping example (& why it exists)
+
+Mappings define how **GraphQL-shaped rows** are projected into a **canonical RDF graph** that remains stable across profiles and exports.
+
+GraphQL APIs expose tree-shaped results: nested objects, optional branches, repeated structures, and multiple fields that encode the same concept. Their meaning is implicit in structure. SPARQL, by contrast, operates strictly over triples: subject–predicate–object relations, with no notion of nesting or application-level shape. The mapping layer translates between these representations.
+
+Rather than running SPARQL directly over API-shaped data, Schema Bridge first normalizes the input into a canonical graph. SPARQL then operates over that intermediate representation.
+
+#### Minimal example
+
+```yaml
+mapping:
+  field_paths:
+    countryNames: countries[].name
+    contactEmail:
+      - contactPoint.email
+      - contactEmail
+```
+
+What this expresses:
+
+* `countries[].name` flattens nested lists into a repeated field (`countryNames`).
+* `contactEmail` defines a fallback across alternative source fields.
+
+Downstream logic sees a single predicate with a single meaning, regardless of how the API encoded it.
+
+#### What the mapping does
+
+Across a full profile, the mapping layer:
+
+* Flattens nested collections into repeatable fields.
+* Unifies multiple source paths under one canonical field name.
+* Marks selected fields as IRIs rather than literals.
+
+This produces a predictable triple vocabulary independent of the source schema.
+
+#### Why this matters
+
+The mapping layer enables decoupling:
+
+* GraphQL schemas can evolve independently.
+* The canonical RDF vocabulary remains stable.
+* SPARQL is written once, against the canonical graph.
+* Structural API changes usually require only mapping updates.
+
+In short, mappings absorb API variability so the rest of the pipeline can operate over a consistent set of triples.
+
 ### Common export keys
 
 * `fetch.graphql`
