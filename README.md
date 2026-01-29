@@ -71,6 +71,25 @@ uv run schema-bridge export \
   --limit 10
 ```
 
+Sample output (live run, limit 120, January 29, 2026):
+
+```ttl
+<https://catalogue.org/resource/AHON> a dcat:Dataset ;
+    dcterms:identifier "AHON" ;
+    dcterms:title "Academisch Huisarts Ontwikkel Netwerk" ;
+    dcat:landingPage <https://www.umcg.nl/-/ahon> ;
+    dcat:distribution <https://molgeniscatalogue.org/catalogue/distribution/AHON> ;
+    odrl:hasPolicy <http://purl.obolibrary.org/obo/DUO_0000006>,
+        <http://purl.obolibrary.org/obo/DUO_0000042> .
+
+<https://molgeniscatalogue.org/catalogue/distribution/AHON> a dcat:Distribution ;
+    dcterms:description "Every three months new data are added to the longitudinal AHON-database." ;
+    dcterms:rights "Access fee: true" ;
+    dcat:accessURL <https://www.umcg.nl/-/ahon> ;
+    odrl:hasPolicy <http://purl.obolibrary.org/obo/DUO_0000006>,
+        <http://purl.obolibrary.org/obo/DUO_0000042> .
+```
+
 This section is illustrative: the same pipeline can target other domains, schemas, or metadata standards by swapping profiles.
 
 ---
