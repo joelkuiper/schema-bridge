@@ -310,7 +310,13 @@ def ingest(
         "-o",
         help="Optional path to write the generated rows as JSON",
     ),
+    debug: bool = typer.Option(
+        False,
+        "--debug",
+        help="Enable debug logging",
+    ),
 ) -> None:
+    configure_logging(debug)
     logger.debug("Starting ingest: input=%s profile=%s", input_path, profile)
     profile_cfg = load_ingest_profile(profile)
     final_base_url = base_url or profile_cfg.base_url or os.getenv(

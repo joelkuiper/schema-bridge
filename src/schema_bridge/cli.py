@@ -71,7 +71,13 @@ def fetch(
         None,
         help="Only fetch rows updated before this timestamp (ISO 8601)",
     ),
+    debug: bool = typer.Option(
+        False,
+        "--debug",
+        help="Enable debug logging",
+    ),
 ) -> None:
+    configure_logging(debug)
     logger.debug("Starting fetch: base_url=%s schema=%s profile=%s", base_url, schema, profile)
     profile_cfg = load_profile(profile)
     pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
@@ -143,7 +149,13 @@ def convert(
         None,
         help="Optional path to write SHACL validation report (TTL)",
     ),
+    debug: bool = typer.Option(
+        False,
+        "--debug",
+        help="Enable debug logging",
+    ),
 ) -> None:
+    configure_logging(debug)
     logger.debug("Starting convert: input=%s profile=%s format=%s", input_path, profile, output_format)
     export = resolve_export(
         profile_name=profile,
@@ -237,7 +249,13 @@ def run(
         None,
         help="Only fetch rows updated before this timestamp (ISO 8601)",
     ),
+    debug: bool = typer.Option(
+        False,
+        "--debug",
+        help="Enable debug logging",
+    ),
 ) -> None:
+    configure_logging(debug)
     logger.debug("Starting run: base_url=%s schema=%s profile=%s format=%s", base_url, schema, profile, output_format)
     profile_cfg = load_profile(profile)
     if profile_cfg.mapping_format == "rml":
