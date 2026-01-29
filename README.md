@@ -92,7 +92,7 @@ This section is illustrative: the same pipeline can target other domains, schema
 
 ## Architecture
 
-### Pipeline overview
+## Pipeline overview
 
 Schema Bridge implements two symmetric pipelines, both configured entirely through profiles:
 
@@ -101,25 +101,40 @@ Export:  GraphQL → canonical RDF graph → serialized outputs
 Ingest:  RDF     → extracted rows      → GraphQL mutations
 ```
 
-The key insight is that GraphQL APIs and RDF metadata standards represent the same information differently. Rather than translating directly between them, Schema Bridge introduces a canonical RDF graph as an intermediate layer. This keeps mappings declarative, validation orthogonal, and export/ingest conceptually symmetric.
+Although these pipelines run in opposite directions, they follow the same underlying idea: GraphQL APIs and RDF-based metadata standards describe the same information, but in very different shapes.
 
-### Why a canonical RDF layer?
+Rather than translating directly between those shapes, Schema Bridge introduces a canonical RDF graph as a neutral intermediate layer. All transformation, validation, export, and ingest steps operate against this shared representation. This keeps mappings declarative, validation optional and orthogonal, and export and ingest conceptually symmetric.
 
-Schema Bridge uses RDF as a canonical intermediate representation because it provides a stable, schema-flexible graph model for heterogeneous data. GraphQL results are lifted into a canonical graph, transformed and optionally validated declaratively, then serialized or re-materialized. RDF is used strictly as an interchange layer; no persistent triple store, reasoning engine, or ontology commitment is assumed.
+---
 
-At its core, RDF provides a minimal way of expressing relationships between entities. Information is represented as triples consisting of a subject, a predicate, and an object. Each element is identified by a URI, which allows relationships to be named explicitly rather than implied by structure. Taken together, these triples form a directed, labeled graph.
+## Why a canonical RDF layer?
 
-This representation has practical consequences: schemas can evolve without invalidating existing data, and data from independent systems can be merged without prior coordination because shared identifiers act as join points. Partial data is representable without placeholders, and absence of information does not require schema changes.
+Schema Bridge uses RDF as an intermediate representation because it provides a stable, schema-flexible graph model well suited to heterogeneous metadata.
 
-GraphQL APIs tend to expose application-specific structures, while metadata standards impose different conceptual models. A canonical graph representation provides a neutral middle layer in which these differences can be reconciled explicitly.
+GraphQL results are first lifted into a canonical RDF graph. That graph can then be transformed, queried, or validated declaratively, before being serialized to standard formats or re-materialized back into GraphQL mutations. RDF is used strictly as an interchange layer; no persistent triple store, reasoning engine, or ontology commitment is assumed.
 
-### How mappings bridge GraphQL and RDF
+At a basic level, RDF expresses information as explicit relationships. Each statement is a triple—subject, predicate, object—identified by URIs. Taken together, these triples form a directed, labeled graph in which meaning is expressed by named relations rather than by structural position.
 
-Mappings define how *GraphQL-shaped rows* are projected into the *canonical RDF graph*.
+This has several practical consequences that are especially relevant for metadata transformation:
 
-GraphQL APIs expose tree-shaped results: nested objects, optional branches, repeated structures, and multiple fields that encode the same concept. Their meaning is implicit in structure. SPARQL, by contrast, operates strictly over *triples* (subject–predicate–object relations), with no notion of nesting or application-level shape. The mapping layer translates between these representations.
+* Schemas can evolve safely: new predicates can be added without invalidating existing data.
+* Independent data sources can be merged without prior coordination, as shared identifiers act as natural join points.
+* Partial data is first-class: missing information does not require placeholders or schema changes.
+* Structure does not imply meaning: relationships are explicit, not inferred from nesting or field layout.
 
-Rather than running SPARQL directly over API-shaped data, Schema Bridge first normalizes the input into a canonical graph. SPARQL then operates over that intermediate representation. This is what allows SPARQL constructs to be written once against a stable intermediate graph, while the source API schema remains free to evolve.
+These properties closely match the realities of working with metadata. GraphQL APIs typically expose application-specific, tree-shaped views of data, while metadata standards impose their own conceptual models. A canonical graph provides a neutral middle layer where those differences can be reconciled explicitly, rather than implicitly encoded in ad-hoc transformations.
+
+---
+
+## How mappings bridge GraphQL and RDF
+
+Mappings define how GraphQL-shaped rows are projected into the canonical RDF graph.
+
+GraphQL APIs expose nested, tree-shaped results: optional branches, repeated structures, and multiple fields that may encode the same concept in slightly different ways. Much of their meaning is implicit in structure. SPARQL, by contrast, operates purely over triples—subject–predicate–object relations—with no notion of nesting or application-level shape.
+
+The mapping layer is where this translation happens.
+
+Instead of running SPARQL directly over API-shaped data, Schema Bridge first normalizes incoming data into the canonical graph. SPARQL queries are then written once against that stable representation. This decouples transformations from the source API schema, allowing APIs to evolve without requiring changes to downstream queries or exports.
 
 Minimal example:
 
@@ -134,10 +149,12 @@ mapping:
 
 What this expresses:
 
-* `countries[].name` flattens nested lists into a repeated field (`countryNames`).
-* `contactEmail` defines a fallback across alternative source fields.
+* `countries[].name` flattens a nested list into a repeatable canonical field (`countryNames`).
+* `contactEmail` defines a fallback across multiple possible source paths.
 
-Across a full profile, mappings typically flatten nested collections into repeatable fields, unify multiple source paths under one canonical field name, and mark selected fields as IRIs rather than literals.
+Across a full profile, mappings typically flatten nested collections into repeatable fields, unify multiple source paths under a single canonical field, and mark selected fields as IRIs rather than literals.
+
+
 
 ---
 
