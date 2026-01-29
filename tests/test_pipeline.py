@@ -18,7 +18,7 @@ from schema_bridge.rdf import (
     validate_graph,
 )
 from schema_bridge.rdf.mapping import IdStrategy, NodeDefaults
-from schema_bridge.rdf.mapping import ConceptField, IdStrategy, NodeField
+from schema_bridge.rdf.mapping import ConceptField, NodeField
 from schema_bridge.resources import load_text, load_yaml
 from schema_bridge.profiles import (
     load_mapping_override,

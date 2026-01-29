@@ -73,11 +73,13 @@ class MappingConfig:
         concept_ns = str(data.get("concept_ns", "https://catalogue.org/concept/"))
         drop_nested = bool(data.get("drop_nested", False))
         auto_nodes = bool(data.get("auto_nodes", True))
+        raw_node_defaults = data.get("node_defaults")
         node_defaults = NodeDefaults.from_dict(
-            data.get("node_defaults") if isinstance(data.get("node_defaults"), dict) else None
+            raw_node_defaults if isinstance(raw_node_defaults, Mapping) else None
         )
+        raw_id_strategy = data.get("id_strategy")
         id_strategy = IdStrategy.from_dict(
-            data.get("id_strategy") if isinstance(data.get("id_strategy"), dict) else None
+            raw_id_strategy if isinstance(raw_id_strategy, Mapping) else None
         )
         return cls(
             raw=raw,
@@ -175,13 +177,14 @@ class IdStrategy:
             return cls()
         pid_fields = data.get("pid_fields")
         fallback_fields = data.get("fallback_fields")
+        raw_normalize = data.get("normalize")
         return cls(
             mode=str(data.get("mode", "template")),
             template=str(data.get("template")) if data.get("template") else None,
             pid_fields=[str(item) for item in pid_fields] if isinstance(pid_fields, list) else [],
             fallback_fields=[str(item) for item in fallback_fields] if isinstance(fallback_fields, list) else [],
             normalize=NormalizeConfig.from_dict(
-                data.get("normalize") if isinstance(data.get("normalize"), dict) else None
+                raw_normalize if isinstance(raw_normalize, Mapping) else None
             ),
         )
 
@@ -197,11 +200,12 @@ class NodeDefaults:
         if not data:
             return cls()
         id_fields = data.get("id_fields")
+        raw_normalize = data.get("normalize")
         return cls(
             subject_template=str(data.get("subject_template")) if data.get("subject_template") else None,
             id_fields=[str(item) for item in id_fields] if isinstance(id_fields, list) else [],
             normalize=NormalizeConfig.from_dict(
-                data.get("normalize") if isinstance(data.get("normalize"), dict) else None
+                raw_normalize if isinstance(raw_normalize, Mapping) else None
             ),
         )
 
@@ -240,8 +244,8 @@ def _normalize_value(value: object | None, normalize: NormalizeConfig) -> str | 
 def _select_id_value(row: Mapping[str, object], fields: list[str]) -> str | None:
     if not fields:
         return None
-    for field in fields:
-        value = row.get(field)
+    for field_name in fields:
+        value = row.get(field_name)
         if value is None:
             continue
         if isinstance(value, (list, dict)):
