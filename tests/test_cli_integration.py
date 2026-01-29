@@ -79,6 +79,36 @@ def test_cli_export_uses_fixture() -> None:
 
 
 @pytest.mark.integration
+def test_cli_export_healthdcat_ap_r5_uses_fixture() -> None:
+    resources = Path(__file__).parent / "resources"
+    fixture = resources / "graphql_health_dcat_ap_molgenis.json"
+    env = _base_env()
+    env["SCHEMA_BRIDGE_GRAPHQL_FIXTURE"] = str(fixture)
+
+    completed = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "schema_bridge.cli",
+            "export",
+            "--profile",
+            "healthdcat-ap-r5-molgenis",
+            "--format",
+            "ttl",
+            "--limit",
+            "2",
+        ],
+        env=env,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, (
+        f"healthdcat export failed:\\nSTDOUT: {completed.stdout}\\nSTDERR: {completed.stderr}"
+    )
+    assert "@prefix" in completed.stdout
+
+
+@pytest.mark.integration
 def test_cli_ingest_dry_run(tmp_path: Path) -> None:
     resources = Path(__file__).parent / "resources" / "profiles" / "ingest-demo"
     input_path = resources / "input.ttl"

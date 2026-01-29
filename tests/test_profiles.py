@@ -10,7 +10,7 @@ import pytest
 
 def _fixture_for_profile(profile: str) -> Path:
     resources = Path(__file__).parent / "resources"
-    if profile == "health-dcat-ap-molgenis":
+    if profile == "healthdcat-ap-r5-molgenis":
         return resources / "graphql_health_dcat_ap_molgenis.json"
     return resources / "graphql_resources.json"
 
@@ -71,7 +71,7 @@ def _run_export(profile: str, output_format: str, limit: int) -> subprocess.Comp
     [
         ("dcat", "json", "\"rows\""),
         ("fdp", "ttl", "@prefix"),
-        ("health-dcat-ap-molgenis", "ttl", "@prefix"),
+        ("healthdcat-ap-r5-molgenis", "ttl", "@prefix"),
     ],
 )
 def test_profile_outputs_to_stdout(
@@ -86,7 +86,7 @@ def test_profile_outputs_to_stdout(
 
 @pytest.mark.integration
 def test_molgenis_profile_export_uses_fixture() -> None:
-    completed = _run_export("health-dcat-ap-molgenis", "ttl", limit=50)
+    completed = _run_export("healthdcat-ap-r5-molgenis", "ttl", limit=50)
     assert completed.returncode == 0, (
         f"run failed:\nSTDOUT: {completed.stdout}\nSTDERR: {completed.stderr}"
     )

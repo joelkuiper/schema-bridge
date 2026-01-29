@@ -1,4 +1,4 @@
-name: health-dcat-ap-molgenis
+name: healthdcat-ap-r5-molgenis
 kind: export
 description: HealthDCAT-AP Release 5 export for molgeniscatalogue.org (best-effort coverage with available fields)
 fetch:

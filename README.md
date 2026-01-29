@@ -21,7 +21,7 @@ Core implementation locations:
 A concrete use case is exporting the **MOLGENIS Catalogue** to **Health-DCAT-AP Release 5**, as used by
 [molgeniscatalogue.org](https://molgeniscatalogue.org).
 
-Schema Bridge provides a packaged profile, `health-dcat-ap-molgenis`, which maps catalogue data exposed via GraphQL into a Health-DCAT-AP–compatible RDF representation.
+Schema Bridge provides a packaged profile, `healthdcat-ap-r5-molgenis`, which maps catalogue data exposed via GraphQL into a Health-DCAT-AP Release 5–compatible RDF representation.
 
 This profile emits:
 
@@ -36,13 +36,13 @@ Example usage:
 
 ```bash
 uv run schema-bridge export \
-  --profile health-dcat-ap-molgenis \
+  --profile healthdcat-ap-r5-molgenis \
   --format rdfxml
 ```
 
 ```bash
 uv run schema-bridge export \
-  --profile health-dcat-ap-molgenis \
+  --profile healthdcat-ap-r5-molgenis \
   --format jsonld \
   --limit 10
 ```
@@ -162,7 +162,7 @@ Export profiles wire together **fetch → mapping → export → validation**.
 ```bash
 uv run schema-bridge export --profile dcat --format ttl
 uv run schema-bridge export --profile fdp --format ttl
-uv run schema-bridge export --profile health-dcat-ap-molgenis --format ttl
+uv run schema-bridge export --profile healthdcat-ap-r5-molgenis --format ttl
 ```
 
 Useful options:
@@ -242,7 +242,7 @@ Export profiles are YAML files with the following sections:
 
 * `dcat` (demo)
 * `fdp` (demo)
-* `health-dcat-ap-molgenis` (Health-DCAT-AP Release 5, partial coverage)
+* `healthdcat-ap-r5-molgenis` (HealthDCAT-AP Release 5, best-effort coverage)
 
 ---
 
