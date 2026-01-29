@@ -1,4 +1,4 @@
-name: schemaorg
+name: schemaorg-molgenis
 kind: export
 description: Schema.org Dataset/DataCatalog export (optional Bioschemas alignment)
 fetch:

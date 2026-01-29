@@ -95,7 +95,7 @@ WHERE {
   }
 
   OPTIONAL {
-    FILTER(BOUND(?landingPageIri))
+    FILTER(BOUND(?websiteIri))
     BIND(IRI(CONCAT(STR(?res), "/distribution")) AS ?distribution)
   }
 }

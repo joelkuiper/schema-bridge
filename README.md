@@ -57,14 +57,24 @@ A concrete use case is exporting the **MOLGENIS Catalogue** to **Health-DCAT-AP 
 Schema Bridge provides two packaged profiles for this catalogue:
 
 * `healthdcat-ap-r5-molgenis` — Health-DCAT-AP Release 5 export (partially complete)
-* `schemaorg` — Schema.org Dataset/DataCatalog JSON-LD export, optionally aligned with Bioschemas (partially complete)
+* `schemaorg-molgenis` — Schema.org Dataset/DataCatalog JSON-LD export (partially complete)
 
-This profile emits:
+Health-DCAT-AP focuses on rich catalog semantics (catalog records, distributions, policies, coverage), while Schema.org focuses on web-scale discovery semantics (Dataset/DataCatalog).
 
-* A `dcat:Catalog` containing datasets and catalog records
-* A `dcat:CatalogRecord` for each dataset
-* A `dcat:Dataset` with landing page, publisher, contact point, spatial and temporal coverage, and themes/keywords
-* One or more `dcat:Distribution` resources per dataset, including access URLs and access-rights or policy links when available
+Health-DCAT-AP profile covers:
+
+* `dcat:Catalog` + `dcat:CatalogRecord`
+* `dcat:Dataset` with identifiers, titles, descriptions, landing pages, keywords/themes
+* `dcat:Distribution` with access URLs, access-rights/policy links
+* temporal coverage, spatial coverage, contacts, publisher, and HealthDCAT-AP extensions (health theme, population coverage, record counts)
+
+Schema.org profile covers:
+
+* `schema:DataCatalog` + `schema:Dataset`
+* dataset name/description/identifier/url, keywords/about (themes)
+* publisher + contact point
+* `schema:DataDownload` with content URL and conditions of access
+
 Example usage:
 
 ```bash
@@ -84,7 +94,7 @@ Schema.org example usage:
 
 ```bash
 uv run schema-bridge export \
-  --profile schemaorg \
+  --profile schemaorg-molgenis \
   --format jsonld \
   --limit 10
 ```
