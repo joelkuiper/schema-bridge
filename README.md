@@ -11,8 +11,8 @@ stack or Beacon services.
 - Fetch EMX2 rows via GraphQL.
 - Build a canonical RDF graph from those rows.
 - Export RDF (TTL/JSON-LD/RDF/XML/N-Triples) and tabular formats via SPARQL queries.
-- Validate outputs with SHACL (optional, on by default).
-- (Optionally) Ingest RDF (TTL/JSON-LD/RDF/XML/N-Triples) into EMX2 via GraphQL mutations.
+- Validate outputs with SHACL (optional).
+- Or, optionallym, ingest RDF (TTL/JSON-LD/RDF/XML/N-Triples) into EMX2 via GraphQL mutations.
 
 ## Quick start (export)
 
@@ -27,11 +27,9 @@ You can pass a profile name, a profile folder, or a direct path to `profile.yml`
 
 Add `--debug` to any command to enable verbose logging (both `schema-bridge` and `schema-bridge-ingest`). It can be
 placed before or after the subcommand.
-Use e.g. `uv run schema-bridge run --help` for detailed help.
 
-You can set a limit (`--limit`) to adjust the number of GraphQL results to be fetched. For large
-catalogues, `--page-size` enables server-side paging, and `--updated-since`/`--updated-until` allow
-incremental syncs based on the `mg_updatedOn` system column.
+You can set a limit (`--limit`) to adjust the number of GraphQL results to be fetched.
+Use the command-line help, e.g. `uv run schema-bridge run --help`, for detailed information about parameters.
 
 ## Profiles (export)
 
@@ -60,10 +58,7 @@ Available export profiles in this repo:
 
 ## MOLGENIS Catalogue (Health-DCAT-AP)
 
-For molgeniscatalogue.org, use the `health-dcat-ap-molgenis` profile. It uses the live schema at
-`https://molgeniscatalogue.org/catalogue/graphql`, but the construct is simplified.
-
-To export from molgeniscatalogue.org, point `--base-url` to `https://molgeniscatalogue.org/` and `--schema` to `catalogue`.
+For molgeniscatalogue.org, use the `health-dcat-ap-molgenis` profile.
 
 Caveats (demo profile):
 
@@ -84,9 +79,3 @@ src/schema_bridge/resources/
   ingest_profiles/  # ingest profile folders (profile.yml + graphq/sparql)
   rml/              # RML mappings (optional)
 ```
-
-## Concept-aware mappings
-
-Profiles can define `concept_fields` to preserve ontology structure (URI/code/label) as SKOS concepts
-instead of flattening to strings. This is important for DUO/ICD/SNOMED and similar vocabularies in
-biobank and longitudinal study catalogues.
