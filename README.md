@@ -343,6 +343,14 @@ export:
 validate:
   shacl: <path to shapes file>
   enabled: true|false
+
+Notes:
+
+* `id_strategy.template` controls how subject IRIs are minted. Use `{base_uri}`, `{path}`, and `{id}` placeholders.
+* `id_strategy.fallback_fields` is the ordered list of fields used to pick a stable identifier.
+* `node_defaults.subject_template` controls how nested-object node IRIs are minted.
+* `node_defaults.id_fields` is the ordered list of nested-object fields used to pick node identifiers.
+* `auto_nodes` toggles default promotion of nested objects into nodes.
 ```
 
 **Packaged export profiles:**
