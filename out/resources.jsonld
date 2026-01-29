@@ -1,0 +1,3924 @@
+[
+  {
+    "@id": "https://catalogue.org/dataset/bloodpressure%20after%20birth",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "bloodpressure after birth"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "bloodpressure after birth"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "ENVIRONAGE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "ENVIRonmental influence ON early AGEing"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/OBSERVATION_PERIODS",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "OBSERVATION_PERIODS"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromSourceNames": [
+      {
+        "@value": "ARS_ANAG_MED_RES_storico"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "OBSERVATION_PERIODS"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/pelagie_exam12",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Clinical examination at 12 years old"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "pelagie_exam12"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Clinical examination at 12 years old"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "pelagie_exam12"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/measurements%20at%20FU1",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "measurements at FU1"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "measurements at FU1"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "ENVIRONAGE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "ENVIRonmental influence ON early AGEing"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/bdd_2a_v_1_0",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Table containing  data concerning  second year of life of the child"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "bdd_2a_v_1_0"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "child_data"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "bdd_2a_v_1_0"
+      }
+    ],
+    "https://catalogue.org/field/numberOfRows": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 484
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "Sepages"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "person"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/pelagie_q12",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Questionnaire at 12 years old of the child"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "pelagie_q12"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Questionnaire at 12 years old of the child"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "pelagie_q12"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/outcomes",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "outcomes"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "outcomes"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "LifeCycle"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "The LifeCycle Project"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/BDD_mercure",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "database with measurement of metals in a sample of mothers' hair during the third trimester"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "BDD_mercure"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "database with measurement of metals in a sample of mothers' hair during the third trimester"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "BDD_mercure"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/bdd_pere_1_2",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Table containing data concerning father of the child SEPAGES"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "bdd_pere_1_2"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "father_data"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "bdd_pere_1_2"
+      }
+    ],
+    "https://catalogue.org/field/numberOfRows": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 410
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "Sepages"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "person"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/INSTANCE",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "INSTANCE"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "INSTANCE"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/kayntisyy_icd10",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "kayntisyy_icd10"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "kayntisyy_icd10"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "AVOHILMO"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Register of Primary Health Care Visits (AVOHILMO)"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/Urban_ISGlobal",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Urban exposome dataset generated by Montserrat de Castro (ISGlobal)"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "Urban_ISGlobal"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Urban exposome dataset generated by Montserrat de Castro (ISGlobal)"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "Urban_ISGlobal"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/PROCEDURES",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "PROCEDURES"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromSourceNames": [
+      {
+        "@value": "SPA"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "PROCEDURES"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/blood_pressure",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "blood pressure of the child measured during G21 cohort follow-ups"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "blood_pressure"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "blood pressure"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "blood_pressure"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "G21"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Generation 21"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/efr_mere_LMAB_20210902_26",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Table containing data concerning mother's respiratory examination"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "efr_mere_LMAB_20210902_26"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Respiratory_function_test_mother"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "efr_mere_LMAB_20210902_26"
+      }
+    ],
+    "https://catalogue.org/field/numberOfRows": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 484
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "Sepages"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "person"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/SALM",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "SALM"
+      }
+    ],
+    "https://catalogue.org/field/mappedToSourceNames": [
+      {
+        "@value": "SALM"
+      }
+    ],
+    "https://catalogue.org/field/mappedToTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "SALM"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "SALM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "SALM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/pelagie_dosage12",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "database with blood concentrations of effect biomarkers at 12 years old"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "pelagie_dosage12"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "database with blood concentrations of effect biomarkers at 12 years old"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "pelagie_dosage12"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/BDD_cotinine",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "BDD_cotinine"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "BDD_cotinine"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/BDD_OP",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "BDD_OP"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "BDD_OP"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/pelagie_q0",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "This table contains the variables collected at baseline for PELAGIE (pregnancy and birth)"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "pelagie_q0"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Baseline questionnaire in early pregnancy and data at birth"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "pelagie_q0"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/code_helix_athlete",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Table containing Ids"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "code_helix_athlete"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Id_data"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "code_helix_athlete"
+      }
+    ],
+    "https://catalogue.org/field/numberOfRows": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 484
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "Sepages"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "person"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/AP",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "AP"
+      }
+    ],
+    "https://catalogue.org/field/mappedToSourceNames": [
+      {
+        "@value": "AP"
+      }
+    ],
+    "https://catalogue.org/field/mappedToTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "AP"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "AP"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "AP"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/PERSON_RELATIONSHIPS",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "PERSON_RELATIONSHIPS"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "PERSON_RELATIONSHIPS"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/ch_bf_mr%26ag_2021-12-02_5",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Table containing data concerning breastfeeding"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "ch_bf_mr&ag_2021-12-02_5"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "breastfeeding_data"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "ch_bf_mr&ag_2021-12-02_5"
+      }
+    ],
+    "https://catalogue.org/field/numberOfRows": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 484
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "Sepages"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "person"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/SURVEY_OBSERVATIONS",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "SURVEY_OBSERVATIONS"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromSourceNames": [
+      {
+        "@value": "RMR"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "SURVEY_OBSERVATIONS"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/CPA1",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "CPA1"
+      }
+    ],
+    "https://catalogue.org/field/mappedToSourceNames": [
+      {
+        "@value": "Dutch institute for health and welfare"
+      }
+    ],
+    "https://catalogue.org/field/mappedToTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "CPA1"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "DHL"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Dutch institute for health and welfare"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/ANAGRAFICA",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "ANAGRAFICA"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "ANAGRAFICA"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "ANAGRAFICA"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "ANAGRAFICA"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/METADATA",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "METADATA"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "METADATA"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/PS",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "PS"
+      }
+    ],
+    "https://catalogue.org/field/mappedToSourceNames": [
+      {
+        "@value": "ARS_PS"
+      }
+    ],
+    "https://catalogue.org/field/mappedToTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "PS"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "ARS_PS"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "ARS_PS"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/kayntisyy_icpc2",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "kayntisyy_icpc2"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "kayntisyy_icpc2"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "AVOHILMO"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Register of Primary Health Care Visits (AVOHILMO)"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/BDD_phtalates_phenols",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "database with phtalates and phenols measurement from maternal urine sample"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "BDD_phtalates_phenols"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "database with phtalates and phenols measurement from maternal urine sample"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "BDD_phtalates_phenols"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/VACCINES",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "VACCINES"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromSourceNames": [
+      {
+        "@value": "VCN"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "VACCINES"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/CHILD-ALLGENERALDATA_12112020",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "CHILD-ALLGENERALDATA_12112020"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "DataWiki dataset CHILD-ALLGENERALDATA_12112020"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "CHILD-ALLGENERALDATA_12112020"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "GenR"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "The Generation R Study"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/FARMACEUTICA",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "FARMACEUTICA"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "FARMACEUTICA"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "FARMACEUTICA"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "FARMACEUTICA"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/COD_FARMACI_SPF",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "COD_FARMACI_SPF"
+      }
+    ],
+    "https://catalogue.org/field/mappedToSourceNames": [
+      {
+        "@value": "COD_FARMACI_SPF"
+      }
+    ],
+    "https://catalogue.org/field/mappedToTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "COD_FARMACI_SPF"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "COD_FARMACI_SPF"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "COD_FARMACI_SPF"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/BDD_perfluores",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "database with PFASs measurement from cord blood and in the blood of children at 12 years"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "BDD_perfluores"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "database with PFASs measurement from cord blood and in the blood of children at 12 years"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "BDD_perfluores"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/datenaisspere",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Father date of birth from 6 and 12 years old follow-ups"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "datenaisspere"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Father date of birth"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "datenaisspere"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/EXE",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "EXE"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "EXE"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "EXE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "EXE"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/BDD_creatinine",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "BDD_creatinine"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "BDD_creatinine"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/outcome_ath",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "outcome_ath"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Outcome (ATHLETE)"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "outcome_ath"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "ATHLETE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Advancing Tools for Human Early Lifecourse Exposome Research and Translation"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/SPA",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "SPA"
+      }
+    ],
+    "https://catalogue.org/field/mappedToSourceNames": [
+      {
+        "@value": "SPA"
+      }
+    ],
+    "https://catalogue.org/field/mappedToTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "SPA"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "SPA"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "SPA"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/pepsy",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Neuropsychological tests at 6 years old"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "pepsy"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Neuropsychological tests at 6 years old"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "pepsy"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/harmonized",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Non existing variables created for ATHLETE"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "harmonized"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Variables harmonized for ATHLETE or LifeCycle"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "harmonized"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/child",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "child"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "child"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "child"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "G21"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Generation 21"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "person"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/SEA",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "SEA"
+      }
+    ],
+    "https://catalogue.org/field/mappedToSourceNames": [
+      {
+        "@value": "SEA"
+      }
+    ],
+    "https://catalogue.org/field/mappedToTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "SEA"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "SEA"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "SEA"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/DIAGNOSTIC",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "DIAGNOSTIC"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "DIAGNOSTIC"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "DIAGNOSTIC"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "DIAGNOSTIC"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/test%20dataset%20for%20testCohort4",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "test dataset for testCohort4"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "test dataset for testCohort4"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "testCohort4"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "testCohort4"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/SPF",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "SPF"
+      }
+    ],
+    "https://catalogue.org/field/mappedToSourceNames": [
+      {
+        "@value": "SPF"
+      }
+    ],
+    "https://catalogue.org/field/mappedToTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "SPF"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "SPF"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "SPF"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/MEDICINES",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "MEDICINES"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromSourceNames": [
+      {
+        "@value": "SPF"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "MEDICINES"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/tabac_passif_enf",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Table containing data concerning child's Exposure to Tobacco Smoke"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "tabac_passif_enf"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "ETS_data"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "tabac_passif_enf"
+      }
+    ],
+    "https://catalogue.org/field/numberOfRows": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 484
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "Sepages"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "person"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/MBRN_child",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "MBRN_child"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "MBRN_child"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "MBRN"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "MBRN"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/measurements%20after%20birth",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "measurements after birth"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "measurements after birth"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "ENVIRONAGE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "ENVIRonmental influence ON early AGEing"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/PE_preg_mr_2021-12-02_379",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Table containing data concerning assessment of phenols and phtalates during pregnancy"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "PE_preg_mr_2021-12-02_379"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "phenols_phthalates_pregnancy_data"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "PE_preg_mr_2021-12-02_379"
+      }
+    ],
+    "https://catalogue.org/field/numberOfRows": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 479
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "Sepages"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "person"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/efr_pere_LMAB_20210902_26",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Table containing data concerning  father's respiratory examination"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "efr_pere_LMAB_20210902_26"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Respiratory_function_test_father"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "efr_pere_LMAB_20210902_26"
+      }
+    ],
+    "https://catalogue.org/field/numberOfRows": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 484
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "Sepages"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "person"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/BDD_pop",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "database with POPs measurement from cord blood and in the blood of children at 12 years"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "BDD_pop"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "database with POPs measurement from cord blood and in the blood of children at 12 years"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "BDD_pop"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/ARS_ANAG_MED_RES_storico",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "ARS_ANAG_MED_RES_storico"
+      }
+    ],
+    "https://catalogue.org/field/mappedToSourceNames": [
+      {
+        "@value": "ARS_ANAG_MED_RES_storico"
+      }
+    ],
+    "https://catalogue.org/field/mappedToTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "ARS_ANAG_MED_RES_storico"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "ARS_ANAG_MED_RES_storico"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "ARS_ANAG_MED_RES_storico"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/new",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Non existing variables created for ATHLETE"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "new"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Created variables for ATHLETE"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "new"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/BDD_ethers",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "BDD_ethers"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "BDD_ethers"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/palvelutapahtuma",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "palvelutapahtuma"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "palvelutapahtuma"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "AVOHILMO"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Register of Primary Health Care Visits (AVOHILMO)"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/PERSONS",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "PERSONS"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromSourceNames": [
+      {
+        "@value": "ARS_ANAG_MED_RES_storico"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "PERSONS"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/FETALCRL_22112016",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "FETALCRL_22112016"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "DataWiki dataset FETALCRL_22112016"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "FETALCRL_22112016"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "GenR"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "The Generation R Study"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/quest_mt1raa1",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Table containing data concerning mother's educational level"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "quest_mt1raa1"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "educational_level_mother_data"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "quest_mt1raa1"
+      }
+    ],
+    "https://catalogue.org/field/numberOfRows": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 484
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "Sepages"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "person"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/wave_01",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Table of wave 1 variables for LongITools"
+      },
+      {
+        "@value": "Wave 1 variables for NFBC1966"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "wave_01"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Wave 1 variables"
+      },
+      {
+        "@value": "wave 1 variables"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "wave_01"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "LongITools"
+      },
+      {
+        "@value": "NFBC1966"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "LongITools health & environment dynamics"
+      },
+      {
+        "@value": "NFBC1966"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/MEDICAL_OBSERVATIONS",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "MEDICAL_OBSERVATIONS"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromSourceNames": [
+      {
+        "@value": "AP"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "MEDICAL_OBSERVATIONS"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/SPECIALISTICA",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "SPECIALISTICA"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "SPECIALISTICA"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "SPECIALISTICA"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "SPECIALISTICA"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/outcome",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "outcome"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "outcome"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "LifeCycle"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "The LifeCycle Project"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/avo_toimenpide",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "avo_toimenpide"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "avo_toimenpide"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "AVOHILMO"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Register of Primary Health Care Visits (AVOHILMO)"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/base_respi_enfant_20210326",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Table containing data concerning respiratory health questionnaires for children up to 3 years old"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "base_respi_enfant_20210326"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Respiratory_child_data"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "base_respi_enfant_20210326"
+      }
+    ],
+    "https://catalogue.org/field/numberOfRows": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 484
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "Sepages"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "person"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/EUROCAT",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "EUROCAT"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "EUROCAT"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/RMR",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "RMR"
+      }
+    ],
+    "https://catalogue.org/field/mappedToSourceNames": [
+      {
+        "@value": "RMR"
+      }
+    ],
+    "https://catalogue.org/field/mappedToTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "RMR"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "RMR"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "RMR"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/core",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "core"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "core"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "GenR"
+      },
+      {
+        "@value": "LifeCycle"
+      },
+      {
+        "@value": "NFBC1966"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "The Generation R Study"
+      },
+      {
+        "@value": "The LifeCycle Project"
+      },
+      {
+        "@value": "NFBC1966"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/PRODUCTS",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "PRODUCTS"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromSourceNames": [
+      {
+        "@value": "COD_FARMACI_SPF"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "PRODUCTS"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/FETALPLACENTA_22112016",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "FETALPLACENTA_22112016"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "DataWiki dataset FETALPLACENTA_22112016"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "FETALPLACENTA_22112016"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "GenR"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "The Generation R Study"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/pelagie_q2",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Questionnaire at 2 years old of the child"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "pelagie_q2"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Questionnaire at 2 years old of the child"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "pelagie_q2"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/PHT",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "PHT"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "PHT"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PHT"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "PHT"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/cdm_1",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "cdm_1"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "cdm_1"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "testNetwork1"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "name for test network1"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/maj_ddn_2021",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Date of birth updated in 2021"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "maj_ddn_2021"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Update of the date of birth"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "maj_ddn_2021"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/bdd_grossesse_v5_1",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Table containing data concerning pregnancy"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "bdd_grossesse_v5_1"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "pregnancy_data"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "bdd_grossesse_v5_1"
+      }
+    ],
+    "https://catalogue.org/field/numberOfRows": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 484
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "Sepages"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "person"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/EFEMERIS_PRESCRIPTION",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "EFEMERIS_PRESCRIPTION"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "EFEMERIS_PRESCRIPTION"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "EFEMERIS_PRESCRIPTION"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "EFEMERIS_PRESCRIPTION"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/ATHLETE_fetal_growth_standardized",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "ATHLETE_fetal_growth_standardized"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "ATHLETE Harmonised dataset with standardized fetal growth data: ATHLETE_fetal_growth_standardized"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "ATHLETE_fetal_growth_standardized"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "GenR"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "The Generation R Study"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/geocodes",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "database with geocodes of the participants"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "geocodes"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "database with geocodes of the participants"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "geocodes"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/Ultrasound_all_SLC_20220428_893",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Table containing data concerning ultrasound"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "Ultrasound_all_SLC_20220428_893"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "ultrasound_data"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "Ultrasound_all_SLC_20220428_893"
+      }
+    ],
+    "https://catalogue.org/field/numberOfRows": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 458
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "Sepages"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "person"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/pelagie_q6",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Questionnaire at 6 years old of the child"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "pelagie_q6"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Questionnaire at 6 years old of the child"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "pelagie_q6"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/CDM_SOURCE",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "CDM_SOURCE"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "CDM_SOURCE"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/VISIT_OCCURRENCE",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "VISIT_OCCURRENCE"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromSourceNames": [
+      {
+        "@value": "AP"
+      },
+      {
+        "@value": "SPA"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "VISIT_OCCURRENCE"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/EVENTS",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "EVENTS"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromSourceNames": [
+      {
+        "@value": "Dutch institute for health and welfare"
+      },
+      {
+        "@value": "ARS_PS"
+      },
+      {
+        "@value": "SALM"
+      },
+      {
+        "@value": "SEA"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "EVENTS"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/VCN",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "VCN"
+      }
+    ],
+    "https://catalogue.org/field/mappedToSourceNames": [
+      {
+        "@value": "VCN"
+      }
+    ],
+    "https://catalogue.org/field/mappedToTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "VCN"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "VCN"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "VCN"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/CPA2",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "CPA2"
+      }
+    ],
+    "https://catalogue.org/field/mappedToSourceNames": [
+      {
+        "@value": "Dutch institute for health and welfare"
+      }
+    ],
+    "https://catalogue.org/field/mappedToTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "CPA2"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "DHL"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Dutch institute for health and welfare"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/pelagie_GC_q11",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Questionnaire at 11 years old of the child (Grandir et Changer)"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "pelagie_GC_q11"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Questionnaire at 11 years old of the child"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "pelagie_GC_q11"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "PELAGIE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/test%20dataset%20for%20testCohort3",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "test dataset for testCohort3"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "test dataset for testCohort3"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "testCohort3"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "testCohort3C"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/bdd_1a_v1_1",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Table containing data concerning first year of life of the child"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "bdd_1a_v1_1"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "child_data"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "bdd_1a_v1_1"
+      }
+    ],
+    "https://catalogue.org/field/numberOfRows": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 484
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "Sepages"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "person"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/SURVEY_ID",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "SURVEY_ID"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromSourceNames": [
+      {
+        "@value": "RMR"
+      }
+    ],
+    "https://catalogue.org/field/mappedFromTargetNames": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "SURVEY_ID"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "OOM"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/MBRN_mother",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "MBRN_mother"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "MBRN_mother"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "MBRN"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "MBRN"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/FETALGROWTH_22112016",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "FETALGROWTH_22112016"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "DataWiki dataset FETALGROWTH_22112016"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "FETALGROWTH_22112016"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "GenR"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "The Generation R Study"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/chemicals_ath",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "chemicals_ath"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "Chemicals (ATHLETE)"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "chemicals_ath"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "ATHLETE"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Advancing Tools for Human Early Lifecourse Exposome Research and Translation"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/ddn_pere",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/description": [
+      {
+        "@value": "Table containing date of birth of the father"
+      }
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "ddn_pere"
+      }
+    ],
+    "https://catalogue.org/field/label": [
+      {
+        "@value": "ddn_father"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "ddn_pere"
+      }
+    ],
+    "https://catalogue.org/field/numberOfRows": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 484
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "Sepages"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0.0"
+      }
+    ],
+    "https://catalogue.org/field/unitOfObservationName": [
+      {
+        "@value": "person"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/MBRN",
+    "@type": [
+      "https://catalogue.org/entity/Dataset"
+    ],
+    "https://catalogue.org/field/id": [
+      {
+        "@value": "MBRN"
+      }
+    ],
+    "https://catalogue.org/field/name": [
+      {
+        "@value": "MBRN"
+      }
+    ],
+    "https://catalogue.org/field/resourceId": [
+      {
+        "@value": "MBRN"
+      }
+    ],
+    "https://catalogue.org/field/resourceName": [
+      {
+        "@value": "MBRN"
+      }
+    ],
+    "https://catalogue.org/field/sinceVersion": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  }
+]

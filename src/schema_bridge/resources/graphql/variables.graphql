@@ -1,0 +1,79 @@
+query Variables($variableFilter: VariablesFilter, $resourcesFilter: ResourcesFilter) {
+  Variables(filter: $variableFilter) {
+    name
+    resource {
+      id
+      name
+    }
+    dataset {
+      name
+      resource {
+        id
+      }
+    }
+    label
+    description
+    unit {
+      name
+    }
+    repeatUnit {
+      name
+    }
+    repeatMin
+    repeatMax
+    format {
+      name
+    }
+    mappings {
+      syntax
+      description
+      match {
+        name
+      }
+      source {
+        id
+        name
+      }
+      sourceDataset {
+        resource {
+          id
+        }
+      }
+      sourceVariables {
+        name
+        resource {
+          id
+        }
+        dataset {
+          name
+          resource {
+            id
+          }
+        }
+      }
+      sourceVariablesOtherDatasets {
+        name
+        dataset {
+          name
+          resource {
+            id
+          }
+        }
+      }
+      targetVariable {
+        dataset {
+          resource {
+            id
+          }
+          name
+        }
+        name
+      }
+      repeats
+    }
+  }
+  Resources(orderby: { id: ASC }, filter: $resourcesFilter) {
+    id
+    name
+  }
+}

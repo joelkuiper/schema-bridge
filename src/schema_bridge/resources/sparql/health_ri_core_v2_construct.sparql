@@ -1,0 +1,43 @@
+PREFIX field: <https://catalogue.org/field/>
+PREFIX entity: <https://catalogue.org/entity/>
+
+CONSTRUCT {
+  ?ds a entity:Dataset ;
+      field:id ?id ;
+      field:resourceId ?resourceId ;
+      field:resourceName ?resourceName ;
+      field:name ?name ;
+      field:label ?label ;
+      field:description ?description ;
+      field:unitOfObservationName ?unitOfObservationName ;
+      field:unitOfObservationCode ?unitOfObservationCode ;
+      field:numberOfRows ?numberOfRows ;
+      field:sinceVersion ?sinceVersion ;
+      field:untilVersion ?untilVersion ;
+      field:keywordNames ?keywordName ;
+      field:keywordCodes ?keywordCode ;
+      field:mappedToSourceNames ?mappedToSourceName ;
+      field:mappedToTargetNames ?mappedToTargetName ;
+      field:mappedFromSourceNames ?mappedFromSourceName ;
+      field:mappedFromTargetNames ?mappedFromTargetName .
+}
+WHERE {
+  ?ds a entity:Dataset ;
+      field:id ?id ;
+      field:name ?name .
+  OPTIONAL { ?ds field:resourceId ?resourceId . }
+  OPTIONAL { ?ds field:resourceName ?resourceName . }
+  OPTIONAL { ?ds field:label ?label . }
+  OPTIONAL { ?ds field:description ?description . }
+  OPTIONAL { ?ds field:unitOfObservationName ?unitOfObservationName . }
+  OPTIONAL { ?ds field:unitOfObservationCode ?unitOfObservationCode . }
+  OPTIONAL { ?ds field:numberOfRows ?numberOfRows . }
+  OPTIONAL { ?ds field:sinceVersion ?sinceVersion . }
+  OPTIONAL { ?ds field:untilVersion ?untilVersion . }
+  OPTIONAL { ?ds field:keywordNames ?keywordName . }
+  OPTIONAL { ?ds field:keywordCodes ?keywordCode . }
+  OPTIONAL { ?ds field:mappedToSourceNames ?mappedToSourceName . }
+  OPTIONAL { ?ds field:mappedToTargetNames ?mappedToTargetName . }
+  OPTIONAL { ?ds field:mappedFromSourceNames ?mappedFromSourceName . }
+  OPTIONAL { ?ds field:mappedFromTargetNames ?mappedFromTargetName . }
+}

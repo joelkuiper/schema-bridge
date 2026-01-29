@@ -1,0 +1,13 @@
+{
+  "data": {
+    "Resources": [
+      {
+        "id": "R1",
+        "name": "Resource One",
+        "description": "Example description",
+        "website": "https://example.org",
+        "contactEmail": "a@example.org"
+      }
+    ]
+  }
+}

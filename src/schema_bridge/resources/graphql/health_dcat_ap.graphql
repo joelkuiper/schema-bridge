@@ -1,0 +1,66 @@
+query HealthDcatApResources($limit: Int, $offset: Int) {
+  Resources(limit: $limit, offset: $offset) {
+    id
+    acronym
+    name
+    description
+    website
+    contactEmail
+    leadOrganisation {
+      acronym
+    }
+    type {
+      name
+    }
+    collectionType {
+      name
+    }
+    populationAgeGroups {
+      code
+      parent {
+        code
+      }
+    }
+    startYear
+    endYear
+    countries {
+      name
+    }
+    regions {
+      name
+    }
+    numberOfParticipants
+    numberOfParticipantsWithSamples
+    designDescription
+    design {
+      definition
+      name
+    }
+    designPaper {
+      title
+      doi
+    }
+    inclusionCriteria {
+      code
+      parent {
+        code
+      }
+    }
+    otherInclusionCriteria
+    dataAccessConditions {
+      code
+      ontologyTermURI
+      definition
+    }
+    dataAccessConditionsDescription
+    dataUseConditions {
+      code
+      ontologyTermURI
+      definition
+    }
+    dataAccessFee
+    releaseDescription
+    fundingStatement
+    acknowledgements
+  }
+}

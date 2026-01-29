@@ -1,0 +1,38 @@
+query HealthRiCoreV2Datasets($limit: Int, $offset: Int) {
+  Datasets(limit: $limit, offset: $offset) {
+    resource {
+      id
+      name
+    }
+    name
+    description
+    label
+    unitOfObservation {
+      name
+      code
+    }
+    keywords {
+      name
+      code
+    }
+    numberOfRows
+    mappedTo {
+      source {
+        name
+      }
+      target {
+        name
+      }
+    }
+    mappedFrom {
+      source {
+        name
+      }
+      target {
+        name
+      }
+    }
+    sinceVersion
+    untilVersion
+  }
+}

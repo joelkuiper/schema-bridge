@@ -1,0 +1,32 @@
+name: dcat
+description: DCAT dataset export
+fetch:
+  graphql: graphql/resources.graphql
+  root_key: Resources
+export:
+  select: resources_select.sparql
+  construct: dcat_construct.sparql
+  outputs:
+    - csv
+    - json
+    - jsonld
+    - ttl
+mapping:
+  entity_name: Resource
+  subject_path: resource
+  id_field: id
+mapping:
+  entity_name: Resource
+  subject_path: resource
+  id_field: id
+  iri_fields:
+    - website
+    - landingPage
+    - theme
+    - license
+    - accessRights
+    - hasPolicy
+    - relation
+shacl:
+  shapes: shacl/dcat.shacl.ttl
+  validate: true

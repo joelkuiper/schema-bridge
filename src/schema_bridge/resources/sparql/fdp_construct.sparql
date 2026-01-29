@@ -1,0 +1,70 @@
+PREFIX ex: <https://catalogue.org/>
+PREFIX field: <https://catalogue.org/field/>
+PREFIX entity: <https://catalogue.org/entity/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX ldp: <http://www.w3.org/ns/ldp#>
+PREFIX fdp: <https://w3id.org/fdp/fdp-o#>
+
+CONSTRUCT {
+  ?fdp a fdp:MetadataService, dcat:DataService, ldp:DirectContainer ;
+       dct:title ?fdpTitle ;
+       dct:conformsTo ?fdpProfile ;
+       ldp:hasMemberRelation fdp:metadataCatalog ;
+       ldp:membershipResource ?fdp ;
+       ldp:contains ?catalog ;
+       fdp:metadataCatalog ?catalog .
+  ?catalog a dcat:Catalog, ldp:DirectContainer ;
+           dct:title ?catalogTitle ;
+           dct:conformsTo ?catalogProfile ;
+           ldp:hasMemberRelation dcat:dataset ;
+           ldp:membershipResource ?catalog ;
+           ldp:contains ?dataset ;
+           dcat:dataset ?dataset .
+  ?dataset a dcat:Dataset ;
+           dct:title ?title ;
+           dct:identifier ?identifier ;
+           dct:description ?desc ;
+           dcat:landingPage ?landingPageIri ;
+           dct:conformsTo ?datasetProfile ;
+           dcat:distribution ?distribution ;
+           dcat:accessService ?service .
+  ?distribution a dcat:Distribution ;
+                dcat:accessURL ?landingPageIri ;
+                dct:conformsTo ?distributionProfile .
+  ?service a dcat:DataService ;
+           dcat:endpointURL ?landingPageIri ;
+           dcat:servesDataset ?dataset ;
+           dct:conformsTo ?serviceProfile .
+}
+WHERE {
+  BIND(ex:fdp AS ?fdp)
+  BIND(ex:catalog AS ?catalog)
+  BIND("EMX2 FAIR Data Point" AS ?fdpTitle)
+  BIND("EMX2 Catalog" AS ?catalogTitle)
+  BIND(IRI("https://w3id.org/fairtools/fdp/schema/0.1/fdpMetadata") AS ?fdpProfile)
+  BIND(IRI("https://w3id.org/fairtools/fdp/schema/0.1/catalogMetadata") AS ?catalogProfile)
+  BIND(IRI("https://w3id.org/fairtools/fdp/schema/0.1/datasetMetadata") AS ?datasetProfile)
+  BIND(IRI("https://w3id.org/fairtools/fdp/schema/0.1/distributionMetadata") AS ?distributionProfile)
+  BIND(IRI("https://w3id.org/fairtools/fdp/schema/0.1/dataServiceMetadata") AS ?serviceProfile)
+
+  ?res a ?entity .
+  VALUES ?entity { entity:Resource entity:Dataset }
+  OPTIONAL { ?res field:title ?titleValue . }
+  OPTIONAL { ?res field:name ?nameValue . }
+  BIND(COALESCE(?titleValue, ?nameValue) AS ?title)
+  FILTER(BOUND(?title))
+  OPTIONAL { ?res field:description ?desc . }
+  OPTIONAL { ?res field:id ?identifier . }
+  OPTIONAL { ?res field:landingPage ?landingPage . }
+  OPTIONAL { ?res field:website ?website . }
+  BIND(COALESCE(?landingPage, ?website) AS ?landingPageRaw)
+  BIND(IRI(STR(?landingPageRaw)) AS ?landingPageIri)
+
+  BIND(?res AS ?dataset)
+  OPTIONAL {
+    FILTER(BOUND(?landingPageIri))
+    BIND(IRI(CONCAT(STR(?res), "/distribution")) AS ?distribution)
+    BIND(IRI(CONCAT(STR(?res), "/service")) AS ?service)
+  }
+}

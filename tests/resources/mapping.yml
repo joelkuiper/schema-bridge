@@ -1,0 +1,14 @@
+mapping:
+  entity_name: Resource
+  subject_path: resource
+  id_field: id
+  field_aliases:
+    code: id
+    label: name
+  iri_fields:
+    - website
+    - landingPage
+  field_paths:
+    leadOrganisationAcronym: leadOrganisation.acronym
+    countryNames: countries[].name
+  drop_nested: true

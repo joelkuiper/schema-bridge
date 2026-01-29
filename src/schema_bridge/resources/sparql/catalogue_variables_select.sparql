@@ -1,0 +1,57 @@
+PREFIX field: <https://catalogue.org/field/>
+PREFIX entity: <https://catalogue.org/entity/>
+
+SELECT
+  ?id
+  ?name
+  ?resourceId
+  ?resourceName
+  ?datasetName
+  ?datasetResourceId
+  ?label
+  ?description
+  ?unitName
+  ?repeatUnitName
+  ?repeatMin
+  ?repeatMax
+  ?formatName
+  (GROUP_CONCAT(?mappingSyntax;separator="|") AS ?mappingSyntaxes)
+  (GROUP_CONCAT(?mappingMatchName;separator="|") AS ?mappingMatchNames)
+  (GROUP_CONCAT(?mappingSourceId;separator="|") AS ?mappingSourceIds)
+  (GROUP_CONCAT(?mappingSourceVariableName;separator="|") AS ?mappingSourceVariableNames)
+  (GROUP_CONCAT(?mappingTargetVariableName;separator="|") AS ?mappingTargetVariableNames)
+WHERE {
+  ?var a entity:Variable ;
+       field:id ?id ;
+       field:name ?name .
+  OPTIONAL { ?var field:resourceId ?resourceId . }
+  OPTIONAL { ?var field:resourceName ?resourceName . }
+  OPTIONAL { ?var field:datasetName ?datasetName . }
+  OPTIONAL { ?var field:datasetResourceId ?datasetResourceId . }
+  OPTIONAL { ?var field:label ?label . }
+  OPTIONAL { ?var field:description ?description . }
+  OPTIONAL { ?var field:unitName ?unitName . }
+  OPTIONAL { ?var field:repeatUnitName ?repeatUnitName . }
+  OPTIONAL { ?var field:repeatMin ?repeatMin . }
+  OPTIONAL { ?var field:repeatMax ?repeatMax . }
+  OPTIONAL { ?var field:formatName ?formatName . }
+  OPTIONAL { ?var field:mappingSyntaxes ?mappingSyntax . }
+  OPTIONAL { ?var field:mappingMatchNames ?mappingMatchName . }
+  OPTIONAL { ?var field:mappingSourceIds ?mappingSourceId . }
+  OPTIONAL { ?var field:mappingSourceVariableNames ?mappingSourceVariableName . }
+  OPTIONAL { ?var field:mappingTargetVariableNames ?mappingTargetVariableName . }
+}
+GROUP BY
+  ?id
+  ?name
+  ?resourceId
+  ?resourceName
+  ?datasetName
+  ?datasetResourceId
+  ?label
+  ?description
+  ?unitName
+  ?repeatUnitName
+  ?repeatMin
+  ?repeatMax
+  ?formatName

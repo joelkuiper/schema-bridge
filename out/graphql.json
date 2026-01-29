@@ -1,0 +1,1313 @@
+{
+  "data": {
+    "Datasets": [
+      {
+        "name": "avo_toimenpide",
+        "resource": {
+          "id": "AVOHILMO",
+          "name": "Register of Primary Health Care Visits (AVOHILMO)"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "mappedTo": [
+          {
+            "source": {
+              "name": "COD_FARMACI_SPF"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "COD_FARMACI_SPF",
+        "resource": {
+          "id": "COD_FARMACI_SPF",
+          "name": "COD_FARMACI_SPF"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "name": "DIAGNOSTIC",
+        "resource": {
+          "id": "DIAGNOSTIC",
+          "name": "DIAGNOSTIC"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "name": "EFEMERIS_PRESCRIPTION",
+        "resource": {
+          "id": "EFEMERIS_PRESCRIPTION",
+          "name": "EFEMERIS_PRESCRIPTION"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "name": "EXE",
+        "resource": {
+          "id": "EXE",
+          "name": "EXE"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "name": "test dataset for testCohort3",
+        "resource": {
+          "id": "testCohort3",
+          "name": "testCohort3C"
+        }
+      },
+      {
+        "name": "test dataset for testCohort4",
+        "resource": {
+          "id": "testCohort4",
+          "name": "testCohort4"
+        }
+      },
+      {
+        "name": "cdm_1",
+        "resource": {
+          "id": "testNetwork1",
+          "name": "name for test network1"
+        }
+      },
+      {
+        "label": "child",
+        "name": "child",
+        "resource": {
+          "id": "G21",
+          "name": "Generation 21"
+        },
+        "sinceVersion": "1",
+        "unitOfObservation": {
+          "name": "person"
+        }
+      },
+      {
+        "description": "blood pressure of the child measured during G21 cohort follow-ups",
+        "label": "blood pressure",
+        "name": "blood_pressure",
+        "resource": {
+          "id": "G21",
+          "name": "Generation 21"
+        },
+        "sinceVersion": "1.0.0"
+      },
+      {
+        "name": "measurements after birth",
+        "resource": {
+          "id": "ENVIRONAGE",
+          "name": "ENVIRonmental influence ON early AGEing"
+        }
+      },
+      {
+        "name": "measurements at FU1",
+        "resource": {
+          "id": "ENVIRONAGE",
+          "name": "ENVIRonmental influence ON early AGEing"
+        }
+      },
+      {
+        "name": "bloodpressure after birth",
+        "resource": {
+          "id": "ENVIRONAGE",
+          "name": "ENVIRonmental influence ON early AGEing"
+        }
+      },
+      {
+        "mappedTo": [
+          {
+            "source": {
+              "name": "Dutch institute for health and welfare"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "CPA2",
+        "resource": {
+          "id": "DHL",
+          "name": "Dutch institute for health and welfare"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "mappedTo": [
+          {
+            "source": {
+              "name": "Dutch institute for health and welfare"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "CPA1",
+        "resource": {
+          "id": "DHL",
+          "name": "Dutch institute for health and welfare"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "name": "core",
+        "resource": {
+          "id": "GenR",
+          "name": "The Generation R Study"
+        },
+        "sinceVersion": "1.0.0"
+      },
+      {
+        "label": "DataWiki dataset FETALCRL_22112016",
+        "name": "FETALCRL_22112016",
+        "resource": {
+          "id": "GenR",
+          "name": "The Generation R Study"
+        },
+        "sinceVersion": "1.0.0"
+      },
+      {
+        "label": "DataWiki dataset FETALPLACENTA_22112016",
+        "name": "FETALPLACENTA_22112016",
+        "resource": {
+          "id": "GenR",
+          "name": "The Generation R Study"
+        },
+        "sinceVersion": "1.0.0"
+      },
+      {
+        "label": "ATHLETE Harmonised dataset with standardized fetal growth data: ATHLETE_fetal_growth_standardized",
+        "name": "ATHLETE_fetal_growth_standardized",
+        "resource": {
+          "id": "GenR",
+          "name": "The Generation R Study"
+        },
+        "sinceVersion": "1.0.0"
+      },
+      {
+        "label": "DataWiki dataset CHILD-ALLGENERALDATA_12112020",
+        "name": "CHILD-ALLGENERALDATA_12112020",
+        "resource": {
+          "id": "GenR",
+          "name": "The Generation R Study"
+        },
+        "sinceVersion": "1.0.0"
+      },
+      {
+        "label": "DataWiki dataset FETALGROWTH_22112016",
+        "name": "FETALGROWTH_22112016",
+        "resource": {
+          "id": "GenR",
+          "name": "The Generation R Study"
+        },
+        "sinceVersion": "1.0.0"
+      },
+      {
+        "name": "ANAGRAFICA",
+        "resource": {
+          "id": "ANAGRAFICA",
+          "name": "ANAGRAFICA"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "mappedTo": [
+          {
+            "source": {
+              "name": "AP"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          },
+          {
+            "source": {
+              "name": "AP"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "AP",
+        "resource": {
+          "id": "AP",
+          "name": "AP"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "mappedTo": [
+          {
+            "source": {
+              "name": "ARS_ANAG_MED_RES_storico"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          },
+          {
+            "source": {
+              "name": "ARS_ANAG_MED_RES_storico"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "ARS_ANAG_MED_RES_storico",
+        "resource": {
+          "id": "ARS_ANAG_MED_RES_storico",
+          "name": "ARS_ANAG_MED_RES_storico"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "mappedTo": [
+          {
+            "source": {
+              "name": "ARS_PS"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "PS",
+        "resource": {
+          "id": "ARS_PS",
+          "name": "ARS_PS"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "name": "palvelutapahtuma",
+        "resource": {
+          "id": "AVOHILMO",
+          "name": "Register of Primary Health Care Visits (AVOHILMO)"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "name": "kayntisyy_icd10",
+        "resource": {
+          "id": "AVOHILMO",
+          "name": "Register of Primary Health Care Visits (AVOHILMO)"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "name": "kayntisyy_icpc2",
+        "resource": {
+          "id": "AVOHILMO",
+          "name": "Register of Primary Health Care Visits (AVOHILMO)"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "name": "FARMACEUTICA",
+        "resource": {
+          "id": "FARMACEUTICA",
+          "name": "FARMACEUTICA"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "name": "MBRN_mother",
+        "resource": {
+          "id": "MBRN",
+          "name": "MBRN"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "name": "MBRN_child",
+        "resource": {
+          "id": "MBRN",
+          "name": "MBRN"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "name": "MBRN",
+        "resource": {
+          "id": "MBRN",
+          "name": "MBRN"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "name": "PHT",
+        "resource": {
+          "id": "PHT",
+          "name": "PHT"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "mappedTo": [
+          {
+            "source": {
+              "name": "RMR"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          },
+          {
+            "source": {
+              "name": "RMR"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "RMR",
+        "resource": {
+          "id": "RMR",
+          "name": "RMR"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "mappedTo": [
+          {
+            "source": {
+              "name": "SALM"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "SALM",
+        "resource": {
+          "id": "SALM",
+          "name": "SALM"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "mappedTo": [
+          {
+            "source": {
+              "name": "SEA"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "SEA",
+        "resource": {
+          "id": "SEA",
+          "name": "SEA"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "mappedTo": [
+          {
+            "source": {
+              "name": "SPA"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          },
+          {
+            "source": {
+              "name": "SPA"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "SPA",
+        "resource": {
+          "id": "SPA",
+          "name": "SPA"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "name": "SPECIALISTICA",
+        "resource": {
+          "id": "SPECIALISTICA",
+          "name": "SPECIALISTICA"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "mappedTo": [
+          {
+            "source": {
+              "name": "SPF"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "SPF",
+        "resource": {
+          "id": "SPF",
+          "name": "SPF"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "mappedTo": [
+          {
+            "source": {
+              "name": "VCN"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "VCN",
+        "resource": {
+          "id": "VCN",
+          "name": "VCN"
+        },
+        "sinceVersion": "1.0"
+      },
+      {
+        "mappedFrom": [
+          {
+            "source": {
+              "name": "AP"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          },
+          {
+            "source": {
+              "name": "SPA"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "VISIT_OCCURRENCE",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "mappedFrom": [
+          {
+            "source": {
+              "name": "Dutch institute for health and welfare"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          },
+          {
+            "source": {
+              "name": "Dutch institute for health and welfare"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          },
+          {
+            "source": {
+              "name": "ARS_PS"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          },
+          {
+            "source": {
+              "name": "SALM"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          },
+          {
+            "source": {
+              "name": "SEA"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "EVENTS",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "mappedFrom": [
+          {
+            "source": {
+              "name": "SPF"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "MEDICINES",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "mappedFrom": [
+          {
+            "source": {
+              "name": "SPA"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "PROCEDURES",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "mappedFrom": [
+          {
+            "source": {
+              "name": "VCN"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "VACCINES",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "mappedFrom": [
+          {
+            "source": {
+              "name": "AP"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "MEDICAL_OBSERVATIONS",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "name": "EUROCAT",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "mappedFrom": [
+          {
+            "source": {
+              "name": "RMR"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "SURVEY_ID",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "mappedFrom": [
+          {
+            "source": {
+              "name": "RMR"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "SURVEY_OBSERVATIONS",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "mappedFrom": [
+          {
+            "source": {
+              "name": "ARS_ANAG_MED_RES_storico"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "PERSONS",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "mappedFrom": [
+          {
+            "source": {
+              "name": "ARS_ANAG_MED_RES_storico"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "OBSERVATION_PERIODS",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "name": "PERSON_RELATIONSHIPS",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "mappedFrom": [
+          {
+            "source": {
+              "name": "COD_FARMACI_SPF"
+            },
+            "target": {
+              "name": "OOM"
+            }
+          }
+        ],
+        "name": "PRODUCTS",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "name": "METADATA",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "name": "CDM_SOURCE",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "name": "INSTANCE",
+        "resource": {
+          "id": "OOM",
+          "name": "OOM"
+        },
+        "sinceVersion": "2.2"
+      },
+      {
+        "label": "Outcome (ATHLETE)",
+        "name": "outcome_ath",
+        "resource": {
+          "id": "ATHLETE",
+          "name": "Advancing Tools for Human Early Lifecourse Exposome Research and Translation"
+        },
+        "sinceVersion": "1.1.0"
+      },
+      {
+        "label": "Chemicals (ATHLETE)",
+        "name": "chemicals_ath",
+        "resource": {
+          "id": "ATHLETE",
+          "name": "Advancing Tools for Human Early Lifecourse Exposome Research and Translation"
+        },
+        "sinceVersion": "1.1.0"
+      },
+      {
+        "name": "core",
+        "resource": {
+          "id": "LifeCycle",
+          "name": "The LifeCycle Project"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "name": "outcomes",
+        "resource": {
+          "id": "LifeCycle",
+          "name": "The LifeCycle Project"
+        },
+        "sinceVersion": "1.0.0"
+      },
+      {
+        "name": "outcome",
+        "resource": {
+          "id": "LifeCycle",
+          "name": "The LifeCycle Project"
+        },
+        "sinceVersion": "1.0.0"
+      },
+      {
+        "description": "Table of wave 1 variables for LongITools",
+        "label": "Wave 1 variables",
+        "name": "wave_01",
+        "resource": {
+          "id": "LongITools",
+          "name": "LongITools health & environment dynamics"
+        },
+        "sinceVersion": "1.0.0"
+      },
+      {
+        "name": "core",
+        "resource": {
+          "id": "NFBC1966",
+          "name": "NFBC1966"
+        },
+        "sinceVersion": "1.0.0"
+      },
+      {
+        "description": "Wave 1 variables for NFBC1966",
+        "label": "wave 1 variables",
+        "name": "wave_01",
+        "resource": {
+          "id": "NFBC1966",
+          "name": "NFBC1966"
+        },
+        "sinceVersion": "1.0.0"
+      },
+      {
+        "description": "Questionnaire at 2 years old of the child",
+        "label": "Questionnaire at 2 years old of the child",
+        "name": "pelagie_q2",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "Non existing variables created for ATHLETE",
+        "label": "Created variables for ATHLETE",
+        "name": "new",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "Father date of birth from 6 and 12 years old follow-ups",
+        "label": "Father date of birth",
+        "name": "datenaisspere",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "Neuropsychological tests at 6 years old",
+        "label": "Neuropsychological tests at 6 years old",
+        "name": "pepsy",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "Clinical examination at 12 years old",
+        "label": "Clinical examination at 12 years old",
+        "name": "pelagie_exam12",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "database with phtalates and phenols measurement from maternal urine sample",
+        "label": "database with phtalates and phenols measurement from maternal urine sample",
+        "name": "BDD_phtalates_phenols",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "database with PFASs measurement from cord blood and in the blood of children at 12 years",
+        "label": "database with PFASs measurement from cord blood and in the blood of children at 12 years",
+        "name": "BDD_perfluores",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "database with POPs measurement from cord blood and in the blood of children at 12 years",
+        "label": "database with POPs measurement from cord blood and in the blood of children at 12 years",
+        "name": "BDD_pop",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "Table containing data concerning mother's respiratory examination",
+        "label": "Respiratory_function_test_mother",
+        "name": "efr_mere_LMAB_20210902_26",
+        "numberOfRows": 484,
+        "resource": {
+          "id": "Sepages",
+          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "person"
+        }
+      },
+      {
+        "description": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years",
+        "label": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years",
+        "name": "BDD_OP",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years",
+        "label": "database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years",
+        "name": "BDD_creatinine",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "database with measurement of metals in a sample of mothers' hair during the third trimester",
+        "label": "database with measurement of metals in a sample of mothers' hair during the third trimester",
+        "name": "BDD_mercure",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years",
+        "label": "database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years",
+        "name": "BDD_cotinine",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "Urban exposome dataset generated by Montserrat de Castro (ISGlobal)",
+        "label": "Urban exposome dataset generated by Montserrat de Castro (ISGlobal)",
+        "name": "Urban_ISGlobal",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "database with geocodes of the participants",
+        "label": "database with geocodes of the participants",
+        "name": "geocodes",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "Questionnaire at 11 years old of the child (Grandir et Changer)",
+        "label": "Questionnaire at 11 years old of the child",
+        "name": "pelagie_GC_q11",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years",
+        "label": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years",
+        "name": "BDD_ethers",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "database with blood concentrations of effect biomarkers at 12 years old",
+        "label": "database with blood concentrations of effect biomarkers at 12 years old",
+        "name": "pelagie_dosage12",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "This table contains the variables collected at baseline for PELAGIE (pregnancy and birth)",
+        "label": "Baseline questionnaire in early pregnancy and data at birth",
+        "name": "pelagie_q0",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "Non existing variables created for ATHLETE",
+        "label": "Variables harmonized for ATHLETE or LifeCycle",
+        "name": "harmonized",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "Date of birth updated in 2021",
+        "label": "Update of the date of birth",
+        "name": "maj_ddn_2021",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "Questionnaire at 12 years old of the child",
+        "label": "Questionnaire at 12 years old of the child",
+        "name": "pelagie_q12",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "Questionnaire at 6 years old of the child",
+        "label": "Questionnaire at 6 years old of the child",
+        "name": "pelagie_q6",
+        "resource": {
+          "id": "PELAGIE",
+          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "Patient"
+        }
+      },
+      {
+        "description": "Table containing Ids",
+        "label": "Id_data",
+        "name": "code_helix_athlete",
+        "numberOfRows": 484,
+        "resource": {
+          "id": "Sepages",
+          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "person"
+        }
+      },
+      {
+        "description": "Table containing data concerning ultrasound",
+        "label": "ultrasound_data",
+        "name": "Ultrasound_all_SLC_20220428_893",
+        "numberOfRows": 458,
+        "resource": {
+          "id": "Sepages",
+          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "person"
+        }
+      },
+      {
+        "description": "Table containing data concerning pregnancy",
+        "label": "pregnancy_data",
+        "name": "bdd_grossesse_v5_1",
+        "numberOfRows": 484,
+        "resource": {
+          "id": "Sepages",
+          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "person"
+        }
+      },
+      {
+        "description": "Table containing data concerning first year of life of the child",
+        "label": "child_data",
+        "name": "bdd_1a_v1_1",
+        "numberOfRows": 484,
+        "resource": {
+          "id": "Sepages",
+          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "person"
+        }
+      },
+      {
+        "description": "Table containing  data concerning  second year of life of the child",
+        "label": "child_data",
+        "name": "bdd_2a_v_1_0",
+        "numberOfRows": 484,
+        "resource": {
+          "id": "Sepages",
+          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "person"
+        }
+      },
+      {
+        "description": "Table containing data concerning father of the child SEPAGES",
+        "label": "father_data",
+        "name": "bdd_pere_1_2",
+        "numberOfRows": 410,
+        "resource": {
+          "id": "Sepages",
+          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "person"
+        }
+      },
+      {
+        "description": "Table containing data concerning mother's educational level",
+        "label": "educational_level_mother_data",
+        "name": "quest_mt1raa1",
+        "numberOfRows": 484,
+        "resource": {
+          "id": "Sepages",
+          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "person"
+        }
+      },
+      {
+        "description": "Table containing data concerning  father's respiratory examination",
+        "label": "Respiratory_function_test_father",
+        "name": "efr_pere_LMAB_20210902_26",
+        "numberOfRows": 484,
+        "resource": {
+          "id": "Sepages",
+          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "person"
+        }
+      },
+      {
+        "description": "Table containing data concerning breastfeeding",
+        "label": "breastfeeding_data",
+        "name": "ch_bf_mr&ag_2021-12-02_5",
+        "numberOfRows": 484,
+        "resource": {
+          "id": "Sepages",
+          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "person"
+        }
+      },
+      {
+        "description": "Table containing data concerning child's Exposure to Tobacco Smoke",
+        "label": "ETS_data",
+        "name": "tabac_passif_enf",
+        "numberOfRows": 484,
+        "resource": {
+          "id": "Sepages",
+          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "person"
+        }
+      },
+      {
+        "description": "Table containing date of birth of the father",
+        "label": "ddn_father",
+        "name": "ddn_pere",
+        "numberOfRows": 484,
+        "resource": {
+          "id": "Sepages",
+          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "person"
+        }
+      },
+      {
+        "description": "Table containing data concerning respiratory health questionnaires for children up to 3 years old",
+        "label": "Respiratory_child_data",
+        "name": "base_respi_enfant_20210326",
+        "numberOfRows": 484,
+        "resource": {
+          "id": "Sepages",
+          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "person"
+        }
+      },
+      {
+        "description": "Table containing data concerning assessment of phenols and phtalates during pregnancy",
+        "label": "phenols_phthalates_pregnancy_data",
+        "name": "PE_preg_mr_2021-12-02_379",
+        "numberOfRows": 479,
+        "resource": {
+          "id": "Sepages",
+          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
+        },
+        "sinceVersion": "1.0.0",
+        "unitOfObservation": {
+          "name": "person"
+        }
+      }
+    ]
+  }
+}

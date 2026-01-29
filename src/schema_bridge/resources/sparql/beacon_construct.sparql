@@ -1,0 +1,17 @@
+PREFIX field: <https://catalogue.org/field/>
+PREFIX entity: <https://catalogue.org/entity/>
+
+CONSTRUCT {
+  ?ds a entity:Dataset ;
+      field:id ?id ;
+      field:name ?name ;
+      field:description ?desc ;
+      field:keyword ?keyword .
+}
+WHERE {
+  ?ds a entity:Dataset ;
+      field:id ?id ;
+      field:name ?name ;
+      field:description ?desc .
+  OPTIONAL { ?ds field:keyword ?keyword . }
+}

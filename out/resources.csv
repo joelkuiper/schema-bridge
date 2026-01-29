@@ -1,0 +1,121 @@
+description,id,keywordCodes,keywordNames,label,mappedFromSourceNames,mappedFromTargetNames,mappedToSourceNames,mappedToTargetNames,name,numberOfRows,resourceId,resourceName,sinceVersion,unitOfObservationName
+,ANAGRAFICA,,,,,,,,ANAGRAFICA,,ANAGRAFICA,ANAGRAFICA,1.0,
+,AP,,,,,,AP,OOM,AP,,AP,AP,1.0,
+,ARS_ANAG_MED_RES_storico,,,,,,ARS_ANAG_MED_RES_storico,OOM,ARS_ANAG_MED_RES_storico,,ARS_ANAG_MED_RES_storico,ARS_ANAG_MED_RES_storico,1.0,
+,ATHLETE_fetal_growth_standardized,,,ATHLETE Harmonised dataset with standardized fetal growth data: ATHLETE_fetal_growth_standardized,,,,,ATHLETE_fetal_growth_standardized,,GenR,The Generation R Study,1.0.0,
+,CDM_SOURCE,,,,,,,,CDM_SOURCE,,OOM,OOM,2.2,
+,CHILD-ALLGENERALDATA_12112020,,,DataWiki dataset CHILD-ALLGENERALDATA_12112020,,,,,CHILD-ALLGENERALDATA_12112020,,GenR,The Generation R Study,1.0.0,
+,COD_FARMACI_SPF,,,,,,COD_FARMACI_SPF,OOM,COD_FARMACI_SPF,,COD_FARMACI_SPF,COD_FARMACI_SPF,1.0,
+,CPA1,,,,,,Dutch institute for health and welfare,OOM,CPA1,,DHL,Dutch institute for health and welfare,1.0,
+,CPA2,,,,,,Dutch institute for health and welfare,OOM,CPA2,,DHL,Dutch institute for health and welfare,1.0,
+,DIAGNOSTIC,,,,,,,,DIAGNOSTIC,,DIAGNOSTIC,DIAGNOSTIC,1.0,
+,EFEMERIS_PRESCRIPTION,,,,,,,,EFEMERIS_PRESCRIPTION,,EFEMERIS_PRESCRIPTION,EFEMERIS_PRESCRIPTION,1.0,
+,EUROCAT,,,,,,,,EUROCAT,,OOM,OOM,2.2,
+,EVENTS,,,,Dutch institute for health and welfare|ARS_PS|SALM|SEA,OOM|OOM|OOM|OOM,,,EVENTS,,OOM,OOM,2.2,
+,EXE,,,,,,,,EXE,,EXE,EXE,1.0,
+,FARMACEUTICA,,,,,,,,FARMACEUTICA,,FARMACEUTICA,FARMACEUTICA,1.0,
+,FETALCRL_22112016,,,DataWiki dataset FETALCRL_22112016,,,,,FETALCRL_22112016,,GenR,The Generation R Study,1.0.0,
+,FETALGROWTH_22112016,,,DataWiki dataset FETALGROWTH_22112016,,,,,FETALGROWTH_22112016,,GenR,The Generation R Study,1.0.0,
+,FETALPLACENTA_22112016,,,DataWiki dataset FETALPLACENTA_22112016,,,,,FETALPLACENTA_22112016,,GenR,The Generation R Study,1.0.0,
+,INSTANCE,,,,,,,,INSTANCE,,OOM,OOM,2.2,
+,MBRN,,,,,,,,MBRN,,MBRN,MBRN,1.0,
+,MBRN_child,,,,,,,,MBRN_child,,MBRN,MBRN,1.0,
+,MBRN_mother,,,,,,,,MBRN_mother,,MBRN,MBRN,1.0,
+,MEDICAL_OBSERVATIONS,,,,AP,OOM,,,MEDICAL_OBSERVATIONS,,OOM,OOM,2.2,
+,MEDICINES,,,,SPF,OOM,,,MEDICINES,,OOM,OOM,2.2,
+,METADATA,,,,,,,,METADATA,,OOM,OOM,2.2,
+,OBSERVATION_PERIODS,,,,ARS_ANAG_MED_RES_storico,OOM,,,OBSERVATION_PERIODS,,OOM,OOM,2.2,
+,PERSONS,,,,ARS_ANAG_MED_RES_storico,OOM,,,PERSONS,,OOM,OOM,2.2,
+,PERSON_RELATIONSHIPS,,,,,,,,PERSON_RELATIONSHIPS,,OOM,OOM,2.2,
+,PHT,,,,,,,,PHT,,PHT,PHT,1.0,
+,PROCEDURES,,,,SPA,OOM,,,PROCEDURES,,OOM,OOM,2.2,
+,PRODUCTS,,,,COD_FARMACI_SPF,OOM,,,PRODUCTS,,OOM,OOM,2.2,
+,PS,,,,,,ARS_PS,OOM,PS,,ARS_PS,ARS_PS,1.0,
+,RMR,,,,,,RMR,OOM,RMR,,RMR,RMR,1.0,
+,SALM,,,,,,SALM,OOM,SALM,,SALM,SALM,1.0,
+,SEA,,,,,,SEA,OOM,SEA,,SEA,SEA,1.0,
+,SPA,,,,,,SPA,OOM,SPA,,SPA,SPA,1.0,
+,SPECIALISTICA,,,,,,,,SPECIALISTICA,,SPECIALISTICA,SPECIALISTICA,1.0,
+,SPF,,,,,,SPF,OOM,SPF,,SPF,SPF,1.0,
+,SURVEY_ID,,,,RMR,OOM,,,SURVEY_ID,,OOM,OOM,2.2,
+,SURVEY_OBSERVATIONS,,,,RMR,OOM,,,SURVEY_OBSERVATIONS,,OOM,OOM,2.2,
+,VACCINES,,,,VCN,OOM,,,VACCINES,,OOM,OOM,2.2,
+,VCN,,,,,,VCN,OOM,VCN,,VCN,VCN,1.0,
+,VISIT_OCCURRENCE,,,,AP|SPA,OOM|OOM,,,VISIT_OCCURRENCE,,OOM,OOM,2.2,
+,avo_toimenpide,,,,,,,,avo_toimenpide,,AVOHILMO,Register of Primary Health Care Visits (AVOHILMO),1.0,
+,bloodpressure after birth,,,,,,,,bloodpressure after birth,,ENVIRONAGE,ENVIRonmental influence ON early AGEing,,
+,cdm_1,,,,,,,,cdm_1,,testNetwork1,name for test network1,,
+,chemicals_ath,,,Chemicals (ATHLETE),,,,,chemicals_ath,,ATHLETE,Advancing Tools for Human Early Lifecourse Exposome Research and Translation,1.1.0,
+,child,,,child,,,,,child,,G21,Generation 21,1,person
+,core,,,,,,,,core,,GenR,NFBC1966,1.0.0,Patient
+,core,,,,,,,,core,,GenR,The Generation R Study,1.0.0,Patient
+,core,,,,,,,,core,,GenR,The LifeCycle Project,1.0.0,Patient
+,core,,,,,,,,core,,LifeCycle,NFBC1966,1.0.0,Patient
+,core,,,,,,,,core,,LifeCycle,The Generation R Study,1.0.0,Patient
+,core,,,,,,,,core,,LifeCycle,The LifeCycle Project,1.0.0,Patient
+,core,,,,,,,,core,,NFBC1966,NFBC1966,1.0.0,Patient
+,core,,,,,,,,core,,NFBC1966,The Generation R Study,1.0.0,Patient
+,core,,,,,,,,core,,NFBC1966,The LifeCycle Project,1.0.0,Patient
+,kayntisyy_icd10,,,,,,,,kayntisyy_icd10,,AVOHILMO,Register of Primary Health Care Visits (AVOHILMO),1.0,
+,kayntisyy_icpc2,,,,,,,,kayntisyy_icpc2,,AVOHILMO,Register of Primary Health Care Visits (AVOHILMO),1.0,
+,measurements after birth,,,,,,,,measurements after birth,,ENVIRONAGE,ENVIRonmental influence ON early AGEing,,
+,measurements at FU1,,,,,,,,measurements at FU1,,ENVIRONAGE,ENVIRonmental influence ON early AGEing,,
+,outcome,,,,,,,,outcome,,LifeCycle,The LifeCycle Project,1.0.0,
+,outcome_ath,,,Outcome (ATHLETE),,,,,outcome_ath,,ATHLETE,Advancing Tools for Human Early Lifecourse Exposome Research and Translation,1.1.0,
+,outcomes,,,,,,,,outcomes,,LifeCycle,The LifeCycle Project,1.0.0,
+,palvelutapahtuma,,,,,,,,palvelutapahtuma,,AVOHILMO,Register of Primary Health Care Visits (AVOHILMO),1.0,
+,test dataset for testCohort3,,,,,,,,test dataset for testCohort3,,testCohort3,testCohort3C,,
+,test dataset for testCohort4,,,,,,,,test dataset for testCohort4,,testCohort4,testCohort4,,
+Clinical examination at 12 years old,pelagie_exam12,,,Clinical examination at 12 years old,,,,,pelagie_exam12,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+Date of birth updated in 2021,maj_ddn_2021,,,Update of the date of birth,,,,,maj_ddn_2021,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+Father date of birth from 6 and 12 years old follow-ups,datenaisspere,,,Father date of birth,,,,,datenaisspere,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+Neuropsychological tests at 6 years old,pepsy,,,Neuropsychological tests at 6 years old,,,,,pepsy,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+Non existing variables created for ATHLETE,harmonized,,,Variables harmonized for ATHLETE or LifeCycle,,,,,harmonized,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+Non existing variables created for ATHLETE,new,,,Created variables for ATHLETE,,,,,new,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+Questionnaire at 11 years old of the child (Grandir et Changer),pelagie_GC_q11,,,Questionnaire at 11 years old of the child,,,,,pelagie_GC_q11,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+Questionnaire at 12 years old of the child,pelagie_q12,,,Questionnaire at 12 years old of the child,,,,,pelagie_q12,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+Questionnaire at 2 years old of the child,pelagie_q2,,,Questionnaire at 2 years old of the child,,,,,pelagie_q2,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+Questionnaire at 6 years old of the child,pelagie_q6,,,Questionnaire at 6 years old of the child,,,,,pelagie_q6,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+Table containing  data concerning  second year of life of the child,bdd_2a_v_1_0,,,child_data,,,,,bdd_2a_v_1_0,484,Sepages,Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la,1.0.0,person
+Table containing Ids,code_helix_athlete,,,Id_data,,,,,code_helix_athlete,484,Sepages,Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la,1.0.0,person
+Table containing data concerning  father's respiratory examination,efr_pere_LMAB_20210902_26,,,Respiratory_function_test_father,,,,,efr_pere_LMAB_20210902_26,484,Sepages,Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la,1.0.0,person
+Table containing data concerning assessment of phenols and phtalates during pregnancy,PE_preg_mr_2021-12-02_379,,,phenols_phthalates_pregnancy_data,,,,,PE_preg_mr_2021-12-02_379,479,Sepages,Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la,1.0.0,person
+Table containing data concerning breastfeeding,ch_bf_mr&ag_2021-12-02_5,,,breastfeeding_data,,,,,ch_bf_mr&ag_2021-12-02_5,484,Sepages,Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la,1.0.0,person
+Table containing data concerning child's Exposure to Tobacco Smoke,tabac_passif_enf,,,ETS_data,,,,,tabac_passif_enf,484,Sepages,Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la,1.0.0,person
+Table containing data concerning father of the child SEPAGES,bdd_pere_1_2,,,father_data,,,,,bdd_pere_1_2,410,Sepages,Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la,1.0.0,person
+Table containing data concerning first year of life of the child,bdd_1a_v1_1,,,child_data,,,,,bdd_1a_v1_1,484,Sepages,Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la,1.0.0,person
+Table containing data concerning mother's educational level,quest_mt1raa1,,,educational_level_mother_data,,,,,quest_mt1raa1,484,Sepages,Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la,1.0.0,person
+Table containing data concerning mother's respiratory examination,efr_mere_LMAB_20210902_26,,,Respiratory_function_test_mother,,,,,efr_mere_LMAB_20210902_26,484,Sepages,Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la,1.0.0,person
+Table containing data concerning pregnancy,bdd_grossesse_v5_1,,,pregnancy_data,,,,,bdd_grossesse_v5_1,484,Sepages,Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la,1.0.0,person
+Table containing data concerning respiratory health questionnaires for children up to 3 years old,base_respi_enfant_20210326,,,Respiratory_child_data,,,,,base_respi_enfant_20210326,484,Sepages,Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la,1.0.0,person
+Table containing data concerning ultrasound,Ultrasound_all_SLC_20220428_893,,,ultrasound_data,,,,,Ultrasound_all_SLC_20220428_893,458,Sepages,Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la,1.0.0,person
+Table containing date of birth of the father,ddn_pere,,,ddn_father,,,,,ddn_pere,484,Sepages,Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la,1.0.0,person
+Table of wave 1 variables for LongITools,wave_01,,,Wave 1 variables,,,,,wave_01,,LongITools,LongITools health & environment dynamics,1.0.0,
+Table of wave 1 variables for LongITools,wave_01,,,Wave 1 variables,,,,,wave_01,,LongITools,NFBC1966,1.0.0,
+Table of wave 1 variables for LongITools,wave_01,,,Wave 1 variables,,,,,wave_01,,NFBC1966,LongITools health & environment dynamics,1.0.0,
+Table of wave 1 variables for LongITools,wave_01,,,Wave 1 variables,,,,,wave_01,,NFBC1966,NFBC1966,1.0.0,
+Table of wave 1 variables for LongITools,wave_01,,,wave 1 variables,,,,,wave_01,,LongITools,LongITools health & environment dynamics,1.0.0,
+Table of wave 1 variables for LongITools,wave_01,,,wave 1 variables,,,,,wave_01,,LongITools,NFBC1966,1.0.0,
+Table of wave 1 variables for LongITools,wave_01,,,wave 1 variables,,,,,wave_01,,NFBC1966,LongITools health & environment dynamics,1.0.0,
+Table of wave 1 variables for LongITools,wave_01,,,wave 1 variables,,,,,wave_01,,NFBC1966,NFBC1966,1.0.0,
+This table contains the variables collected at baseline for PELAGIE (pregnancy and birth),pelagie_q0,,,Baseline questionnaire in early pregnancy and data at birth,,,,,pelagie_q0,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+Urban exposome dataset generated by Montserrat de Castro (ISGlobal),Urban_ISGlobal,,,Urban exposome dataset generated by Montserrat de Castro (ISGlobal),,,,,Urban_ISGlobal,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",,Patient
+Wave 1 variables for NFBC1966,wave_01,,,Wave 1 variables,,,,,wave_01,,LongITools,LongITools health & environment dynamics,1.0.0,
+Wave 1 variables for NFBC1966,wave_01,,,Wave 1 variables,,,,,wave_01,,LongITools,NFBC1966,1.0.0,
+Wave 1 variables for NFBC1966,wave_01,,,Wave 1 variables,,,,,wave_01,,NFBC1966,LongITools health & environment dynamics,1.0.0,
+Wave 1 variables for NFBC1966,wave_01,,,Wave 1 variables,,,,,wave_01,,NFBC1966,NFBC1966,1.0.0,
+Wave 1 variables for NFBC1966,wave_01,,,wave 1 variables,,,,,wave_01,,LongITools,LongITools health & environment dynamics,1.0.0,
+Wave 1 variables for NFBC1966,wave_01,,,wave 1 variables,,,,,wave_01,,LongITools,NFBC1966,1.0.0,
+Wave 1 variables for NFBC1966,wave_01,,,wave 1 variables,,,,,wave_01,,NFBC1966,LongITools health & environment dynamics,1.0.0,
+Wave 1 variables for NFBC1966,wave_01,,,wave 1 variables,,,,,wave_01,,NFBC1966,NFBC1966,1.0.0,
+blood pressure of the child measured during G21 cohort follow-ups,blood_pressure,,,blood pressure,,,,,blood_pressure,,G21,Generation 21,1.0.0,
+database with PFASs measurement from cord blood and in the blood of children at 12 years,BDD_perfluores,,,database with PFASs measurement from cord blood and in the blood of children at 12 years,,,,,BDD_perfluores,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+database with POPs measurement from cord blood and in the blood of children at 12 years,BDD_pop,,,database with POPs measurement from cord blood and in the blood of children at 12 years,,,,,BDD_pop,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+database with blood concentrations of effect biomarkers at 12 years old,pelagie_dosage12,,,database with blood concentrations of effect biomarkers at 12 years old,,,,,pelagie_dosage12,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",,Patient
+database with geocodes of the participants,geocodes,,,database with geocodes of the participants,,,,,geocodes,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",,Patient
+database with measurement of OPs from a maternal urine sample and in children's urine at 6 years,BDD_OP,,,database with measurement of OPs from a maternal urine sample and in children's urine at 6 years,,,,,BDD_OP,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+database with measurement of OPs from a maternal urine sample and in children's urine at 6 years,BDD_ethers,,,database with measurement of OPs from a maternal urine sample and in children's urine at 6 years,,,,,BDD_ethers,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years,BDD_cotinine,,,database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years,,,,,BDD_cotinine,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years,BDD_creatinine,,,database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years,,,,,BDD_creatinine,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+database with measurement of metals in a sample of mothers' hair during the third trimester,BDD_mercure,,,database with measurement of metals in a sample of mothers' hair during the third trimester,,,,,BDD_mercure,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient
+database with phtalates and phenols measurement from maternal urine sample,BDD_phtalates_phenols,,,database with phtalates and phenols measurement from maternal urine sample,,,,,BDD_phtalates_phenols,,PELAGIE,"Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit",1.0.0,Patient

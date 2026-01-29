@@ -1,0 +1,29 @@
+PREFIX field: <https://catalogue.org/field/>
+PREFIX entity: <https://catalogue.org/entity/>
+
+CONSTRUCT {
+  ?res a entity:Cohort ;
+       field:cohortId ?id ;
+       field:cohortName ?name ;
+       field:cohortType ?cohortType ;
+       field:cohortDesign ?cohortDesign ;
+       field:cohortSize ?cohortSize ;
+       field:inclusionCriteria_ageRange_start_iso8601duration ?ageStart ;
+       field:inclusionCriteria_ageRange_end_iso8601duration ?ageEnd ;
+       field:locations ?location ;
+       field:genders ?gender ;
+       field:cohortDataTypes ?dataType .
+}
+WHERE {
+  ?res a entity:Cohort ;
+       field:cohortId ?id ;
+       field:cohortName ?name .
+  OPTIONAL { ?res field:cohortType ?cohortType . }
+  OPTIONAL { ?res field:cohortDesign ?cohortDesign . }
+  OPTIONAL { ?res field:cohortSize ?cohortSize . }
+  OPTIONAL { ?res field:inclusionCriteria_ageRange_start_iso8601duration ?ageStart . }
+  OPTIONAL { ?res field:inclusionCriteria_ageRange_end_iso8601duration ?ageEnd . }
+  OPTIONAL { ?res field:locations ?location . }
+  OPTIONAL { ?res field:genders ?gender . }
+  OPTIONAL { ?res field:cohortDataTypes ?dataType . }
+}

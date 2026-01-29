@@ -1,0 +1,116 @@
+PREFIX ex: <https://catalogue.org/>
+PREFIX field: <https://catalogue.org/field/>
+PREFIX entity: <https://catalogue.org/entity/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+
+CONSTRUCT {
+  ?res a dcat:Dataset ;
+       dct:title ?title ;
+       dct:identifier ?identifier ;
+       dct:description ?desc ;
+       dcat:landingPage ?landingPageIri ;
+       dcat:contactPoint ?contact ;
+       dcat:keyword ?keyword ;
+       dcat:theme ?themeIri ;
+       dct:hasVersion ?hasVersion ;
+       dct:license ?licenseIri ;
+       dct:language ?languageValue ;
+       dct:accessRights ?accessRightsValue ;
+       dcat:hasPolicy ?hasPolicyValue ;
+       dct:issued ?issuedValue ;
+       dct:modified ?modifiedValue ;
+       dct:relation ?relationValue ;
+       dct:publisher ?publisher .
+  ?contact a vcard:Individual ; vcard:hasEmail ?email .
+  ?publisher a foaf:Organization ;
+             foaf:name ?publisherName ;
+             dct:description ?publisherDefinition .
+}
+WHERE {
+  ?res a ?entity .
+  VALUES ?entity { entity:Resource entity:Dataset }
+  OPTIONAL { ?res field:title ?titleValue . }
+  OPTIONAL { ?res field:name ?nameValue . }
+  BIND(COALESCE(?titleValue, ?nameValue) AS ?title)
+  FILTER(BOUND(?title))
+  OPTIONAL { ?res field:description ?desc . }
+  OPTIONAL { ?res field:id ?identifier . }
+  OPTIONAL { ?res field:mg_insertedOn ?issuedValue . }
+  OPTIONAL { ?res field:createDateTime ?issuedValue . }
+  OPTIONAL { ?res field:mg_updatedOn ?modifiedValue . }
+  OPTIONAL { ?res field:updateDateTime ?modifiedValue . }
+  OPTIONAL {
+    ?res field:landingPage ?landingPage .
+    BIND(IRI(STR(?landingPage)) AS ?landingPageIri)
+  }
+  OPTIONAL {
+    ?res field:website ?website .
+    BIND(IRI(STR(?website)) AS ?landingPageIri)
+  }
+  OPTIONAL {
+    ?res field:contactEmail ?email .
+    BIND(IRI(CONCAT("https://catalogue.org/contact/", ENCODE_FOR_URI(STR(?res)))) AS ?contact)
+  }
+  OPTIONAL { ?res field:keyword ?keyword . }
+  OPTIONAL {
+    ?res field:theme ?theme .
+    BIND(IRI(STR(?theme)) AS ?themeIri)
+  }
+  OPTIONAL { ?res field:hasVersion ?hasVersion . }
+  OPTIONAL {
+    ?res field:license ?license .
+    BIND(
+      IF(STRSTARTS(STR(?license), "http"),
+         IRI(STR(?license)),
+         ?license)
+      AS ?licenseIri
+    )
+  }
+  OPTIONAL {
+    ?res field:language ?language .
+    BIND(
+      IF(STRSTARTS(STR(?language), "http"),
+         IRI(STR(?language)),
+         ?language)
+      AS ?languageValue
+    )
+  }
+  OPTIONAL {
+    ?res field:accessRights ?accessRights .
+    BIND(
+      IF(STRSTARTS(STR(?accessRights), "http"),
+         IRI(STR(?accessRights)),
+         ?accessRights)
+      AS ?accessRightsValue
+    )
+  }
+  OPTIONAL {
+    ?res field:hasPolicy ?hasPolicy .
+    BIND(
+      IF(STRSTARTS(STR(?hasPolicy), "http"),
+         IRI(STR(?hasPolicy)),
+         ?hasPolicy)
+      AS ?hasPolicyValue
+    )
+  }
+  OPTIONAL {
+    ?res field:relation ?relation .
+    BIND(
+      IF(STRSTARTS(STR(?relation), "http"),
+         IRI(STR(?relation)),
+         ?relation)
+      AS ?relationValue
+    )
+  }
+  OPTIONAL {
+    ?res field:publisherName ?publisherName .
+    BIND(
+      IRI(CONCAT("https://catalogue.org/publisher/", ENCODE_FOR_URI(STR(?publisherName))))
+      AS ?publisher
+    )
+  }
+  OPTIONAL { ?res field:publisherDefinition ?publisherDefinition . }
+}

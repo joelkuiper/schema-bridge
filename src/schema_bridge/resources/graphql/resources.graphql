@@ -1,0 +1,9 @@
+query Resources($limit: Int) {
+  Resources(limit: $limit) {
+    id
+    name
+    description
+    website
+    contactEmail
+  }
+}

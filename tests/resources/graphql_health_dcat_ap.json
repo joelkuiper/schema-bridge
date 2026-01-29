@@ -1,0 +1,37 @@
+{
+  "data": {
+    "Resources": [
+      {
+        "id": "H1",
+        "acronym": "HDP",
+        "name": "Health Dataset",
+        "description": "Health DCAT-AP example",
+        "website": "https://health.example.org",
+        "contactEmail": "contact@health.example.org",
+        "leadOrganisation": {"acronym": "HLTH"},
+        "type": {"name": "Cohort"},
+        "collectionType": {"name": "Population"},
+        "populationAgeGroups": [{"code": "P1", "parent": {"code": "P0"}}],
+        "startYear": "2001",
+        "endYear": "2020",
+        "countries": [{"name": "NL"}],
+        "regions": [{"name": "EU"}],
+        "numberOfParticipants": "1000",
+        "numberOfParticipantsWithSamples": "200",
+        "designDescription": "Prospective",
+        "design": {"name": "Design A", "definition": "Def"},
+        "designPaper": {"title": "Paper", "doi": "10.1234/example"},
+        "inclusionCriteria": [{"code": "IC1", "parent": {"code": "IC0"}}],
+        "otherInclusionCriteria": "Other",
+        "dataAccessConditions": [{"code": "DAC1", "ontologyTermURI": "http://example.org/dac", "definition": "Access"}],
+        "dataAccessConditionsDescription": "Access desc",
+        "dataUseConditions": [{"code": "DUC1", "ontologyTermURI": "http://example.org/duc", "definition": "Use"}],
+        "dataUseConditionsDescription": "Use desc",
+        "dataAccessFee": "0",
+        "releaseDescription": "Release",
+        "fundingStatement": "Funded",
+        "acknowledgements": "Thanks"
+      }
+    ]
+  }
+}

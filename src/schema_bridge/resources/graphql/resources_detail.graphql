@@ -1,0 +1,71 @@
+query ResourceDetails($id: String) {
+  Resources(filter: { id: { equals: [$id] } }) {
+    id
+    acronym
+    name
+    description
+    website
+    contactEmail
+    leadOrganisation {
+      acronym
+    }
+    type {
+      name
+    }
+    collectionType {
+      name
+    }
+    populationAgeGroups {
+      code
+      parent {
+        code
+      }
+    }
+    startYear
+    endYear
+    countries {
+      name
+    }
+    regions {
+      name
+    }
+    numberOfParticipants
+    numberOfParticipantsWithSamples
+    designDescription
+    design {
+      name
+      definition
+    }
+    designPaper {
+      title
+      doi
+    }
+    inclusionCriteria {
+      code
+      parent {
+        code
+      }
+    }
+    otherInclusionCriteria
+    dataAccessConditions {
+      code
+      ontologyTermURI
+    }
+    dataAccessConditionsDescription
+    dataUseConditions {
+      code
+      ontologyTermURI
+    }
+    dataUseConditionsDescription
+    dataAccessFee
+    releaseDescription
+    fundingStatement
+    acknowledgements
+  }
+  CollectionEvents_agg(filter: { resource: { id: { equals: [$id] } } }) {
+    count
+  }
+  Subpopulations_agg(filter: { resource: { id: { equals: [$id] } } }) {
+    count
+  }
+}

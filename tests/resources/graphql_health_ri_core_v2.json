@@ -1,0 +1,19 @@
+{
+  "data": {
+    "Datasets": [
+      {
+        "resource": {"id": "RES1", "name": "Resource 1"},
+        "name": "Dataset A",
+        "description": "Dataset description",
+        "label": "Dataset label",
+        "unitOfObservation": {"name": "Person", "code": "PERS"},
+        "keywords": [{"name": "kw1", "code": "K1"}],
+        "numberOfRows": "10",
+        "mappedTo": [{"source": {"name": "SRC"}, "target": {"name": "TGT"}}],
+        "mappedFrom": [{"source": {"name": "SRC2"}, "target": {"name": "TGT2"}}],
+        "sinceVersion": "v1",
+        "untilVersion": "v2"
+      }
+    ]
+  }
+}

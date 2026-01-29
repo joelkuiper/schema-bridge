@@ -1,0 +1,79 @@
+PREFIX field: <https://catalogue.org/field/>
+PREFIX entity: <https://catalogue.org/entity/>
+
+CONSTRUCT {
+  ?res a entity:Resource ;
+       field:id ?id ;
+       field:name ?name ;
+       field:acronym ?acronym ;
+       field:description ?description ;
+       field:website ?website ;
+       field:contactEmail ?contactEmail ;
+       field:leadOrganisationAcronym ?leadOrganisationAcronym ;
+       field:typeName ?typeName ;
+       field:collectionTypeName ?collectionTypeName ;
+       field:startYear ?startYear ;
+       field:endYear ?endYear ;
+       field:numberOfParticipants ?numberOfParticipants ;
+       field:numberOfParticipantsWithSamples ?numberOfParticipantsWithSamples ;
+       field:designDescription ?designDescription ;
+       field:designName ?designName ;
+       field:designDefinition ?designDefinition ;
+       field:designPaperTitle ?designPaperTitle ;
+       field:designPaperDoi ?designPaperDoi ;
+       field:otherInclusionCriteria ?otherInclusionCriteria ;
+       field:dataAccessFee ?dataAccessFee ;
+       field:dataAccessConditionsDescription ?dataAccessConditionsDescription ;
+       field:dataUseConditionsDescription ?dataUseConditionsDescription ;
+       field:releaseDescription ?releaseDescription ;
+       field:fundingStatement ?fundingStatement ;
+       field:acknowledgements ?acknowledgements ;
+       field:populationAgeGroupCodes ?populationAgeGroupCode ;
+       field:populationAgeGroupParentCodes ?populationAgeGroupParentCode ;
+       field:countryNames ?countryName ;
+       field:regionNames ?regionName ;
+       field:inclusionCriteriaCodes ?inclusionCriteriaCode ;
+       field:inclusionCriteriaParentCodes ?inclusionCriteriaParentCode ;
+       field:dataAccessConditionCodes ?dataAccessConditionCode ;
+       field:dataAccessConditionUris ?dataAccessConditionUri ;
+       field:dataUseConditionCodes ?dataUseConditionCode ;
+       field:dataUseConditionUris ?dataUseConditionUri .
+}
+WHERE {
+  ?res a entity:Resource ;
+       field:id ?id ;
+       field:name ?name .
+  OPTIONAL { ?res field:acronym ?acronym . }
+  OPTIONAL { ?res field:description ?description . }
+  OPTIONAL { ?res field:website ?website . }
+  OPTIONAL { ?res field:contactEmail ?contactEmail . }
+  OPTIONAL { ?res field:leadOrganisationAcronym ?leadOrganisationAcronym . }
+  OPTIONAL { ?res field:typeName ?typeName . }
+  OPTIONAL { ?res field:collectionTypeName ?collectionTypeName . }
+  OPTIONAL { ?res field:startYear ?startYear . }
+  OPTIONAL { ?res field:endYear ?endYear . }
+  OPTIONAL { ?res field:numberOfParticipants ?numberOfParticipants . }
+  OPTIONAL { ?res field:numberOfParticipantsWithSamples ?numberOfParticipantsWithSamples . }
+  OPTIONAL { ?res field:designDescription ?designDescription . }
+  OPTIONAL { ?res field:designName ?designName . }
+  OPTIONAL { ?res field:designDefinition ?designDefinition . }
+  OPTIONAL { ?res field:designPaperTitle ?designPaperTitle . }
+  OPTIONAL { ?res field:designPaperDoi ?designPaperDoi . }
+  OPTIONAL { ?res field:otherInclusionCriteria ?otherInclusionCriteria . }
+  OPTIONAL { ?res field:dataAccessFee ?dataAccessFee . }
+  OPTIONAL { ?res field:dataAccessConditionsDescription ?dataAccessConditionsDescription . }
+  OPTIONAL { ?res field:dataUseConditionsDescription ?dataUseConditionsDescription . }
+  OPTIONAL { ?res field:releaseDescription ?releaseDescription . }
+  OPTIONAL { ?res field:fundingStatement ?fundingStatement . }
+  OPTIONAL { ?res field:acknowledgements ?acknowledgements . }
+  OPTIONAL { ?res field:populationAgeGroupCodes ?populationAgeGroupCode . }
+  OPTIONAL { ?res field:populationAgeGroupParentCodes ?populationAgeGroupParentCode . }
+  OPTIONAL { ?res field:countryNames ?countryName . }
+  OPTIONAL { ?res field:regionNames ?regionName . }
+  OPTIONAL { ?res field:inclusionCriteriaCodes ?inclusionCriteriaCode . }
+  OPTIONAL { ?res field:inclusionCriteriaParentCodes ?inclusionCriteriaParentCode . }
+  OPTIONAL { ?res field:dataAccessConditionCodes ?dataAccessConditionCode . }
+  OPTIONAL { ?res field:dataAccessConditionUris ?dataAccessConditionUri . }
+  OPTIONAL { ?res field:dataUseConditionCodes ?dataUseConditionCode . }
+  OPTIONAL { ?res field:dataUseConditionUris ?dataUseConditionUri . }
+}

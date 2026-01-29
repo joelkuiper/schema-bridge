@@ -1,0 +1,19 @@
+PREFIX field: <https://catalogue.org/field/>
+PREFIX entity: <https://catalogue.org/entity/>
+
+CONSTRUCT {
+  ?res a entity:Biosample ;
+       field:id ?id ;
+       field:pathologicalState ?biosampleStatus ;
+       field:biosampleType ?sampleOriginType ;
+       field:ageOfIndividualAtCollection ?collectionMoment ;
+       field:dateOfCollection ?collectionDate .
+}
+WHERE {
+  ?res a entity:Biosample ;
+       field:id ?id .
+  OPTIONAL { ?res field:pathologicalState ?biosampleStatus . }
+  OPTIONAL { ?res field:biosampleType ?sampleOriginType . }
+  OPTIONAL { ?res field:ageOfIndividualAtCollection ?collectionMoment . }
+  OPTIONAL { ?res field:dateOfCollection ?collectionDate . }
+}
