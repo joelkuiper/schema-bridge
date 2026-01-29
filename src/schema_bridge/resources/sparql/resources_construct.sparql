@@ -1,19 +1,31 @@
 PREFIX field: <https://catalogue.org/field/>
 PREFIX entity: <https://catalogue.org/entity/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
 
 CONSTRUCT {
-  ?res a entity:Resource ;
-       field:id ?id ;
-       field:name ?name ;
-       field:description ?desc ;
-       field:website ?website ;
-       field:contactEmail ?email .
+  ?res a dcat:Dataset ;
+       dct:identifier ?id ;
+       dct:title ?name ;
+       dct:description ?desc ;
+       dcat:landingPage ?websiteIri ;
+       dcat:contactPoint ?contact .
+  ?contact a vcard:Individual ;
+           vcard:hasEmail ?emailIri .
 }
 WHERE {
   ?res a entity:Resource ;
        field:id ?id ;
        field:name ?name ;
        field:description ?desc .
-  OPTIONAL { ?res field:website ?website . }
-  OPTIONAL { ?res field:contactEmail ?email . }
+  OPTIONAL {
+    ?res field:website ?website .
+    BIND(IRI(STR(?website)) AS ?websiteIri)
+  }
+  OPTIONAL {
+    ?res field:contactEmail ?email .
+    BIND(IRI(CONCAT("mailto:", STR(?email))) AS ?emailIri)
+    BIND(IRI(CONCAT("https://catalogue.org/contact/", ENCODE_FOR_URI(STR(?email)))) AS ?contact)
+  }
 }

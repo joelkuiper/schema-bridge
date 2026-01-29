@@ -1,43 +1,85 @@
 PREFIX field: <https://catalogue.org/field/>
 PREFIX entity: <https://catalogue.org/entity/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX schema: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 CONSTRUCT {
-  ?res a entity:Resource ;
-       field:id ?id ;
-       field:name ?name ;
-       field:acronym ?acronym ;
-       field:description ?description ;
-       field:website ?website ;
-       field:contactEmail ?contactEmail ;
-       field:leadOrganisationAcronym ?leadOrganisationAcronym ;
-       field:typeName ?typeName ;
-       field:collectionTypeName ?collectionTypeName ;
-       field:startYear ?startYear ;
-       field:endYear ?endYear ;
-       field:numberOfParticipants ?numberOfParticipants ;
-       field:numberOfParticipantsWithSamples ?numberOfParticipantsWithSamples ;
-       field:designDescription ?designDescription ;
-       field:designName ?designName ;
-       field:designDefinition ?designDefinition ;
-       field:designPaperTitle ?designPaperTitle ;
-       field:designPaperDoi ?designPaperDoi ;
-       field:otherInclusionCriteria ?otherInclusionCriteria ;
-       field:dataAccessFee ?dataAccessFee ;
-       field:dataAccessConditionsDescription ?dataAccessConditionsDescription ;
-       field:dataUseConditionsDescription ?dataUseConditionsDescription ;
-       field:releaseDescription ?releaseDescription ;
-       field:fundingStatement ?fundingStatement ;
-       field:acknowledgements ?acknowledgements ;
-       field:populationAgeGroupCodes ?populationAgeGroupCode ;
-       field:populationAgeGroupParentCodes ?populationAgeGroupParentCode ;
-       field:countryNames ?countryName ;
-       field:regionNames ?regionName ;
-       field:inclusionCriteriaCodes ?inclusionCriteriaCode ;
-       field:inclusionCriteriaParentCodes ?inclusionCriteriaParentCode ;
-       field:dataAccessConditionCodes ?dataAccessConditionCode ;
-       field:dataAccessConditionUris ?dataAccessConditionUri ;
-       field:dataUseConditionCodes ?dataUseConditionCode ;
-       field:dataUseConditionUris ?dataUseConditionUri .
+  ?res a dcat:Dataset ;
+       dct:identifier ?id ;
+       dct:title ?name ;
+       dct:alternative ?acronym ;
+       dct:description ?description ;
+       dcat:landingPage ?websiteIri ;
+       dcat:contactPoint ?contact ;
+       dct:publisher ?publisher ;
+       dct:temporal ?temporal ;
+       dct:spatial ?spatialIri ;
+       dcat:theme ?themeIri ;
+       dcat:keyword ?keywordLiteral ;
+       dct:accessRights ?accessRightsValue ;
+       odrl:hasPolicy ?policyValue ;
+       dct:conformsTo ?conformsToIri ;
+       dct:rights ?rightsLiteral ;
+       schema:additionalProperty ?participantsProp ;
+       schema:additionalProperty ?participantsSamplesProp ;
+       schema:additionalProperty ?designProp ;
+       schema:additionalProperty ?designDefinitionProp ;
+       schema:additionalProperty ?designPaperTitleProp ;
+       schema:additionalProperty ?designPaperDoiProp ;
+       schema:additionalProperty ?otherInclusionProp ;
+       schema:additionalProperty ?fundingProp ;
+       schema:additionalProperty ?acknowledgementsProp ;
+       schema:additionalProperty ?populationAgeGroupProp ;
+       schema:additionalProperty ?populationAgeGroupParentProp .
+
+  ?contact a vcard:Individual ;
+           vcard:hasEmail ?contactEmailIri .
+
+  ?publisher a foaf:Organization ;
+             foaf:name ?publisherName .
+
+  ?temporal a dct:PeriodOfTime ;
+            dcat:startDate ?startDateValue ;
+            dcat:endDate ?endDateValue .
+
+  ?participantsProp a schema:PropertyValue ;
+                    schema:name "numberOfParticipants" ;
+                    schema:value ?numberOfParticipants .
+  ?participantsSamplesProp a schema:PropertyValue ;
+                           schema:name "numberOfParticipantsWithSamples" ;
+                           schema:value ?numberOfParticipantsWithSamples .
+  ?designProp a schema:PropertyValue ;
+              schema:name "design" ;
+              schema:value ?designName .
+  ?designDefinitionProp a schema:PropertyValue ;
+                        schema:name "designDefinition" ;
+                        schema:value ?designDefinition .
+  ?designPaperTitleProp a schema:PropertyValue ;
+                        schema:name "designPaperTitle" ;
+                        schema:value ?designPaperTitle .
+  ?designPaperDoiProp a schema:PropertyValue ;
+                      schema:name "designPaperDoi" ;
+                      schema:value ?designPaperDoi .
+  ?otherInclusionProp a schema:PropertyValue ;
+                      schema:name "otherInclusionCriteria" ;
+                      schema:value ?otherInclusionCriteria .
+  ?fundingProp a schema:PropertyValue ;
+               schema:name "fundingStatement" ;
+               schema:value ?fundingStatement .
+  ?acknowledgementsProp a schema:PropertyValue ;
+                        schema:name "acknowledgements" ;
+                        schema:value ?acknowledgements .
+  ?populationAgeGroupProp a schema:PropertyValue ;
+                          schema:name "populationAgeGroup" ;
+                          schema:value ?populationAgeGroupCode .
+  ?populationAgeGroupParentProp a schema:PropertyValue ;
+                                schema:name "populationAgeGroupParent" ;
+                                schema:value ?populationAgeGroupParentCode .
 }
 WHERE {
   ?res a entity:Resource ;
@@ -45,35 +87,90 @@ WHERE {
        field:name ?name .
   OPTIONAL { ?res field:acronym ?acronym . }
   OPTIONAL { ?res field:description ?description . }
-  OPTIONAL { ?res field:website ?website . }
-  OPTIONAL { ?res field:contactEmail ?contactEmail . }
-  OPTIONAL { ?res field:leadOrganisationAcronym ?leadOrganisationAcronym . }
-  OPTIONAL { ?res field:typeName ?typeName . }
-  OPTIONAL { ?res field:collectionTypeName ?collectionTypeName . }
-  OPTIONAL { ?res field:startYear ?startYear . }
-  OPTIONAL { ?res field:endYear ?endYear . }
+  OPTIONAL {
+    ?res field:website ?website .
+    BIND(IRI(STR(?website)) AS ?websiteIri)
+  }
+  OPTIONAL {
+    ?res field:contactEmail ?contactEmail .
+    BIND(IRI(CONCAT("mailto:", STR(?contactEmail))) AS ?contactEmailIri)
+    BIND(IRI(CONCAT("https://catalogue.org/contact/", ENCODE_FOR_URI(STR(?contactEmail)))) AS ?contact)
+  }
+  OPTIONAL {
+    ?res field:leadOrganisationAcronym ?publisherName .
+    BIND(IRI(CONCAT("https://catalogue.org/org/", ENCODE_FOR_URI(STR(?publisherName)))) AS ?publisher)
+  }
+  OPTIONAL {
+    ?res field:startYear ?startYear .
+    BIND(STRDT(STR(?startYear), xsd:gYear) AS ?startDateValue)
+  }
+  OPTIONAL {
+    ?res field:endYear ?endYear .
+    BIND(STRDT(STR(?endYear), xsd:gYear) AS ?endDateValue)
+  }
+  OPTIONAL {
+    FILTER(BOUND(?startDateValue) || BOUND(?endDateValue))
+    BIND(BNODE() AS ?temporal)
+  }
+
+  OPTIONAL {
+    ?res field:typeName ?typeName .
+    BIND(IRI(CONCAT("https://catalogue.org/theme/", ENCODE_FOR_URI(STR(?typeName)))) AS ?themeIri)
+    BIND(STR(?typeName) AS ?keywordLiteral)
+  }
+  OPTIONAL {
+    ?res field:collectionTypeName ?collectionTypeName .
+    BIND(IRI(CONCAT("https://catalogue.org/theme/", ENCODE_FOR_URI(STR(?collectionTypeName)))) AS ?themeIri)
+    BIND(STR(?collectionTypeName) AS ?keywordLiteral)
+  }
+
+  OPTIONAL {
+    ?res field:countryNames ?countryName .
+    BIND(IRI(CONCAT("https://catalogue.org/geo/", ENCODE_FOR_URI(STR(?countryName)))) AS ?spatialIri)
+  }
+  OPTIONAL {
+    ?res field:regionNames ?regionName .
+    BIND(IRI(CONCAT("https://catalogue.org/geo/", ENCODE_FOR_URI(STR(?regionName)))) AS ?spatialIri)
+  }
+
+  OPTIONAL {
+    ?res field:dataAccessConditionUris ?accessRightsUri .
+    BIND(IRI(STR(?accessRightsUri)) AS ?accessRightsValue)
+  }
+  OPTIONAL {
+    ?res field:dataUseConditionUris ?policyUri .
+    BIND(IRI(STR(?policyUri)) AS ?policyValue)
+  }
+  OPTIONAL {
+    ?res field:inclusionCriteriaCodes ?conformsToCode .
+    BIND(IRI(CONCAT("https://catalogue.org/criteria/", ENCODE_FOR_URI(STR(?conformsToCode)))) AS ?conformsToIri)
+  }
+  OPTIONAL {
+    ?res field:dataAccessConditionsDescription ?dataAccessConditionsDescription .
+    BIND(STR(?dataAccessConditionsDescription) AS ?rightsLiteral)
+  }
+
   OPTIONAL { ?res field:numberOfParticipants ?numberOfParticipants . }
   OPTIONAL { ?res field:numberOfParticipantsWithSamples ?numberOfParticipantsWithSamples . }
-  OPTIONAL { ?res field:designDescription ?designDescription . }
   OPTIONAL { ?res field:designName ?designName . }
   OPTIONAL { ?res field:designDefinition ?designDefinition . }
   OPTIONAL { ?res field:designPaperTitle ?designPaperTitle . }
   OPTIONAL { ?res field:designPaperDoi ?designPaperDoi . }
   OPTIONAL { ?res field:otherInclusionCriteria ?otherInclusionCriteria . }
-  OPTIONAL { ?res field:dataAccessFee ?dataAccessFee . }
-  OPTIONAL { ?res field:dataAccessConditionsDescription ?dataAccessConditionsDescription . }
-  OPTIONAL { ?res field:dataUseConditionsDescription ?dataUseConditionsDescription . }
-  OPTIONAL { ?res field:releaseDescription ?releaseDescription . }
   OPTIONAL { ?res field:fundingStatement ?fundingStatement . }
   OPTIONAL { ?res field:acknowledgements ?acknowledgements . }
   OPTIONAL { ?res field:populationAgeGroupCodes ?populationAgeGroupCode . }
   OPTIONAL { ?res field:populationAgeGroupParentCodes ?populationAgeGroupParentCode . }
-  OPTIONAL { ?res field:countryNames ?countryName . }
-  OPTIONAL { ?res field:regionNames ?regionName . }
-  OPTIONAL { ?res field:inclusionCriteriaCodes ?inclusionCriteriaCode . }
-  OPTIONAL { ?res field:inclusionCriteriaParentCodes ?inclusionCriteriaParentCode . }
-  OPTIONAL { ?res field:dataAccessConditionCodes ?dataAccessConditionCode . }
-  OPTIONAL { ?res field:dataAccessConditionUris ?dataAccessConditionUri . }
-  OPTIONAL { ?res field:dataUseConditionCodes ?dataUseConditionCode . }
-  OPTIONAL { ?res field:dataUseConditionUris ?dataUseConditionUri . }
+
+  OPTIONAL { FILTER(BOUND(?numberOfParticipants)) BIND(BNODE() AS ?participantsProp) }
+  OPTIONAL { FILTER(BOUND(?numberOfParticipantsWithSamples)) BIND(BNODE() AS ?participantsSamplesProp) }
+  OPTIONAL { FILTER(BOUND(?designName)) BIND(BNODE() AS ?designProp) }
+  OPTIONAL { FILTER(BOUND(?designDefinition)) BIND(BNODE() AS ?designDefinitionProp) }
+  OPTIONAL { FILTER(BOUND(?designPaperTitle)) BIND(BNODE() AS ?designPaperTitleProp) }
+  OPTIONAL { FILTER(BOUND(?designPaperDoi)) BIND(BNODE() AS ?designPaperDoiProp) }
+  OPTIONAL { FILTER(BOUND(?otherInclusionCriteria)) BIND(BNODE() AS ?otherInclusionProp) }
+  OPTIONAL { FILTER(BOUND(?fundingStatement)) BIND(BNODE() AS ?fundingProp) }
+  OPTIONAL { FILTER(BOUND(?acknowledgements)) BIND(BNODE() AS ?acknowledgementsProp) }
+  OPTIONAL { FILTER(BOUND(?populationAgeGroupCode)) BIND(BNODE() AS ?populationAgeGroupProp) }
+  OPTIONAL { FILTER(BOUND(?populationAgeGroupParentCode)) BIND(BNODE() AS ?populationAgeGroupParentProp) }
 }

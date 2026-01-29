@@ -509,7 +509,8 @@ def test_construct_queries_mimic_selects():
     resources_construct = load_text("sparql/resources_construct.sparql", "schema_bridge.resources")
     resources_graph = raw.query(resources_construct).graph
     res = URIRef("https://catalogue.org/resource/R1")
-    assert (res, FIELD["name"], None) in resources_graph
+    DCT = Namespace("http://purl.org/dc/terms/")
+    assert (res, DCT["title"], None) in resources_graph
 
     raw_ds = Graph()
     ds_rows = [
@@ -524,7 +525,9 @@ def test_construct_queries_mimic_selects():
     beacon_construct = load_text("sparql/beacon_construct.sparql", "schema_bridge.resources")
     beacon_graph = raw_ds.query(beacon_construct).graph
     ds = URIRef("https://catalogue.org/dataset/D1")
-    assert (ds, FIELD["keyword"], None) in beacon_graph
+    DCAT = Namespace("http://www.w3.org/ns/dcat#")
+    assert (ds, DCT["title"], None) in beacon_graph
+    assert (ds, DCAT["keyword"], None) in beacon_graph
 
     raw_bio = Graph()
     bio_rows = [
@@ -545,7 +548,10 @@ def test_construct_queries_mimic_selects():
     )
     biosamples_graph = raw_bio.query(biosamples_construct).graph
     bio = URIRef("https://catalogue.org/biosample/B1")
-    assert (bio, FIELD["biosampleType"], None) in biosamples_graph
+    BIOS = Namespace("https://bioschemas.org/")
+    SCHEMA = Namespace("https://schema.org/")
+    assert (bio, RDF.type, BIOS["BioSample"]) in biosamples_graph
+    assert (bio, SCHEMA["sampleType"], None) in biosamples_graph
 
     raw_cohort = Graph()
     cohort_rows = [
@@ -566,7 +572,8 @@ def test_construct_queries_mimic_selects():
     )
     cohorts_graph = raw_cohort.query(cohorts_construct).graph
     cohort = URIRef("https://catalogue.org/cohort/C1")
-    assert (cohort, FIELD["locations"], None) in cohorts_graph
+    assert (cohort, RDF.type, Namespace("https://schema.org/")["MedicalObservationalStudy"]) in cohorts_graph
+    assert (cohort, Namespace("https://schema.org/")["name"], None) in cohorts_graph
 
     raw_var = Graph()
     var_rows = [
@@ -596,7 +603,9 @@ def test_construct_queries_mimic_selects():
     )
     variables_graph = raw_var.query(variables_construct).graph
     var = URIRef("https://catalogue.org/variable/var1")
-    assert (var, FIELD["datasetName"], None) in variables_graph
+    SCHEMA = Namespace("https://schema.org/")
+    assert (var, RDF.type, SCHEMA["PropertyValue"]) in variables_graph
+    assert (var, SCHEMA["propertyID"], None) in variables_graph
 
 
 def test_profiles_reference_existing_queries():

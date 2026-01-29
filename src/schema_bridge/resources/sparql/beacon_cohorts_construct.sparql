@@ -1,18 +1,39 @@
 PREFIX field: <https://catalogue.org/field/>
 PREFIX entity: <https://catalogue.org/entity/>
+PREFIX schema: <https://schema.org/>
 
 CONSTRUCT {
-  ?res a entity:Cohort ;
-       field:cohortId ?id ;
-       field:cohortName ?name ;
-       field:cohortType ?cohortType ;
-       field:cohortDesign ?cohortDesign ;
-       field:cohortSize ?cohortSize ;
-       field:inclusionCriteria_ageRange_start_iso8601duration ?ageStart ;
-       field:inclusionCriteria_ageRange_end_iso8601duration ?ageEnd ;
-       field:locations ?location ;
-       field:genders ?gender ;
-       field:cohortDataTypes ?dataType .
+  ?res a schema:MedicalObservationalStudy ;
+       schema:identifier ?id ;
+       schema:name ?name ;
+       schema:studyDesign ?cohortDesign ;
+       schema:studyLocation ?locationNode ;
+       schema:additionalProperty ?typeProp ;
+       schema:additionalProperty ?sizeProp ;
+       schema:additionalProperty ?ageStartProp ;
+       schema:additionalProperty ?ageEndProp ;
+       schema:additionalProperty ?genderProp ;
+       schema:additionalProperty ?dataTypeProp .
+  ?locationNode a schema:AdministrativeArea ;
+                schema:name ?location .
+  ?typeProp a schema:PropertyValue ;
+            schema:name "cohortType" ;
+            schema:value ?cohortType .
+  ?sizeProp a schema:PropertyValue ;
+            schema:name "cohortSize" ;
+            schema:value ?cohortSize .
+  ?ageStartProp a schema:PropertyValue ;
+                schema:name "ageRangeStart" ;
+                schema:value ?ageStart .
+  ?ageEndProp a schema:PropertyValue ;
+              schema:name "ageRangeEnd" ;
+              schema:value ?ageEnd .
+  ?genderProp a schema:PropertyValue ;
+              schema:name "gender" ;
+              schema:value ?gender .
+  ?dataTypeProp a schema:PropertyValue ;
+                schema:name "dataType" ;
+                schema:value ?dataType .
 }
 WHERE {
   ?res a entity:Cohort ;
@@ -26,4 +47,11 @@ WHERE {
   OPTIONAL { ?res field:locations ?location . }
   OPTIONAL { ?res field:genders ?gender . }
   OPTIONAL { ?res field:cohortDataTypes ?dataType . }
+  OPTIONAL { FILTER(BOUND(?location)) BIND(BNODE() AS ?locationNode) }
+  OPTIONAL { FILTER(BOUND(?cohortType)) BIND(BNODE() AS ?typeProp) }
+  OPTIONAL { FILTER(BOUND(?cohortSize)) BIND(BNODE() AS ?sizeProp) }
+  OPTIONAL { FILTER(BOUND(?ageStart)) BIND(BNODE() AS ?ageStartProp) }
+  OPTIONAL { FILTER(BOUND(?ageEnd)) BIND(BNODE() AS ?ageEndProp) }
+  OPTIONAL { FILTER(BOUND(?gender)) BIND(BNODE() AS ?genderProp) }
+  OPTIONAL { FILTER(BOUND(?dataType)) BIND(BNODE() AS ?dataTypeProp) }
 }

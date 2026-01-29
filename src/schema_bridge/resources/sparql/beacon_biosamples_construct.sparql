@@ -1,13 +1,21 @@
 PREFIX field: <https://catalogue.org/field/>
 PREFIX entity: <https://catalogue.org/entity/>
+PREFIX bios: <https://bioschemas.org/>
+PREFIX schema: <https://schema.org/>
 
 CONSTRUCT {
-  ?res a entity:Biosample ;
-       field:id ?id ;
-       field:pathologicalState ?biosampleStatus ;
-       field:biosampleType ?sampleOriginType ;
-       field:ageOfIndividualAtCollection ?collectionMoment ;
-       field:dateOfCollection ?collectionDate .
+  ?res a bios:BioSample ;
+       schema:identifier ?id ;
+       schema:sampleType ?sampleOriginType ;
+       schema:dateCollected ?collectionDate ;
+       schema:additionalProperty ?statusProp ;
+       schema:additionalProperty ?ageProp .
+  ?statusProp a schema:PropertyValue ;
+              schema:name "pathologicalState" ;
+              schema:value ?biosampleStatus .
+  ?ageProp a schema:PropertyValue ;
+           schema:name "ageOfIndividualAtCollection" ;
+           schema:value ?collectionMoment .
 }
 WHERE {
   ?res a entity:Biosample ;
@@ -16,4 +24,12 @@ WHERE {
   OPTIONAL { ?res field:biosampleType ?sampleOriginType . }
   OPTIONAL { ?res field:ageOfIndividualAtCollection ?collectionMoment . }
   OPTIONAL { ?res field:dateOfCollection ?collectionDate . }
+  OPTIONAL {
+    FILTER(BOUND(?biosampleStatus))
+    BIND(BNODE() AS ?statusProp)
+  }
+  OPTIONAL {
+    FILTER(BOUND(?collectionMoment))
+    BIND(BNODE() AS ?ageProp)
+  }
 }
