@@ -27,6 +27,8 @@ Profiles are the primary entry point. A profile wires together the fetch, export
 - `uv run schema-bridge run --profile health-dcat-ap -o out`
 - `uv run schema-bridge run --profile health-ri-core-v2 -o out`
 
+You can set a limit (`--limit`) to adjust the number of GraphQL results to be fetched.
+
 ## Profiles (export)
 
 Profiles are YAML files with explicit sections:
