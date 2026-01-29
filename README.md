@@ -29,8 +29,7 @@ This profile emits:
 * A `dcat:CatalogRecord` for each dataset
 * A `dcat:Dataset` with landing page, publisher, contact point, spatial and temporal coverage, and themes/keywords
 * One or more `dcat:Distribution` resources per dataset, including access URLs and access-rights or policy links when available
-* Health-DCAT-AP extensions for population coverage and counts when corresponding fields are present
-* Access-rights, themes, and population coverage represented as `skos:Concept` nodes when URIs are available
+* **Notes on scope:** The mapping reflects a pragmatic interpretation of Health-DCAT-AP applied to the fields currently exposed by the catalogue schema; coverage of optional constructs is therefore partial.
 
 Example usage:
 
@@ -46,13 +45,6 @@ uv run schema-bridge export \
   --format jsonld \
   --limit 10
 ```
-
-Notes on scope:
-
-* The profile reflects the fields currently exposed by the catalogue GraphQL schema
-* Coverage of optional Health-DCAT-AP constructs is partial
-* Some nodes are derived from identifiers alone and may lack full lexical annotation
-* The mapping should be read as provisional and incomplete
 
 This section is illustrative: the same pipeline can target other domains, schemas, or metadata standards by swapping profiles.
 
