@@ -116,7 +116,7 @@ environment (`SCHEMA_BRIDGE_BASE_URL`/`SCHEMA_BRIDGE_SCHEMA`), and finally the b
 
 ## MOLGENIS Catalogue (Health-DCAT-AP)
 
-For molgeniscatalogue.org, use the `health-dcat-ap-molgenis` profile as the current best-effort mapping to HealthDCAT-AP Release 5.
+For molgeniscatalogue.org, use the `health-dcat-ap-molgenis` profile as the current best-effort mapping to [HealthDCAT-AP Release 5](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-5/).
 
 Caveats (best-effort):
 
