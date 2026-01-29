@@ -38,3 +38,18 @@ mapping:
     dataUseConditionCodes: dataUseConditions[].code
     dataUseConditionUris: dataUseConditions[].ontologyTermURI
     dataUseConditionDefinitions: dataUseConditions[].definition
+  concept_fields:
+    dataAccessConditions:
+      path: dataAccessConditions[]
+      predicate: accessRightsConcept
+      uri: ontologyTermURI
+      code: code
+      label: name
+      lang: en
+    dataUseConditions:
+      path: dataUseConditions[]
+      predicate: policyConcept
+      uri: ontologyTermURI
+      code: code
+      label: name
+      lang: en

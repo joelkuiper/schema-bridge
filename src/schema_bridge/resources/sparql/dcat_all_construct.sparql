@@ -10,6 +10,7 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
 PREFIX spdx: <http://spdx.org/rdf/terms#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 CONSTRUCT {
   ?res a dcat:Resource ;
@@ -102,7 +103,8 @@ CONSTRUCT {
                 dct:rights ?rightsValue ;
                 dct:title ?distributionTitle ;
                 odrl:hasPolicy ?hasPolicyValue ;
-                spdx:checksum ?checksumValue .
+                spdx:checksum ?checksumValue ;
+                dcat:version ?distributionVersion .
 
   ?series a dcat:DatasetSeries .
 
@@ -158,8 +160,19 @@ WHERE {
     ?res field:keywordUris ?keywordUri .
     BIND(IRI(STR(?keywordUri)) AS ?themeIri)
   }
+  OPTIONAL {
+    ?res field:keywordConcept ?keywordConcept .
+    OPTIONAL { ?keywordConcept skos:prefLabel ?keywordConceptLabel . }
+    FILTER(!BOUND(?keywordLiteral))
+    BIND(?keywordConceptLabel AS ?keywordLiteral)
+  }
+  OPTIONAL {
+    ?res field:keywordConcept ?keywordConcept .
+    BIND(?keywordConcept AS ?themeIri)
+  }
 
   OPTIONAL { ?res field:typeUris ?typeUri . BIND(IRI(STR(?typeUri)) AS ?typeIri) }
+  OPTIONAL { ?res field:typeConcept ?typeConcept . BIND(?typeConcept AS ?typeIri) }
 
   OPTIONAL {
     ?res field:contactEmails ?contactEmail .
@@ -181,6 +194,7 @@ WHERE {
     ?res field:conditionUris ?accessRights .
     BIND(IRI(STR(?accessRights)) AS ?accessRightsValue)
   }
+  OPTIONAL { ?res field:accessRightsConcept ?accessRightsConcept . BIND(?accessRightsConcept AS ?accessRightsValue) }
   OPTIONAL {
     ?res field:conditionsDescription ?licenseValue .
   }
@@ -190,18 +204,21 @@ WHERE {
     ?res field:populationUris ?populationUri .
     BIND(IRI(STR(?populationUri)) AS ?spatialValue)
   }
+  OPTIONAL { ?res field:spatialConcept ?spatialConcept . BIND(?spatialConcept AS ?spatialValue) }
   OPTIONAL { ?res field:populationNames ?spatialValue . }
 
+  OPTIONAL { ?res field:distribution ?distribution . }
   OPTIONAL {
     ?res field:releaseIds ?releaseId .
     BIND(IRI(CONCAT("https://catalogue.org/distribution/", ENCODE_FOR_URI(STR(?releaseId)))) AS ?distribution)
   }
 
-  OPTIONAL { ?res field:releaseDates ?distributionIssued . }
-  OPTIONAL { ?res field:releaseDescriptions ?distributionDescription . }
+  OPTIONAL { ?distribution field:releaseDate ?distributionIssued . }
+  OPTIONAL { ?distribution field:releaseDescription ?distributionDescription . }
   OPTIONAL {
-    ?res field:releaseVersions ?releaseVersion .
+    ?distribution field:releaseVersion ?releaseVersion .
     BIND(STR(?releaseVersion) AS ?distributionTitle)
+    BIND(STR(?releaseVersion) AS ?distributionVersion)
     BIND(STR(?releaseVersion) AS ?versionValue)
   }
 
@@ -214,6 +231,7 @@ WHERE {
   OPTIONAL { ?res field:documentationDescriptions ?recordDescription . }
 
   OPTIONAL { ?res field:inclusionCriteriaUris ?conformsToUri . BIND(IRI(STR(?conformsToUri)) AS ?conformsToIri) }
+  OPTIONAL { ?res field:conformsToConcept ?conformsToConcept . BIND(?conformsToConcept AS ?conformsToIri) }
 
   OPTIONAL { ?res field:publicationUrls ?referenceUrl . BIND(IRI(STR(?referenceUrl)) AS ?referenceIri) }
   OPTIONAL { ?res field:publicationDois ?referenceDoi . BIND(IRI(CONCAT("https://doi.org/", STR(?referenceDoi))) AS ?referenceIri) }

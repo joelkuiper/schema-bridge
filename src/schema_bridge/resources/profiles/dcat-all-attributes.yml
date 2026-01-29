@@ -42,10 +42,6 @@ mapping:
     inclusionCriteriaUris: inclusionCriteria[].ontologyTermURI
     publicationUrls: publications[].url
     publicationDois: publications[].doi
-    releaseIds: releases[].id
-    releaseVersions: releases[].version
-    releaseDates: releases[].date
-    releaseDescriptions: releases[].description
     documentationUrls: documentation[].url
     documentationTitles: documentation[].name
     documentationDescriptions: documentation[].description
@@ -59,6 +55,74 @@ mapping:
     contributorRoleUris: contributors[].contributionType[].ontologyTermURI
     contributorRoleNames: contributors[].contributionType[].name
     contributorDescriptions: contributors[].contributionDescription
+  concept_fields:
+    keywords:
+      path: keywords[]
+      predicate: keywordConcept
+      uri: ontologyTermURI
+      code: code
+      label: name
+      lang: en
+    conditions:
+      path: conditions[]
+      predicate: accessRightsConcept
+      uri: ontologyTermURI
+      code: code
+      label: name
+      lang: en
+    population:
+      path: population[]
+      predicate: spatialConcept
+      uri: ontologyTermURI
+      code: code
+      label: name
+      lang: en
+    inclusionCriteria:
+      path: inclusionCriteria[]
+      predicate: conformsToConcept
+      uri: ontologyTermURI
+      code: code
+      label: name
+      lang: en
+    type:
+      path: type[]
+      predicate: typeConcept
+      uri: ontologyTermURI
+      code: code
+      label: name
+      lang: en
+    documentationTypes:
+      path: documentation[].type
+      predicate: documentationTypeConcept
+      uri: ontologyTermURI
+      code: code
+      label: name
+      lang: en
+    partnerRoles:
+      path: partners[].role
+      predicate: partnerRoleConcept
+      uri: ontologyTermURI
+      code: code
+      label: name
+      lang: en
+    contributorRoles:
+      path: contributors[].contributionType[]
+      predicate: contributorRoleConcept
+      uri: ontologyTermURI
+      code: code
+      label: name
+      lang: en
+  node_fields:
+    releases:
+      path: releases[]
+      predicate: distribution
+      subject_path: distribution
+      id_field: id
+      type_iri: http://www.w3.org/ns/dcat#Distribution
+      fields:
+        version: releaseVersion
+        date: releaseDate
+        description: releaseDescription
 shacl:
   shapes: shacl/dcat.shacl.ttl
   validate: false

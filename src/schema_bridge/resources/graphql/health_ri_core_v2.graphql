@@ -1,5 +1,5 @@
-query HealthRiCoreV2Datasets($limit: Int, $offset: Int) {
-  Datasets(limit: $limit, offset: $offset) {
+query HealthRiCoreV2Datasets($limit: Int, $offset: Int, $filter: DatasetsFilter) {
+  Datasets(limit: $limit, offset: $offset, filter: $filter, orderby: { name: ASC }) {
     resource {
       id
       name

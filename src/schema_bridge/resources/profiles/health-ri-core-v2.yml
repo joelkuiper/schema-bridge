@@ -28,3 +28,10 @@ mapping:
     mappedToTargetNames: mappedTo[].target.name
     mappedFromSourceNames: mappedFrom[].source.name
     mappedFromTargetNames: mappedFrom[].target.name
+  concept_fields:
+    keywords:
+      path: keywords[]
+      predicate: keywordConcept
+      code: code
+      label: name
+      lang: en
