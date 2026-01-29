@@ -33,6 +33,9 @@ class MappingConfig:
     field_paths: dict[str, list[str] | str] = field(default_factory=dict)
     concept_fields: dict[str, "ConceptField"] = field(default_factory=dict)
     node_fields: dict[str, "NodeField"] = field(default_factory=dict)
+    auto_nodes: bool = True
+    node_defaults: "NodeDefaults" = field(default_factory=lambda: NodeDefaults())
+    id_strategy: "IdStrategy" = field(default_factory=lambda: IdStrategy())
     concept_ns: str = "https://catalogue.org/concept/"
     drop_nested: bool = False
 
@@ -69,6 +72,13 @@ class MappingConfig:
                 node_fields[str(key)] = NodeField.from_dict(raw_cfg)
         concept_ns = str(data.get("concept_ns", "https://catalogue.org/concept/"))
         drop_nested = bool(data.get("drop_nested", False))
+        auto_nodes = bool(data.get("auto_nodes", True))
+        node_defaults = NodeDefaults.from_dict(
+            data.get("node_defaults") if isinstance(data.get("node_defaults"), dict) else None
+        )
+        id_strategy = IdStrategy.from_dict(
+            data.get("id_strategy") if isinstance(data.get("id_strategy"), dict) else None
+        )
         return cls(
             raw=raw,
             field_aliases=field_aliases,
@@ -76,6 +86,9 @@ class MappingConfig:
             field_paths=field_paths,
             concept_fields=concept_fields,
             node_fields=node_fields,
+            auto_nodes=auto_nodes,
+            node_defaults=node_defaults,
+            id_strategy=id_strategy,
             concept_ns=concept_ns,
             drop_nested=drop_nested,
         )
@@ -131,6 +144,68 @@ class NodeField:
         )
 
 
+@dataclass(frozen=True)
+class NormalizeConfig:
+    trim: bool = True
+    lowercase: bool = False
+    url_encode: bool = True
+
+    @classmethod
+    def from_dict(cls, data: Mapping[str, object] | None) -> "NormalizeConfig":
+        if not data:
+            return cls()
+        return cls(
+            trim=bool(data.get("trim", True)),
+            lowercase=bool(data.get("lowercase", False)),
+            url_encode=bool(data.get("url_encode", True)),
+        )
+
+
+@dataclass(frozen=True)
+class IdStrategy:
+    mode: str = "template"
+    template: str | None = None
+    pid_fields: list[str] = field(default_factory=list)
+    fallback_fields: list[str] = field(default_factory=list)
+    normalize: NormalizeConfig = field(default_factory=NormalizeConfig)
+
+    @classmethod
+    def from_dict(cls, data: Mapping[str, object] | None) -> "IdStrategy":
+        if not data:
+            return cls()
+        pid_fields = data.get("pid_fields")
+        fallback_fields = data.get("fallback_fields")
+        return cls(
+            mode=str(data.get("mode", "template")),
+            template=str(data.get("template")) if data.get("template") else None,
+            pid_fields=[str(item) for item in pid_fields] if isinstance(pid_fields, list) else [],
+            fallback_fields=[str(item) for item in fallback_fields] if isinstance(fallback_fields, list) else [],
+            normalize=NormalizeConfig.from_dict(
+                data.get("normalize") if isinstance(data.get("normalize"), dict) else None
+            ),
+        )
+
+
+@dataclass(frozen=True)
+class NodeDefaults:
+    subject_template: str | None = None
+    id_fields: list[str] = field(default_factory=list)
+    normalize: NormalizeConfig = field(default_factory=NormalizeConfig)
+
+    @classmethod
+    def from_dict(cls, data: Mapping[str, object] | None) -> "NodeDefaults":
+        if not data:
+            return cls()
+        id_fields = data.get("id_fields")
+        return cls(
+            subject_template=str(data.get("subject_template")) if data.get("subject_template") else None,
+            id_fields=[str(item) for item in id_fields] if isinstance(id_fields, list) else [],
+            normalize=NormalizeConfig.from_dict(
+                data.get("normalize") if isinstance(data.get("normalize"), dict) else None
+            ),
+        )
+
+
 def _iter_values(value: object) -> Iterable[object]:
     if isinstance(value, (list, tuple, set)):
         return value
@@ -149,6 +224,67 @@ def _opt_str(value: object | None) -> str | None:
     if isinstance(value, str):
         return value
     return str(value)
+
+
+def _normalize_value(value: object | None, normalize: NormalizeConfig) -> str | None:
+    if value is None:
+        return None
+    text = str(value)
+    if normalize.trim:
+        text = text.strip()
+    if normalize.lowercase:
+        text = text.lower()
+    return text
+
+
+def _select_id_value(row: Mapping[str, object], fields: list[str]) -> str | None:
+    if not fields:
+        return None
+    for field in fields:
+        value = row.get(field)
+        if value is None:
+            continue
+        if isinstance(value, (list, dict)):
+            continue
+        text = str(value)
+        if text:
+            return text
+    return None
+
+
+def _format_subject(
+    *,
+    template: str | None,
+    base_uri: str,
+    path: str,
+    value: str,
+    normalize: NormalizeConfig,
+) -> URIRef:
+    normalized = _normalize_value(value, normalize) or value
+    if normalize.url_encode:
+        normalized = quote(normalized, safe="")
+    if template:
+        subject = template.format(base_uri=base_uri, path=path, id=normalized)
+        return URIRef(subject)
+    return URIRef(f"{base_uri}{path}/{normalized}")
+
+
+def _subject_from_row(row: Mapping[str, object], mapping: MappingConfig) -> URIRef:
+    strategy = mapping.id_strategy
+    if not strategy.pid_fields and not strategy.fallback_fields:
+        raise ValueError("Missing id_strategy configuration (pid_fields or fallback_fields)")
+    pid = _select_id_value(row, strategy.pid_fields)
+    fallback = _select_id_value(row, strategy.fallback_fields)
+    chosen = pid or fallback
+    if not chosen:
+        raise ValueError("Missing stable identifier; configure id_strategy.pid_fields/fallback_fields")
+    return _format_subject(
+        template=strategy.template,
+        base_uri=mapping.raw.base_uri,
+        path=mapping.raw.subject_path,
+        value=chosen,
+        normalize=strategy.normalize,
+    )
 
 
 def _parse_path(path: str) -> list[tuple[str, bool]]:
@@ -344,6 +480,47 @@ def _add_nodes(
                     graph.add((node, pred, _coerce_object(item_value, use_iri)))
 
 
+def _auto_node_subject(
+    *,
+    path: str,
+    item: Mapping[str, object],
+    mapping: MappingConfig,
+) -> URIRef | BNode:
+    node_id = _select_id_value(item, mapping.node_defaults.id_fields)
+    if not node_id:
+        return BNode()
+    return _format_subject(
+        template=mapping.node_defaults.subject_template,
+        base_uri=mapping.raw.base_uri,
+        path=path,
+        value=node_id,
+        normalize=mapping.node_defaults.normalize,
+    )
+
+
+def _add_auto_nodes(subject: URIRef, row: dict, graph: Graph, mapping: MappingConfig) -> None:
+    if not mapping.auto_nodes:
+        return
+    for key, value in row.items():
+        if isinstance(value, dict):
+            items = [value]
+        elif isinstance(value, list) and any(isinstance(item, dict) for item in value):
+            items = [item for item in value if isinstance(item, dict)]
+        else:
+            continue
+        predicate_name = mapping.field_aliases.get(key, key)
+        predicate = URIRef(f"{mapping.raw.field_ns}{predicate_name}")
+        for item in items:
+            node = _auto_node_subject(path=key, item=item, mapping=mapping)
+            graph.add((subject, predicate, node))
+            for item_key, item_value in item.items():
+                pred = URIRef(f"{mapping.raw.field_ns}{item_key}")
+                for item_val in _iter_values(item_value):
+                    if item_val is None:
+                        continue
+                    graph.add((node, pred, _coerce_object(item_val, False)))
+
+
 def load_raw_from_rows(
     rows: Iterable[dict], graph: Graph, mapping: MappingConfig
 ) -> None:
@@ -356,12 +533,7 @@ def load_raw_from_rows(
     entity_type = URIRef(f"{mapping.raw.entity_ns}{mapping.raw.entity_name}")
     for row in rows_list:
         normalized = _resolve_id_alias(_normalized_row(row, mapping), mapping)
-        if mapping.raw.id_field not in normalized:
-            raise ValueError(f"Missing id field '{mapping.raw.id_field}' in row")
-        subject_id = quote(str(normalized[mapping.raw.id_field]), safe="")
-        subject = URIRef(
-            f"{mapping.raw.base_uri}{mapping.raw.subject_path}/{subject_id}"
-        )
+        subject = _subject_from_row(normalized, mapping)
         graph.add((subject, RDF.type, entity_type))
         for key, value in normalized.items():
             mapped_key = mapping.field_aliases.get(key, key)
@@ -375,3 +547,5 @@ def load_raw_from_rows(
             _add_concepts(subject, row, graph, mapping)
         if mapping.node_fields:
             _add_nodes(subject, row, graph, mapping)
+        if mapping.auto_nodes:
+            _add_auto_nodes(subject, row, graph, mapping)

@@ -11,6 +11,17 @@ mapping:
   entity_name: Resource
   subject_path: resource
   id_field: id
+  id_strategy:
+    template: "{base_uri}{path}/{id}"
+    fallback_fields:
+      - id
+  node_defaults:
+    subject_template: "{base_uri}{path}/{id}"
+    id_fields:
+      - id
+      - code
+      - name
+      - email
   iri_fields:
     - website
     - landingPage

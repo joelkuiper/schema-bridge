@@ -186,6 +186,10 @@ GraphQL APIs expose nested, tree-shaped results: optional branches, repeated str
 
 The mapping layer is where this translation happens.
 
+By default, nested objects (dicts/lists of dicts) are promoted into explicit RDF nodes. This creates a richer canonical graph without requiring manual `node_fields` definitions. You can disable this with `mapping.auto_nodes: false`, and you can control node IRIs with `mapping.node_defaults`.
+
+Stable subject IRIs are controlled by `mapping.id_strategy`, which selects the identifier fields and template used to mint canonical subjects.
+
 Instead of running SPARQL directly over API-shaped data, Schema Bridge first normalizes incoming data into the canonical graph. SPARQL queries are then written once against that stable representation. This decouples transformations from the source API schema, allowing APIs to evolve without requiring changes to downstream queries or exports.
 
 Minimal example:
@@ -228,7 +232,7 @@ Export profiles wire together **fetch → mapping → export → validation**.
 
 ```bash
 uv run schema-bridge export --profile dcat --format ttl
-uv run schema-bridge export --profile fdp --format ttl
+uv run schema-bridge export --profile schemaorg-molgenis --format jsonld
 uv run schema-bridge export --profile healthdcat-ap-r5-molgenis --format ttl
 ```
 
@@ -299,6 +303,7 @@ At a minimum, creating a new profile involves:
   * `CONSTRUCT` queries for RDF-based exports (Turtle, JSON-LD, RDF/XML, N-Triples).
   * `SELECT` queries for tabular exports (JSON, CSV) or for ingest extraction.
 * A `profile.yml` file that ties these assets together and configures optional mapping and validation steps.
+* A stable ID strategy (`mapping.id_strategy`) and optional nested-node defaults (`mapping.node_defaults`) for the canonical RDF layer.
 
 ### Export profiles
 
@@ -323,6 +328,13 @@ fetch:
 
 mapping:
   field_paths: <field mappings>     # see Architecture > How mappings work
+  id_strategy:
+    template: <IRI template>
+    fallback_fields: [<field>]
+  node_defaults:
+    subject_template: <IRI template>
+    id_fields: [<field>]
+  auto_nodes: true|false
 
 export:
   select: <path to SPARQL SELECT>
@@ -338,7 +350,7 @@ validate:
 | Profile | Description |
 |---------|-------------|
 | `dcat` | Demo profile |
-| `fdp` | Demo profile |
+| `schemaorg-molgenis` | Schema.org Dataset/DataCatalog (partial coverage) |
 | `healthdcat-ap-r5-molgenis` | Health-DCAT-AP Release 5 (partial coverage) |
 
 ### Ingest profiles

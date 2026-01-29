@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 
 from schema_bridge.rdf import MappingConfig, RawMapping, export_formats, load_raw_from_rows, new_graph
+from schema_bridge.rdf.mapping import IdStrategy
 
 
 def test_export_jsonld_includes_context_and_graph() -> None:
@@ -15,7 +16,17 @@ def test_export_jsonld_includes_context_and_graph() -> None:
             "website": "https://example.org",
         }
     ]
-    load_raw_from_rows(rows, raw, MappingConfig(raw=RawMapping()))
+    load_raw_from_rows(
+        rows,
+        raw,
+        MappingConfig(
+            raw=RawMapping(),
+            id_strategy=IdStrategy(
+                template="{base_uri}{path}/{id}",
+                fallback_fields=["id"],
+            ),
+        ),
+    )
 
     captured: list[str] = []
     export_formats(

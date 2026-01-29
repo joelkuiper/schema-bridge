@@ -17,7 +17,8 @@ from schema_bridge.rdf import (
     select_rows,
     validate_graph,
 )
-from schema_bridge.rdf.mapping import ConceptField, NodeField
+from schema_bridge.rdf.mapping import IdStrategy, NodeDefaults
+from schema_bridge.rdf.mapping import ConceptField, IdStrategy, NodeField
 from schema_bridge.resources import load_text, load_yaml
 from schema_bridge.profiles import (
     load_mapping_override,
@@ -31,6 +32,14 @@ FIELD = Namespace("https://catalogue.org/field/")
 ENTITY = Namespace("https://catalogue.org/entity/")
 
 
+def _with_id_strategy(mapping: MappingConfig, fallback_fields: list[str]) -> MappingConfig:
+    mapping.id_strategy = IdStrategy(
+        template="{base_uri}{path}/{id}",
+        fallback_fields=fallback_fields,
+    )
+    return mapping
+
+
 def test_raw_load_and_dcat_construct():
     raw = new_graph()
     rows = [
@@ -42,7 +51,11 @@ def test_raw_load_and_dcat_construct():
             "website": "https://example.org",
         }
     ]
-    load_raw_from_rows(rows, raw, MappingConfig(raw=RawMapping()))
+    load_raw_from_rows(
+        rows,
+        raw,
+        _with_id_strategy(MappingConfig(raw=RawMapping()), ["id"]),
+    )
 
     res = EX["resource/R1"]
     assert (res, RDF.type, ENTITY["Resource"]) in raw
@@ -86,7 +99,10 @@ def test_catalogs_use_case_dcat_fields():
     load_raw_from_rows(
         rows,
         raw,
-        MappingConfig(raw=RawMapping(entity_name="Dataset", subject_path="catalog")),
+        _with_id_strategy(
+            MappingConfig(raw=RawMapping(entity_name="Dataset", subject_path="catalog")),
+            ["id"],
+        ),
     )
 
     dcat = construct_dcat(raw)
@@ -134,7 +150,7 @@ def test_select_rows():
             "description": "Other resource",
         },
     ]
-    load_raw_from_rows(rows, raw, MappingConfig(raw=RawMapping()))
+    load_raw_from_rows(rows, raw, _with_id_strategy(MappingConfig(raw=RawMapping()), ["id"]))
 
     result = select_rows(raw, "profiles/dcat/sparql/select.sparql")
     assert len(result) == 2
@@ -152,7 +168,7 @@ def test_export_profile_load_and_shacl_validation():
             "description": "Example description",
         }
     ]
-    load_raw_from_rows(rows, raw, profile.mapping)
+    load_raw_from_rows(rows, raw, _with_id_strategy(profile.mapping, ["id"]))
     dcat = construct_dcat(raw)
     assert profile.shacl is not None
     conforms, report = validate_graph(dcat, profile.shacl)
@@ -172,7 +188,7 @@ def test_yaml_mapping_alias_and_iri_coercion():
             "website": "https://example.org/resource",
         }
     ]
-    load_raw_from_rows(rows, raw, mapping)
+    load_raw_from_rows(rows, raw, _with_id_strategy(mapping, ["code"]))
     res = URIRef("https://catalogue.org/resource/R9")
     assert (res, FIELD["name"], None) in raw
     assert (res, FIELD["website"], URIRef("https://example.org/resource")) in raw
@@ -190,7 +206,7 @@ def test_rml_materialize_csv():
 def test_stdout_requires_single_target():
     raw = new_graph()
     rows = [{"id": "R1", "name": "Example", "description": "Desc"}]
-    load_raw_from_rows(rows, raw, MappingConfig(raw=RawMapping()))
+    load_raw_from_rows(rows, raw, _with_id_strategy(MappingConfig(raw=RawMapping()), ["id"]))
     with pytest.raises(ValueError):
         export_formats(
             raw,
@@ -233,7 +249,7 @@ def test_field_paths_flatten_nested():
             "countries": [{"name": "NL"}, {"name": "BE"}],
         }
     ]
-    load_raw_from_rows(rows, raw, mapping)
+    load_raw_from_rows(rows, raw, _with_id_strategy(mapping, ["id"]))
     res = URIRef("https://catalogue.org/resource/R2")
     assert (res, FIELD["leadOrganisationAcronym"], None) in raw
     assert (res, FIELD["countryNames"], None) in raw
@@ -267,7 +283,7 @@ def test_concept_fields_create_skos_nodes():
             ],
         }
     ]
-    load_raw_from_rows(rows, raw, mapping)
+    load_raw_from_rows(rows, raw, _with_id_strategy(mapping, ["id"]))
     res = URIRef("https://catalogue.org/resource/R3")
     concept = URIRef("http://example.org/terms/genomics")
     assert (res, FIELD["keywordConcept"], concept) in raw
@@ -308,12 +324,53 @@ def test_node_fields_create_distribution_nodes():
             "releases": [{"id": "REL-2", "version": "v2", "date": "2024-01-01"}],
         }
     ]
-    load_raw_from_rows(rows, raw, mapping)
+    load_raw_from_rows(rows, raw, _with_id_strategy(mapping, ["id"]))
     res = URIRef("https://catalogue.org/resource/R4")
     dist = URIRef("https://catalogue.org/distribution/REL-2")
     assert (res, FIELD["distribution"], dist) in raw
     assert (dist, FIELD["releaseVersion"], None) in raw
     assert (dist, FIELD["releaseDate"], None) in raw
+
+
+def test_id_strategy_template_uses_fallback_field() -> None:
+    raw = new_graph()
+    mapping = MappingConfig(
+        raw=RawMapping(),
+        id_strategy=IdStrategy(
+            template="{base_uri}{path}/{id}",
+            fallback_fields=["name"],
+        ),
+    )
+    rows = [{"name": "Alpha Resource"}]
+    load_raw_from_rows(rows, raw, mapping)
+    res = URIRef("https://catalogue.org/resource/Alpha%20Resource")
+    assert (res, RDF.type, ENTITY["Resource"]) in raw
+
+
+def test_auto_nodes_create_nested_nodes_by_default() -> None:
+    raw = new_graph()
+    mapping = MappingConfig(
+        raw=RawMapping(),
+        id_strategy=IdStrategy(
+            template="{base_uri}{path}/{id}",
+            fallback_fields=["id"],
+        ),
+        node_defaults=NodeDefaults(
+            subject_template="{base_uri}{path}/{id}",
+            id_fields=["email"],
+        ),
+    )
+    rows = [
+        {
+            "id": "R5",
+            "contactPoint": {"email": "a@example.org", "displayName": "Ada"},
+        }
+    ]
+    load_raw_from_rows(rows, raw, mapping)
+    res = URIRef("https://catalogue.org/resource/R5")
+    node = URIRef("https://catalogue.org/contactPoint/a%40example.org")
+    assert (res, FIELD["contactPoint"], node) in raw
+    assert (node, FIELD["email"], None) in raw
 
 
 def test_export_profiles_reference_existing_queries():
