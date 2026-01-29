@@ -71,7 +71,7 @@ uv run schema-bridge export \
   --limit 10
 ```
 
-Sample output (live run, limit 120, January 29, 2026):
+Sample output (live run, public endpoint, January 29, 2026):
 
 ```ttl
 <https://catalogue.org/resource/AHON> a dcat:Dataset ;
