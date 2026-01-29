@@ -25,6 +25,7 @@ Profiles are the primary entry point. A profile wires together the fetch, export
 - `uv run schema-bridge run --profile dcat-ap-3.0.1 --format ttl`
 - `uv run schema-bridge run --profile fdp --format ttl`
 - `uv run schema-bridge run --profile health-dcat-ap --format ttl`
+- `uv run schema-bridge run --profile health-dcat-ap-molgenis --format ttl`
 - `uv run schema-bridge run --profile health-ri-core-v2 --format ttl`
 
 You can set a limit (`--limit`) to adjust the number of GraphQL results to be fetched. For large
@@ -49,6 +50,15 @@ Common keys:
 - `validate.enabled`: enable/disable validation
 
 Profiles live under `src/schema_bridge/resources/profiles/`.
+
+## MOLGENIS Catalogue (Health-DCAT-AP)
+
+For molgeniscatalogue.org, use the `health-dcat-ap-molgenis` profile. It includes a
+maximum-coverage GraphQL query aligned to the live schema at `https://molgeniscatalogue.org/catalogue/graphql`.
+
+Example:
+
+- `uv run schema-bridge run --profile health-dcat-ap-molgenis --base-url https://molgeniscatalogue.org/ --schema catalogue --format ttl > out/molgenis-health-dcat-ap.ttl`
 
 ## CLI flags (pagination + incremental sync)
 

@@ -1,0 +1,146 @@
+query HealthDcatApResourcesMolgenis($limit: Int, $offset: Int, $filter: ResourcesFilter) {
+  Resources(limit: $limit, offset: $offset, filter: $filter, orderby: { id: ASC }) {
+    id
+    name
+    acronym
+    description
+    website
+    keywords
+    contactEmail
+    startYear
+    endYear
+    numberOfParticipants
+    numberOfParticipantsWithSamples
+    designDescription
+    otherInclusionCriteria
+    dataAccessFee
+    dataAccessConditionsDescription
+    releaseDescription
+    fundingStatement
+    acknowledgements
+    type {
+      name
+      label
+      code
+      ontologyTermURI
+      definition
+      parent {
+        code
+        name
+      }
+    }
+    populationAgeGroups {
+      code
+      name
+      label
+      ontologyTermURI
+      definition
+      parent {
+        code
+        name
+      }
+    }
+    countries {
+      name
+      code
+      parent {
+        code
+        name
+      }
+    }
+    regions {
+      name
+      code
+      parent {
+        code
+        name
+      }
+    }
+    design {
+      name
+      definition
+    }
+    inclusionCriteria {
+      code
+      name
+      definition
+      ontologyTermURI
+      parent {
+        code
+        name
+      }
+    }
+    dataAccessConditions {
+      code
+      name
+      definition
+      ontologyTermURI
+      parent {
+        code
+        name
+      }
+    }
+    dataUseConditions {
+      code
+      name
+      definition
+      ontologyTermURI
+      parent {
+        code
+        name
+      }
+    }
+    accessRights {
+      code
+      name
+      definition
+      ontologyTermURI
+      parent {
+        code
+        name
+      }
+    }
+    contactPoint {
+      displayName
+      firstName
+      lastName
+      email
+    }
+    publisher {
+      id
+      name
+      organisationName
+      otherOrganisation
+      organisationWebsite
+      organisationPid
+      website
+      organisation {
+        name
+        acronym
+        ontologyTermURI
+        code
+        definition
+      }
+    }
+    leadOrganisations: organisationsInvolved(filter: { isLeadOrganisation: { equals: true } }) {
+      id
+      name
+      organisationName
+      otherOrganisation
+      organisationWebsite
+      organisationPid
+      website
+      organisation {
+        name
+        acronym
+        ontologyTermURI
+        code
+        definition
+      }
+    }
+    designPublications: publications(filter: { isDesignPublication: { equals: true } }) {
+      title
+      doi
+    }
+  }
+}

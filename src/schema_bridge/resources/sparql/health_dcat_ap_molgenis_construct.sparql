@@ -1,0 +1,130 @@
+PREFIX field: <https://catalogue.org/field/>
+PREFIX entity: <https://catalogue.org/entity/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+CONSTRUCT {
+  ?res a dcat:Dataset ;
+       dct:identifier ?id ;
+       dct:title ?name ;
+       dct:description ?description ;
+       dcat:landingPage ?websiteIri ;
+       dcat:contactPoint ?contact ;
+       dct:publisher ?publisher ;
+       dct:temporal ?temporal ;
+       dct:accessRights ?accessRightsValue ;
+       odrl:hasPolicy ?policyValue ;
+       dct:conformsTo ?conformsToIri ;
+       dct:spatial ?spatialIri ;
+       dcat:theme ?themeIri ;
+       dcat:keyword ?keywordLiteral ;
+       dct:rights ?rightsLiteral .
+
+  ?contact a vcard:Individual ;
+           vcard:fn ?contactName ;
+           vcard:hasEmail ?contactEmailIri .
+
+  ?publisher a foaf:Organization ;
+             foaf:name ?publisherName ;
+             foaf:homepage ?publisherWebsiteIri .
+
+  ?temporal a dct:PeriodOfTime ;
+            dcat:startDate ?startDateValue ;
+            dcat:endDate ?endDateValue .
+}
+WHERE {
+  ?res a entity:Resource ;
+       field:id ?id ;
+       field:name ?name .
+
+  OPTIONAL { ?res field:description ?description . }
+  OPTIONAL { ?res field:acronym ?acronym . }
+  OPTIONAL {
+    ?res field:website ?website .
+    BIND(IRI(STR(?website)) AS ?websiteIri)
+  }
+  OPTIONAL {
+    ?res field:contactEmail ?contactEmail .
+    BIND(STR(?contactEmail) AS ?contactEmailRaw)
+    BIND(IF(CONTAINS(?contactEmailRaw, ","), STRBEFORE(?contactEmailRaw, ","), ?contactEmailRaw) AS ?contactEmailTmp)
+    BIND(IF(CONTAINS(?contactEmailTmp, ";"), STRBEFORE(?contactEmailTmp, ";"), ?contactEmailTmp) AS ?contactEmailTmp2)
+    BIND(REPLACE(?contactEmailTmp2, "^mailto:", "") AS ?contactEmailClean)
+    BIND(IRI(CONCAT("mailto:", ?contactEmailClean)) AS ?contactEmailIri)
+    BIND(IRI(CONCAT("https://catalogue.org/contact/", ENCODE_FOR_URI(?contactEmailClean))) AS ?contact)
+  }
+  OPTIONAL { ?res field:contactName ?contactName . }
+
+  OPTIONAL { ?res field:leadOrganisationAcronym ?leadOrgName . }
+  OPTIONAL { ?res field:publisherName ?publisherName . }
+  BIND(COALESCE(?publisherName, ?leadOrgName) AS ?publisherLabel)
+  OPTIONAL {
+    FILTER(BOUND(?publisherLabel))
+    BIND(IRI(CONCAT("https://catalogue.org/org/", ENCODE_FOR_URI(STR(?publisherLabel)))) AS ?publisher)
+    BIND(?publisherLabel AS ?publisherName)
+  }
+  OPTIONAL {
+    ?res field:publisherWebsite ?publisherWebsite .
+    BIND(IRI(STR(?publisherWebsite)) AS ?publisherWebsiteIri)
+  }
+
+  OPTIONAL {
+    ?res field:startYear ?startYear .
+    BIND(STRDT(STR(?startYear), xsd:gYear) AS ?startDateValue)
+  }
+  OPTIONAL {
+    ?res field:endYear ?endYear .
+    BIND(STRDT(STR(?endYear), xsd:gYear) AS ?endDateValue)
+  }
+  OPTIONAL {
+    FILTER(BOUND(?startDateValue) || BOUND(?endDateValue))
+    BIND(BNODE() AS ?temporal)
+  }
+
+  OPTIONAL {
+    ?res field:dataAccessConditionUris ?accessRightsUri .
+    BIND(IRI(STR(?accessRightsUri)) AS ?accessRightsValue)
+  }
+  OPTIONAL { ?res field:accessRightsConcept ?accessRightsConcept . BIND(?accessRightsConcept AS ?accessRightsValue) }
+
+  OPTIONAL {
+    ?res field:dataUseConditionUris ?policyUri .
+    BIND(IRI(STR(?policyUri)) AS ?policyValue)
+  }
+  OPTIONAL { ?res field:policyConcept ?policyConcept . BIND(?policyConcept AS ?policyValue) }
+
+  OPTIONAL {
+    ?res field:inclusionCriteriaCodes ?conformsToCode .
+    BIND(IRI(CONCAT("https://catalogue.org/criteria/", ENCODE_FOR_URI(STR(?conformsToCode)))) AS ?conformsToIri)
+  }
+  OPTIONAL { ?res field:conformsToConcept ?conformsToConcept . BIND(?conformsToConcept AS ?conformsToIri) }
+
+  OPTIONAL {
+    ?res field:countryNames ?countryName .
+    BIND(IRI(CONCAT("https://catalogue.org/geo/", ENCODE_FOR_URI(STR(?countryName)))) AS ?spatialIri)
+  }
+  OPTIONAL {
+    ?res field:regionNames ?regionName .
+    BIND(IRI(CONCAT("https://catalogue.org/geo/", ENCODE_FOR_URI(STR(?regionName)))) AS ?spatialIri)
+  }
+
+  OPTIONAL {
+    ?res field:typeName ?typeName .
+    BIND(IRI(CONCAT("https://catalogue.org/theme/", ENCODE_FOR_URI(STR(?typeName)))) AS ?themeIri)
+    BIND(STR(?typeName) AS ?keywordLiteral)
+  }
+  OPTIONAL {
+    ?res field:collectionTypeName ?collectionTypeName .
+    BIND(IRI(CONCAT("https://catalogue.org/theme/", ENCODE_FOR_URI(STR(?collectionTypeName)))) AS ?themeIri)
+    BIND(STR(?collectionTypeName) AS ?keywordLiteral)
+  }
+  OPTIONAL { ?res field:keywords ?keywordLiteral . }
+
+  OPTIONAL {
+    ?res field:dataAccessFee ?dataAccessFee .
+    BIND(CONCAT("Access fee: ", STR(?dataAccessFee)) AS ?rightsLiteral)
+  }
+}

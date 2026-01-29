@@ -1,0 +1,82 @@
+name: health-dcat-ap-molgenis
+description: Health-DCAT-AP export tuned for molgeniscatalogue.org (max coverage)
+fetch:
+  graphql: graphql/health_dcat_ap_molgenis.graphql
+  root_key: Resources
+export:
+  select: health_dcat_ap_molgenis_select.sparql
+  construct: health_dcat_ap_molgenis_construct.sparql
+mapping:
+  entity_name: Resource
+  subject_path: resource
+  id_field: id
+  drop_nested: true
+  iri_fields:
+    - website
+    - publisherWebsite
+  field_paths:
+    contactEmail:
+      - contactPoint.email
+      - contactEmail
+    contactName:
+      - contactPoint.displayName
+      - contactPoint.firstName
+      - contactPoint.lastName
+    leadOrganisationAcronym:
+      - leadOrganisations[].organisationName
+      - leadOrganisations[].name
+      - leadOrganisations[].otherOrganisation
+      - leadOrganisations[].id
+    publisherName:
+      - publisher.organisationName
+      - publisher.name
+      - publisher.otherOrganisation
+      - publisher.id
+    publisherWebsite:
+      - publisher.organisationWebsite
+      - publisher.website
+    typeName:
+      - type[].name
+      - type[].label
+    collectionTypeName:
+      - type[].name
+      - type[].label
+    populationAgeGroupCodes: populationAgeGroups[].code
+    populationAgeGroupParentCodes: populationAgeGroups[].parent.code
+    countryNames: countries[].name
+    regionNames: regions[].name
+    designName: design.name
+    designDefinition: design.definition
+    designPaperTitle: designPublications[].title
+    designPaperDoi: designPublications[].doi
+    inclusionCriteriaCodes: inclusionCriteria[].code
+    inclusionCriteriaParentCodes: inclusionCriteria[].parent.code
+    dataAccessConditionCodes: dataAccessConditions[].code
+    dataAccessConditionUris: dataAccessConditions[].ontologyTermURI
+    dataAccessConditionDefinitions: dataAccessConditions[].definition
+    dataUseConditionCodes: dataUseConditions[].code
+    dataUseConditionUris: dataUseConditions[].ontologyTermURI
+    dataUseConditionDefinitions: dataUseConditions[].definition
+    keywords: keywords[]
+  concept_fields:
+    accessRights:
+      path: accessRights
+      predicate: accessRightsConcept
+      uri: ontologyTermURI
+      code: code
+      label: name
+      lang: en
+    dataAccessConditions:
+      path: dataAccessConditions[]
+      predicate: accessRightsConcept
+      uri: ontologyTermURI
+      code: code
+      label: name
+      lang: en
+    dataUseConditions:
+      path: dataUseConditions[]
+      predicate: policyConcept
+      uri: ontologyTermURI
+      code: code
+      label: name
+      lang: en
