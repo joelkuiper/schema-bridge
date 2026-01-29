@@ -9,6 +9,9 @@ import os
 from gql import Client, gql
 from gql.transport.exceptions import TransportQueryError
 from gql.transport.requests import RequestsHTTPTransport
+import logging
+
+logger = logging.getLogger("schema_bridge.pipeline.graphql")
 
 
 @dataclass(frozen=True)
@@ -19,6 +22,7 @@ class PaginationConfig:
 
 
 def load_graphql_file(path: Path) -> dict:
+    logger.debug("Loading GraphQL fixture: %s", path)
     with path.open("r", encoding="utf-8") as handle:
         return json.load(handle)
 
@@ -31,6 +35,7 @@ def _build_updated_filter(updated_since: str | None, updated_until: str | None) 
     if not end:
         now = datetime.now(timezone.utc).replace(microsecond=0)
         end = now.isoformat().replace("+00:00", "Z")
+    logger.debug("Using updated filter: %s..%s", start, end)
     return {"between": {"mg_updatedOn": [start, end]}}
 
 
@@ -59,6 +64,7 @@ def _paginate_graphql(
     pagination: PaginationConfig,
     updated_filter: dict | None,
 ) -> dict:
+    logger.debug("Paginating GraphQL results: root_key=%s page_size=%s max_rows=%s", root_key, pagination.page_size, pagination.max_rows)
     rows: list[dict] = []
     total = 0
     offset = pagination.offset
@@ -80,6 +86,7 @@ def _paginate_graphql(
             raise RuntimeError(f"Expected list for '{root_key}', got {type(data).__name__}")
         rows.extend(data)
         total += len(data)
+        logger.debug("Fetched %s rows (total=%s)", len(data), total)
         if len(data) < page_limit:
             break
         offset += len(data)
@@ -99,8 +106,10 @@ def fetch_graphql(
 ) -> dict:
     fixture = os.getenv("SCHEMA_BRIDGE_GRAPHQL_FIXTURE")
     if fixture:
+        logger.debug("Using GraphQL fixture from SCHEMA_BRIDGE_GRAPHQL_FIXTURE")
         return load_graphql_file(Path(fixture))
     endpoint = f"{base_url.rstrip('/')}/{schema}/graphql"
+    logger.debug("Fetching GraphQL from %s (root_key=%s)", endpoint, root_key)
     transport = RequestsHTTPTransport(url=endpoint, timeout=30)
     client = Client(transport=transport, fetch_schema_from_transport=False)
     updated_filter = _build_updated_filter(updated_since, updated_until)
@@ -118,6 +127,7 @@ def fetch_graphql(
     merged_vars = dict(variables or {})
     if updated_filter is not None:
         merged_vars["filter"] = _merge_filters(merged_vars.get("filter"), updated_filter)
+    logger.debug("Executing GraphQL query (no pagination)")
     result = _execute_graphql(client, query, merged_vars)
     return {"data": result}
 
@@ -126,4 +136,5 @@ def extract_rows(graphql_data: dict, root_key: str) -> list[dict]:
     data = graphql_data.get("data", {})
     if root_key not in data:
         raise KeyError(f"Missing data root '{root_key}' in GraphQL response")
+    logger.debug("Extracting rows from root_key=%s", root_key)
     return data[root_key] or []

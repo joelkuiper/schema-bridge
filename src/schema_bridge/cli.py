@@ -3,9 +3,11 @@ from __future__ import annotations
 from pathlib import Path
 import os
 import typer
+import logging
 
 from rdflib import Graph
 
+from schema_bridge.logging import configure_logging
 from schema_bridge.pipeline import (
     export_and_validate,
     fetch_graphql,
@@ -20,6 +22,18 @@ from schema_bridge.pipeline import (
 )
 
 app = typer.Typer(help="Schema Bridge CLI (GraphQL -> RDF canonical graph -> exports)")
+logger = logging.getLogger("schema_bridge.cli")
+
+
+@app.callback()
+def _main(
+    debug: bool = typer.Option(
+        False,
+        "--debug",
+        help="Enable debug logging",
+    )
+) -> None:
+    configure_logging(debug)
 
 
 @app.command()
@@ -58,6 +72,7 @@ def fetch(
         help="Only fetch rows updated before this timestamp (ISO 8601)",
     ),
 ) -> None:
+    logger.debug("Starting fetch: base_url=%s schema=%s profile=%s", base_url, schema, profile)
     profile_cfg = load_profile(profile)
     pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
     query_path = query or profile_cfg.graphql_query or "graphql/resources.graphql"
@@ -75,6 +90,7 @@ def fetch(
         updated_until=updated_until,
     )
     write_json(data, out)
+    logger.debug("Fetch complete: wrote %s", out)
 
 
 @app.command()
@@ -128,6 +144,7 @@ def convert(
         help="Optional path to write SHACL validation report (TTL)",
     ),
 ) -> None:
+    logger.debug("Starting convert: input=%s profile=%s format=%s", input_path, profile, output_format)
     export = resolve_export(
         profile_name=profile,
         mapping_override=mapping,
@@ -154,6 +171,7 @@ def convert(
         shacl_report,
         emit=lambda text: typer.echo(text, nl=False),
     )
+    logger.debug("Convert complete")
 
 
 @app.command()
@@ -220,6 +238,7 @@ def run(
         help="Only fetch rows updated before this timestamp (ISO 8601)",
     ),
 ) -> None:
+    logger.debug("Starting run: base_url=%s schema=%s profile=%s format=%s", base_url, schema, profile, output_format)
     profile_cfg = load_profile(profile)
     if profile_cfg.mapping_format == "rml":
         raise SystemExit("RML profiles are not supported with run; use convert instead.")
@@ -257,6 +276,7 @@ def run(
         shacl_report,
         emit=lambda text: typer.echo(text, nl=False),
     )
+    logger.debug("Run complete")
 
 
 def main() -> None:

@@ -9,15 +9,20 @@ from typing import Iterable
 from rdflib import Graph
 
 from .resources import load_text
+import logging
+
+logger = logging.getLogger("schema_bridge.pipeline.export")
 
 
 def construct_dcat(raw_graph: Graph) -> Graph:
+    logger.debug("Running DCAT construct query")
     query = load_text("sparql/dcat_construct.sparql", "schema_bridge.resources")
     result = raw_graph.query(query)
     return result.graph
 
 
 def select_rows(raw_graph: Graph, query_path: str) -> list[dict]:
+    logger.debug("Running SELECT query: %s", query_path)
     resolved = query_path if "/" in query_path else f"sparql/{query_path}"
     query = load_text(resolved, "schema_bridge.resources")
     rows = []
@@ -88,14 +93,17 @@ def export_formats(
     emit: callable | None = None,
 ) -> Graph | None:
     targets_set = {_normalize_export_format(target) for target in targets if target.strip()}
+    logger.debug("Export targets: %s", sorted(targets_set))
     if out_dir is None and len(targets_set) != 1:
         raise ValueError("Stdout output requires exactly one target format")
     if out_dir is not None:
+        logger.debug("Writing outputs to %s", out_dir)
         out_dir.mkdir(parents=True, exist_ok=True)
     if "json" in targets_set or "csv" in targets_set:
         if not select_query:
             raise ValueError("Select query is required for CSV/JSON outputs")
         selected = select_rows(raw_graph, select_query)
+        logger.debug("Selected %s row(s)", len(selected))
         if "json" in targets_set:
             payload = {"rows": selected}
             if out_dir is None:
@@ -116,6 +124,7 @@ def export_formats(
     if rdf_targets:
         if not construct_query:
             raise ValueError("Construct query is required for RDF outputs")
+        logger.debug("Running CONSTRUCT query: %s", construct_query)
         resolved = construct_query if "/" in construct_query else f"sparql/{construct_query}"
         construct = raw_graph.query(load_text(resolved, "schema_bridge.resources")).graph
         if "ttl" in targets_set:

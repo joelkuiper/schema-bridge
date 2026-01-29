@@ -24,6 +24,8 @@ Profiles are the primary entry point. A profile wires together the fetch, export
 - `uv run schema-bridge run --profile fdp --format ttl`
 - `uv run schema-bridge run --profile health-dcat-ap-molgenis --format ttl`
 
+Add `--debug` to any command to enable verbose logging (both `schema-bridge` and `schema-bridge-ingest`).
+
 You can set a limit (`--limit`) to adjust the number of GraphQL results to be fetched. For large
 catalogues, `--page-size` enables server-side paging, and `--updated-since`/`--updated-until` allow
 incremental syncs based on the `mg_updatedOn` system column.
@@ -47,6 +49,12 @@ Common keys:
 
 Profiles live under `src/schema_bridge/resources/profiles/`.
 
+Available export profiles in this repo:
+
+- `dcat`
+- `fdp`
+- `health-dcat-ap-molgenis`
+
 ## MOLGENIS Catalogue (Health-DCAT-AP)
 
 For molgeniscatalogue.org, use the `health-dcat-ap-molgenis` profile. It includes a
@@ -69,29 +77,7 @@ Note: `--updated-since/--updated-until` require `mg_updatedOn` filter support in
 Use ingest when you already have DCAT/Health-DCAT RDF (TTL/JSON-LD/RDF/XML/N-Triples) and want to push it into EMX2. Validation is
 enabled by default.
 
-Ingest profiles are smaller and only describe ingest steps. They live under
-`src/schema_bridge/resources/ingest_profiles/`.
-
-Example ingest profile:
-
-```yaml
-name: ingest-dcat
-validate:
-  shacl: shacl/dcat.shacl.ttl
-  enabled: true
-extract:
-  sparql: sparql/ingest_dcat_select.sparql
-upload:
-  table: Resource
-  mode: upsert
-  id_prefix: import-
-  batch_size: 100
-graphql:
-  base_url: https://emx2.dev.molgenis.org/
-  schema: catalogue-demo
-  token: YOUR_TOKEN
-  graphql_mutation: graphql/ingest_mutation.graphql
-```
+Ingest profiles live under `src/schema_bridge/resources/ingest_profiles/`.
 
 ## Output formats
 

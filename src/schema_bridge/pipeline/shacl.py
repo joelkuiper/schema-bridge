@@ -5,6 +5,9 @@ from dataclasses import dataclass
 from rdflib import Graph
 
 from .resources import load_text
+import logging
+
+logger = logging.getLogger("schema_bridge.pipeline.shacl")
 
 
 @dataclass
@@ -14,6 +17,7 @@ class ShaclConfig:
 
 
 def load_graph_from_shacl(path: str) -> Graph:
+    logger.debug("Loading SHACL shapes: %s", path)
     graph = Graph()
     data = load_text(path, "schema_bridge.resources")
     graph.parse(data=data, format="turtle")
@@ -23,6 +27,7 @@ def load_graph_from_shacl(path: str) -> Graph:
 def validate_graph(data_graph: Graph, shacl_config: ShaclConfig) -> tuple[bool, Graph]:
     from pyshacl import validate
 
+    logger.debug("Validating graph with SHACL: %s", shacl_config.shapes)
     shacl_graph = load_graph_from_shacl(shacl_config.shapes)
     conforms, report_graph, _ = validate(
         data_graph=data_graph,
@@ -33,4 +38,5 @@ def validate_graph(data_graph: Graph, shacl_config: ShaclConfig) -> tuple[bool, 
         advanced=True,
         debug=False,
     )
+    logger.debug("SHACL conforms=%s", conforms)
     return bool(conforms), report_graph

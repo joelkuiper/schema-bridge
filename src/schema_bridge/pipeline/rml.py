@@ -8,9 +8,13 @@ from rdflib import Graph
 from .graphql import extract_rows, load_graphql_file
 from .mapping import MappingConfig, load_raw_from_rows
 from .profiles import ProfileConfig, resolve_profile_path
+import logging
+
+logger = logging.getLogger("schema_bridge.pipeline.rml")
 
 
 def materialize_rml(mapping_path: str, source_path: str | None = None) -> Graph:
+    logger.debug("Materializing RML mapping: %s", mapping_path)
     config = [
         "[CONFIGURATION]",
         "number_of_processes=1",
@@ -18,6 +22,7 @@ def materialize_rml(mapping_path: str, source_path: str | None = None) -> Graph:
         f"mappings: {mapping_path}",
     ]
     if source_path:
+        logger.debug("Using RML source override: %s", source_path)
         config.append(f"file_path: {source_path}")
     return morph_kgc.materialize("\n".join(config))
 
@@ -33,6 +38,7 @@ def _materialize_graph(
     rml_source: str | None,
 ) -> Graph:
     if from_format == "rml" or profile.mapping_format == "rml":
+        logger.debug("Materializing graph via RML")
         mapping_path = rml_mapping or profile.rml_mapping or str(input_path)
         if not mapping_path:
             raise ValueError("RML mapping path is required for RML conversion")
@@ -46,6 +52,7 @@ def _materialize_graph(
             )
         return materialize_rml(resolved_mapping, resolved_source)
 
+    logger.debug("Materializing graph from GraphQL JSON: %s", input_path)
     graphql_data = load_graphql_file(input_path)
     rows = extract_rows(graphql_data, root_key)
     raw = Graph()

@@ -6,6 +6,9 @@ from urllib.parse import quote
 
 from rdflib import Graph, Namespace, URIRef, Literal, BNode
 from rdflib.namespace import RDF, SKOS, OWL
+import logging
+
+logger = logging.getLogger("schema_bridge.pipeline.mapping")
 
 EX = Namespace("https://catalogue.org/")
 FIELD = Namespace("https://catalogue.org/field/")
@@ -321,8 +324,10 @@ def _add_nodes(subject: URIRef, row: dict, graph: Graph, mapping: MappingConfig)
 
 
 def load_raw_from_rows(rows: Iterable[dict], graph: Graph, mapping: MappingConfig) -> None:
+    rows_list = list(rows)
+    logger.debug("Loading %s row(s) into RDF graph for %s", len(rows_list), mapping.raw.entity_name)
     entity_type = URIRef(f"{mapping.raw.entity_ns}{mapping.raw.entity_name}")
-    for row in rows:
+    for row in rows_list:
         normalized = _resolve_id_alias(_normalized_row(row, mapping), mapping)
         if mapping.raw.id_field not in normalized:
             raise ValueError(f"Missing id field '{mapping.raw.id_field}' in row")

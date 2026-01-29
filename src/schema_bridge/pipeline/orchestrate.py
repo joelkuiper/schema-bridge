@@ -8,6 +8,9 @@ from .export import export_formats
 from .resources import load_text
 from .shacl import validate_graph
 from .profiles import ResolvedExport
+import logging
+
+logger = logging.getLogger("schema_bridge.pipeline.orchestrate")
 
 
 def export_and_validate(
@@ -17,6 +20,7 @@ def export_and_validate(
     shacl_report: Path | None,
     emit: callable | None = None,
 ) -> None:
+    logger.debug("Starting export for profile %s", export.profile.name)
     construct_graph = export_formats(
         raw_graph,
         out_dir,
@@ -26,6 +30,7 @@ def export_and_validate(
         emit=emit,
     )
     if export.validate and export.profile.shacl:
+        logger.debug("Running SHACL validation: %s", export.profile.shacl.shapes)
         if construct_graph is None:
             if not export.construct_query:
                 raise RuntimeError("SHACL validation requires a construct query")
@@ -41,3 +46,4 @@ def export_and_validate(
         if not conforms:
             report_text = report.serialize(format="turtle")
             raise SystemExit(f"SHACL validation failed:\n{report_text}")
+    logger.debug("Export completed for profile %s", export.profile.name)

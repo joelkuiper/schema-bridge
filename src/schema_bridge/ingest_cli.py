@@ -6,6 +6,7 @@ import os
 import uuid
 
 import typer
+import logging
 from gql import Client, gql
 from gql.transport.exceptions import TransportQueryError
 from gql.transport.requests import RequestsHTTPTransport
@@ -14,9 +15,22 @@ from rdflib import Graph
 from dataclasses import dataclass
 import yaml
 
+from schema_bridge.logging import configure_logging
 from schema_bridge.pipeline import ShaclConfig, load_text, validate_graph, write_json
 
 app = typer.Typer(help="Schema Bridge ingest CLI (RDF -> GraphQL upsert)")
+logger = logging.getLogger("schema_bridge.ingest_cli")
+
+
+@app.callback()
+def _main(
+    debug: bool = typer.Option(
+        False,
+        "--debug",
+        help="Enable debug logging",
+    )
+) -> None:
+    configure_logging(debug)
 
 
 @dataclass
@@ -150,6 +164,7 @@ def _infer_format(path: Path, explicit: str | None) -> str:
 
 
 def _load_rdf_graph(path: Path, rdf_format: str) -> Graph:
+    logger.debug("Loading RDF graph: %s (format=%s)", path, rdf_format)
     graph = Graph()
     graph.parse(path.as_posix(), format=rdf_format)
     return graph
@@ -208,6 +223,7 @@ def _validate_if_requested(
     shacl = profile.shacl
     if not validate or not shacl:
         return
+    logger.debug("Validating ingest graph with SHACL: %s", shacl.shapes)
     conforms, report = validate_graph(graph, ShaclConfig(shapes=shacl.shapes, validate=True))
     if not conforms:
         report_text = report.serialize(format="turtle")
@@ -220,6 +236,7 @@ def _graphql_post(
     payload: dict,
     token: str | None,
 ) -> dict:
+    logger.debug("Posting GraphQL to %s/%s/graphql", base_url.rstrip("/"), schema)
     endpoint = f"{base_url.rstrip('/')}/{schema}/graphql"
     headers = {"Content-Type": "application/json"}
     if token:
@@ -294,6 +311,7 @@ def ingest(
         help="Optional path to write the generated rows as JSON",
     ),
 ) -> None:
+    logger.debug("Starting ingest: input=%s profile=%s", input_path, profile)
     profile_cfg = load_ingest_profile(profile)
     final_base_url = base_url or profile_cfg.base_url or os.getenv(
         "SCHEMA_BRIDGE_BASE_URL",
@@ -321,6 +339,7 @@ def ingest(
         select_override=select,
         id_prefix=final_id_prefix,
     )
+    logger.debug("Prepared %s row(s) for ingest", len(rows))
     if out:
         write_json({"rows": rows}, out)
     if dry_run:
@@ -344,6 +363,7 @@ def ingest(
         payload = {"query": query, "variables": {"value": batch}}
         _graphql_post(final_base_url, final_schema, payload, final_token)
     typer.echo(f"Uploaded {len(rows)} row(s) to {final_schema}.{final_table} via {final_mode}")
+    logger.debug("Ingest complete")
 
 
 def main() -> None:
