@@ -219,8 +219,6 @@ Across a full profile, mappings typically flatten nested collections into repeat
 uv sync --extra test
 ```
 
-The runtime uses the Oxigraph-backed RDF store via `oxrdflib` (already included in the dependency set).
-
 ---
 
 ## Quick start
