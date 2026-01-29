@@ -17,7 +17,7 @@ Core implementation locations:
 
 ## Example: MOLGENIS Catalogue → Health-DCAT-AP
 
-A concrete use case is exporting the **MOLGENIS Catalogue** to **Health-DCAT-AP Release 5**, as used by
+A concrete use case is exporting the **MOLGENIS Catalogue** to **Health-DCAT-AP Release 5** ([ref](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-5/)), as used by
 [molgeniscatalogue.org](https://molgeniscatalogue.org).
 
 Schema Bridge provides a packaged profile, `healthdcat-ap-r5-molgenis`, which maps catalogue data exposed via GraphQL into a Health-DCAT-AP Release 5–compatible RDF representation.
@@ -51,7 +51,7 @@ Notes on scope:
 * The profile reflects the fields currently exposed by the catalogue GraphQL schema
 * Coverage of optional Health-DCAT-AP constructs is partial
 * Some nodes are derived from identifiers alone and may lack full lexical annotation
-* The mapping should be read as **provisional** and **incomplete**, intended to be extended as source data or requirements evolve
+* The mapping should be read as provisional and incomplete
 
 This section is illustrative: the same pipeline can target other domains, schemas, or metadata standards by swapping profiles.
 
@@ -64,7 +64,7 @@ Schema Bridge implements **two symmetric pipelines**:
 1. **Export**: GraphQL → canonical RDF → serialized outputs
 2. **Ingest**: RDF → extracted rows → GraphQL mutations
 
-Both pipelines are configured entirely through **profiles**.
+Both pipelines are configured entirely through profiles.
 
 ---
 
@@ -79,20 +79,45 @@ Both pipelines are configured entirely through **profiles**.
 
 ### Export pipeline (GraphQL → RDF)
 
-* Fetch rows via GraphQL
-* Build a canonical RDF graph
-* Export:
+1. Fetch rows via GraphQL
+2. Build a canonical RDF graph
+3. Export:
 
   * RDF: TTL, JSON-LD, RDF/XML, N-Triples
   * Tabular formats via SPARQL SELECT
-* Optionally validate with SHACL
+4. Optionally validate with SHACL
 
 ### Ingest pipeline (RDF → GraphQL)
 
-* Read RDF metadata (TTL / JSON-LD / RDF/XML / N-Triples)
-* Extract rows via SPARQL SELECT
-* Optionally validate with SHACL
-* Upload rows via GraphQL mutations
+1. Read RDF metadata (TTL / JSON-LD / RDF/XML / N-Triples)
+2. Extract rows via SPARQL SELECT
+3. Optionally validate with SHACL
+4. Upload rows via GraphQL mutations
+
+---
+
+## Why a canonical RDF layer?
+
+### TL;DR
+
+Schema Bridge uses RDF as a canonical intermediate representation because it provides a stable, schema-flexible graph model for heterogeneous data. GraphQL results are lifted into a canonical graph, transformed and optionally validated declaratively, then serialized or re-materialized. RDF is used strictly as an interchange layer; no persistent triple store, reasoning engine, or ontology commitment is assumed.
+
+### Explanation
+
+At its core, RDF provides a minimal way of expressing relationships between entities. Information is represented as triples consisting of a subject, a predicate, and an object. Each element is identified by a URI, which allows relationships to be named explicitly rather than implied by structure. Taken together, these triples form a directed, labeled graph.
+
+This representation has several practical consequences. Schemas can evolve without invalidating existing data, because new predicates can be introduced alongside existing ones. Data originating from independent systems can be merged without prior coordination, because shared identifiers act as natural join points. Partial data is representable without artificial placeholders, and absence of information does not require schema changes.
+
+These properties align closely with the realities of metadata transformation. GraphQL APIs tend to expose application-specific structures, while metadata standards impose different conceptual models. A canonical graph representation provides a neutral middle layer in which these differences can be reconciled explicitly.
+
+Schema Bridge does not treat RDF as a storage layer or application database. Instead, RDF functions as a temporary, inspectable representation that sits between concrete systems:
+
+```
+GraphQL rows  →  canonical RDF graph  →  standard exports
+standard RDF →  extracted rows       →  GraphQL mutations
+```
+
+This keeps mappings declarative, validation orthogonal, and export and ingest conceptually symmetric. RDF is used where it simplifies transformation and inspection, and discarded once the transformation is complete.
 
 ---
 
@@ -127,31 +152,6 @@ A profile can be referenced by:
 
 ---
 
-## Why a canonical RDF layer?
-
-### TL;DR
-
-Schema Bridge uses RDF as a canonical intermediate representation because it provides a stable, schema-flexible graph model for heterogeneous data. GraphQL results are lifted into a canonical graph, transformed and optionally validated declaratively, then serialized or re-materialized. RDF is used strictly as an interchange layer; no persistent triple store, reasoning engine, or ontology commitment is assumed.
-
-### Explanation
-
-At its core, RDF provides a minimal way of expressing relationships between entities. Information is represented as triples consisting of a subject, a predicate, and an object. Each element is identified by a URI, which allows relationships to be named explicitly rather than implied by structure. Taken together, these triples form a directed, labeled graph.
-
-This representation has several practical consequences. Schemas can evolve without invalidating existing data, because new predicates can be introduced alongside existing ones. Data originating from independent systems can be merged without prior coordination, because shared identifiers act as natural join points. Partial data is representable without artificial placeholders, and absence of information does not require schema changes.
-
-These properties align closely with the realities of metadata transformation. GraphQL APIs tend to expose application-specific structures, while metadata standards impose different conceptual models. A canonical graph representation provides a neutral middle layer in which these differences can be reconciled explicitly.
-
-Schema Bridge does not treat RDF as a storage layer or application database. Instead, RDF functions as a temporary, inspectable representation that sits between concrete systems:
-
-```
-GraphQL rows  →  canonical RDF graph  →  standard exports
-standard RDF →  extracted rows       →  GraphQL mutations
-```
-
-This keeps mappings declarative, validation orthogonal, and export and ingest conceptually symmetric. RDF is used where it simplifies transformation and inspection, and discarded once the transformation is complete.
-
----
-
 # Export pipeline
 
 ## Quick start (export)
@@ -180,13 +180,9 @@ uv run schema-bridge export --help
 
 ## Output formats
 
-Use `--format` to select a single output format:
+Use `--format` to select a single output format: `csv | json | jsonld | ttl | rdfxml | nt`.
 
-```
-csv | json | jsonld | ttl | rdfxml | nt
-```
-
-Export commands write to **stdout**. Redirect to a file to persist output.
+Export commands write to `stdout`. Redirect to a file to persist output.
 
 ---
 
