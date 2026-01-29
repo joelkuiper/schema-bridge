@@ -85,7 +85,7 @@ uv run schema-bridge export \
 ```bash
 uv run schema-bridge export \
   --profile healthdcat-ap-r5-molgenis \
-  --format jsonld \
+  --format ttl \
   --limit 10
 ```
 
