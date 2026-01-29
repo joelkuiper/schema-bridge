@@ -101,7 +101,7 @@ Export:  GraphQL → canonical RDF graph → serialized outputs
 Ingest:  RDF     → extracted rows      → GraphQL mutations
 ```
 
-The key insight is that GraphQL APIs and RDF metadata standards represent the same information differently. Rather than translating directly between them, Schema Bridge introduces a **canonical RDF graph** as an intermediate layer. This keeps mappings declarative, validation orthogonal, and export/ingest conceptually symmetric.
+The key insight is that GraphQL APIs and RDF metadata standards represent the same information differently. Rather than translating directly between them, Schema Bridge introduces a canonical RDF graph as an intermediate layer. This keeps mappings declarative, validation orthogonal, and export/ingest conceptually symmetric.
 
 ### Why a canonical RDF layer?
 
@@ -115,9 +115,9 @@ GraphQL APIs tend to expose application-specific structures, while metadata stan
 
 ### How mappings bridge GraphQL and RDF
 
-Mappings define how **GraphQL-shaped rows** are projected into the **canonical RDF graph**.
+Mappings define how *GraphQL-shaped rows* are projected into the *canonical RDF graph*.
 
-GraphQL APIs expose tree-shaped results: nested objects, optional branches, repeated structures, and multiple fields that encode the same concept. Their meaning is implicit in structure. SPARQL, by contrast, operates strictly over **triples** (subject–predicate–object relations), with no notion of nesting or application-level shape. The mapping layer translates between these representations.
+GraphQL APIs expose tree-shaped results: nested objects, optional branches, repeated structures, and multiple fields that encode the same concept. Their meaning is implicit in structure. SPARQL, by contrast, operates strictly over *triples* (subject–predicate–object relations), with no notion of nesting or application-level shape. The mapping layer translates between these representations.
 
 Rather than running SPARQL directly over API-shaped data, Schema Bridge first normalizes the input into a canonical graph. SPARQL then operates over that intermediate representation. This is what allows SPARQL constructs to be written once against a stable intermediate graph, while the source API schema remains free to evolve.
 
