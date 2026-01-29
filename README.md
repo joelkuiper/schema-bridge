@@ -190,7 +190,7 @@ For full CLI options: `uv run schema-bridge export --help`
 
 ### Ingest
 
-Ingest profiles control how RDF is converted into rows and uploaded via GraphQL mutations.
+Ingest profiles wire together **parse → select → row shaping → mutation**.
 
 ```bash
 uv run schema-bridge ingest path/to/input.ttl \
