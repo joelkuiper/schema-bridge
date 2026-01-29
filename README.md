@@ -52,7 +52,7 @@ RDF backend: [Oxigraph](https://github.com/oxigraph/oxigraph) store via [oxrdfli
 
 ## Example: MOLGENIS Catalogue → Health-DCAT-AP + Schema.org
 
-A concrete use case is exporting the **MOLGENIS Catalogue** to **Health-DCAT-AP Release 5** ([ref](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-5/)) and to **Schema.org Dataset/DataCatalog** for web-scale dataset discovery ([https://schema.org/Dataset](https://schema.org/Dataset)), as used by [molgeniscatalogue.org](https://molgeniscatalogue.org).
+A concrete use case is the export of the **MOLGENIS Catalogue** to **Health-DCAT-AP Release 5** ([https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-5/](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-5/)) to support FAIR and policy-aligned metadata publication, alongside a **Schema.org Dataset/DataCatalog** representation ([https://schema.org/Dataset](https://schema.org/Dataset)) for web-scale discovery, as used in production by [https://molgeniscatalogue.org](https://molgeniscatalogue.org).
 
 Schema Bridge provides two packaged profiles for this catalogue:
 
