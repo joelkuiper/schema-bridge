@@ -1,5 +1,21 @@
 # Schema Bridge
 
+**TL;DR**: Schema Bridge provides a reversible pipeline between GraphQL-shaped data and RDF-based metadata standards, using a canonical RDF graph as an intermediate layer to decouple APIs from export and ingest logic.
+
+## Table of Contents
+
+- [Summary](#summary)
+- [Example: MOLGENIS Catalogue → Health-DCAT-AP](#example-molgenis-catalogue--health-dcat-ap)
+- [Conceptual overview](#conceptual-overview)
+- [What Schema Bridge does](#what-schema-bridge-does)
+- [Why a canonical RDF layer?](#why-a-canonical-rdf-layer)
+- [Installation](#installation)
+- [Profiles (shared concept)](#profiles-shared-concept)
+- [Export pipeline](#export-pipeline)
+- [Ingest pipeline](#ingest-pipeline)
+
+## Summary
+
 Schema Bridge is a small, standalone pipeline for transforming GraphQL-shaped data into RDF (e.g. Health-DCAT-AP, FDP) or tabular formats and for ingesting RDF metadata back into a GraphQL backend.
 
 More abstractly, Schema Bridge attempts to solve the problem of "bidirectional interchange between concrete API-shaped data and standardised metadata representations", without hard-coding schemas or mappings into application logic.
