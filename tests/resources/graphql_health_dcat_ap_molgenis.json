@@ -1,0 +1,153 @@
+{
+  "data": {
+    "Resources": [
+      {
+        "id": "MOL-1",
+        "name": "Molgenis Example Resource",
+        "acronym": "MEX",
+        "description": "Example resource for molgeniscatalogue health-dcat-ap.",
+        "website": "https://molgeniscatalogue.org/all/collections/MOL-1",
+        "keywords": [
+          "health",
+          "cohort"
+        ],
+        "contactEmail": "info@molgenis.org",
+        "startYear": 2001,
+        "endYear": null,
+        "numberOfParticipants": 1000,
+        "numberOfParticipantsWithSamples": 200,
+        "designDescription": "Longitudinal cohort",
+        "otherInclusionCriteria": "Adults only",
+        "dataAccessFee": false,
+        "dataAccessConditionsDescription": "Access via committee",
+        "releaseDescription": "Annual",
+        "fundingStatement": "Funding source X",
+        "acknowledgements": "Thanks to contributors",
+        "type": [
+          {
+            "name": "Cohort",
+            "label": "Cohort",
+            "code": "COH",
+            "ontologyTermURI": "http://example.org/types/cohort",
+            "definition": "Cohort resource",
+            "parent": {
+              "code": "Health",
+              "name": "Health"
+            }
+          }
+        ],
+        "populationAgeGroups": [
+          {
+            "code": "adult",
+            "name": "Adult",
+            "label": "Adult",
+            "ontologyTermURI": "http://example.org/age/adult",
+            "definition": "Adult age group",
+            "parent": {
+              "code": "all",
+              "name": "All ages"
+            }
+          }
+        ],
+        "countries": [
+          {
+            "name": "Netherlands",
+            "code": "NL",
+            "parent": null
+          }
+        ],
+        "regions": [
+          {
+            "name": "Europe",
+            "code": "EU",
+            "parent": null
+          }
+        ],
+        "design": {
+          "name": "Longitudinal",
+          "definition": "Longitudinal design"
+        },
+        "inclusionCriteria": [
+          {
+            "code": "IC1",
+            "name": "Adults",
+            "definition": "Adults only",
+            "ontologyTermURI": "http://example.org/ic1",
+            "parent": null
+          }
+        ],
+        "dataAccessConditions": [
+          {
+            "code": "DAC",
+            "name": "Data access committee",
+            "definition": "DAC review",
+            "ontologyTermURI": "http://example.org/dac",
+            "parent": null
+          }
+        ],
+        "dataUseConditions": [
+          {
+            "code": "DUO",
+            "name": "Research use",
+            "definition": "Research only",
+            "ontologyTermURI": "http://example.org/duo",
+            "parent": null
+          }
+        ],
+        "accessRights": {
+          "code": "NON_PUBLIC",
+          "name": "Non public",
+          "definition": "Not public",
+          "ontologyTermURI": "http://example.org/access/nonpublic",
+          "parent": null
+        },
+        "contactPoint": {
+          "displayName": "Data Access Office",
+          "firstName": "Data",
+          "lastName": "Office",
+          "email": "dao@example.org"
+        },
+        "publisher": {
+          "id": "ORG1",
+          "name": "Molgenis Org",
+          "organisationName": "Molgenis Org",
+          "otherOrganisation": null,
+          "organisationWebsite": "https://molgenis.org",
+          "organisationPid": "https://ror.org/abcd",
+          "website": null,
+          "organisation": {
+            "name": "Molgenis Org",
+            "acronym": "MOL",
+            "ontologyTermURI": "http://example.org/org/mol",
+            "code": "MOL",
+            "definition": "Organisation"
+          }
+        },
+        "leadOrganisations": [
+          {
+            "id": "ORG1",
+            "name": "Molgenis Org",
+            "organisationName": "Molgenis Org",
+            "otherOrganisation": null,
+            "organisationWebsite": "https://molgenis.org",
+            "organisationPid": "https://ror.org/abcd",
+            "website": null,
+            "organisation": {
+              "name": "Molgenis Org",
+              "acronym": "MOL",
+              "ontologyTermURI": "http://example.org/org/mol",
+              "code": "MOL",
+              "definition": "Organisation"
+            }
+          }
+        ],
+        "designPublications": [
+          {
+            "title": "Design paper",
+            "doi": "https://doi.org/10.1234/example"
+          }
+        ]
+      }
+    ]
+  }
+}

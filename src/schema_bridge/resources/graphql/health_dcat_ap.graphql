@@ -1,9 +1,0 @@
-query HealthDcatApResources($limit: Int, $offset: Int, $filter: ResourcesFilter) {
-  Resources(limit: $limit, offset: $offset, filter: $filter, orderby: { id: ASC }) {
-    id
-    name
-    description
-    website
-    contactEmail
-  }
-}

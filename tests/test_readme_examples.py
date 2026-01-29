@@ -12,12 +12,8 @@ README = Path(__file__).parents[1] / "README.md"
 
 def _fixture_for_command(cmd: str) -> Path:
     resources = Path(__file__).parent / "resources"
-    if "--profile health-dcat-ap" in cmd:
-        return resources / "graphql_health_dcat_ap.json"
-    if "--profile health-ri-core-v2" in cmd:
-        return resources / "graphql_health_ri_core_v2.json"
-    if "--profile dcat-all-attributes" in cmd:
-        return resources / "graphql_dcat_all_resources.json"
+    if "--profile health-dcat-ap-molgenis" in cmd:
+        return resources / "graphql_health_dcat_ap_molgenis.json"
     return resources / "graphql_resources.json"
 
 

@@ -10,12 +10,8 @@ import pytest
 
 def _fixture_for_profile(profile: str) -> Path:
     resources = Path(__file__).parent / "resources"
-    if profile == "health-dcat-ap":
-        return resources / "graphql_health_dcat_ap.json"
-    if profile == "health-ri-core-v2":
-        return resources / "graphql_health_ri_core_v2.json"
-    if profile == "dcat-all-attributes":
-        return resources / "graphql_dcat_all_resources.json"
+    if profile == "health-dcat-ap-molgenis":
+        return resources / "graphql_health_dcat_ap_molgenis.json"
     return resources / "graphql_resources.json"
 
 
@@ -47,13 +43,9 @@ def _run_convert(
 @pytest.mark.parametrize(
     ("profile", "output_format", "marker"),
     [
-        ("fdp", "jsonld", "\"@context\""),
         ("dcat", "json", "\"rows\""),
-        ("dcat", "csv", "desc,email,id,name,website"),
-        ("dcat-ap-3.0.1", "json", "\"rows\""),
-        ("health-dcat-ap", "json", "\"rows\""),
-        ("health-ri-core-v2", "json", "\"rows\""),
-        ("dcat-all-attributes", "ttl", "@prefix"),
+        ("fdp", "ttl", "@prefix"),
+        ("health-dcat-ap-molgenis", "ttl", "@prefix"),
     ],
 )
 def test_profile_outputs_to_stdout(
