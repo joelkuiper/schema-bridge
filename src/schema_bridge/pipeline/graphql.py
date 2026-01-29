@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import Callable
 from datetime import datetime, timezone
 from pathlib import Path
 import json
@@ -57,7 +58,7 @@ def _execute_graphql(client: Client, query: str, variables: dict | None = None) 
 
 def _paginate_graphql(
     *,
-    execute: callable,
+    execute: Callable[[str, dict | None], dict],
     query: str,
     variables: dict | None,
     root_key: str,

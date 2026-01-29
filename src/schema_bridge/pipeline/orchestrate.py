@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Callable
 
 from rdflib import Graph
 
@@ -18,7 +19,7 @@ def export_and_validate(
     export: ResolvedExport,
     out_dir: Path | None,
     shacl_report: Path | None,
-    emit: callable | None = None,
+    emit: Callable[[str], None] | None = None,
 ) -> None:
     logger.debug("Starting export for profile %s", export.profile.name)
     construct_graph = export_formats(
@@ -37,6 +38,8 @@ def export_and_validate(
             construct_graph = raw_graph.query(
                 load_text(export.construct_query, "schema_bridge.resources")
             ).graph
+        if construct_graph is None:
+            raise RuntimeError("SHACL validation requires a construct graph")
         conforms, report = validate_graph(construct_graph, export.profile.shacl)
         if shacl_report:
             report.serialize(shacl_report, format="turtle")

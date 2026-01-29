@@ -92,13 +92,14 @@ class ConceptField:
 
     @classmethod
     def from_dict(cls, data: Mapping[str, object]) -> "ConceptField":
+        predicate = _opt_str(data.get("predicate"))
         return cls(
             path=str(data.get("path", "")),
-            predicate=data.get("predicate") if data.get("predicate") else None,
+            predicate=predicate if predicate else None,
             uri_path=str(data.get("uri", data.get("uri_path", "ontologyTermURI"))),
             code_path=str(data.get("code", data.get("code_path", "code"))),
             label_path=str(data.get("label", data.get("label_path", "name"))),
-            lang=str(data.get("lang")) if data.get("lang") else None,
+            lang=_opt_str(data.get("lang")),
         )
 
 
@@ -114,7 +115,8 @@ class NodeField:
 
     @classmethod
     def from_dict(cls, data: Mapping[str, object]) -> "NodeField":
-        fields_raw = data.get("fields") if isinstance(data.get("fields"), dict) else {}
+        fields_raw = data.get("fields")
+        fields = fields_raw if isinstance(fields_raw, dict) else {}
         iri_fields_raw = data.get("iri_fields") or []
         return cls(
             path=str(data.get("path", "")),
@@ -122,8 +124,8 @@ class NodeField:
             subject_path=str(data.get("subject_path", "")),
             id_field=str(data.get("id_field", "id")),
             type_iri=str(data.get("type_iri")) if data.get("type_iri") else None,
-            fields={str(k): str(v) for k, v in fields_raw.items()},
-            iri_fields={str(item) for item in iri_fields_raw},
+            fields={str(k): str(v) for k, v in fields.items()},
+            iri_fields={str(item) for item in iri_fields_raw} if isinstance(iri_fields_raw, list) else set(),
         )
 
 
@@ -137,6 +139,14 @@ def _coerce_object(value: object, use_iri: bool) -> URIRef | Literal:
     if use_iri:
         return URIRef(str(value))
     return Literal(value)
+
+
+def _opt_str(value: object | None) -> str | None:
+    if value is None:
+        return None
+    if isinstance(value, str):
+        return value
+    return str(value)
 
 
 def _parse_path(path: str) -> list[tuple[str, bool]]:

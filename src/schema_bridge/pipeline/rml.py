@@ -46,11 +46,13 @@ def _materialize_graph(
         resolved_mapping = resolve_profile_path(profile, mapping_path, "schema_bridge.resources")
         resolved_source = None
         if rml_source or profile.rml_source:
-            resolved_source = resolve_profile_path(
-                profile,
-                rml_source or profile.rml_source,
-                "schema_bridge.resources",
-            )
+            source_path = rml_source or profile.rml_source
+            if source_path:
+                resolved_source = resolve_profile_path(
+                    profile,
+                    source_path,
+                    "schema_bridge.resources",
+                )
         return materialize_rml(resolved_mapping, resolved_source)
 
     logger.debug("Materializing graph from GraphQL JSON: %s", input_path)

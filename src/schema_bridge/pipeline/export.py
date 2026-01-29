@@ -4,7 +4,7 @@ import csv
 import io
 import json
 from pathlib import Path
-from typing import Iterable
+from typing import Callable, Iterable
 
 from rdflib import Graph
 
@@ -22,6 +22,8 @@ def construct_dcat(raw_graph: Graph) -> Graph:
         "schema_bridge.resources",
     )
     result = raw_graph.query(query)
+    if result.graph is None:
+        raise RuntimeError("DCAT construct query did not return a graph")
     return result.graph
 
 
@@ -88,7 +90,7 @@ def export_formats(
     select_query: str | None,
     construct_query: str | None,
     targets: list[str],
-    emit: callable | None = None,
+    emit: Callable[[str], None] | None = None,
 ) -> Graph | None:
     targets_set = {_normalize_export_format(target) for target in targets if target.strip()}
     logger.debug("Export targets: %s", sorted(targets_set))
@@ -123,6 +125,8 @@ def export_formats(
         if not construct_query:
             raise ValueError("Construct query is required for RDF outputs")
         construct = construct_graph(raw_graph, construct_query)
+        if construct is None:
+            raise RuntimeError("Construct query did not return a graph")
         if "ttl" in targets_set:
             _emit_or_write_graph(emit, out_dir, "resources.ttl", construct, "turtle")
         if "rdfxml" in targets_set:
@@ -130,6 +134,8 @@ def export_formats(
         if "nt" in targets_set:
             _emit_or_write_graph(emit, out_dir, "resources.nt", construct, "nt")
     if "jsonld" in targets_set:
+        if construct is None:
+            raise ValueError("Construct query is required for JSON-LD outputs")
         content = construct.serialize(
             format="json-ld",
             context=_namespace_context(construct),
@@ -153,7 +159,7 @@ def _namespace_context(graph: Graph) -> dict[str, str]:
 
 
 def _emit_or_write_graph(
-    emit: callable | None,
+    emit: Callable[[str], None] | None,
     out_dir: Path | None,
     filename: str,
     graph: Graph,
@@ -168,7 +174,7 @@ def _emit_or_write_graph(
 
 
 def _emit_or_write_text(
-    emit: callable | None,
+    emit: Callable[[str], None] | None,
     out_dir: Path | None,
     filename: str,
     content: str,

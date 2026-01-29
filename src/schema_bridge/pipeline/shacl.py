@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import cast
 
 from rdflib import Graph
 
@@ -41,4 +42,4 @@ def validate_graph(data_graph: Graph, shacl_config: ShaclConfig) -> tuple[bool, 
         debug=False,
     )
     logger.debug("SHACL conforms=%s", conforms)
-    return bool(conforms), report_graph
+    return bool(conforms), cast(Graph, report_graph)

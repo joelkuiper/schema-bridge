@@ -1,6 +1,10 @@
 from __future__ import annotations
 
 import os
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from schema_bridge.pipeline.profiles import ProfileConfig
 
 
 def resolve_graphql_target(
