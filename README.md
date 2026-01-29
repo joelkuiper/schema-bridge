@@ -10,7 +10,7 @@ stack or Beacon services.
 
 - Fetch EMX2 rows via GraphQL.
 - Build a canonical RDF graph from those rows.
-- Export RDF (TTL/JSONLD) and tabular formats via SPARQL queries.
+- Export RDF (TTL/JSON-LD) and tabular formats via SPARQL queries.
 - Validate outputs with SHACL (optional, on by default).
 - (Optionally) Ingest RDF (TTL/JSON-LD) into EMX2 via GraphQL mutations.
 
