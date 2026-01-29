@@ -26,8 +26,7 @@ def construct_dcat(raw_graph: Graph) -> Graph:
 
 def select_rows(raw_graph: Graph, query_path: str) -> list[dict]:
     logger.debug("Running SELECT query: %s", query_path)
-    resolved = query_path if "/" in query_path else f"sparql/{query_path}"
-    query = load_text(resolved, "schema_bridge.resources")
+    query = load_text(query_path, "schema_bridge.resources")
     rows = []
     for row in raw_graph.query(query):
         rows.append({k: str(v) if v is not None else "" for k, v in row.asdict().items()})
@@ -128,8 +127,7 @@ def export_formats(
         if not construct_query:
             raise ValueError("Construct query is required for RDF outputs")
         logger.debug("Running CONSTRUCT query: %s", construct_query)
-        resolved = construct_query if "/" in construct_query else f"sparql/{construct_query}"
-        construct = raw_graph.query(load_text(resolved, "schema_bridge.resources")).graph
+        construct = raw_graph.query(load_text(construct_query, "schema_bridge.resources")).graph
         if "ttl" in targets_set:
             if out_dir is None:
                 if emit is None:

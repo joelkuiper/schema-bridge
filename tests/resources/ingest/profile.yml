@@ -1,0 +1,10 @@
+name: ingest-demo
+validate:
+  enabled: false
+extract:
+  sparql: sparql/select.sparql
+upload:
+  table: Resource
+  mode: upsert
+  id_prefix: test-
+  batch_size: 10

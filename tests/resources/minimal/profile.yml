@@ -1,5 +1,5 @@
-name: dcat
-description: DCAT dataset export
+name: minimal-demo
+description: Minimal demo profile for smoke tests
 fetch:
   graphql: graphql/query.graphql
   root_key: Resources
@@ -10,14 +10,5 @@ mapping:
   entity_name: Resource
   subject_path: resource
   id_field: id
-  iri_fields:
-    - website
-    - landingPage
-    - theme
-    - license
-    - accessRights
-    - hasPolicy
-    - relation
-shacl:
-  shapes: shacl.ttl
-  validate: true
+validate:
+  enabled: false

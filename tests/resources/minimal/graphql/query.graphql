@@ -1,0 +1,7 @@
+query Resources($limit: Int, $offset: Int, $filter: ResourceFilter) {
+  Resources(limit: $limit, offset: $offset, filter: $filter) {
+    id
+    name
+    description
+  }
+}

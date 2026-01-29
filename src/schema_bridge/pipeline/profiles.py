@@ -66,6 +66,16 @@ def load_profile(name_or_path: str) -> ProfileConfig:
             shapes=str(shacl_data["shacl"]),
             validate=bool(shacl_data.get("enabled", shacl_data.get("validate", True))),
         )
+    if shacl and shacl.shapes:
+        candidate = Path(shacl.shapes)
+        if candidate.is_absolute() or candidate.exists():
+            resolved_shapes = str(candidate.resolve())
+        else:
+            resolved_shapes = resolve_resource_path(
+                str((base_dir / shacl.shapes) if base_dir else shacl.shapes),
+                "schema_bridge.resources",
+            )
+        shacl = ShaclConfig(shapes=resolved_shapes, validate=shacl.validate)
     graphql_fallbacks = list(
         profile_data.get("graphql_fallbacks", fetch_data.get("graphql_fallbacks", []))
     )

@@ -47,7 +47,7 @@ Common keys:
 - `fetch.graphql`: GraphQL file (relative to the profile folder)
 - `fetch.root_key`: GraphQL data root
 - `export.select` / `export.construct`: SPARQL files (relative to the profile folder)
-- `validate.shacl`: shape path (under `resources/shacl/`)
+- `validate.shacl`: shape path (relative to the profile folder, or an absolute path)
 - `validate.enabled`: enable/disable validation
 
 Profiles live under `src/schema_bridge/resources/profiles/<profile>/profile.yml`.
@@ -80,9 +80,8 @@ redirect to a file when you need a saved artifact.
 
 ```
 src/schema_bridge/resources/
-  profiles/         # export profile folders (profile.yml + graphql/sparql)
+  profiles/         # export profile folders (profile.yml + graphql/sparql, SHACL shapes)
   ingest_profiles/  # ingest profile folders (profile.yml + graphq/sparql)
-  shacl/            # SHACL shapes
   rml/              # RML mappings (optional)
 ```
 

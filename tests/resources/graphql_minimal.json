@@ -1,0 +1,11 @@
+{
+  "data": {
+    "Resources": [
+      {
+        "id": "R1",
+        "name": "Demo Resource",
+        "description": "Small fixture"
+      }
+    ]
+  }
+}

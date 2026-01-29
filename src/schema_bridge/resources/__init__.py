@@ -1,1 +1,1 @@
-"""Packaged resources (graphql, sparql, profiles, shacl, rml)."""
+"""Packaged resources (profiles, ingest profiles, shacl, sparql)."""

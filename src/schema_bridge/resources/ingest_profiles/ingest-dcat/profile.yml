@@ -1,9 +1,9 @@
 name: ingest-dcat
 validate:
-  shacl: shacl/dcat.shacl.ttl
+  shacl: shacl.ttl
   enabled: true
 extract:
-  sparql: sparql/ingest_dcat_select.sparql
+  sparql: sparql/select.sparql
 upload:
   table: Resource
   mode: upsert

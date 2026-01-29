@@ -344,8 +344,10 @@ def test_profiles_reference_existing_queries():
             Graph().query(construct_query)
         if profile.shacl:
             load_text(
-                profile.shacl.shapes
-                if "/" in profile.shacl.shapes
-                else f"shacl/{profile.shacl.shapes}",
+                resolve_profile_path(
+                    profile,
+                    profile.shacl.shapes,
+                    "schema_bridge.resources",
+                ),
                 "schema_bridge.resources",
             )

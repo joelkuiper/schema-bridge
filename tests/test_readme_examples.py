@@ -21,8 +21,8 @@ def _prepare_command(cmd: str, workdir: Path) -> list[str]:
     cmd = cmd.replace("uv run schema-bridge", "python -m schema_bridge.cli")
     cmd = cmd.replace("out/", f"{workdir}/out/")
     cmd = cmd.replace("path/to/mapping.yml", str(Path(__file__).parent / "resources" / "mapping.yml"))
-    cmd = cmd.replace("path/to/mapping.rml.ttl", str(Path(__file__).parent.parent / "src" / "schema_bridge" / "resources" / "rml" / "airport_mapping.rml.ttl"))
-    cmd = cmd.replace("path/to/data.csv", str(Path(__file__).parent.parent / "src" / "schema_bridge" / "resources" / "rml" / "airport.csv"))
+    cmd = cmd.replace("path/to/mapping.rml.ttl", str(Path(__file__).parent / "resources" / "rml_pkg" / "airport_mapping.rml.ttl"))
+    cmd = cmd.replace("path/to/data.csv", str(Path(__file__).parent / "resources" / "rml_pkg" / "airport.csv"))
     return shlex.split(cmd)
 
 

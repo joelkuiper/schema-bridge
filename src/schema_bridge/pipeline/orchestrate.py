@@ -34,12 +34,9 @@ def export_and_validate(
         if construct_graph is None:
             if not export.construct_query:
                 raise RuntimeError("SHACL validation requires a construct query")
-            resolved = (
-                export.construct_query
-                if "/" in export.construct_query
-                else f"sparql/{export.construct_query}"
-            )
-            construct_graph = raw_graph.query(load_text(resolved, "schema_bridge.resources")).graph
+            construct_graph = raw_graph.query(
+                load_text(export.construct_query, "schema_bridge.resources")
+            ).graph
         conforms, report = validate_graph(construct_graph, export.profile.shacl)
         if shacl_report:
             report.serialize(shacl_report, format="turtle")

@@ -1,0 +1,7 @@
+PREFIX field: <https://catalogue.org/field/>
+
+SELECT ?id ?name ?description WHERE {
+  ?res field:id ?id ;
+    field:name ?name .
+  OPTIONAL { ?res field:description ?description }
+}
