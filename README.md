@@ -51,7 +51,7 @@ RDF backend: [Oxigraph](https://github.com/oxigraph/oxigraph) store via [oxrdfli
 
 ## Installation
 
-Install [uv](https://docs.astral.sh/uv/guides/projects/). Clone the repository, `cd` into it, then: 
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/). Clone the repository, `cd` into it, then: 
 
 ```bash
 uv sync --extra test
