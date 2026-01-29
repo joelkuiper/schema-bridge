@@ -24,10 +24,12 @@ from .profiles import (
 )
 from .resources import load_text, load_yaml, resolve_resource_path
 from .rml import materialize_rml, _materialize_graph
+from .sparql import construct_graph
 from .shacl import ShaclConfig, validate_graph
 
 __all__ = [
     "construct_dcat",
+    "construct_graph",
     "export_and_validate",
     "export_formats",
     "extract_rows",

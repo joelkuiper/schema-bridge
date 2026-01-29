@@ -9,6 +9,7 @@ from typing import Iterable
 from rdflib import Graph
 
 from .resources import load_text
+from .sparql import select_rows as sparql_select_rows, construct_graph
 import logging
 
 logger = logging.getLogger("schema_bridge.pipeline.export")
@@ -25,12 +26,7 @@ def construct_dcat(raw_graph: Graph) -> Graph:
 
 
 def select_rows(raw_graph: Graph, query_path: str) -> list[dict]:
-    logger.debug("Running SELECT query: %s", query_path)
-    query = load_text(query_path, "schema_bridge.resources")
-    rows = []
-    for row in raw_graph.query(query):
-        rows.append({k: str(v) if v is not None else "" for k, v in row.asdict().items()})
-    return rows
+    return sparql_select_rows(raw_graph, query_path)
 
 
 def _stable_rows(rows: Iterable[dict]) -> tuple[list[str], list[dict]]:
@@ -108,65 +104,43 @@ def export_formats(
         logger.debug("Selected %s row(s)", len(selected))
         if "json" in targets_set:
             payload = {"rows": selected}
-            if out_dir is None:
-                if emit is None:
-                    raise ValueError("Stdout output requested but no emitter provided")
-                emit(render_json(payload))
-            else:
-                write_json(payload, out_dir / "resources.json")
+            _emit_or_write_text(
+                emit,
+                out_dir,
+                "resources.json",
+                render_json(payload),
+            )
         if "csv" in targets_set:
-            if out_dir is None:
-                if emit is None:
-                    raise ValueError("Stdout output requested but no emitter provided")
-                emit(render_csv(selected))
-            else:
-                write_csv(selected, out_dir / "resources.csv")
+            _emit_or_write_text(
+                emit,
+                out_dir,
+                "resources.csv",
+                render_csv(selected),
+            )
     construct = None
     rdf_targets = {"ttl", "jsonld", "rdfxml", "nt"} & targets_set
     if rdf_targets:
         if not construct_query:
             raise ValueError("Construct query is required for RDF outputs")
-        logger.debug("Running CONSTRUCT query: %s", construct_query)
-        construct = raw_graph.query(load_text(construct_query, "schema_bridge.resources")).graph
+        construct = construct_graph(raw_graph, construct_query)
         if "ttl" in targets_set:
-            if out_dir is None:
-                if emit is None:
-                    raise ValueError("Stdout output requested but no emitter provided")
-                emit(construct.serialize(format="turtle"))
-            else:
-                construct.serialize(out_dir / "resources.ttl", format="turtle")
+            _emit_or_write_graph(emit, out_dir, "resources.ttl", construct, "turtle")
         if "rdfxml" in targets_set:
-            if out_dir is None:
-                if emit is None:
-                    raise ValueError("Stdout output requested but no emitter provided")
-                emit(construct.serialize(format="xml"))
-            else:
-                construct.serialize(out_dir / "resources.rdf", format="xml")
+            _emit_or_write_graph(emit, out_dir, "resources.rdf", construct, "xml")
         if "nt" in targets_set:
-            if out_dir is None:
-                if emit is None:
-                    raise ValueError("Stdout output requested but no emitter provided")
-                emit(construct.serialize(format="nt"))
-            else:
-                construct.serialize(out_dir / "resources.nt", format="nt")
+            _emit_or_write_graph(emit, out_dir, "resources.nt", construct, "nt")
     if "jsonld" in targets_set:
+        content = construct.serialize(
+            format="json-ld",
+            context=_namespace_context(construct),
+            auto_compact=True,
+        )
         if out_dir is None:
             if emit is None:
                 raise ValueError("Stdout output requested but no emitter provided")
-            emit(
-                construct.serialize(
-                    format="json-ld",
-                    context=_namespace_context(construct),
-                    auto_compact=True,
-                )
-            )
+            emit(content)
         else:
-            construct.serialize(
-                out_dir / "resources.jsonld",
-                format="json-ld",
-                context=_namespace_context(construct),
-                auto_compact=True,
-            )
+            (out_dir / "resources.jsonld").write_text(content, encoding="utf-8")
     return construct
 
 
@@ -176,3 +150,32 @@ def _namespace_context(graph: Graph) -> dict[str, str]:
         if prefix:
             context[prefix] = str(namespace)
     return context
+
+
+def _emit_or_write_graph(
+    emit: callable | None,
+    out_dir: Path | None,
+    filename: str,
+    graph: Graph,
+    rdf_format: str,
+) -> None:
+    if out_dir is None:
+        if emit is None:
+            raise ValueError("Stdout output requested but no emitter provided")
+        emit(graph.serialize(format=rdf_format))
+        return
+    graph.serialize(out_dir / filename, format=rdf_format)
+
+
+def _emit_or_write_text(
+    emit: callable | None,
+    out_dir: Path | None,
+    filename: str,
+    content: str,
+) -> None:
+    if out_dir is None:
+        if emit is None:
+            raise ValueError("Stdout output requested but no emitter provided")
+        emit(content)
+        return
+    (out_dir / filename).write_text(content, encoding="utf-8")

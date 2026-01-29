@@ -5,14 +5,11 @@ import json
 import os
 import typer
 import logging
-import uuid
 
 from rdflib import Graph
-from gql import Client, gql
-from gql.transport.exceptions import TransportQueryError
-from gql.transport.requests import RequestsHTTPTransport
 
 from schema_bridge.logging import configure_logging
+from schema_bridge.cli_helpers import resolve_graphql_target
 from schema_bridge.pipeline import (
     export_and_validate,
     fetch_graphql,
@@ -26,43 +23,17 @@ from schema_bridge.pipeline import (
     _materialize_graph,
     write_json,
     PaginationConfig,
-    ShaclConfig,
-    validate_graph,
+)
+from schema_bridge.pipeline.ingest import (
+    infer_rdf_format,
+    load_rdf_graph,
+    rows_from_rdf,
+    validate_if_requested,
+    graphql_post,
 )
 
 app = typer.Typer(help="Schema Bridge CLI (profile-driven export + ingest)")
 logger = logging.getLogger("schema_bridge.cli")
-
-
-def _resolve_graphql_target(
-    *,
-    profile: "ProfileConfig",
-    base_url: str | None,
-    schema: str | None,
-    endpoint: str | None,
-) -> tuple[str | None, str | None, str | None]:
-    resolved_endpoint = (
-        endpoint
-        or profile.graphql_endpoint
-        or os.getenv("SCHEMA_BRIDGE_GRAPHQL_ENDPOINT")
-    )
-    resolved_base_url = (
-        base_url
-        or profile.base_url
-        or os.getenv("SCHEMA_BRIDGE_BASE_URL")
-    )
-    resolved_schema = (
-        schema
-        or profile.schema
-        or os.getenv("SCHEMA_BRIDGE_SCHEMA")
-    )
-    if not resolved_endpoint and (not resolved_base_url or not resolved_schema):
-        if not os.getenv("SCHEMA_BRIDGE_GRAPHQL_FIXTURE"):
-            raise SystemExit(
-                "GraphQL endpoint is required. Provide --graphql-endpoint or "
-                "--base-url/--schema (or set them in the profile or environment)."
-            )
-    return resolved_endpoint, resolved_base_url, resolved_schema
 
 
 @app.callback()
@@ -126,7 +97,7 @@ def fetch(
     configure_logging(debug)
     logger.debug("Starting fetch: base_url=%s schema=%s profile=%s endpoint=%s", base_url, schema, profile, endpoint)
     profile_cfg = load_profile(profile, expected_kind="export")
-    resolved_endpoint, resolved_base_url, resolved_schema = _resolve_graphql_target(
+    resolved_endpoint, resolved_base_url, resolved_schema = resolve_graphql_target(
         profile=profile_cfg,
         base_url=base_url,
         schema=schema,
@@ -335,7 +306,7 @@ def export(
         validate_override=validate,
     )
     pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
-    resolved_endpoint, resolved_base_url, resolved_schema = _resolve_graphql_target(
+    resolved_endpoint, resolved_base_url, resolved_schema = resolve_graphql_target(
         profile=export.profile,
         base_url=base_url,
         schema=schema,
@@ -365,129 +336,6 @@ def export(
         emit=lambda text: typer.echo(text, nl=False),
     )
     logger.debug("Export complete")
-
-
-def _normalize_rdf_format(value: str) -> str:
-    normalized = value.strip().lower()
-    aliases = {
-        "turtle": "turtle",
-        "ttl": "turtle",
-        "json-ld": "json-ld",
-        "jsonld": "json-ld",
-        "rdfxml": "xml",
-        "rdf/xml": "xml",
-        "xml": "xml",
-        "rdf": "xml",
-        "ntriples": "nt",
-        "n-triples": "nt",
-        "nt": "nt",
-    }
-    return aliases.get(normalized, normalized)
-
-
-def _infer_format(path: Path, explicit: str | None) -> str:
-    if explicit:
-        return _normalize_rdf_format(explicit)
-    suffix = path.suffix.lower()
-    if suffix in {".ttl", ".turtle"}:
-        return "turtle"
-    if suffix in {".jsonld", ".json"}:
-        return "json-ld"
-    if suffix in {".rdf", ".xml"}:
-        return "xml"
-    if suffix in {".nt"}:
-        return "nt"
-    raise ValueError("Unable to infer RDF format; use --format")
-
-
-def _load_rdf_graph(path: Path, rdf_format: str) -> Graph:
-    logger.debug("Loading RDF graph: %s (format=%s)", path, rdf_format)
-    graph = Graph()
-    graph.parse(path.as_posix(), format=rdf_format)
-    return graph
-
-
-def _select_rows(graph: Graph, query_path: str) -> list[dict]:
-    query = load_text(query_path, "schema_bridge.resources")
-    rows: list[dict] = []
-    for row in graph.query(query):
-        rows.append({k: str(v) if v is not None else "" for k, v in row.asdict().items()})
-    return rows
-
-
-def _sanitize_email(value: str) -> str:
-    if value.startswith("mailto:"):
-        return value[len("mailto:") :]
-    return value
-
-
-def _rows_from_rdf(
-    graph: Graph,
-    *,
-    profile: "IngestProfileConfig",
-    select_override: str | None,
-    id_prefix: str,
-) -> list[dict]:
-    select_query = select_override or profile.select_query
-    if not select_query:
-        raise ValueError("Ingest requires a select query (set in profile or via --select)")
-    resolved_select = resolve_profile_path(profile, select_query, "schema_bridge.resources")
-    raw_rows = _select_rows(graph, resolved_select)
-    rows: list[dict] = []
-    for raw in raw_rows:
-        name = raw.get("name", "").strip()
-        if not name:
-            continue
-        row: dict[str, str] = {"id": f"{id_prefix}{uuid.uuid4().hex}", "name": name}
-        description = raw.get("description", "").strip()
-        if description:
-            row["description"] = description
-        website = raw.get("website", "").strip()
-        if website:
-            row["website"] = website
-        contact = raw.get("contactEmail", "").strip()
-        if contact:
-            row["contactEmail"] = _sanitize_email(contact)
-        rows.append(row)
-    return rows
-
-
-def _validate_if_requested(
-    graph: Graph,
-    profile: "IngestProfileConfig",
-    validate: bool,
-) -> None:
-    shacl = profile.shacl
-    if not validate or not shacl:
-        return
-    logger.debug("Validating ingest graph with SHACL: %s", shacl.shapes)
-    conforms, report = validate_graph(graph, ShaclConfig(shapes=shacl.shapes, validate=True))
-    if not conforms:
-        report_text = report.serialize(format="turtle")
-        raise SystemExit(f"SHACL validation failed:\n{report_text}")
-
-
-def _graphql_post(
-    base_url: str,
-    schema: str,
-    payload: dict,
-    token: str | None,
-) -> dict:
-    logger.debug("Posting GraphQL to %s/%s/graphql", base_url.rstrip("/"), schema)
-    endpoint = f"{base_url.rstrip('/')}/{schema}/graphql"
-    headers = {"Content-Type": "application/json"}
-    if token:
-        headers["Authorization"] = f"Bearer {token}"
-    transport = RequestsHTTPTransport(url=endpoint, headers=headers, timeout=30)
-    client = Client(transport=transport, fetch_schema_from_transport=False)
-    try:
-        result = client.execute(
-            gql(payload["query"]),
-            variable_values=payload.get("variables") or {},
-        )
-    except TransportQueryError as exc:
-        raise RuntimeError(f"GraphQL errors: {exc.errors}") from exc
-    return {"data": result}
 
 
 @app.command()
@@ -573,11 +421,11 @@ def ingest(
     final_validate = validate if validate is not None else profile_cfg.validate
     final_mutation_file = mutation_file or profile_cfg.graphql_mutation
 
-    resolved_format = _infer_format(input_path, rdf_format)
-    graph = _load_rdf_graph(input_path, resolved_format)
-    _validate_if_requested(graph, profile_cfg, final_validate)
+    resolved_format = infer_rdf_format(input_path, rdf_format)
+    graph = load_rdf_graph(input_path, resolved_format)
+    validate_if_requested(graph, profile_cfg, final_validate)
 
-    rows = _rows_from_rdf(
+    rows = rows_from_rdf(
         graph,
         profile=profile_cfg,
         select_override=select,
@@ -605,7 +453,7 @@ def ingest(
     for i in range(0, len(rows), final_batch_size):
         batch = rows[i : i + final_batch_size]
         payload = {"query": query, "variables": {"value": batch}}
-        _graphql_post(final_base_url, final_schema, payload, final_token)
+        graphql_post(final_base_url, final_schema, payload, final_token)
     typer.echo(f"Uploaded {len(rows)} row(s) to {final_schema}.{final_table} via {final_mode}")
     logger.debug("Ingest complete")
 
