@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 
 def _fixture_for_profile(profile: str) -> Path:
     resources = Path(__file__).parent / "resources"
@@ -17,10 +19,10 @@ def _fixture_for_profile(profile: str) -> Path:
     return resources / "graphql_resources.json"
 
 
-def _run_convert(tmp_path: Path, profile: str) -> subprocess.CompletedProcess[str]:
+def _run_convert(
+    tmp_path: Path, profile: str, output_format: str
+) -> subprocess.CompletedProcess[str]:
     fixture = _fixture_for_profile(profile)
-    out_dir = tmp_path / profile
-    out_dir.mkdir(parents=True, exist_ok=True)
     env = os.environ.copy()
     src_path = Path(__file__).parents[1] / "src"
     env["PYTHONPATH"] = f"{src_path}{os.pathsep}{env.get('PYTHONPATH', '')}"
@@ -33,8 +35,8 @@ def _run_convert(tmp_path: Path, profile: str) -> subprocess.CompletedProcess[st
             str(fixture),
             "--profile",
             profile,
-            "-o",
-            str(out_dir),
+            "--format",
+            output_format,
         ],
         env=env,
         capture_output=True,
@@ -42,69 +44,23 @@ def _run_convert(tmp_path: Path, profile: str) -> subprocess.CompletedProcess[st
     )
 
 
-def test_profile_fdp_outputs(tmp_path: Path) -> None:
-    completed = _run_convert(tmp_path, "fdp")
-    assert completed.returncode == 0, f"fdp failed:\nSTDOUT: {completed.stdout}\nSTDERR: {completed.stderr}"
-    out_dir = tmp_path / "fdp"
-    assert (out_dir / "resources.jsonld").exists()
-    assert (out_dir / "resources.ttl").exists()
-
-
-def test_profile_dcat_outputs(tmp_path: Path) -> None:
-    completed = _run_convert(tmp_path, "dcat")
-    assert completed.returncode == 0, f"dcat failed:\nSTDOUT: {completed.stdout}\nSTDERR: {completed.stderr}"
-    out_dir = tmp_path / "dcat"
-    assert (out_dir / "resources.csv").exists()
-    assert (out_dir / "resources.json").exists()
-    assert (out_dir / "resources.jsonld").exists()
-    assert (out_dir / "resources.ttl").exists()
-
-
-def test_profile_dcat_ap_3_0_1_outputs(tmp_path: Path) -> None:
-    completed = _run_convert(tmp_path, "dcat-ap-3.0.1")
+@pytest.mark.parametrize(
+    ("profile", "output_format", "marker"),
+    [
+        ("fdp", "jsonld", "\"@context\""),
+        ("dcat", "json", "\"rows\""),
+        ("dcat", "csv", "desc,email,id,name,website"),
+        ("dcat-ap-3.0.1", "json", "\"rows\""),
+        ("health-dcat-ap", "json", "\"rows\""),
+        ("health-ri-core-v2", "json", "\"rows\""),
+        ("dcat-all-attributes", "ttl", "@prefix"),
+    ],
+)
+def test_profile_outputs_to_stdout(
+    tmp_path: Path, profile: str, output_format: str, marker: str
+) -> None:
+    completed = _run_convert(tmp_path, profile, output_format)
     assert completed.returncode == 0, (
-        "dcat-ap-3.0.1 failed:\nSTDOUT: "
-        f"{completed.stdout}\nSTDERR: {completed.stderr}"
+        f"{profile} failed:\nSTDOUT: {completed.stdout}\nSTDERR: {completed.stderr}"
     )
-    out_dir = tmp_path / "dcat-ap-3.0.1"
-    assert (out_dir / "resources.csv").exists()
-    assert (out_dir / "resources.json").exists()
-    assert (out_dir / "resources.jsonld").exists()
-    assert (out_dir / "resources.ttl").exists()
-
-
-def test_profile_health_dcat_ap_outputs(tmp_path: Path) -> None:
-    completed = _run_convert(tmp_path, "health-dcat-ap")
-    assert completed.returncode == 0, (
-        "health-dcat-ap failed:\nSTDOUT: "
-        f"{completed.stdout}\nSTDERR: {completed.stderr}"
-    )
-    out_dir = tmp_path / "health-dcat-ap"
-    assert (out_dir / "resources.csv").exists()
-    assert (out_dir / "resources.json").exists()
-    assert (out_dir / "resources.jsonld").exists()
-    assert (out_dir / "resources.ttl").exists()
-
-
-def test_profile_health_ri_core_v2_outputs(tmp_path: Path) -> None:
-    completed = _run_convert(tmp_path, "health-ri-core-v2")
-    assert completed.returncode == 0, (
-        "health-ri-core-v2 failed:\nSTDOUT: "
-        f"{completed.stdout}\nSTDERR: {completed.stderr}"
-    )
-    out_dir = tmp_path / "health-ri-core-v2"
-    assert (out_dir / "resources.csv").exists()
-    assert (out_dir / "resources.json").exists()
-    assert (out_dir / "resources.jsonld").exists()
-    assert (out_dir / "resources.ttl").exists()
-
-
-def test_profile_dcat_all_attributes_outputs(tmp_path: Path) -> None:
-    completed = _run_convert(tmp_path, "dcat-all-attributes")
-    assert completed.returncode == 0, (
-        "dcat-all-attributes failed:\nSTDOUT: "
-        f"{completed.stdout}\nSTDERR: {completed.stderr}"
-    )
-    out_dir = tmp_path / "dcat-all-attributes"
-    assert (out_dir / "resources.jsonld").exists()
-    assert (out_dir / "resources.ttl").exists()
+    assert marker in completed.stdout

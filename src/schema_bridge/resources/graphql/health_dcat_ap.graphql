@@ -1,66 +1,9 @@
 query HealthDcatApResources($limit: Int, $offset: Int, $filter: ResourcesFilter) {
   Resources(limit: $limit, offset: $offset, filter: $filter, orderby: { id: ASC }) {
     id
-    acronym
     name
     description
     website
     contactEmail
-    publisher {
-      name
-      website
-    }
-    leadOrganisation {
-      acronym
-    }
-    type {
-      name
-    }
-    collectionType {
-      name
-    }
-    populationAgeGroups {
-      code
-      parent {
-        code
-      }
-    }
-    startYear
-    endYear
-    countries {
-      name
-    }
-    regions {
-      name
-    }
-    numberOfParticipants
-    numberOfParticipantsWithSamples
-    designDescription
-    design {
-      definition
-      name
-    }
-    inclusionCriteria {
-      code
-      parent {
-        code
-      }
-    }
-    otherInclusionCriteria
-    dataAccessConditions {
-      code
-      ontologyTermURI
-      definition
-    }
-    dataAccessConditionsDescription
-    dataUseConditions {
-      code
-      ontologyTermURI
-      definition
-    }
-    dataAccessFee
-    releaseDescription
-    fundingStatement
-    acknowledgements
   }
 }

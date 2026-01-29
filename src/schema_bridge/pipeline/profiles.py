@@ -16,7 +16,6 @@ class ProfileConfig:
     select_query: str | None = None
     construct_query: str | None = None
     ingest_select_query: str | None = None
-    outputs: list[str] = field(default_factory=lambda: ["csv", "json", "jsonld", "ttl"])
     mapping: MappingConfig = field(default_factory=MappingConfig)
     shacl: ShaclConfig | None = None
     mapping_format: str = "raw"
@@ -64,7 +63,6 @@ def load_profile(name_or_path: str) -> ProfileConfig:
         select_query=profile_data.get("select_query") or export_data.get("select"),
         construct_query=profile_data.get("construct_query") or export_data.get("construct"),
         ingest_select_query=profile_data.get("ingest_select_query") or export_data.get("ingest_select"),
-        outputs=list(profile_data.get("outputs", export_data.get("outputs", ["csv", "json", "jsonld", "ttl"]))),
         mapping=mapping,
         shacl=shacl,
         mapping_format=str(profile_data.get("mapping_format", "raw")).lower(),
@@ -103,12 +101,6 @@ class ResolvedExport:
     validate: bool
 
 
-def _final_targets(profile: ProfileConfig, override: str | None) -> list[str]:
-    if override:
-        return [t.strip() for t in override.split(",") if t.strip()]
-    return profile.outputs
-
-
 def _final_validate(profile: ProfileConfig, override: bool | None) -> bool:
     if override is not None:
         return override
@@ -122,17 +114,22 @@ def resolve_export(
     root_key: str | None,
     select_query: str | None,
     construct_query: str | None,
-    targets_override: str | None,
+    target_format: str | None,
     validate_override: bool | None,
 ) -> ResolvedExport:
     profile = load_profile(profile_name)
     mapping = load_mapping_override(str(mapping_override)) if mapping_override else None
+    if not target_format:
+        raise ValueError("Output format is required")
+    normalized_format = target_format.strip().lower()
+    if not normalized_format:
+        raise ValueError("Output format is required")
     return ResolvedExport(
         profile=profile,
         mapping=mapping or profile.mapping,
         root_key=root_key or profile.root_key,
         select_query=select_query or profile.select_query,
         construct_query=construct_query or profile.construct_query,
-        targets=_final_targets(profile, targets_override),
+        targets=[normalized_format],
         validate=_final_validate(profile, validate_override),
     )

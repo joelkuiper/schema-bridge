@@ -5,9 +5,6 @@ fetch:
   root_key: Resources
 export:
   construct: fdp_construct.sparql
-  outputs:
-    - jsonld
-    - ttl
 mapping:
   entity_name: Resource
   subject_path: resource

@@ -1,2011 +1,615 @@
 {
   "data": {
-    "Datasets": [
-      {
-        "name": "ANAGRAFICA",
-        "resource": {
-          "id": "ANAGRAFICA",
-          "name": "ANAGRAFICA"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "mappedTo": [
-          {
-            "source": {
-              "name": "AP"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          },
-          {
-            "source": {
-              "name": "AP"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "AP",
-        "resource": {
-          "id": "AP",
-          "name": "AP"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "mappedTo": [
-          {
-            "source": {
-              "name": "ARS_ANAG_MED_RES_storico"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          },
-          {
-            "source": {
-              "name": "ARS_ANAG_MED_RES_storico"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "ARS_ANAG_MED_RES_storico",
-        "resource": {
-          "id": "ARS_ANAG_MED_RES_storico",
-          "name": "ARS_ANAG_MED_RES_storico"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "label": "ATHLETE Harmonised dataset with standardized fetal growth data: ATHLETE_fetal_growth_standardized",
-        "name": "ATHLETE_fetal_growth_standardized",
-        "resource": {
-          "id": "GenR",
-          "name": "The Generation R Study"
-        },
-        "sinceVersion": "1.0.0"
-      },
-      {
-        "name": "avo_toimenpide",
-        "resource": {
-          "id": "AVOHILMO",
-          "name": "Register of Primary Health Care Visits (AVOHILMO)"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "description": "Table containing data concerning respiratory health questionnaires for children up to 3 years old",
-        "label": "Respiratory_child_data",
-        "name": "base_respi_enfant_20210326",
-        "numberOfRows": 484,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "description": "Table containing data concerning first year of life of the child",
-        "label": "child_data",
-        "name": "bdd_1a_v1_1",
-        "numberOfRows": 484,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "description": "Table containing  data concerning  second year of life of the child",
-        "label": "child_data",
-        "name": "bdd_2a_v_1_0",
-        "numberOfRows": 484,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "description": "database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years",
-        "label": "database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years",
-        "name": "BDD_cotinine",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years",
-        "label": "database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years",
-        "name": "BDD_creatinine",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years",
-        "label": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years",
-        "name": "BDD_ethers",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "Table containing data concerning pregnancy",
-        "label": "pregnancy_data",
-        "name": "bdd_grossesse_v5_1",
-        "numberOfRows": 484,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "description": "database with measurement of metals in a sample of mothers' hair during the third trimester",
-        "label": "database with measurement of metals in a sample of mothers' hair during the third trimester",
-        "name": "BDD_mercure",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years",
-        "label": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years",
-        "name": "BDD_OP",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "Table containing data concerning father of the child SEPAGES",
-        "label": "father_data",
-        "name": "bdd_pere_1_2",
-        "numberOfRows": 410,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "description": "database with PFASs measurement from cord blood and in the blood of children at 12 years",
-        "label": "database with PFASs measurement from cord blood and in the blood of children at 12 years",
-        "name": "BDD_perfluores",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "database with phtalates and phenols measurement from maternal urine sample",
-        "label": "database with phtalates and phenols measurement from maternal urine sample",
-        "name": "BDD_phtalates_phenols",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "database with POPs measurement from cord blood and in the blood of children at 12 years",
-        "label": "database with POPs measurement from cord blood and in the blood of children at 12 years",
-        "name": "BDD_pop",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "blood pressure of the child measured during G21 cohort follow-ups",
-        "label": "blood pressure",
-        "name": "blood_pressure",
-        "resource": {
-          "id": "G21",
-          "name": "Generation 21"
-        },
-        "sinceVersion": "1.0.0"
-      },
-      {
-        "name": "bloodpressure after birth",
-        "resource": {
-          "id": "ENVIRONAGE",
-          "name": "ENVIRonmental influence ON early AGEing"
-        }
-      },
-      {
-        "name": "cdm_1",
-        "resource": {
-          "id": "testNetwork1",
-          "name": "name for test network1"
-        }
-      },
-      {
-        "name": "CDM_SOURCE",
-        "resource": {
-          "id": "OOM",
-          "name": "OOM"
-        },
-        "sinceVersion": "2.2"
-      },
-      {
-        "description": "Table containing data concerning breastfeeding",
-        "label": "breastfeeding_data",
-        "name": "ch_bf_mr&ag_2021-12-02_5",
-        "numberOfRows": 484,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "label": "Chemicals (ATHLETE)",
-        "name": "chemicals_ath",
-        "resource": {
-          "id": "ATHLETE",
-          "name": "Advancing Tools for Human Early Lifecourse Exposome Research and Translation"
-        },
-        "sinceVersion": "1.1.0"
-      },
-      {
-        "label": "child",
-        "name": "child",
-        "resource": {
-          "id": "G21",
-          "name": "Generation 21"
-        },
-        "sinceVersion": "1",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "label": "DataWiki dataset CHILD-ALLGENERALDATA_12112020",
-        "name": "CHILD-ALLGENERALDATA_12112020",
-        "resource": {
-          "id": "GenR",
-          "name": "The Generation R Study"
-        },
-        "sinceVersion": "1.0.0"
-      },
-      {
-        "mappedTo": [
-          {
-            "source": {
-              "name": "COD_FARMACI_SPF"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "COD_FARMACI_SPF",
-        "resource": {
-          "id": "COD_FARMACI_SPF",
-          "name": "COD_FARMACI_SPF"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "description": "Table containing Ids",
-        "label": "Id_data",
-        "name": "code_helix_athlete",
-        "numberOfRows": 484,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "name": "core",
-        "resource": {
-          "id": "NFBC1966",
-          "name": "NFBC1966"
-        },
-        "sinceVersion": "1.0.0"
-      },
-      {
-        "name": "core",
-        "resource": {
-          "id": "GenR",
-          "name": "The Generation R Study"
-        },
-        "sinceVersion": "1.0.0"
-      },
-      {
-        "name": "core",
-        "resource": {
-          "id": "LifeCycle",
-          "name": "The LifeCycle Project"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "mappedTo": [
-          {
-            "source": {
-              "name": "Dutch institute for health and welfare"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "CPA1",
-        "resource": {
-          "id": "DHL",
-          "name": "Dutch institute for health and welfare"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "mappedTo": [
-          {
-            "source": {
-              "name": "Dutch institute for health and welfare"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "CPA2",
-        "resource": {
-          "id": "DHL",
-          "name": "Dutch institute for health and welfare"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "description": "Father date of birth from 6 and 12 years old follow-ups",
-        "label": "Father date of birth",
-        "name": "datenaisspere",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "Table containing date of birth of the father",
-        "label": "ddn_father",
-        "name": "ddn_pere",
-        "numberOfRows": 484,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "name": "DIAGNOSTIC",
-        "resource": {
-          "id": "DIAGNOSTIC",
-          "name": "DIAGNOSTIC"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "name": "EFEMERIS_PRESCRIPTION",
-        "resource": {
-          "id": "EFEMERIS_PRESCRIPTION",
-          "name": "EFEMERIS_PRESCRIPTION"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "description": "Table containing data concerning mother's respiratory examination",
-        "label": "Respiratory_function_test_mother",
-        "name": "efr_mere_LMAB_20210902_26",
-        "numberOfRows": 484,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "description": "Table containing data concerning  father's respiratory examination",
-        "label": "Respiratory_function_test_father",
-        "name": "efr_pere_LMAB_20210902_26",
-        "numberOfRows": 484,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "name": "EUROCAT",
-        "resource": {
-          "id": "OOM",
-          "name": "OOM"
-        },
-        "sinceVersion": "2.2"
-      },
-      {
-        "mappedFrom": [
-          {
-            "source": {
-              "name": "Dutch institute for health and welfare"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          },
-          {
-            "source": {
-              "name": "Dutch institute for health and welfare"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          },
-          {
-            "source": {
-              "name": "ARS_PS"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          },
-          {
-            "source": {
-              "name": "SALM"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          },
-          {
-            "source": {
-              "name": "SEA"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "EVENTS",
-        "resource": {
-          "id": "OOM",
-          "name": "OOM"
-        },
-        "sinceVersion": "2.2"
-      },
-      {
-        "name": "EXE",
-        "resource": {
-          "id": "EXE",
-          "name": "EXE"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "name": "FARMACEUTICA",
-        "resource": {
-          "id": "FARMACEUTICA",
-          "name": "FARMACEUTICA"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "label": "DataWiki dataset FETALCRL_22112016",
-        "name": "FETALCRL_22112016",
-        "resource": {
-          "id": "GenR",
-          "name": "The Generation R Study"
-        },
-        "sinceVersion": "1.0.0"
-      },
-      {
-        "label": "DataWiki dataset FETALGROWTH_22112016",
-        "name": "FETALGROWTH_22112016",
-        "resource": {
-          "id": "GenR",
-          "name": "The Generation R Study"
-        },
-        "sinceVersion": "1.0.0"
-      },
-      {
-        "label": "DataWiki dataset FETALPLACENTA_22112016",
-        "name": "FETALPLACENTA_22112016",
-        "resource": {
-          "id": "GenR",
-          "name": "The Generation R Study"
-        },
-        "sinceVersion": "1.0.0"
-      },
-      {
-        "description": "database with geocodes of the participants",
-        "label": "database with geocodes of the participants",
-        "name": "geocodes",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "Non existing variables created for ATHLETE",
-        "label": "Variables harmonized for ATHLETE or LifeCycle",
-        "name": "harmonized",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "name": "INSTANCE",
-        "resource": {
-          "id": "OOM",
-          "name": "OOM"
-        },
-        "sinceVersion": "2.2"
-      },
-      {
-        "name": "kayntisyy_icd10",
-        "resource": {
-          "id": "AVOHILMO",
-          "name": "Register of Primary Health Care Visits (AVOHILMO)"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "name": "kayntisyy_icpc2",
-        "resource": {
-          "id": "AVOHILMO",
-          "name": "Register of Primary Health Care Visits (AVOHILMO)"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "description": "Date of birth updated in 2021",
-        "label": "Update of the date of birth",
-        "name": "maj_ddn_2021",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "name": "MBRN",
-        "resource": {
-          "id": "MBRN",
-          "name": "MBRN"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "name": "MBRN_child",
-        "resource": {
-          "id": "MBRN",
-          "name": "MBRN"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "name": "MBRN_mother",
-        "resource": {
-          "id": "MBRN",
-          "name": "MBRN"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "name": "measurements after birth",
-        "resource": {
-          "id": "ENVIRONAGE",
-          "name": "ENVIRonmental influence ON early AGEing"
-        }
-      },
-      {
-        "name": "measurements at FU1",
-        "resource": {
-          "id": "ENVIRONAGE",
-          "name": "ENVIRonmental influence ON early AGEing"
-        }
-      },
-      {
-        "mappedFrom": [
-          {
-            "source": {
-              "name": "AP"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "MEDICAL_OBSERVATIONS",
-        "resource": {
-          "id": "OOM",
-          "name": "OOM"
-        },
-        "sinceVersion": "2.2"
-      },
-      {
-        "mappedFrom": [
-          {
-            "source": {
-              "name": "SPF"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "MEDICINES",
-        "resource": {
-          "id": "OOM",
-          "name": "OOM"
-        },
-        "sinceVersion": "2.2"
-      },
-      {
-        "name": "METADATA",
-        "resource": {
-          "id": "OOM",
-          "name": "OOM"
-        },
-        "sinceVersion": "2.2"
-      },
-      {
-        "description": "description for test dataset 2 for test cohort 1",
-        "keywords": [
-          {
-            "name": "Supplements (M)"
-          },
-          {
-            "name": "School age"
-          },
-          {
-            "name": "Preschool age - Dietary behavior"
-          },
-          {
-            "name": "School age - Method of dietary assessment"
-          },
-          {
-            "name": "School age - Exact age at dietary assessment"
-          },
-          {
-            "name": "School age - Supplements"
-          },
-          {
-            "name": "School age - Food groups"
-          },
-          {
-            "name": "School age - Nutrients"
-          },
-          {
-            "code": "Tech_devices",
-            "name": "Technological devices"
-          },
-          {
-            "name": "DASH diet index"
-          },
-          {
-            "name": "Method of dietary assessment (M)"
-          },
-          {
-            "name": "Method of dietary assessment (F)"
-          },
-          {
-            "name": "Gestational week at dietary assessment"
-          },
-          {
-            "name": "Food groups (M)"
-          },
-          {
-            "code": "Leisure_act",
-            "name": "Leisure activities"
-          },
-          {
-            "name": "School age - Dietary behavior"
-          },
-          {
-            "name": "Food groups (F)"
-          },
-          {
-            "name": "Nutrients (M)"
-          },
-          {
-            "name": "Nutrients (F)"
-          },
-          {
-            "name": "Supplements (F)"
-          },
-          {
-            "code": "Other_lifestyle",
-            "name": "Other and unspecified lifestyle information"
-          },
-          {
-            "name": "School age - DASH diet index"
-          },
-          {
-            "name": "DASH diet index (M)"
-          },
-          {
-            "name": "DASH diet index (F)"
-          },
-          {
-            "code": "Phys_act",
-            "name": "Physical activity"
-          },
-          {
-            "code": "Transportation",
-            "name": "Transportation"
-          },
-          {
-            "code": "Pers_hygiene",
-            "name": "Personal hygiene"
-          },
-          {
-            "code": "Sleep",
-            "name": "Sleep"
-          },
-          {
-            "code": "Misbehav_crim",
-            "name": "Misbehaviour and criminality"
-          },
-          {
-            "name": "Preschool age - Method of dietary assessment"
-          },
-          {
-            "name": "Preschool age - Food groups"
-          },
-          {
-            "name": "Preschool age - Supplements"
-          },
-          {
-            "name": "Preschool age - Nutrients"
-          },
-          {
-            "code": "Lifestyle_behaviours",
-            "name": "Lifestyle and behaviours"
-          },
-          {
-            "code": "Tobacco",
-            "name": "Tobacco"
-          },
-          {
-            "name": "Maternal smoking"
-          },
-          {
-            "name": "Paternal smoking"
-          },
-          {
-            "code": "Alcohol",
-            "name": "Alcohol"
-          },
-          {
-            "code": "Drugs",
-            "name": "Drugs"
-          },
-          {
-            "code": "Nutrition",
-            "name": "Nutrition"
-          },
-          {
-            "name": "Preschool age"
-          },
-          {
-            "name": "Method of dietary assessment (Preschool)"
-          },
-          {
-            "name": "Exact age at dietary assessment (Preschool)"
-          },
-          {
-            "name": "Food groups (Preschool)"
-          },
-          {
-            "name": "Supplements (Preschool)"
-          },
-          {
-            "name": "Nutrients (Preschool)"
-          },
-          {
-            "name": "Dietary behavior (Preschool)"
-          },
-          {
-            "name": "Method of dietary assessment (School)"
-          },
-          {
-            "name": "Exact age at dietary assessment (School)"
-          },
-          {
-            "name": "Supplements (School)"
-          },
-          {
-            "code": "Sex_behav",
-            "name": "Sexual behaviours and orientation"
-          },
-          {
-            "name": "Food groups (School)"
-          },
-          {
-            "name": "Nutrients (School)"
-          },
-          {
-            "name": "Dietary behavior (School)"
-          }
-        ],
-        "label": "label for test dataset 2 for test cohort 1",
-        "name": "name of test dataset 2 for test cohort 1",
-        "numberOfRows": 64000,
-        "resource": {
-          "id": "testCohort1",
-          "name": "Name for test cohort 1"
-        },
-        "sinceVersion": "1980",
-        "unitOfObservation": {
-          "name": "observation"
-        }
-      },
-      {
-        "description": "Non existing variables created for ATHLETE",
-        "label": "Created variables for ATHLETE",
-        "name": "new",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "mappedFrom": [
-          {
-            "source": {
-              "name": "ARS_ANAG_MED_RES_storico"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "OBSERVATION_PERIODS",
-        "resource": {
-          "id": "OOM",
-          "name": "OOM"
-        },
-        "sinceVersion": "2.2"
-      },
-      {
-        "name": "outcome",
-        "resource": {
-          "id": "LifeCycle",
-          "name": "The LifeCycle Project"
-        },
-        "sinceVersion": "1.0.0"
-      },
-      {
-        "label": "Outcome (ATHLETE)",
-        "name": "outcome_ath",
-        "resource": {
-          "id": "ATHLETE",
-          "name": "Advancing Tools for Human Early Lifecourse Exposome Research and Translation"
-        },
-        "sinceVersion": "1.1.0"
-      },
-      {
-        "name": "outcomes",
-        "resource": {
-          "id": "LifeCycle",
-          "name": "The LifeCycle Project"
-        },
-        "sinceVersion": "1.0.0"
-      },
-      {
-        "name": "palvelutapahtuma",
-        "resource": {
-          "id": "AVOHILMO",
-          "name": "Register of Primary Health Care Visits (AVOHILMO)"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "description": "Table containing data concerning assessment of phenols and phtalates during pregnancy",
-        "label": "phenols_phthalates_pregnancy_data",
-        "name": "PE_preg_mr_2021-12-02_379",
-        "numberOfRows": 479,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "description": "database with blood concentrations of effect biomarkers at 12 years old",
-        "label": "database with blood concentrations of effect biomarkers at 12 years old",
-        "name": "pelagie_dosage12",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "Clinical examination at 12 years old",
-        "label": "Clinical examination at 12 years old",
-        "name": "pelagie_exam12",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "Questionnaire at 11 years old of the child (Grandir et Changer)",
-        "label": "Questionnaire at 11 years old of the child",
-        "name": "pelagie_GC_q11",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "This table contains the variables collected at baseline for PELAGIE (pregnancy and birth)",
-        "label": "Baseline questionnaire in early pregnancy and data at birth",
-        "name": "pelagie_q0",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "Questionnaire at 2 years old of the child",
-        "label": "Questionnaire at 2 years old of the child",
-        "name": "pelagie_q2",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "Questionnaire at 6 years old of the child",
-        "label": "Questionnaire at 6 years old of the child",
-        "name": "pelagie_q6",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "Questionnaire at 12 years old of the child",
-        "label": "Questionnaire at 12 years old of the child",
-        "name": "pelagie_q12",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "description": "Neuropsychological tests at 6 years old",
-        "label": "Neuropsychological tests at 6 years old",
-        "name": "pepsy",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "Patient"
-        }
-      },
-      {
-        "name": "PERSON_RELATIONSHIPS",
-        "resource": {
-          "id": "OOM",
-          "name": "OOM"
-        },
-        "sinceVersion": "2.2"
-      },
-      {
-        "mappedFrom": [
-          {
-            "source": {
-              "name": "ARS_ANAG_MED_RES_storico"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "PERSONS",
-        "resource": {
-          "id": "OOM",
-          "name": "OOM"
-        },
-        "sinceVersion": "2.2"
-      },
-      {
-        "description": "Table containing data concerning assessment of pfas",
-        "label": "pfas_data",
-        "name": "PFAS_2021_12_10",
-        "numberOfRows": 450,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "description": "Table containing data concerning assessment of phenols and phtalates during infancy",
-        "label": "phenols_phthalates_infancy_data",
-        "name": "phenols_phthalates_infancy_mr_585_2021-12-02",
-        "numberOfRows": 443,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "name": "PHT",
-        "resource": {
-          "id": "PHT",
-          "name": "PHT"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "mappedFrom": [
-          {
-            "source": {
-              "name": "SPA"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "PROCEDURES",
-        "resource": {
-          "id": "OOM",
-          "name": "OOM"
-        },
-        "sinceVersion": "2.2"
-      },
-      {
-        "mappedFrom": [
-          {
-            "source": {
-              "name": "COD_FARMACI_SPF"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "PRODUCTS",
-        "resource": {
-          "id": "OOM",
-          "name": "OOM"
-        },
-        "sinceVersion": "2.2"
-      },
-      {
-        "mappedTo": [
-          {
-            "source": {
-              "name": "ARS_PS"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "PS",
-        "resource": {
-          "id": "ARS_PS",
-          "name": "ARS_PS"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "description": "Table containing data concerning mother's educational level",
-        "label": "educational_level_mother_data",
-        "name": "quest_mt1raa1",
-        "numberOfRows": 484,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "mappedTo": [
-          {
-            "source": {
-              "name": "RMR"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          },
-          {
-            "source": {
-              "name": "RMR"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "RMR",
-        "resource": {
-          "id": "RMR",
-          "name": "RMR"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "mappedTo": [
-          {
-            "source": {
-              "name": "SALM"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "SALM",
-        "resource": {
-          "id": "SALM",
-          "name": "SALM"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "mappedTo": [
-          {
-            "source": {
-              "name": "SEA"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "SEA",
-        "resource": {
-          "id": "SEA",
-          "name": "SEA"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "mappedTo": [
-          {
-            "source": {
-              "name": "SPA"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          },
-          {
-            "source": {
-              "name": "SPA"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "SPA",
-        "resource": {
-          "id": "SPA",
-          "name": "SPA"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "name": "SPECIALISTICA",
-        "resource": {
-          "id": "SPECIALISTICA",
-          "name": "SPECIALISTICA"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "mappedTo": [
-          {
-            "source": {
-              "name": "SPF"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "SPF",
-        "resource": {
-          "id": "SPF",
-          "name": "SPF"
-        },
-        "sinceVersion": "1.0"
-      },
-      {
-        "mappedFrom": [
-          {
-            "source": {
-              "name": "RMR"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "SURVEY_ID",
-        "resource": {
-          "id": "OOM",
-          "name": "OOM"
-        },
-        "sinceVersion": "2.2"
-      },
-      {
-        "mappedFrom": [
-          {
-            "source": {
-              "name": "RMR"
-            },
-            "target": {
-              "name": "OOM"
-            }
-          }
-        ],
-        "name": "SURVEY_OBSERVATIONS",
-        "resource": {
-          "id": "OOM",
-          "name": "OOM"
-        },
-        "sinceVersion": "2.2"
-      },
-      {
-        "description": "Table containing data concerning child's Exposure to Tobacco Smoke",
-        "label": "ETS_data",
-        "name": "tabac_passif_enf",
-        "numberOfRows": 484,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "description": "test description for dataset 1",
-        "keywords": [
-          {
-            "code": "Social_environment",
-            "name": "Social environment and relationships"
-          },
-          {
-            "code": "Soc_network",
-            "name": "Social network"
-          },
-          {
-            "code": "Soc_participation",
-            "name": "Social participation"
-          },
-          {
-            "code": "Soc_support",
-            "name": "Social support"
-          },
-          {
-            "code": "Parenting",
-            "name": "Parenting and familial environment"
-          },
-          {
-            "code": "Other_soc_characteristics",
-            "name": "Other social environment characteristics"
-          },
-          {
-            "name": "Family mental health"
-          }
-        ],
-        "label": "label for test dataset 1",
-        "name": "test dataset for testCohort1",
-        "numberOfRows": 30000,
-        "resource": {
-          "id": "testCohort1",
-          "name": "Name for test cohort 1"
-        },
-        "sinceVersion": "1959",
-        "unitOfObservation": {
-          "name": "Patient"
-        },
-        "untilVersion": "1985"
-      },
-      {
-        "description": "test description of dataset for cohort 2",
-        "keywords": [
-          {
-            "name": "distance (traffic)"
-          },
-          {
-            "name": "IgE (Food)"
-          },
-          {
-            "name": "Any food allergic sensitization (IgE)"
-          },
-          {
-            "name": "Skin prick test (Food)"
-          },
-          {
-            "name": "Fish"
-          },
-          {
-            "name": "Allergy"
-          },
-          {
-            "name": "Fruit"
-          },
-          {
-            "name": "Food allergy"
-          },
-          {
-            "name": "Inhalant allergy"
-          },
-          {
-            "name": "Any allergy"
-          },
-          {
-            "name": "Allergic sensitization"
-          },
-          {
-            "name": "Food"
-          },
-          {
-            "name": "Food_IgE"
-          },
-          {
-            "name": "IgE - Any food allergic sensitization"
-          },
-          {
-            "name": "Food_Skin prick test"
-          },
-          {
-            "name": "Skin prick test - Any food allergic sensitization"
-          },
-          {
-            "name": "Chicken egg"
-          },
-          {
-            "name": "Cow milk"
-          },
-          {
-            "name": "Rye"
-          },
-          {
-            "name": "Inhalant_Skin prick test"
-          },
-          {
-            "name": "Nut"
-          },
-          {
-            "name": "Peanut"
-          },
-          {
-            "name": "Sesame"
-          },
-          {
-            "name": "Shellfish"
-          },
-          {
-            "name": "Wheat"
-          },
-          {
-            "name": "Inhalant"
-          },
-          {
-            "name": "Inhalant_IgE"
-          },
-          {
-            "name": "IgE - Any inhalant allergic sensitization"
-          },
-          {
-            "name": "IgE - Cat"
-          },
-          {
-            "name": "IgE - House dust mite"
-          },
-          {
-            "name": "Mould"
-          },
-          {
-            "name": "Skin prick test - Any inhalant allergic sensitization"
-          },
-          {
-            "name": "Skin prick test - Cat"
-          },
-          {
-            "name": "Dog"
-          },
-          {
-            "name": "Skin prick test - House dust mite"
-          },
-          {
-            "name": "Grass"
-          },
-          {
-            "name": "Tree"
-          },
-          {
-            "name": "Urticaria"
-          },
-          {
-            "name": "Anaphylaxis"
-          },
-          {
-            "name": "Cat (Skin prick test)"
-          },
-          {
-            "code": "Physical_environment",
-            "name": "Physical environment"
-          },
-          {
-            "name": "Pets"
-          },
-          {
-            "name": "Cats (any)"
-          },
-          {
-            "name": "main_land_use_continuous_urban_fabric"
-          },
-          {
-            "name": "Cats (number)"
-          },
-          {
-            "name": "Dogs (any)"
-          },
-          {
-            "name": "Dogs (number)"
-          },
-          {
-            "name": "Furry Pets"
-          },
-          {
-            "code": "Housing",
-            "name": "Housing characteristics"
-          },
-          {
-            "code": "Neighborhood",
-            "name": "Built environment/neighbourhood characteristics"
-          },
-          {
-            "name": "Social context"
-          },
-          {
-            "name": "area_level_ses_tertiles"
-          },
-          {
-            "name": "area_level_ses_quintiles"
-          },
-          {
-            "name": "population_density"
-          },
-          {
-            "name": "building_density100"
-          },
-          {
-            "name": "building_density300"
-          },
-          {
-            "name": "connectivity_density100"
-          },
-          {
-            "name": "connectivity_density300"
-          },
-          {
-            "name": "access_to_public_transport_lines100"
-          },
-          {
-            "name": "access_to_public_transport_lines300"
-          },
-          {
-            "name": "main_land_use_industrial"
-          },
-          {
-            "name": "Any food allergic sensitization (Skin prick test)"
-          },
-          {
-            "name": "IgE (Inhalant)"
-          },
-          {
-            "name": "main_land_use_forests"
-          },
-          {
-            "name": "main_land_use_other"
-          },
-          {
-            "name": "access_to_public_transport_lines500"
-          },
-          {
-            "name": "access_to_public_transport_stops100"
-          },
-          {
-            "name": "access_to_public_transport_stops300"
-          },
-          {
-            "name": "access_to_public_transport_stops500"
-          },
-          {
-            "name": "main_land_use_medium_urban_fabric"
-          },
-          {
-            "name": "Any inhalant allergic sensitization (IgE)"
-          },
-          {
-            "name": "Chemicals"
-          },
-          {
-            "name": "Phenols"
-          },
-          {
-            "name": "facilities_density"
-          },
-          {
-            "name": "facilities_richness"
-          },
-          {
-            "name": "land_use_mix"
-          },
-          {
-            "name": "walkability"
-          },
-          {
-            "name": "main_land_use_agricultural"
-          },
-          {
-            "name": "main_land_use_airports"
-          },
-          {
-            "name": "main_land_use_port"
-          },
-          {
-            "name": "main_land_use_transports"
-          },
-          {
-            "name": "main_land_use_green_urban"
-          },
-          {
-            "name": "main_land_use_low_density"
-          },
-          {
-            "name": "main_land_use_water"
-          },
-          {
-            "code": "Workplace",
-            "name": "Workplace characteristics"
-          },
-          {
-            "code": "Radiation_exp",
-            "name": "Radiation exposure"
-          },
-          {
-            "code": "Chemical_exp",
-            "name": "Chemical exposure"
-          },
-          {
-            "name": "House dust mite (Skin prick test)"
-          },
-          {
-            "name": "Phthalates"
-          },
-          {
-            "name": "PFASs"
-          },
-          {
-            "name": "Creatinine"
-          },
-          {
-            "name": "OCs & PBDEs"
-          },
-          {
-            "name": "Metals"
-          },
-          {
-            "name": "OPs"
-          },
-          {
-            "name": "Cotinine"
-          },
-          {
-            "name": "PAHs"
-          },
-          {
-            "name": "Glycolethers"
-          },
-          {
-            "name": "Other pesticides"
-          },
-          {
-            "name": "Passive smoking"
-          },
-          {
-            "name": "Air pollution"
-          },
-          {
-            "name": "no2"
-          },
-          {
-            "name": "nox"
-          },
-          {
-            "name": "pm25"
-          },
-          {
-            "name": "pm25fe"
-          },
-          {
-            "code": "Biological_exp",
-            "name": "Biological exposure"
-          },
-          {
-            "code": "Other_environment",
-            "name": "Other physical environment characteristics"
-          },
-          {
-            "name": "Meteorology"
-          },
-          {
-            "name": "Cat (IgE)"
-          },
-          {
-            "name": "pm25k"
-          },
-          {
-            "name": "pm25cu"
-          },
-          {
-            "name": "pm25ni"
-          },
-          {
-            "name": "pm25s"
-          },
-          {
-            "name": "Noise"
-          },
-          {
-            "name": "House dust mite (IgE)"
-          },
-          {
-            "name": "Skin prick test (Inhalant)"
-          },
-          {
-            "name": "Any inhalant allergic sensitization  (Skin prick test)"
-          },
-          {
-            "name": "pm25si"
-          },
-          {
-            "name": "pm25v"
-          },
-          {
-            "name": "pm25zn"
-          },
-          {
-            "name": "pm25abs"
-          },
-          {
-            "name": "pm10"
-          },
-          {
-            "name": "pm10si"
-          },
-          {
-            "name": "pm10v"
-          },
-          {
-            "name": "pm10zn"
-          },
-          {
-            "name": "pm10cu"
-          },
-          {
-            "name": "pm10fe"
-          },
-          {
-            "name": "pm10k"
-          },
-          {
-            "name": "pm10ni"
-          },
-          {
-            "name": "pm10s"
-          },
-          {
-            "name": "pmcoarse"
-          },
-          {
-            "name": "mean_temperature"
-          },
-          {
-            "name": "minimum_temperature"
-          },
-          {
-            "name": "maximum_temperature"
-          },
-          {
-            "name": "mean_relative_humidity"
-          },
-          {
-            "name": "minimum_relative_humidity"
-          },
-          {
-            "name": "maximum_relative_humidity"
-          },
-          {
-            "name": "DNA_damage_UV_dose"
-          },
-          {
-            "name": "erythemal_UV_dose"
-          },
-          {
-            "name": "vitamin_d_UV_dose"
-          },
-          {
-            "name": "land_surface_temperature"
-          },
-          {
-            "name": "meteo_distance"
-          },
-          {
-            "name": "Natural spaces"
-          },
-          {
-            "name": "blue_distance"
-          },
-          {
-            "name": "green_distance"
-          },
-          {
-            "name": "blue_size"
-          },
-          {
-            "name": "green_size"
-          },
-          {
-            "name": "blue_access"
-          },
-          {
-            "name": "green_access"
-          },
-          {
-            "name": "ndvi100"
-          },
-          {
-            "name": "ndvi300"
-          },
-          {
-            "name": "ndvi500"
-          },
-          {
-            "name": "lden"
-          },
-          {
-            "name": "ln"
-          },
-          {
-            "name": "lden_categorical"
-          },
-          {
-            "name": "ln_categorical"
-          },
-          {
-            "name": "distance (noise)"
-          },
-          {
-            "name": "Traffic"
-          },
-          {
-            "name": "distance_traffic"
-          },
-          {
-            "name": "traffic_load_all_roads"
-          },
-          {
-            "name": "traffic_load_major_roads"
-          },
-          {
-            "name": "traffic_density"
-          },
-          {
-            "name": "Unhealthy food environment"
-          },
-          {
-            "name": "unhealthy_facilities_density"
-          },
-          {
-            "name": "unhealthy_facilities_density_osm"
-          }
-        ],
-        "label": "label for test dataset for cohort 2",
-        "name": "test dataset for testCohort2",
-        "numberOfRows": 83737,
-        "resource": {
-          "id": "testCohort2",
-          "name": "Name for test cohort 2"
-        },
-        "sinceVersion": "1959",
-        "unitOfObservation": {
-          "name": "medicine dispensation"
-        },
-        "untilVersion": "1985"
-      },
-      {
-        "name": "test dataset for testCohort3",
-        "resource": {
-          "id": "testCohort3",
-          "name": "testCohort3C"
-        }
-      },
-      {
-        "name": "test dataset for testCohort4",
-        "resource": {
-          "id": "testCohort4",
-          "name": "testCohort4"
-        }
-      },
-      {
-        "description": "Table containing data concerning ultrasound",
-        "label": "ultrasound_data",
-        "name": "Ultrasound_all_SLC_20220428_893",
-        "numberOfRows": 458,
-        "resource": {
-          "id": "Sepages",
-          "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la"
-        },
-        "sinceVersion": "1.0.0",
-        "unitOfObservation": {
-          "name": "person"
-        }
-      },
-      {
-        "description": "Urban exposome dataset generated by Montserrat de Castro (ISGlobal)",
-        "label": "Urban exposome dataset generated by Montserrat de Castro (ISGlobal)",
-        "name": "Urban_ISGlobal",
-        "resource": {
-          "id": "PELAGIE",
-          "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit"
-        },
-        "unitOfObservation": {
-          "name": "Patient"
-        }
+    "Resources": [
+      {
+        "description": "The ABCD-study is a large longitudinal research study on the health of 8000 Amsterdam born children. We investigate which factors in early pregnancy and childhood influence the health of these children.",
+        "id": "ABCD",
+        "name": "The Amsterdam Born Children and their Development Study",
+        "website": "http://www.abcd-studie.nl/"
+      },
+      {
+        "description": "As is the case in every Italian region, the reason for entering the database is the registration with a primary care physician, which may happen upon immigration or upon birth; the reason for exiting the database is emigration or death. Beyond administrative databnls, for the same underlying population other data banks are collected by the Tuscany Region or by other Tuscan organizations: the birth registry, the spontaneous abortions and induced terminations registry, the death registry, the vaccine registry, the pathology registry, the registry of primary care community centers, the COVID registry, the congenital anomaly registry and the rare disease registry.  Medical records and/or laboratory results are collected by local organizations, such as hospital, on subsets o teh underlying Tuscan population.",
+        "id": "ABL",
+        "name": "ABL Region Administrative Databases"
+      },
+      {
+        "description": "This listing includes the four different safety protocol templates to monitor COVID-19 vaccine safety. These protocols were prepared on request of EMA and have been reviewed by EMA and stakeholders. Protocols require finalization by the final users and are not conducted as such. This registration includes the following protocols: 1. Cohort event monitoring to assess safety of COVID-19 vaccines using patient reported events, a protocol template from the ACCESS project 2. Rapid assessment of COVID-19 vaccines safety concerns through electronic health records: a protocol template from the ACCESS project 3. Safety evaluation of COVID-19 vaccines through electronic health records: a protocol template from the ACCESS project 4. Safety Protocol for Hospital Case\u2013Based Monitoring of Specific Adverse Events Following COVID-19 Vaccines: A Protocol Template from the ACCESS project Section 19 includes the template protocols. Word documents can be retrieved from study authors or PI. Section 19 includes the final ACCESS report with feasibility assessment",
+        "id": "ACCESS",
+        "name": "vACcine Covid-19 monitoring readinESS"
+      },
+      {
+        "description": "This is a test description",
+        "id": "ADVANCE Coverage POC",
+        "name": "ADVANCE POC Study Protocol - Testing new approaches to monitoring benefit/risk with pertussis vaccines as test case. Coverage rates of acellular and whole-cell pertussis-containing vaccines in preschool children"
+      },
+      {
+        "description": "Based at the University of Bristol, the Avon Longitudinal Study of Parents and Children (ALSPAC), also known as Children of the 90s, is a world-leading birth cohort study.\n\nBetween April 1991 and December 1992 we recruited more than 14,000 pregnant women into the study and these women (some of whom had two pregnancies or multiple births during the recruitment period), the children arising from the pregnancy, and their partners have been followed up intensively over two decades.\n\nWe are the most detailed study of its kind in the world and we provide the international research community with a rich resource for the study of the environmental and genetic factors that affect a person\u2019s health and development. Through our research we aim to inform policy and practices that will provide a better life for future gene",
+        "id": "ALSPAC",
+        "name": "Avon Longitudinal Study of Parents and Children",
+        "website": "http://www.bristol.ac.uk/alspac/"
+      },
+      {
+        "description": "Inhabitant registry",
+        "id": "ANAGRAFICA",
+        "name": "ANAGRAFICA"
+      },
+      {
+        "description": "Pathology registry",
+        "id": "AP",
+        "name": "AP"
+      },
+      {
+        "description": "This is a test description",
+        "id": "ARISE",
+        "name": "Aortic Replacement using Individualised Regenerative Allografts: Bridging the Therapeutic Gap"
+      },
+      {
+        "description": "Inhabitant register",
+        "id": "ARS_ANAG_MED_RES_storico",
+        "name": "ARS_ANAG_MED_RES_storico"
+      },
+      {
+        "description": "Emergency admissions",
+        "id": "ARS_PS",
+        "name": "ARS_PS"
+      },
+      {
+        "description": "Children are particularly vulnerable to environmental hazards. The ATHLETE project will measure a wide range of environmental exposures (urban, chemical, lifestyle and social risk factors) during pregnancy, childhood, and adolescence. The project will then link this \u201cearly-life exposome\u201d to children\u2019s biological responses and cardiometabolic, respiratory, and mental health. The results will help us to better understand and prevent health damage from environmental agents from the earliest parts of the life course onward.",
+        "id": "ATHLETE",
+        "name": "Advancing Tools for Human Early Lifecourse Exposome Research and Translation",
+        "website": "https://athleteproject.eu/"
+      },
+      {
+        "description": "Primary care administrative data",
+        "id": "AVOHILMO",
+        "name": "Register of Primary Health Care Visits (AVOHILMO)"
+      },
+      {
+        "description": "This is a test description",
+        "id": "BAMSE",
+        "name": "BAMSE"
+      },
+      {
+        "description": "Born in Bradford (BiB) started in 2007 as a response to the poor health outcomes for children in Bradford. Pregnant women were recruited when they attended the Bradford Royal Infirmary for their routine maternity care. Participants were asked to complete a questionnaire about different aspects of their lives including demographics information, physical and mental health and socio-economic information.\n\nBetween 2007 and 2011, 12,453 pregnant women were recruited and 3,353 of their partners. Participants also gave permission for routine data linkage for themselves and their children. The BiB cohort is split between approximately 50% South Asian and 50% non-South Asian participants.\n\nBiB has completed a number of sub-sample studies including BiB1000, which focused on exploring ethnic variation and risk factors of childhood obesity. Data collection included questionnaires with parents when the children were between 6 and 36 months at 6 monthly intervals.The ALLIN and MeDALL studies focused on the relationships between childhood allergies and infections. Data collection for these studies were done via a questionnaire and, for the MeDALL study, children were asked to have a skin allergy test.\n\nSince 2016, BiB have undertaken a full cohort follow-up compromising of home visits for data collection through questionnaires, school visits where children carried out cognitive assessments, and a child measurement programme where children were weighed and measured, had their activity levels measured, and were asked to give a blood sample.\n\nFrom the findings of these studies, BiB have developed a range of additional research projects such as evaluating and developing new interventions to improve health; for example, focusing on reducing childhood obesity, increasing physical activity, improving oral health and improving mental wellbeing. BiB have gone beyond functioning as an observational birth cohort and are actively trying to build and strengthen local research capacity and translate evidence to practice.",
+        "id": "BIB",
+        "name": "Born in Bradford",
+        "website": "https://borninbradford.nhs.uk/"
+      },
+      {
+        "id": "blabla"
+      },
+      {
+        "description": "This prospective birth cohort is designed to follow up 7000 children from their prenatal period to adolescence with the aim of assessing EXPOSOME factors potentially affecting children health.",
+        "id": "CELSPAC-TNG",
+        "name": "Central European Longitudinal Study of Parents and Children: The Next Generation",
+        "website": "https://www.celspac.cz/tng"
+      },
+      {
+        "description": "Medicinal products",
+        "id": "COD_FARMACI_SPF",
+        "name": "COD_FARMACI_SPF"
+      },
+      {
+        "contactEmail": "frtm@ssi.dk, mineindkob@ssi.dk",
+        "description": "This project aims to investigate how what we buy, and thus our diet, affects health, by analyzing purchase patterns and health information over time.",
+        "id": "CON",
+        "name": "Consumer cohort",
+        "website": "https://mineindkob.dk/"
+      },
+      {
+        "description": "This is a test description",
+        "id": "CONSTANCES",
+        "name": "Cohorte des Consultants des Centres d\u2019Examens",
+        "website": "https://www.constances.fr/"
+      },
+      {
+        "contactEmail": "petr.holub@bbmri-eric.eu",
+        "description": "The colorectal cancer cohort (CRC-Cohort) was developed by BBMRI-ERIC, its National Nodes and BBMRI-ERIC partner biobanks within the EU-funded project ADOPT BBMRI-ERIC (H2020) as a use case for piloting access to European biobanks. It became a permanent asset of the BBMRI-ERIC infrastructure after the end of the ADOPT project. The CRC-Cohort collection is a joint long-term European endeavor, which enables existing, well-established biobanks to connect with BBMRI-ERIC and obtain increased recognition and visibility along with new users and data.",
+        "id": "CRC-Cohort",
+        "name": "Colorectal Cancer Cohort"
+      },
+      {
+        "contactEmail": "info@nkcx.se",
+        "description": "Cervical screening cohort comprising all women resident in Sweden aged 23-64 that are screened for human papillomavirus or cervical abnormalities.",
+        "id": "CSC",
+        "name": "Cervical screening cohort",
+        "website": "https://nkcx.se"
+      },
+      {
+        "description": "This is a test description",
+        "id": "DAHLIA",
+        "name": "A retrospective nationwide cohort study to investigate the treatment of type 2 diabetic patients in Finland"
+      },
+      {
+        "description": "The cohort was set up to investigate the effects of acute maternal undernutrition during specific stages of gestation on the offspring\u2019s adult health. The main outcomes of interest of the DFBC are chronic cardiovascular and metabolic diseases, ageing and mental health. Differences in various outcomes have been found between participants exposed to famine and unexposed participants. Although statistically significant, these differences are not very large, therefore adjusting for exposure group enables researchers to use DFBC data in pooled a",
+        "id": "DFBC",
+        "name": "Dutch Famine Birth Cohort study",
+        "website": "https://www.hongerwinter.nl/"
+      },
+      {
+        "description": "Currently, the Netherlands has multisource financing of healthcare. Universal health insurance coverage is accessible for all citizens and permanent residents in the country, with a range of comprehensive health services. Municipalities (currently around 300) are responsible for arranging and funding health care. Health services are divided into primary health care and specialized medical care. Primary health care refers to the municipally arranged services provided at municipal health centres. Specialised medical care refers to secondary and tertiary health care, provided by experts on medical specialities largely provided in hospitals. Municipalities or joint municipal authorities may also procure health care services from private service providers. Employers are responsible for preventive health care of their employees. On a voluntary basis, some also provide medical care. Medical care provided by employers and private healthcare also receive some public funding.\n\nFinnish Instititute for Health and Welfare (THL) collects information and produces a range of statistics in the field of social welfare and health care. As a statistical authority, THL is responsible for the maintenance and development of statistical and register resources. THL is hosting the Drugs and Pregnancy research project, a joint project of the THL, the Finnish Medicines Agency (FIMEA) and the Social Insurance Institution of Finland (Kela). The project aims to secure safe medical drug use during pregnancy.\n\nThe underlying population of all the data banks is the whole population of Finland (around 5.6 million inhabitants).\n\nAll register descriptions available in English can be found from: https://thl.fi/en/web/thlfi-en/statistics/information-on-statistics/register-descriptions.\n\nAll quality descriptions available in English can be found from:\nhttps://thl.fi/en/web/thlfi-en/statistics/information-on-statistics/quality-descriptions\n\nInformation on Drugs and Pregnancy research project can be found from: https://thl.fi/en/web/thlfi-en/research-and-development/research-and-projects/drugs-and-pregnancy?redirect=%2Fen%2Fweb%2Fthlfi-en%2Fresearch-and-development%2Fresearch-and-projects%2Fcurrent-research-and-projects\n\nData is stored on an individual level and can be linked by the personal identification number assigned to all citizens and permanent residents in Finland at birth or upon immigration. The provision on private medical services, particularly those provided by employers, has grown steadily over the years which may reflect particularly to the completeness of primary care data.",
+        "id": "DHL",
+        "name": "Dutch institute for health and welfare"
+      },
+      {
+        "description": "Table with all inpatient stay diagnoses (ICD10 code + dates), long term disease / occupational diseases / work accident registration (ICD10 code + dates), pregnancy outcomes (specific BPE code + dates start/end of pregnancy) or 56 specific comorbidities annual indicators (specific BPE code + dates)",
+        "id": "DIAGNOSTIC",
+        "name": "DIAGNOSTIC"
+      },
+      {
+        "description": "The Danish National Birth Cohort (DNBC) was established to investigate the causal link between exposures in early life and disease later on and the possibilites for disease prevention. Initial data collection information was collected by computer-assisted telephone interviews with the women twice during pregnancy and when their children were six and 18 months old. Further data collections were conducted when the children were 7, 11 and 18 years old. For more details, please visit the DNBC homepage.",
+        "id": "DNBC",
+        "name": "The Danish National Birth Cohort",
+        "website": "https://www.dnbc.dk"
+      },
+      {
+        "description": "This is a test description",
+        "id": "DRIVE 2019/20",
+        "name": "Brand-specific influenza vaccine effectiveness in Europe, season 2019/20"
+      },
+      {
+        "description": "The EDEN study is a French bicentric generalist cohort study (Heude et al. IJE 2016). Pregnant women were invited to participate during their prenatal visit, before the 24th week of amenorrhea, in the obstetrics and gynecology departments of the Poitiers and Nancy university hospitals. Recruitment took place from February 2003 to January 2006. The exclusion criteria were: twin pregnancy, diagnosis of insulin-dependent diabetes, inability to speak and read French, intention to move from the region within three years of inclusion . Among the women invited, 53% agreed to participate (n = 2,002). Detailed information on phenotypes and exposures were collected through questionnaires from pregnancy until 8 years and through clinical examinations of the mother (at 24 weeks of amenorrhoea, at delivery and 5\u20136 years after delivery) and the child (at birth and 1, 3 and 5\u20136 years, including cognitive assessments at 3 and 5\u20136 years). At 5\u20136 years, 1255 children",
+        "id": "EDEN",
+        "name": "Study on the pre and early postnatal determinants of child health and development",
+        "website": "http://eden.vjf.inserm.fr/en/"
+      },
+      {
+        "description": "Pharmacy dispensings registry",
+        "id": "EFEMERIS_PRESCRIPTION",
+        "name": "EFEMERIS_PRESCRIPTION"
+      },
+      {
+        "description": "ELFE is the first French national birth cohort. Its objective is to study determinants of the development, health and socialization of children from birth to adulthood through a multidisciplinary approach. A total of 18 329 children were recruited at birth in a random sample of maternity units in metropolitan France during 25 selected days of 2011 spread over the year. Participation rates at the age 2-month, 1- and 2-year and 3.5-year parental interviews were 92%, 86%, 82% and 80%, respectively, of contacted participants. The ELFE has an open-data policy after an 18-month exclusivity period following each release of new data. The data-access policy, study protocols, questionnaires and data catalogue can be found online: [https://www.ELFE-france.fr/en/].",
+        "id": "ELFE",
+        "name": "Etude Longitudinale Fran\u00e7aise depuis l'Enfa\"  (French longitudinal study of children)",
+        "website": "https://www.elfe-france.fr/en/"
+      },
+      {
+        "description": "This is a test description",
+        "id": "ELSPAC",
+        "name": "ELSPAC"
+      },
+      {
+        "description": "Within the ongoing population-based prospective birth cohort study ENVIRONAGE we explore new dimensions in the current understanding of human ageing and its interaction with the environment",
+        "id": "ENVIRONAGE",
+        "name": "ENVIRonmental influence ON early AGEing",
+        "website": "https://www.uhasselt.be/Algemene-Informatie-Limburgs-Geboortecohort"
+      },
+      {
+        "description": "The EU Child Cohort Network: A Europe-wide network of cohort studies started in early life Cohort studies started from pregnancy or childhood give the unique opportunity to relate early-life stressors with variation in development, health and disease throughout the life course. Moreover, advanced analytical approaches used in observational studies can help identify causality and potential for early-life interventions on factors that cannot be easily studied in experimental settings. These factors include socioeconomic circumstances, migration, urban environment as well as lifestyle-related determinants and will be given particular focus in our project. We will set up a European pregnancy and childhood cohort, the EU Child Cohort Network, which brings together extensive existing data from more than 250,000 European children and their parents. These cohorts enable studies in multiple generations because of their detailed phenotyping of both parents and children. The network will bring together existing successful multidisciplinary cohort studies, which all started before or during pregnancy or in childhood. Together, they span the full life course and contain detailed phenotypical information as well as biological samples. The EU Child Cohort Network will optimize exploitation of more than 40 available cohort resources in Europe and will enable innovative research on identification of novel markers of early-life stressors related to health trajectories throughout the full life cycle. Although LifeCycle partners and their cohorts have taken the initiative for this unique collaboration, the network is open to other partners with population-based cohorts started in early life, specifically those from Eastern and Southern Europe. To ensure that this will be a Europe-wide, open and sustainable network, which exceeds the LifeCycle Project duration, we will introduce a data sharing platform taking account of ethical, legal and societal implications, we will organize yearly meetings open to all European pregnancy and child cohort researchers and we will start a fellowship programme for exchange between these European cohorts.",
+        "id": "EUChildNetwork",
+        "name": "The EU Child Cohort Network",
+        "website": "https://lifecycle-project.eu/for-scientists/the-eu-child-cohort-network/"
+      },
+      {
+        "description": "EUROCAT NNL registers information about all children/fetuses born with a congenital anomaly whose mothers are residing in the provinces of Groningen, Friesland or Drenthe. The data collection started in 1981 and is ongoing. EUROCAT NNL is part of EUROmediCAT.",
+        "id": "EUROCAT NNL",
+        "name": "EUROCAT NNL"
+      },
+      {
+        "description": "Exemptions from copayment",
+        "id": "EXE",
+        "name": "EXE"
+      },
+      {
+        "description": "Drug dispensations",
+        "id": "FARMACEUTICA",
+        "name": "FARMACEUTICA"
+      },
+      {
+        "description": "This is a test description",
+        "id": "FEF",
+        "name": "Fibrefects - Grain fibre modification for gut-mediated health effects"
+      },
+      {
+        "description": "This is a test description",
+        "id": "FEIBA-GO",
+        "name": "FEIBA NF GLOBAL OUTCOME STUDY"
+      },
+      {
+        "description": "This is a test description",
+        "id": "FinACAF",
+        "name": "Finnish AntiCoagulation in Atrial Fibrillation"
+      },
+      {
+        "description": "This is a test description",
+        "id": "FinnGeDi",
+        "name": "Finnish Gestational Diabetes Study"
+      },
+      {
+        "contactEmail": "force-nen@umcutrecht.nl",
+        "description": "Multicenter Clinical Biobank with primary object to determine the value of ctDNA in the diagnosis and treatment of Neuroendocrine Neoplasms.",
+        "id": "FORCE-NEN",
+        "name": "InFrastructure fOr Rare Cancers in the nEtherlands \u2013 Neuroendocrine Neo",
+        "website": "https://www.ikdoemeemetforce.nl/"
+      },
+      {
+        "description": "This is a test description",
+        "id": "FORCE-NEN collections",
+        "name": "FORCE-NEN collections",
+        "website": "https://www.ikdoemeemetforce.nl/"
+      },
+      {
+        "description": "This is a test description",
+        "id": "G21",
+        "name": "Generation 21",
+        "website": "http://www.geracao21.com/pt/"
+      },
+      {
+        "description": "This is a test description",
+        "id": "GECKO",
+        "name": "The Groningen Expert Center for Kids with Obesity Drenthe cohort",
+        "website": "https://www.rug.nl/research/portal/datasets/gecko-drenthe-cohort(3e14f7ca-a55d-41d9-9803-19302aa4ea87).html"
+      },
+      {
+        "contactEmail": "mariekewelten@gmail.com",
+        "description": "The Generation R Study is a population-based prospective cohort study from fetal life until adulthood and is conducted in Rotterdam, the second largest city in the Netherlands. The study is designed to identify early environmental and genetic causes and causal pathways leading to normal and abnormal growth, development and health from fetal life, childhood and young adulthood. This multidisciplinary study focuses on several health outcomes including behaviour and cognition, body composition, eye development, growth, hearing, heart and vascular development, infectious disease and immunity, oral health and facial growth, respiratory health, allergy and skin disorders of children and their parents. Main exposures of interest include environmental, endocrine, genomic (genetic, epigenetic, microbiome), lifestyle related, nutritional and socio-demographic determinants.\n\nThe Generation R study enrolled 9,153 mothers with a delivery date from April 2002 until January 2006, who participated with a total of 9,778 pregnancies in the study from which 9,901 children were expected to be born; the mothers gave birth to 9,749 live born children.",
+        "id": "GenR",
+        "name": "The Generation R Study",
+        "website": "https://generationr.nl/"
+      },
+      {
+        "contactEmail": "v.jaddoe@erasmusmc.nl",
+        "description": "The Generation R Next Study is a population-based cohort study from preconception onwards. In total, about 3600 women are being included in the period 2017-2021. Of all included couples, about 30% is included during the preconception, about 60% during the first trimester of pregnancy and about 10% in the third trimester of pregnancy.",
+        "id": "GenR Next",
+        "name": "Generation R Next",
+        "website": "https://generationr.nl/next"
+      },
+      {
+        "description": "This is a test description",
+        "id": "HBCS",
+        "name": "Helsinki Birth Cohort Study",
+        "website": "https://thl.fi/en/web/thlfi-en/research-and-expertwork/projects-and-programmes/helsinki-birth-cohort-study-hbcs-idefix"
+      },
+      {
+        "description": "Six prospective birth cohort studies are contributing to HELIX as the only realistic and feasible way to obtain the comprehensive, longitudinal, human data needed to build this early-life exposome. These cohorts have already collected large amounts of data as part of national and EU-funded projects. Results will be integrated with data from European cohorts (>300,000 subjects) and registers, to estimate health impacts at the large European scale.",
+        "id": "HELIX",
+        "name": "The Human Early-Life Exposome",
+        "website": "http://www.projecthelix.eu"
+      },
+      {
+        "contactEmail": "tiina.eriksson@tuni.fi",
+        "description": "Community-randomized HPV vaccination trial cohort: gender-neutral HPV16/18 vaccination arm, girls-only HPV16/18 vaccination and hepatitis B-virus (HBV) vaccination of boys arm, and arm gender-neutral HBV vaccination arm. Total of boys (31,117) and girls (30,139), 9482 (60,7 %) were HPV vaccinated and 6131 (39,3 %) were HBV vaccinated at the age of 14 and followed up at he age of 18, 22, 25 and 28.",
+        "id": "HPV",
+        "name": "HPV vaccination cohort",
+        "website": "https://projects.tuni.fi/hpv-rokotiitus/"
+      },
+      {
+        "description": "Upfront imaging of CD8 (Pandit-Taskar N. et al., J Nucl Med 2018, abstract) is feasible in patients, however data on serial imaging are lacking. When T-cells encounter tumour antigens they are activated and promote lymphocyte proliferation and recruitment to the tumour site. This inflammatory response increases blood flow and vascular permeability, which can be measured with dynamic contrast enhanced (DCE) MRI. Early after starting treatment, immune activation will also lead to T-cell tumour infiltration and increased tumour cellularity, which potentially can be quantified by diffusion weighted imaging (DWI) and radiomics features derived from computational image analysis. Preliminary data suggests that texture measures can capture the spatial heterogeneity of different sites of disease and predict treatment resistance and progression-free survival in the metastatic setting. Moreover, MRI measurements that integrate whole tumour volumetry, diffusion-weighted imaging (ADC) and radiomics (texture analysis) (Larkin T.J. et al.; 2014, Booth T.C. et al., 2017; Newman A.M. et al., 2015) may provide a therapy response assessment. Preliminary data suggests that texture measures can capture the spatial heterogeneity of metastases and predict treatment resistance and progression-free survival in patients with ovarian cancer. Aim Demonstrate and validate (1) PET with a 89Zrlabelled anti-CD8 minibody, to visualize serially the presence of CD8 expressing T-lymphocytes in cancer patients receiving CIT; (2) contribution of MRI measurements of intra- and inter-site tumour heterogeneity. Study design In patients with potential relevant indication for treatment with immune checkpoint inhibition treatment (CIT) (e.g. melanoma or NSCLC) and at least one accessible lesion for biopsy, [89Zr]Zr-anti-CD8 PET imaging (1.5 mg anti human CD8 minibody [89Zr]Zr-Df-IAB22M2C, 37 MBq) will be injected and imaging will be performed before the start and 7 days before the 3rd checkpoint inhibitor administration. Whole body [89Zr]Zr-anti-CD8 distribution will be determined: tumour and normal organ radioactive tracer uptake will be quantified as standardized uptake values (SUV). Patients will undergo multi-parametric MR before and after the 1st cycle and before the 3rd cycle (drugs administered on 2-3 weekly cycles). The third and final MRI will be performed within ~9 weeks after the start of treatment, or on disease progression, whichever is sooner. All metastases determined to be suitable for MR imaging will be evaluated to assess differential tumour response and pseudo-progression. Patients will also undergo contrast-enhanced CT to determine tumour response using iRECIST. Tumour biopsies will be extensively analysed. Statistical considerations: Initial feasibility will be shown in 12 patients. Depending on the tumour type chosen the number of patients required may be increased in order to have sufficient patients with a tumour response to immune checkpoint inhibitor treatment.",
+        "id": "Immune-Image_Task_6.2a",
+        "name": "Serial CD8 PET imaging in cancer patients before and during immune checkpoint inhibition"
+      },
+      {
+        "description": "An investigator initiated clinical treatment trial with PD-1 antibody provided by Janssen will include the patients who underwent CD8 imaging in task 6.2a. This study will be designed and executed during the course of Immune-Image according to cGCP standards. This study in contrast to the CD8 imaging part will extent till the end of Immune-Image in order to allow appropriate follow-up of the patients.",
+        "id": "Immune-Image_Task_6.2b",
+        "name": "PD-1 therapy study"
+      },
+      {
+        "description": "This is a test description",
+        "id": "Immune-Image_Task_6.3",
+        "name": "Optical PD-L1 imaging trial in locally advanced oesophageal cancer patients"
+      },
+      {
+        "description": "INMA \u2013 INfancia y Medio Ambiente [Environment and Childhood] Project is a research network of several Spanish groups that created a project with the aim to study the paper of the more relevant environmental pollutants in the air, water and diet during the pregnancy and beginning of life, and their effects in the growth and develo",
+        "id": "INMA",
+        "name": "INfancia y Medio Ambiente [Environment and Childhood] Project",
+        "website": "https://www.proyectoinma.org"
+      },
+      {
+        "description": "This is a test description",
+        "id": "INSPECT",
+        "name": "A retrospectIve chart review study evaluatiNg the longer-term effectiveneSs of darvadstrocel in PatiEnts who CompleTed ADMIRE-CD"
+      },
+      {
+        "description": "There are many early psychosis cohorts in the world. Epidemiological research with these cohorts over the past decades has greatly increased the understanding of distribution and mechanisms of psychotic disorders. Carrying out cross-country comparisons on a larger scale is extremely costly. An alternative strategy is to pool the existing large amount of data from high-quality early psychosis studies at an individual patient level. This approach has multiple advantages: it allows for examining psychosis determinants with greater precision, also including rare exposures and outcomes, focusing on (long-term) follow-up, and making optimal use of already existing data. To achieve this, the International Psychosis Epidemiology Consortium (IPEC) has catalogued and harmonized data from early psychosis cohorts and set up a virtual databank. With this databank, multiple (epidemiological) studies within the scope of the following research question will be conducted: \u201cWhat drives the course of functional, existential and clinical outcomes of (early) psychosis and how does the social and geographical context shape these patterns?\u201d.",
+        "id": "IPEC",
+        "name": "International Psychosis Epidemiology Consortium",
+        "website": "https://www.ipec-project.com/"
+      },
+      {
+        "description": "This is a test description",
+        "id": "IPF",
+        "name": "Observational Analysis on the Socio-economic Impact of Idiopathic Pulmonary Fibrosis in Spain."
+      },
+      {
+        "description": "This is a test description",
+        "id": "KANC",
+        "name": "Kaunas cohort"
+      },
+      {
+        "description": "This is a test description",
+        "id": "LEMS",
+        "name": "Lambert-Eaton Myasthenic Syndrome (LEMS) Registry"
+      },
+      {
+        "description": "This is a test description",
+        "id": "LEONARDO",
+        "name": "Utilization patterns, access to healthcare facilities and economic assessment of JAKi drugs used in rheumatoid arthritis patients in Tuscany"
+      },
+      {
+        "description": "A Europe-wide network of cohort studies started in early life Cohort studies started from pregnancy or childhood give the unique opportunity to relate early-life stressors with variation in development, health and disease throughout the life course. Moreover, advanced analytical approaches used in observational studies can help identify causality and potential for early-life interventions on factors that cannot be easily studied in experimental settings. These factors include socioeconomic circumstances, migration, urban environment as well as lifestyle-related determinants and will be given particular focus in our project. We will set up a European pregnancy and childhood cohort, the EU Child Cohort Network, which brings together extensive existing data from more than 250,000 European children and their parents. These cohorts enable studies in multiple generations because of their detailed phenotyping of both parents and children. The network will bring together existing successful multidisciplinary cohort studies, which all started before or during pregnancy or in childhood. Together, they span the full life course and contain detailed phenotypical information as well as biological samples. The EU Child Cohort Network will optimize exploitation of more than 40 available cohort resources in Europe and will enable innovative research on identification of novel markers of early-life stressors related to health trajectories throughout the full life cycle. Although LifeCycle partners and their cohorts have taken the initiative for this unique collaboration, the network is open to other partners with population-based cohorts started in early life, specifically those from Eastern and Southern Europe. To ensure that this will be a Europe-wide, open and sustainable network, which exceeds the LifeCycle Project duration, we will introduce a data sharing platform taking account of ethical, legal and societal implications, we will organize yearly meetings open to all European pregnancy and child cohort researchers and we will start a fellowship programme for exchange between these European cohorts.",
+        "id": "LifeCycle",
+        "name": "The LifeCycle Project",
+        "website": "https://lifecycle-project.eu/"
+      },
+      {
+        "description": "LongITools is a European research project studying the interactions between the environment, lifestyle and health in determining the risks of chronic cardiovascular and metabolic diseases.",
+        "id": "LongITools",
+        "name": "LongITools health & environment dynamics",
+        "website": "https://longitools.org/"
+      },
+      {
+        "contactEmail": "martin.widschwendter@uibk.ac.at",
+        "description": "Data from 6-month intervention trial looking at the effects of intermittent fasting or smoking cessation in healthy women aged 30-60 with risk factors for cancer or other diseases (elevanted BMI, heavy smoking).",
+        "id": "LSC",
+        "name": "Lifestyle cohort",
+        "website": "https://www.uibk.ac.at/"
+      },
+      {
+        "contactEmail": "hanna.ohman@ppshp.fi",
+        "description": "The Finnish Maternity Cohort (FMC) in Northern Finland Biobank Borealis is a collection of serum samples comprising virtually the entire population of Finnish females, who have been pregnant since 1983. FMC is linkable with population-based health registers including the Finnish Cancer Registry and the Medical Birth Register. Linkage of FMC data and samples with pathological archives of Finnish Biobanks provides an opportunity to expand the scope of research into interaction of biological and genomic factors in association with various diseases. Serial prediagnostic serum samples and comprehensive data accessible over three generations provide possibilities for unique study settings.",
+        "id": "MAT",
+        "name": "Maternity cohort",
+        "website": "https://www.ppshp.fi/Tutkimus-ja-opetus/Biopankki/Pages/default.aspx"
+      },
+      {
+        "description": "Medical Birth Registry",
+        "id": "MBRN",
+        "name": "MBRN"
+      },
+      {
+        "contactEmail": "xvillalobos@vhio.net",
+        "description": "This is a test description",
+        "id": "mCRC-VHIO",
+        "name": "metastatic Colorrectar Cancer - VHIO"
+      },
+      {
+        "description": "MoBa is a Norwegian population-based longitudinal cohort study of around 114,500 children, 95,000 mothers and 75,000 fathers. Recruitment of pregnant women attending routine ultrasound examination took place between 1999 and 2009, and MoBa has since grown to become one of the largest population studies in the world. Baseline questionnaires were completed at around 15 weeks\u2019 gestation, and two further prenatal questionnaires were administered at around 17-22 and 30 weeks\u2019 gestation. In addition, fathers completed a questionnaire at around 15\u2019 weeks gestation. Follow-up questionnaires after birth were completed at 6 months, 18 months, 36 months, 5 years, 7 years, and 8 years of age, and data are currently being collected through questionnaires for children aged 13 and 14 years. The purpose of MoBa is to improve our knowledge of diseases and health, by estimating exposure-outcome associations among children and their parents from preconception and pr",
+        "id": "MoBa",
+        "name": "The Norwegian Mother, Father and Child Cohort Study",
+        "website": "https://www.fhi.no/en/studies/moba/"
+      },
+      {
+        "description": "This is a test description.",
+        "id": "MOLGENIS",
+        "name": "MOLGENIS Demo"
+      },
+      {
+        "contactEmail": "b.carvalho@nki.nl",
+        "description": "The mulitarget FIT study is a prospective study that is running within the Dutch National CRC screening program. The aim of this study is to compare the performance of a new stool test (mtFIT) with the currently used FIT. In this study we collect the lab data (results mtFIT and FIT) as well as the clinical data associated; age and sex of participants, colonoscopy findings (when one or both tests are positive), pathology data (when a lesion is detected during colonoscopy).",
+        "id": "mtFIT study",
+        "name": "Multitarget FIT study",
+        "website": "https://www.avl.nl/multitargetFIT"
+      },
+      {
+        "description": "This is a test description",
+        "id": "NBC1967-1976",
+        "name": "NBC1967-1976"
+      },
+      {
+        "description": "The study was started by professor Paula Rantakallio in the two Northernmost provinces in Finland (Oulu and Lapland) already in the year 1965 when the mothers were pregnant. Data on the individuals born into this cohort was collected since the 24th gestational week as well as their mothers and, to a lesser extent, fathers. The cohort included 12055 mothers and they had 12068 deliveries (13 women delivered twice).\n\nCases belonging to survey were determined by the calculated term. A small percentage of the births occurred towards the end of 1965 and early in 1967. The calculated term, as was customary at that time, was counted from the first day of the last menstrual period. Where this date was unknown the expected term was estimated from the  date of commencement of foetal ovements and progress of the pregnancy. The study covered all live born and stillborn infants with birth weight of 600 grams or more.\n\nAccording to the Finland's central Office of Statistics, births in the study area during 1966 totalled 12527, so study population comprised 96.3 per cent of all births during 1966 in that area. Altogether 12231 children were born into the cohort, 12058 of them live born. The original data have been supplemented by data collected with postal questionnaires at the ages of 1, 14 and 31 years and various hospital records and national register data.",
+        "id": "NFBC1966",
+        "name": "NFBC1966",
+        "website": "https://www.oulu.fi/nfbc"
+      },
+      {
+        "description": "This is a test description",
+        "id": "NFBC1966 G0",
+        "name": "Parents of NFBC1966"
+      },
+      {
+        "description": "NFBC1986 is a longitudinal one-year birth cohort study from an unselected population. The cohort included all the mothers (N=9362) with children whose expected date of birth felt between July 1st 1985 - June 30th 1986 in the two northernmost provinces on Finland (Oulu and Lapland). A small percentage of the births occurred towards the end of June 1985 and begin of July 1986.\n\nThe number of deliveries in the cohort was 9362, which was 99% of all the deliveries taking place in the target period of the cohort. Altogether 9479 children were born into the cohort, 9432 of them live born. The original data have been supplemented by data collected with postal questionnaires at the ages of 7, 8 and 16 years and various hospital records and statistical register data. The latest data collection with clinical examinations and questionnaires was at the age of 33 years.",
+        "id": "NFBC1986",
+        "name": "Northern Finland Birth Cohort 1986",
+        "website": "https://www.oulu.fi/nfbc"
+      },
+      {
+        "description": "This randomized controlled trial aimed to investigate the health effects of replacing food items with a high content of saturated fatty acids with food items where a large portion of the saturated fat had been replaced with polyunsaturated fat. The main finding was that compared to intake of food items with saturated fat, intake of food items with polyunsaturated fat reduced total and low-density lipoprotein (LDL)-cholesterol by 9 and 11%, respectively. In this study, we collected data on standard clinical and biochemical variables, in addition to dietary intake as well as standard clinical and biochemical variables, in addition to dietary intake as well as metabolic and transcriptomic profiles.",
+        "id": "NOMA",
+        "name": "Effect of fat quality on blood lipids and immune response",
+        "website": "https://www.med.uio.no/imb/english/research/projects/noma/"
+      },
+      {
+        "description": "The main goal of OOM is to establish a trusted ecosystem that can efficiently, systematically, and in an ethically responsible manner, generate and disseminate reliable evidence-based information regarding effects of medications used during pregnancy and breastfeeding to women and their healthcare providers. This will be achieved by generating, cataloguing, linking, collecting and analysing data from pharmacovigilance, modelling, routine healthcare, breastmilk samples through a large network.",
+        "id": "OOM",
+        "name": "OOM"
+      },
+      {
+        "description": "This is a test description",
+        "id": "OPTI",
+        "name": "Non-interventional, cross-sectional, multicenter study to describe the exacerbations profile of COPD patients Treated with ICS in a real-life primary care population in Spain."
+      },
+      {
+        "description": "The Physical Activity and Nutrition in Children (PANIC) Study is an ongoing 8-year controlled physical activity and dietary intervention study in a large population sample of children who have been followed retrospectively since pregnancy and prospectively until adolescence and will finally be followed until early adulthood",
+        "id": "PANIC",
+        "name": "Physical Activity and Nutrition In Children",
+        "website": "https://www.panicstudy.fi/"
+      },
+      {
+        "description": "This is a test description",
+        "id": "PASS",
+        "name": "A prospective observational study to assess effectiveness of the training and risk minimisation measures recommended for the usage of the diagnostic agent NeuraCeqTM in the post-authorisation clinical situation: A post-authorisation safety study"
+      },
+      {
+        "description": "The PELAGIE mother-child cohort was set up with the aim to study the effect of prenatal exposure to environmental and occupational chemicals on reproduction and child development. The PELAGIE cohort enrolled 3421 pregnant women from Brittany, France between 2002 and 2006. Offsprings were followed at delivery (n=3439) and at 2 (n=1506), 6 (n=1406) and 12 (n=1211) years old. Almost all women provided a urine samples at inclusion. Cord blood samples, maternal hair samples and pieces of placenta were collected for 55%, 60%, and 57% of the participants, respectively. A subgroup of 287 and 559 children performed a more in-depth follow-up including a clinical examination and biological sample collection at age 6 and 12 years old, respectively.",
+        "id": "PELAGIE",
+        "name": "Perturbateurs Endocriniens: \u00c9tude Longitudinale sur les Anomalies de la Grossesse, l\u2019Infertilit",
+        "website": "http://www.pelagie-inserm.fr/"
+      },
+      {
+        "description": "This is a test description",
+        "id": "PERSEUS",
+        "name": "Risk of subsequent cardiovascular events in patients discharged after myocardial infarction"
+      },
+      {
+        "description": "Treatment plan registry",
+        "id": "PHT",
+        "name": "PHT"
+      },
+      {
+        "contactEmail": "ipec@umcg.nl",
+        "description": "PSYCONN (=Psychosis Cohort Northern Netherlands) is a combination of 3 datasets from the northern part of the Netherlands; PROGR-S (=Psychosis Recent Onset GRoningen Survey), PHAMOUS (=Pharmacotherapy Outcome and Monitoring Survey) and RQ-MIS (=RoQua Management Information System). Also, see https://umcgresearchdatacatalogue.nl/UMCG/catalogue/cohorts/MindLines. PROGR-S, initiated in 1997 without an age restriction, collects diagnostic measurements of patients with a suspected recent-onset psychotic episode or recurrent psychotic episode not diagnosed as such before. PHAMOUS, initiated in 2006, contains follow-up data of patients \u226518 years of age with a psychotic disorder who receive care from mental health care institutions in the northern part of the Netherlands (University Medical Center Groningen (UMCG)/University Center for Psychiatry (UCP), Lentis, GGZ Drenthe or GGZ Friesland). PROGR-S and PHAMOUS are both ongoing naturalistic prospective cohort studies. PHAMOUS participants will only be included hey are also enrolled in PROGR-S. RQ-MIS contains health care consumption, socio-demographic, and diagnosis data. PSYCONN baseline data is collected from PROGR-S and RQ-MIS. PSYCONN outcome data is collected from PHAMOUS, RQ-MIS, and an additional medical records file search.",
+        "id": "PSYCONN",
+        "name": "Psychosis Cohort Northern Netherlands",
+        "website": "https://ipec-project.com"
+      },
+      {
+        "description": "The Raine Study is one of the most comprehensive pregnancy birth cohort studies in the world. It is a rich resource for the study of environmental and genetic factors that affect health and development and can provide unique insights into the natural history of human diseases. Between May 1989 and November 1991, 2900 pregnant women were recruited into the study and their children have been assessed intensively over the past three decades.\n\nProspective longitudinal data has been collected at multiple time-points over pregnancy, infancy, childhood, adolescence and young adulthood and there is broad multidisciplinary data on physical, mental and social aspects of development.\n\nThe main cohort (Gen2) are now almost 30 years of age and maintain a keen sense of commitment to the Raine Study. Their data has been genotyped and data linkage with other publicly held datasets (e.g. school results and hospital records) is available. There are stored biological samples and established collaborative research networks across a wide variety of disciplines.",
+        "id": "RAINE",
+        "name": "The West Australian Pregnancy Cohort",
+        "website": "https://rainestudy.org.au/"
+      },
+      {
+        "description": "Death registry",
+        "id": "RMR",
+        "name": "RMR"
+      },
+      {
+        "description": "The Rotterdam Study is an ongoing prospective cohort study that started in 1990 in the city of Rotterdam, The Netherlands. The study aims to unravel etiology, preclinical course, natural history and potential targets for intervention for chronic diseases in mid-life and late-life.",
+        "id": "RS1",
+        "name": "Rotterdam Study, first cohort",
+        "website": "https://www.ergo-onderzoek.nl/"
+      },
+      {
+        "description": "The Rotterdam Study is an ongoing prospective cohort study that started in 1990 in the city of Rotterdam, The Netherlands. The study aims to unravel etiology, preclinical course, natural history and potential targets for intervention for chronic diseases in mid-life and late-life.",
+        "id": "RS2",
+        "name": "Rotterdam Study, second cohort",
+        "website": "https://www.ergo-onderzoek.nl/"
+      },
+      {
+        "description": "The Rotterdam Study is an ongoing prospective cohort study that started in 1990 in the city of Rotterdam, The Netherlands. The study aims to unravel etiology, preclinical course, natural history and potential targets for intervention for chronic diseases in mid-life and late-life.",
+        "id": "RS3",
+        "name": "Rotterdam Study, third cohort",
+        "website": "https://www.ergo-onderzoek.nl/"
+      },
+      {
+        "description": "Mental health services",
+        "id": "SALM",
+        "name": "SALM"
+      },
+      {
+        "description": "This is a test description",
+        "id": "SAPALDIA",
+        "name": "SAPALDIA"
+      },
+      {
+        "description": "Exemptions from copayment",
+        "id": "SEA",
+        "name": "SEA"
+      },
+      {
+        "description": "(1) characterize finely environmental exposures during pregnancy and early life ; (2) evaluate the impact of the environment on mother-child health, focusing on three main outcomes: growth, respiratory health and neurodevelopment; (3) explore possible underlying biological pathways, focusing on those mediated by epigenetic marks, immunologic and hormonal parameters and by the gut microbiota.",
+        "id": "Sepages",
+        "name": "Suivi de l'Exposition \u00e0 la Pollution Atmosph\u00e9rique et Effet sur la",
+        "website": "https://cohorte-sepages.fr/en"
+      },
+      {
+        "description": "outpatient activities",
+        "id": "SPA",
+        "name": "SPA"
+      },
+      {
+        "description": "Specialist visits and diagnostic tests",
+        "id": "SPECIALISTICA",
+        "name": "SPECIALISTICA"
+      },
+      {
+        "description": "Dispensation of medicines in community pharmacies",
+        "id": "SPF",
+        "name": "SPF"
+      },
+      {
+        "description": "This is a test description",
+        "id": "SSc-ILD",
+        "name": "A Phase I trial to investigate the effect of nintedanib on the pharmacokinetics of a combination of ethinylestradiol and levonorgestrel in female patients with Systemic Sclerosis associated Interstitial Lung Disease"
+      },
+      {
+        "contactEmail": "src@mrc.soton.ac.uk",
+        "description": "SWS is a population-based prospective birth cohort study of 12\u2009583, initially non-pregnant, women aged 20\u201334 years, living in the city of  Southampton, UK. Assessments of lifestyle, diet and anthropometry were done at study entry in 1998\u20132002. Women who subsequently became pregnant with singleton pregnancies were followed up during pregnancy; and their 3158 offspring have been studied i",
+        "id": "SWS",
+        "name": "Southampton Women\u2019",
+        "website": "https://www.mrc.soton.ac.uk/sws/"
+      },
+      {
+        "description": "This is a test description",
+        "id": "SYSDIMET",
+        "name": "Health Grain intervention"
+      },
+      {
+        "contactEmail": "support@molgenis.org",
+        "description": "This is the Test cohort 1. It has multiple entries where possible.  Design paper and publications are random DOIs from the EUCAN project.  Yes to data access fee. The population age group is all adult options, so the population age group should be shown as \"Adult 18+ years\". Cohort type has both 'normal' and 'other' fields filled in --> see which is displayed",
+        "id": "testCohort1",
+        "name": "Name for test cohort 1",
+        "website": "https://www.molgenis.org"
+      },
+      {
+        "contactEmail": "support@molgenis.org",
+        "description": "This is the Test cohort 2. It has \"other\" options where possible. No end year, so \"ongoing\". Design paper = Birth of a cohort \u2014 the first 20 years of the Raine study, publications = other papers. No to data access fee. Here we have some extra text to check the read less / read more functionality on the cohort detail page.",
+        "id": "testCohort2",
+        "name": "Name for test cohort 2",
+        "website": "https://www.molgenis.org"
+      },
+      {
+        "description": "testcohort 3 is used for mappings, not to check rich or descriptive metadata",
+        "id": "testCohort3",
+        "name": "testCohort3C"
+      },
+      {
+        "description": "testcohort 4 is used for mappings, not to check rich or descriptive metadata",
+        "id": "testCohort4",
+        "name": "testCohort4"
+      },
+      {
+        "description": "Description field for test data source - not all fields have been filled in but this can be done at a later date when we do thorough testing of data sources",
+        "id": "TestDataSourceID",
+        "name": "Test Data Source",
+        "website": "https://www.molgenis.org"
+      },
+      {
+        "description": "test description for new test network",
+        "id": "testNetwork1",
+        "name": "name for test network1",
+        "website": "https://www.molgenis.org"
+      },
+      {
+        "description": "test description for new test network",
+        "id": "testNetwork2",
+        "name": "name for test network2",
+        "website": "https://www.molgenis.org"
+      },
+      {
+        "description": "test description for new test network",
+        "id": "testNetworkofNetworks",
+        "name": "name for test network of networks",
+        "website": "https://www.molgenis.org"
+      },
+      {
+        "description": "Demo data dummy UMC catalogue for testing purposes",
+        "id": "testUMC",
+        "name": "testUMC",
+        "website": "https://test-umc@example.com"
+      },
+      {
+        "description": "This is a test description",
+        "id": "THALIA",
+        "name": "A retrospective cohort study to investigate the initiation and persistence of dual antiplatelet treatment after acute coronary syndrome in a Finnish setting"
+      },
+      {
+        "description": "This is an organisation-type catalogue for the UMCG",
+        "id": "UMCG",
+        "name": "UMCG",
+        "website": "https://umcgresearchdatacatalogue.nl"
+      },
+      {
+        "description": "Vaccines",
+        "id": "VCN",
+        "name": "VCN"
+      },
+      {
+        "contactEmail": "ville.pimenoff@oulu.fi",
+        "description": "Longitudinal cohort of pregnant and non-pregnant women for exposome estimation from blood, saliva, sweat and personal aerosols.",
+        "id": "WDC",
+        "name": "Wearable data collection study"
       }
     ]
   }

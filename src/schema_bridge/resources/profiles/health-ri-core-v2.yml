@@ -6,11 +6,6 @@ fetch:
 export:
   select: health_ri_core_v2_select.sparql
   construct: health_ri_core_v2_construct.sparql
-  outputs:
-    - csv
-    - json
-    - jsonld
-    - ttl
 mapping:
   entity_name: Dataset
   subject_path: dataset

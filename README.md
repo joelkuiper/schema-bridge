@@ -20,12 +20,12 @@ Install dependencies: `uv sync --extra test`.
 
 Profiles are the primary entry point. A profile wires together the fetch, export, mapping, and validation steps.
 
-- `uv run schema-bridge run --profile dcat -o out`
-- `uv run schema-bridge run --profile dcat-all-attributes -o out`
-- `uv run schema-bridge run --profile dcat-ap-3.0.1 -o out`
-- `uv run schema-bridge run --profile fdp -o out`
-- `uv run schema-bridge run --profile health-dcat-ap -o out`
-- `uv run schema-bridge run --profile health-ri-core-v2 -o out`
+- `uv run schema-bridge run --profile dcat --format ttl`
+- `uv run schema-bridge run --profile dcat-all-attributes --format ttl`
+- `uv run schema-bridge run --profile dcat-ap-3.0.1 --format ttl`
+- `uv run schema-bridge run --profile fdp --format ttl`
+- `uv run schema-bridge run --profile health-dcat-ap --format ttl`
+- `uv run schema-bridge run --profile health-ri-core-v2 --format ttl`
 
 You can set a limit (`--limit`) to adjust the number of GraphQL results to be fetched. For large
 catalogues, `--page-size` enables server-side paging, and `--updated-since`/`--updated-until` allow
@@ -36,7 +36,7 @@ incremental syncs based on the `mg_updatedOn` system column.
 Profiles are YAML files with explicit sections:
 
 - `fetch`: GraphQL query + root key
-- `export`: SPARQL select/construct + outputs
+- `export`: SPARQL select/construct
 - `mapping`: how rows are flattened into the canonical graph
 - `validate`: SHACL shapes + toggle
 
@@ -45,7 +45,6 @@ Common keys:
 - `fetch.graphql`: GraphQL file (under `resources/graphql/`)
 - `fetch.root_key`: GraphQL data root
 - `export.select` / `export.construct`: SPARQL files (under `resources/sparql/`)
-- `export.outputs`: formats to emit (`csv`, `json`, `jsonld`, `ttl`)
 - `validate.shacl`: shape path (under `resources/shacl/`)
 - `validate.enabled`: enable/disable validation
 
@@ -59,6 +58,7 @@ The `fetch` and `run` commands support paging and updated-since filters:
 - `--limit` max rows to fetch (`0` means all rows)
 - `--updated-since` ISO-8601 timestamp to filter on `mg_updatedOn` (inclusive)
 - `--updated-until` ISO-8601 timestamp to cap the range
+Note: `--updated-since/--updated-until` require `mg_updatedOn` filter support in the server schema.
 
 ## DCAT all-attributes use case (catalogue schema)
 
@@ -69,7 +69,7 @@ property shown in the [DCAT “all attributes” diagram](https://www.w3.org/TR/
 
 Example usage:
 
-- `uv run schema-bridge run --profile dcat-all-attributes -o out`
+- `uv run schema-bridge run --profile dcat-all-attributes --format ttl`
 
 Caveats (current catalogue schema limitations):
 
@@ -122,26 +122,20 @@ Profiles are the intended route. Use `fetch` only when you want to inspect or pi
 or CI use.
 
 - `uv run schema-bridge fetch --base-url https://emx2.dev.molgenis.org/ --schema catalogue-demo --limit 5 -o out/graphql.json`
-- `uv run schema-bridge fetch --base-url https://emx2.dev.molgenis.org/ --schema catalogue-demo --page-size 200 --limit 0 --updated-since 2025-01-01T00:00:00Z -o out/graphql.json`
+- `uv run schema-bridge fetch --base-url https://emx2.dev.molgenis.org/ --schema catalogue-demo --page-size 200 --limit 0 -o out/graphql.json`
 
 ## Convert (advanced)
 
 Convert a previously fetched GraphQL JSON file:
 
-- `uv run schema-bridge convert out/graphql.json --profile dcat -o out`
+- `uv run schema-bridge convert out/graphql.json --profile dcat --format ttl`
 
 ## Output formats
 
-By default, DCAT profiles write:
+Use `--format` to choose a single output format (`csv`, `json`, `jsonld`, `ttl`). Export commands write to stdout, so
+redirect to a file when you need a saved artifact.
 
-- `out/resources.csv`
-- `out/resources.json`
-- `out/resources.jsonld`
-- `out/resources.ttl`
-
-The fetch/run commands also write:
-
-- `out/graphql.json`
+Example: `uv run schema-bridge run --profile dcat --format ttl > out/resources.ttl`
 
 ## Resource tree
 
@@ -164,12 +158,11 @@ concept nodes and links releases as explicit `dcat:Distribution` resources.
 
 ## Stdout output
 
-When `--out-dir` is omitted, `convert` writes the selected format to stdout.
-Use exactly one target format.
+`run` and `convert` always write a single format to stdout. Pick one with `--format`.
 
 Example: JSON to stdout (truncated):
 
-- `uv run schema-bridge convert out/graphql.json --profile dcat -t json`
+- `uv run schema-bridge convert out/graphql.json --profile dcat --format json`
 
 ```json
 {
@@ -186,7 +179,7 @@ Example: JSON to stdout (truncated):
 
 Example: DCAT Turtle to stdout (truncated):
 
-- `uv run schema-bridge convert out/graphql.json --profile dcat --no-validate -t ttl`
+- `uv run schema-bridge convert out/graphql.json --profile dcat --no-validate --format ttl`
 
 ```turtle
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -208,7 +201,7 @@ The following examples are generated from the bundled test fixtures to keep them
 Command:
 
 ```bash
-uv run schema-bridge run --profile dcat-all-attributes -o out
+uv run schema-bridge run --profile dcat-all-attributes --format ttl
 ```
 
 Output (truncated):
@@ -255,7 +248,7 @@ Output (truncated):
 Command:
 
 ```bash
-uv run schema-bridge run --profile health-dcat-ap -o out
+uv run schema-bridge run --profile health-dcat-ap --format ttl
 ```
 
 Output (truncated):

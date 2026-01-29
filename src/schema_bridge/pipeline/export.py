@@ -109,11 +109,30 @@ def export_formats(
                 emit(construct.serialize(format="turtle"))
             else:
                 construct.serialize(out_dir / "resources.ttl", format="turtle")
-        if "jsonld" in targets_set:
-            if out_dir is None:
-                if emit is None:
-                    raise ValueError("Stdout output requested but no emitter provided")
-                emit(construct.serialize(format="json-ld"))
-            else:
-                construct.serialize(out_dir / "resources.jsonld", format="json-ld")
+    if "jsonld" in targets_set:
+        if out_dir is None:
+            if emit is None:
+                raise ValueError("Stdout output requested but no emitter provided")
+            emit(
+                construct.serialize(
+                    format="json-ld",
+                    context=_namespace_context(construct),
+                    auto_compact=True,
+                )
+            )
+        else:
+            construct.serialize(
+                out_dir / "resources.jsonld",
+                format="json-ld",
+                context=_namespace_context(construct),
+                auto_compact=True,
+            )
     return construct
+
+
+def _namespace_context(graph: Graph) -> dict[str, str]:
+    context: dict[str, str] = {}
+    for prefix, namespace in graph.namespace_manager.namespaces():
+        if prefix:
+            context[prefix] = str(namespace)
+    return context

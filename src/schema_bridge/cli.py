@@ -80,12 +80,6 @@ def fetch(
 @app.command()
 def convert(
     input_path: Path = typer.Argument(..., help="Input GraphQL JSON or RML mapping file"),
-    out_dir: Path | None = typer.Option(
-        None,
-        "--out-dir",
-        "-o",
-        help="Output directory (stdout when omitted)",
-    ),
     profile: str = typer.Option(
         os.getenv("SCHEMA_BRIDGE_PROFILE", "dcat"),
         help="Profile name or YAML path",
@@ -97,11 +91,12 @@ def convert(
         help="Input format",
         case_sensitive=False,
     ),
-    to_formats: str | None = typer.Option(
-        None,
-        "--to",
-        "-t",
-        help="Comma-separated output formats (overrides profile)",
+    output_format: str = typer.Option(
+        ...,
+        "--format",
+        "-f",
+        help="Output format: csv, json, jsonld, ttl",
+        case_sensitive=False,
     ),
     root_key: str | None = typer.Option(
         None,
@@ -139,7 +134,7 @@ def convert(
         root_key=root_key,
         select_query=select,
         construct_query=construct,
-        targets_override=to_formats,
+        target_format=output_format.lower(),
         validate_override=validate,
     )
 
@@ -152,12 +147,17 @@ def convert(
         rml_mapping=rml_mapping,
         rml_source=rml_source,
     )
-    export_and_validate(raw_graph, export, out_dir, shacl_report, emit=typer.echo)
+    export_and_validate(
+        raw_graph,
+        export,
+        None,
+        shacl_report,
+        emit=lambda text: typer.echo(text, nl=False),
+    )
 
 
 @app.command()
 def run(
-    out_dir: Path = typer.Option(Path("out"), "--out-dir", "-o", help="Output directory"),
     base_url: str = typer.Option(
         os.getenv("SCHEMA_BRIDGE_BASE_URL", "https://emx2.dev.molgenis.org/"),
         help="Base URL for the EMX2 server",
@@ -187,6 +187,13 @@ def run(
         help="SPARQL CONSTRUCT query file under resources/sparql/ (overrides profile)",
     ),
     mapping: Path | None = typer.Option(None, help="YAML mapping override path"),
+    output_format: str = typer.Option(
+        ...,
+        "--format",
+        "-f",
+        help="Output format: csv, json, jsonld, ttl",
+        case_sensitive=False,
+    ),
     limit: int = typer.Option(
         int(os.getenv("SCHEMA_BRIDGE_LIMIT", "5")),
         help="Maximum number of resources to fetch (0 for all)",
@@ -222,7 +229,7 @@ def run(
         root_key=root_key,
         select_query=select,
         construct_query=construct,
-        targets_override=None,
+        target_format=output_format.lower(),
         validate_override=validate,
     )
     pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
@@ -240,13 +247,16 @@ def run(
         updated_since=updated_since,
         updated_until=updated_until,
     )
-    out_dir.mkdir(parents=True, exist_ok=True)
-    write_json(graphql_data, out_dir / "graphql.json")
-
     rows = extract_rows(graphql_data, export.root_key)
     raw_graph = Graph()
     load_raw_from_rows(rows, raw_graph, export.mapping)
-    export_and_validate(raw_graph, export, out_dir, shacl_report, emit=typer.echo)
+    export_and_validate(
+        raw_graph,
+        export,
+        None,
+        shacl_report,
+        emit=lambda text: typer.echo(text, nl=False),
+    )
 
 
 def main() -> None:

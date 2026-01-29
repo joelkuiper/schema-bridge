@@ -6,11 +6,6 @@ fetch:
 export:
   select: resources_select.sparql
   construct: dcat_construct.sparql
-  outputs:
-    - csv
-    - json
-    - jsonld
-    - ttl
 mapping:
   entity_name: Resource
   subject_path: resource

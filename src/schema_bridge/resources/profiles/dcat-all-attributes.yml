@@ -1,13 +1,10 @@
 name: dcat-all-attributes
 description: Comprehensive DCAT attribute mapping (best-effort) from Molgenis catalogue resources
 fetch:
-  graphql: graphql/dcat_all_resources_fallback.graphql
+  graphql: graphql/dcat_all_resources.graphql
   root_key: Resources
 export:
   construct: sparql/dcat_all_construct.sparql
-  outputs:
-    - jsonld
-    - ttl
 mapping:
   entity_name: Resource
   subject_path: resource
