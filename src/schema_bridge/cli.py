@@ -6,10 +6,9 @@ import os
 import typer
 import logging
 
-from rdflib import Graph
-
 from schema_bridge.logging import configure_logging
 from schema_bridge.cli_helpers import resolve_graphql_target
+from schema_bridge.rdf import new_graph
 from schema_bridge.pipeline import (
     export_and_validate,
     fetch_graphql,
@@ -326,7 +325,7 @@ def export(
         endpoint=resolved_endpoint,
     )
     rows = extract_rows(graphql_data, export.root_key)
-    raw_graph = Graph()
+    raw_graph = new_graph()
     load_raw_from_rows(rows, raw_graph, export.mapping)
     export_and_validate(
         raw_graph,

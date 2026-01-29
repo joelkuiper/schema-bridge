@@ -8,6 +8,7 @@ from rdflib import Graph
 from .graphql import extract_rows, load_graphql_file
 from .mapping import MappingConfig, load_raw_from_rows
 from .profiles import ProfileConfig, resolve_profile_path
+from schema_bridge.rdf import new_graph
 import logging
 
 logger = logging.getLogger("schema_bridge.pipeline.rml")
@@ -55,6 +56,6 @@ def _materialize_graph(
     logger.debug("Materializing graph from GraphQL JSON: %s", input_path)
     graphql_data = load_graphql_file(input_path)
     rows = extract_rows(graphql_data, root_key)
-    raw = Graph()
+    raw = new_graph()
     load_raw_from_rows(rows, raw, mapping_override or profile.mapping)
     return raw

@@ -1,8 +1,10 @@
 import csv
 import io
 from pathlib import Path
-from rdflib import Graph, Namespace, URIRef
+from rdflib import Namespace, URIRef
 from rdflib.namespace import RDF
+
+from schema_bridge.rdf import new_graph
 
 import pytest
 from schema_bridge.pipeline import (
@@ -29,7 +31,7 @@ ENTITY = Namespace("https://catalogue.org/entity/")
 
 
 def test_raw_load_and_dcat_construct():
-    raw = Graph()
+    raw = new_graph()
     rows = [
         {
             "id": "R1",
@@ -57,7 +59,7 @@ def test_raw_load_and_dcat_construct():
 
 
 def test_catalogs_use_case_dcat_fields():
-    raw = Graph()
+    raw = new_graph()
     rows = [
         {
             "id": "C1",
@@ -117,7 +119,7 @@ def test_catalogs_use_case_dcat_fields():
 
 
 def test_select_rows():
-    raw = Graph()
+    raw = new_graph()
     rows = [
         {
             "id": "R1",
@@ -141,7 +143,7 @@ def test_select_rows():
 
 def test_export_profile_load_and_shacl_validation():
     profile = load_profile("dcat", expected_kind="export")
-    raw = Graph()
+    raw = new_graph()
     rows = [
         {
             "id": "R1",
@@ -161,7 +163,7 @@ def test_yaml_mapping_alias_and_iri_coercion():
     mapping_path = Path(__file__).parent / "resources" / "mapping.yml"
     mapping = load_mapping_override(str(mapping_path))
     assert mapping is not None
-    raw = Graph()
+    raw = new_graph()
     rows = [
         {
             "code": "R9",
@@ -185,7 +187,7 @@ def test_rml_materialize_csv():
 
 
 def test_stdout_requires_single_target():
-    raw = Graph()
+    raw = new_graph()
     rows = [{"id": "R1", "name": "Example", "description": "Desc"}]
     load_raw_from_rows(rows, raw, MappingConfig(raw=RawMapping()))
     with pytest.raises(ValueError):
@@ -221,7 +223,7 @@ def test_field_paths_flatten_nested():
         },
         drop_nested=True,
     )
-    raw = Graph()
+    raw = new_graph()
     rows = [
         {
             "id": "R2",
@@ -250,7 +252,7 @@ def test_concept_fields_create_skos_nodes():
             )
         },
     )
-    raw = Graph()
+    raw = new_graph()
     rows = [
         {
             "id": "R3",
@@ -293,7 +295,7 @@ def test_node_fields_create_distribution_nodes():
             )
         },
     )
-    raw = Graph()
+    raw = new_graph()
     rows = [
         {
             "id": "R4",
@@ -335,7 +337,7 @@ def test_export_profiles_reference_existing_queries():
                 ),
                 "schema_bridge.resources",
             )
-            Graph().query(select_query)
+            new_graph().query(select_query)
         if profile.construct_query:
             construct_query = load_text(
                 resolve_profile_path(
@@ -345,7 +347,7 @@ def test_export_profiles_reference_existing_queries():
                 ),
                 "schema_bridge.resources",
             )
-            Graph().query(construct_query)
+            new_graph().query(construct_query)
         if profile.shacl:
             load_text(
                 resolve_profile_path(

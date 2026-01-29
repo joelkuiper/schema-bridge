@@ -198,11 +198,11 @@ WHERE {
 
   OPTIONAL {
     ?res field:numberOfParticipants ?participants .
-    BIND(xsd:nonNegativeInteger(?participants) AS ?participantsValue)
+    BIND(STRDT(STR(?participants), xsd:nonNegativeInteger) AS ?participantsValue)
   }
   OPTIONAL {
     ?res field:numberOfParticipantsWithSamples ?participantsWithSamples .
-    BIND(xsd:nonNegativeInteger(?participantsWithSamples) AS ?participantsWithSamplesValue)
+    BIND(STRDT(STR(?participantsWithSamples), xsd:nonNegativeInteger) AS ?participantsWithSamplesValue)
   }
 
   OPTIONAL {

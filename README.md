@@ -34,6 +34,7 @@ Core implementation locations:
 * Profile definitions and assets (YAML, GraphQL, SPARQL, SHACL): [`src/schema_bridge/resources/profiles/`](src/schema_bridge/resources/profiles/)
 * Tests (unit + integration): [`tests/`](tests/)
 * Pipeline implementation (fetch, mapping, export, ingest helpers): [`src/schema_bridge/pipeline/`](src/schema_bridge/pipeline/)
+* RDF backend helper (Oxigraph store via oxrdflib): [`src/schema_bridge/rdf.py`](src/schema_bridge/rdf.py)
 
 ---
 
@@ -145,6 +146,8 @@ Across a full profile, mappings typically flatten nested collections into repeat
 ```bash
 uv sync --extra test
 ```
+
+The runtime uses the Oxigraph-backed RDF store via `oxrdflib` (already included in the dependency set).
 
 ---
 

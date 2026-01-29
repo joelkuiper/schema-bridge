@@ -686,6 +686,19 @@ wheels = [
 ]
 
 [[package]]
+name = "oxrdflib"
+version = "0.3.7"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pyoxigraph" },
+    { name = "rdflib" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/3e/d5/a9dc8d374424b41c10f52269630010cba1f577056dd8f7ccbdbfe73fe158/oxrdflib-0.3.7.tar.gz", hash = "sha256:601b48d784ba2c1bb869d808f73184ea1dfdb320dce101eebacd3f62e1de72d0", size = 13558, upload-time = "2024-03-30T17:06:50.468Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/20/ee/d9514485ef617b1b3593cf96fec47ba92b9909e442d4af07e6b2ce5a8a4e/oxrdflib-0.3.7-py3-none-any.whl", hash = "sha256:02df9dc5f77fcabfe2a69c1c24046cd36eb7db0239a9a15f02bd5d64c8010de5", size = 7210, upload-time = "2024-03-30T17:06:48.859Z" },
+]
+
+[[package]]
 name = "packaging"
 version = "26.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1193,6 +1206,7 @@ source = { editable = "." }
 dependencies = [
     { name = "gql", extra = ["requests"] },
     { name = "morph-kgc" },
+    { name = "oxrdflib" },
     { name = "pyshacl" },
     { name = "pyyaml" },
     { name = "rdflib" },
@@ -1208,6 +1222,7 @@ test = [
 requires-dist = [
     { name = "gql", extras = ["requests"], specifier = ">=3.5.0" },
     { name = "morph-kgc", specifier = ">=2.8.0" },
+    { name = "oxrdflib", specifier = ">=0.3.7" },
     { name = "pyshacl", specifier = ">=0.25.0" },
     { name = "pytest", marker = "extra == 'test'", specifier = ">=8.0.0" },
     { name = "pyyaml", specifier = ">=6.0.0" },

@@ -4,6 +4,8 @@ from dataclasses import dataclass
 
 from rdflib import Graph
 
+from schema_bridge.rdf import new_graph
+
 from .resources import load_text
 import logging
 
@@ -18,7 +20,7 @@ class ShaclConfig:
 
 def load_graph_from_shacl(path: str) -> Graph:
     logger.debug("Loading SHACL shapes: %s", path)
-    graph = Graph()
+    graph = new_graph()
     data = load_text(path, "schema_bridge.resources")
     graph.parse(data=data, format="turtle")
     return graph

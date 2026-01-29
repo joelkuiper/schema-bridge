@@ -14,6 +14,7 @@ from .profiles import IngestProfileConfig
 from .shacl import ShaclConfig, validate_graph
 from .profiles import resolve_profile_path
 from .sparql import select_rows as sparql_select_rows
+from schema_bridge.rdf import new_graph
 
 logger = logging.getLogger("schema_bridge.pipeline.ingest")
 
@@ -53,7 +54,7 @@ def infer_rdf_format(path: Path, explicit: str | None) -> str:
 
 def load_rdf_graph(path: Path, rdf_format: str) -> Graph:
     logger.debug("Loading RDF graph: %s (format=%s)", path, rdf_format)
-    graph = Graph()
+    graph = new_graph()
     graph.parse(path.as_posix(), format=rdf_format)
     return graph
 
