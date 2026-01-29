@@ -417,7 +417,7 @@ Schema Bridge resolves the GraphQL endpoint the same way across export and inges
 
 Resolution order (highest priority first):
 
-1. CLI full endpoint `--graphql-endpoint` *(if supported by the command)*
+1. CLI full endpoint `--graphql-endpoint` 
 2. Profile full endpoint (e.g. `fetch.endpoint` or `graphql.endpoint`)
 3. Environment `SCHEMA_BRIDGE_GRAPHQL_ENDPOINT`
 4. CLI `--base-url` + `--schema`
