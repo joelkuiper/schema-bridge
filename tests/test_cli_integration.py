@@ -7,6 +7,9 @@ import sys
 from pathlib import Path
 
 import pytest
+from rdflib import Namespace
+
+from schema_bridge.rdf import new_graph
 
 
 def _base_env() -> dict[str, str]:
@@ -46,6 +49,8 @@ def test_cli_fetch_uses_fixture(tmp_path: Path) -> None:
     )
     payload = json.loads(out_path.read_text(encoding="utf-8"))
     assert "data" in payload
+    fixture_payload = json.loads(fixture.read_text(encoding="utf-8"))
+    assert payload["data"]["Resources"] == fixture_payload["data"]["Resources"]
 
 
 @pytest.mark.integration
@@ -75,7 +80,11 @@ def test_cli_export_uses_fixture() -> None:
     assert completed.returncode == 0, (
         f"export failed:\nSTDOUT: {completed.stdout}\nSTDERR: {completed.stderr}"
     )
-    assert "@prefix" in completed.stdout
+    graph = new_graph()
+    graph.parse(data=completed.stdout, format="turtle")
+    res = Namespace("https://catalogue.org/")["resource/R1"]
+    dct = Namespace("http://purl.org/dc/terms/")
+    assert (res, dct["title"], None) in graph
 
 
 @pytest.mark.integration
@@ -105,7 +114,12 @@ def test_cli_export_healthdcat_ap_r5_uses_fixture() -> None:
     assert completed.returncode == 0, (
         f"healthdcat export failed:\\nSTDOUT: {completed.stdout}\\nSTDERR: {completed.stderr}"
     )
-    assert "@prefix" in completed.stdout
+    graph = new_graph()
+    graph.parse(data=completed.stdout, format="turtle")
+    res = Namespace("https://catalogue.org/")["resource/MOL-1"]
+    dcat = Namespace("http://www.w3.org/ns/dcat#")
+    rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
+    assert (res, rdf["type"], dcat["Dataset"]) in graph
 
 
 @pytest.mark.integration
@@ -134,3 +148,5 @@ def test_cli_ingest_dry_run(tmp_path: Path) -> None:
     )
     payload = json.loads(completed.stdout)
     assert payload["rows"], "expected rows from ingest dry-run"
+    assert payload["rows"][0]["name"] == "Demo Dataset"
+    assert payload["rows"][0]["contactEmail"] == "demo@example.org"

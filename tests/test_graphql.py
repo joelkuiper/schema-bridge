@@ -2,7 +2,9 @@ from schema_bridge.graphql.client import (
     PaginationConfig,
     _build_updated_filter,
     _paginate_graphql,
+    extract_rows,
 )
+import pytest
 
 
 def test_paginate_graphql_merges_rows():
@@ -56,3 +58,9 @@ def test_build_updated_filter_between():
     between = updated["between"]["mg_updatedOn"]
     assert between[0] == "2024-01-01T00:00:00Z"
     assert len(between) == 2
+
+
+def test_extract_rows_requires_root_key() -> None:
+    payload = {"data": {"Other": []}}
+    with pytest.raises(KeyError):
+        extract_rows(payload, "Resources")
