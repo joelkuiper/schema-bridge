@@ -1,11 +1,11 @@
 name: health-dcat-ap-molgenis
 description: Health-DCAT-AP export tuned for molgeniscatalogue.org (fast demo construct)
 fetch:
-  graphql: graphql/health_dcat_ap_molgenis.graphql
+  graphql: graphql/query.graphql
   root_key: Resources
 export:
-  select: health_dcat_ap_molgenis_fast_select.sparql
-  construct: health_dcat_ap_molgenis_fast_construct.sparql
+  select: sparql/select.sparql
+  construct: sparql/construct.sparql
 mapping:
   entity_name: Resource
   subject_path: resource

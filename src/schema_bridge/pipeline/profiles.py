@@ -25,13 +25,31 @@ class ProfileConfig:
 
 
 def load_profile(name_or_path: str) -> ProfileConfig:
-    profile_path = name_or_path
-    if not Path(profile_path).exists() and not profile_path.endswith((".yml", ".yaml")):
-        profile_path = f"{profile_path}.yml"
-    if not Path(profile_path).exists() and not profile_path.startswith("profiles/"):
-        profile_path = f"profiles/{profile_path}"
-    profile_data = load_yaml(profile_path, "schema_bridge.resources")
-    base_dir = Path(profile_path).parent if Path(profile_path).exists() else None
+    profile_path = Path(name_or_path)
+    if profile_path.exists():
+        if profile_path.is_dir():
+            profile_path = profile_path / "profile.yml"
+    else:
+        if name_or_path.endswith((".yml", ".yaml")):
+            profile_path = Path(name_or_path)
+        else:
+            candidate_dir = Path(f"{name_or_path}/profile.yml")
+            candidate_file = Path(f"{name_or_path}.yml")
+            if candidate_dir.exists():
+                profile_path = candidate_dir
+            elif candidate_file.exists():
+                profile_path = candidate_file
+            elif name_or_path.startswith("profiles/"):
+                profile_path = Path(name_or_path) / "profile.yml"
+            else:
+                profile_path = Path("profiles") / name_or_path / "profile.yml"
+    profile_path_str = str(profile_path)
+    profile_data = load_yaml(profile_path_str, "schema_bridge.resources")
+    if Path(profile_path_str).exists():
+        base_dir = Path(profile_path_str).parent
+    else:
+        resolved_profile_path = resolve_resource_path(profile_path_str, "schema_bridge.resources")
+        base_dir = Path(resolved_profile_path).parent
     fetch_data = profile_data.get("fetch") if isinstance(profile_data.get("fetch"), dict) else {}
     export_data = profile_data.get("export") if isinstance(profile_data.get("export"), dict) else {}
     validate_data = profile_data.get("validate") if isinstance(profile_data.get("validate"), dict) else {}
@@ -124,12 +142,26 @@ def resolve_export(
     normalized_format = target_format.strip().lower()
     if not normalized_format:
         raise ValueError("Output format is required")
+    resolved_select = None
+    if select_query or profile.select_query:
+        resolved_select = resolve_profile_path(
+            profile,
+            select_query or profile.select_query,
+            "schema_bridge.resources",
+        )
+    resolved_construct = None
+    if construct_query or profile.construct_query:
+        resolved_construct = resolve_profile_path(
+            profile,
+            construct_query or profile.construct_query,
+            "schema_bridge.resources",
+        )
     return ResolvedExport(
         profile=profile,
         mapping=mapping or profile.mapping,
         root_key=root_key or profile.root_key,
-        select_query=select_query or profile.select_query,
-        construct_query=construct_query or profile.construct_query,
+        select_query=resolved_select,
+        construct_query=resolved_construct,
         targets=[normalized_format],
         validate=_final_validate(profile, validate_override),
     )

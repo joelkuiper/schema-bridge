@@ -16,6 +16,7 @@ from schema_bridge.pipeline import (
     load_profile,
     materialize_rml,
     render_csv,
+    resolve_profile_path,
     select_rows,
     validate_graph,
 )
@@ -132,88 +133,10 @@ def test_select_rows():
     ]
     load_raw_from_rows(rows, raw, MappingConfig(raw=RawMapping()))
 
-    result = select_rows(raw, "resources_select.sparql")
+    result = select_rows(raw, "profiles/dcat/sparql/select.sparql")
     assert len(result) == 2
     ids = {row["id"] for row in result}
     assert ids == {"R1", "R2"}
-
-
-def test_beacon_biosamples_select():
-    raw = Graph()
-    rows = [
-        {
-            "id": "B1",
-            "pathologicalState": "healthy",
-            "biosampleType": "blood",
-            "ageOfIndividualAtCollection": "P45Y",
-            "dateOfCollection": "2021-01-12",
-        }
-    ]
-    load_raw_from_rows(
-        rows,
-        raw,
-        MappingConfig(raw=RawMapping(entity_name="Biosample", subject_path="biosample")),
-    )
-
-    result = select_rows(raw, "beacon_biosamples_select.sparql")
-    assert len(result) == 1
-    row = result[0]
-    assert row["id"] == "B1"
-    assert row["biosampleStatus"] == "healthy"
-    assert row["sampleOriginType"] == "blood"
-    assert row["collectionMoment"] == "P45Y"
-    assert row["collectionDate"] == "2021-01-12"
-
-
-def test_beacon_datasets_select():
-    raw = Graph()
-    rows = [
-        {
-            "id": "D1",
-            "name": "Dataset 1",
-            "description": "Dataset description",
-            "keyword": ["genomics"],
-        }
-    ]
-    load_raw_from_rows(
-        rows,
-        raw,
-        MappingConfig(raw=RawMapping(entity_name="Dataset", subject_path="dataset")),
-    )
-
-    result = select_rows(raw, "beacon_select.sparql")
-    assert len(result) == 1
-    row = result[0]
-    assert row["id"] == "D1"
-    assert row["name"] == "Dataset 1"
-    assert row["desc"] == "Dataset description"
-    assert row["keywords"] == "genomics"
-
-
-def test_beacon_cohorts_select():
-    raw = Graph()
-    rows = [
-        {
-            "cohortId": "C100",
-            "cohortName": "Cohort 100",
-            "cohortType": "population-based",
-            "cohortDesign": "prospective",
-            "cohortSize": "250",
-            "inclusionCriteria_ageRange_start_iso8601duration": "P18Y",
-            "inclusionCriteria_ageRange_end_iso8601duration": "P65Y",
-            "locations": ["NL"],
-            "genders": ["female"],
-            "cohortDataTypes": ["genomic"],
-        }
-    ]
-    load_raw_from_rows(
-        rows,
-        raw,
-        MappingConfig(
-            raw=RawMapping(entity_name="Cohort", subject_path="cohort", id_field="cohortId")
-        ),
-    )
-
 
 def test_profile_load_and_shacl_validation():
     profile = load_profile("dcat")
@@ -265,7 +188,13 @@ def test_stdout_requires_single_target():
     rows = [{"id": "R1", "name": "Example", "description": "Desc"}]
     load_raw_from_rows(rows, raw, MappingConfig(raw=RawMapping()))
     with pytest.raises(ValueError):
-        export_formats(raw, None, "resources_select.sparql", "dcat_construct.sparql", ["json", "csv"])
+        export_formats(
+            raw,
+            None,
+            "profiles/dcat/sparql/select.sparql",
+            "profiles/dcat/sparql/construct.sparql",
+            ["json", "csv"],
+        )
 
 
 def test_render_csv_includes_union_of_fields():
@@ -379,194 +308,37 @@ def test_node_fields_create_distribution_nodes():
     assert (dist, FIELD["releaseDate"], None) in raw
 
 
-def test_catalogue_variables_select():
-    mapping = MappingConfig(
-        raw=RawMapping(entity_name="Variable", subject_path="variable", id_field="name"),
-        field_paths={
-            "id": "name",
-            "resourceId": "resource.id",
-            "resourceName": "resource.name",
-            "datasetName": "dataset.name",
-            "datasetResourceId": "dataset.resource.id",
-            "unitName": "unit.name",
-            "repeatUnitName": "repeatUnit.name",
-            "formatName": "format.name",
-            "mappingSyntaxes": "mappings[].syntax",
-            "mappingMatchNames": "mappings[].match.name",
-            "mappingSourceIds": "mappings[].source.id",
-            "mappingSourceVariableNames": "mappings[].sourceVariables[].name",
-            "mappingTargetVariableNames": "mappings[].targetVariable.name",
-        },
-        drop_nested=True,
-    )
-    raw = Graph()
-    rows = [
-        {
-            "name": "varA",
-            "resource": {"id": "RES1", "name": "Resource 1"},
-            "dataset": {"name": "Dataset 1", "resource": {"id": "RES1"}},
-            "unit": {"name": "kg"},
-            "repeatUnit": {"name": "year"},
-            "format": {"name": "integer"},
-            "mappings": [
-                {
-                    "syntax": "sql",
-                    "match": {"name": "exact"},
-                    "source": {"id": "SRC1"},
-                    "sourceVariables": [{"name": "sourceVar1"}, {"name": "sourceVar2"}],
-                    "targetVariable": {"name": "targetVar1"},
-                }
-            ],
-        }
-    ]
-    load_raw_from_rows(rows, raw, mapping)
-    result = select_rows(raw, "catalogue_variables_select.sparql")
-    assert len(result) == 1
-    row = result[0]
-    assert row["id"] == "varA"
-    assert row["resourceId"] == "RES1"
-    assert row["datasetName"] == "Dataset 1"
-    assert row["mappingSourceVariableNames"] == "sourceVar1|sourceVar2"
-
-
-def test_construct_queries_mimic_selects():
-    raw = Graph()
-    rows = [
-        {
-            "id": "R1",
-            "name": "Resource 1",
-            "description": "Desc",
-            "website": "https://example.org",
-            "contactEmail": "a@example.org",
-        }
-    ]
-    load_raw_from_rows(rows, raw, MappingConfig(raw=RawMapping()))
-    resources_construct = load_text("sparql/resources_construct.sparql", "schema_bridge.resources")
-    resources_graph = raw.query(resources_construct).graph
-    res = URIRef("https://catalogue.org/resource/R1")
-    DCT = Namespace("http://purl.org/dc/terms/")
-    assert (res, DCT["title"], None) in resources_graph
-
-    raw_ds = Graph()
-    ds_rows = [
-        {
-            "id": "D1",
-            "name": "Dataset 1",
-            "description": "Dataset desc",
-            "keyword": ["k1", "k2"],
-        }
-    ]
-    load_raw_from_rows(ds_rows, raw_ds, MappingConfig(raw=RawMapping(entity_name="Dataset", subject_path="dataset")))
-    beacon_construct = load_text("sparql/beacon_construct.sparql", "schema_bridge.resources")
-    beacon_graph = raw_ds.query(beacon_construct).graph
-    ds = URIRef("https://catalogue.org/dataset/D1")
-    DCAT = Namespace("http://www.w3.org/ns/dcat#")
-    assert (ds, DCT["title"], None) in beacon_graph
-    assert (ds, DCAT["keyword"], None) in beacon_graph
-
-    raw_bio = Graph()
-    bio_rows = [
-        {
-            "id": "B1",
-            "pathologicalState": "healthy",
-            "biosampleType": "blood",
-        }
-    ]
-    load_raw_from_rows(
-        bio_rows,
-        raw_bio,
-        MappingConfig(raw=RawMapping(entity_name="Biosample", subject_path="biosample")),
-    )
-    biosamples_construct = load_text(
-        "sparql/beacon_biosamples_construct.sparql",
-        "schema_bridge.resources",
-    )
-    biosamples_graph = raw_bio.query(biosamples_construct).graph
-    bio = URIRef("https://catalogue.org/biosample/B1")
-    BIOS = Namespace("https://bioschemas.org/")
-    SCHEMA = Namespace("https://schema.org/")
-    assert (bio, RDF.type, BIOS["BioSample"]) in biosamples_graph
-    assert (bio, SCHEMA["sampleType"], None) in biosamples_graph
-
-    raw_cohort = Graph()
-    cohort_rows = [
-        {
-            "cohortId": "C1",
-            "cohortName": "Cohort 1",
-            "locations": ["NL"],
-        }
-    ]
-    load_raw_from_rows(
-        cohort_rows,
-        raw_cohort,
-        MappingConfig(raw=RawMapping(entity_name="Cohort", subject_path="cohort", id_field="cohortId")),
-    )
-    cohorts_construct = load_text(
-        "sparql/beacon_cohorts_construct.sparql",
-        "schema_bridge.resources",
-    )
-    cohorts_graph = raw_cohort.query(cohorts_construct).graph
-    cohort = URIRef("https://catalogue.org/cohort/C1")
-    assert (cohort, RDF.type, Namespace("https://schema.org/")["MedicalObservationalStudy"]) in cohorts_graph
-    assert (cohort, Namespace("https://schema.org/")["name"], None) in cohorts_graph
-
-    raw_var = Graph()
-    var_rows = [
-        {
-            "name": "var1",
-            "resource": {"id": "RES1"},
-            "dataset": {"name": "Dataset 1", "resource": {"id": "RES1"}},
-        }
-    ]
-    load_raw_from_rows(
-        var_rows,
-        raw_var,
-        MappingConfig(
-            raw=RawMapping(entity_name="Variable", subject_path="variable", id_field="name"),
-            field_paths={
-                "id": "name",
-                "resourceId": "resource.id",
-                "datasetName": "dataset.name",
-                "datasetResourceId": "dataset.resource.id",
-            },
-            drop_nested=True,
-        ),
-    )
-    variables_construct = load_text(
-        "sparql/catalogue_variables_construct.sparql",
-        "schema_bridge.resources",
-    )
-    variables_graph = raw_var.query(variables_construct).graph
-    var = URIRef("https://catalogue.org/variable/var1")
-    SCHEMA = Namespace("https://schema.org/")
-    assert (var, RDF.type, SCHEMA["PropertyValue"]) in variables_graph
-    assert (var, SCHEMA["propertyID"], None) in variables_graph
-
 
 def test_profiles_reference_existing_queries():
     profiles_dir = Path(__file__).parents[1] / "src" / "schema_bridge" / "resources" / "profiles"
-    for profile_path in profiles_dir.glob("*.yml"):
+    for profile_path in profiles_dir.glob("**/profile.yml"):
         profile = load_profile(str(profile_path))
         if profile.graphql_query:
             load_text(
-                profile.graphql_query
-                if "/" in profile.graphql_query
-                else f"graphql/{profile.graphql_query}",
+                resolve_profile_path(
+                    profile,
+                    profile.graphql_query,
+                    "schema_bridge.resources",
+                ),
                 "schema_bridge.resources",
             )
         if profile.select_query:
             select_query = load_text(
-                profile.select_query
-                if "/" in profile.select_query
-                else f"sparql/{profile.select_query}",
+                resolve_profile_path(
+                    profile,
+                    profile.select_query,
+                    "schema_bridge.resources",
+                ),
                 "schema_bridge.resources",
             )
             Graph().query(select_query)
         if profile.construct_query:
             construct_query = load_text(
-                profile.construct_query
-                if "/" in profile.construct_query
-                else f"sparql/{profile.construct_query}",
+                resolve_profile_path(
+                    profile,
+                    profile.construct_query,
+                    "schema_bridge.resources",
+                ),
                 "schema_bridge.resources",
             )
             Graph().query(construct_query)

@@ -1,10 +1,10 @@
 name: fdp
 description: FDP-compatible RDF output (metadata service + catalog + datasets)
 fetch:
-  graphql: graphql/resources.graphql
+  graphql: graphql/query.graphql
   root_key: Resources
 export:
-  construct: fdp_construct.sparql
+  construct: sparql/construct.sparql
 mapping:
   entity_name: Resource
   subject_path: resource

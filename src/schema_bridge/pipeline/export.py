@@ -16,7 +16,10 @@ logger = logging.getLogger("schema_bridge.pipeline.export")
 
 def construct_dcat(raw_graph: Graph) -> Graph:
     logger.debug("Running DCAT construct query")
-    query = load_text("sparql/dcat_construct.sparql", "schema_bridge.resources")
+    query = load_text(
+        "profiles/dcat/sparql/construct.sparql",
+        "schema_bridge.resources",
+    )
     result = raw_graph.query(query)
     return result.graph
 

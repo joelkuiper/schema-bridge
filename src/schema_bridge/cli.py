@@ -16,6 +16,7 @@ from schema_bridge.pipeline import (
     load_profile,
     load_raw_from_rows,
     resolve_export,
+    resolve_profile_path,
     _materialize_graph,
     write_json,
     PaginationConfig,
@@ -49,11 +50,11 @@ def fetch(
     ),
     profile: str = typer.Option(
         os.getenv("SCHEMA_BRIDGE_PROFILE", "dcat"),
-        help="Profile name or YAML path",
+        help="Profile name, folder, or YAML path",
     ),
     query: str | None = typer.Option(
         None,
-        help="Query file under resources/graphql/ (overrides profile)",
+        help="GraphQL query file path (overrides profile)",
     ),
     limit: int = typer.Option(
         int(os.getenv("SCHEMA_BRIDGE_LIMIT", "5")),
@@ -81,11 +82,9 @@ def fetch(
     logger.debug("Starting fetch: base_url=%s schema=%s profile=%s", base_url, schema, profile)
     profile_cfg = load_profile(profile)
     pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
-    query_path = query or profile_cfg.graphql_query or "graphql/resources.graphql"
-    query_text = load_text(
-        query_path if "/" in query_path else f"graphql/{query_path}",
-        "schema_bridge.resources",
-    )
+    query_path = query or profile_cfg.graphql_query or "profiles/dcat/graphql/query.graphql"
+    query_path = resolve_profile_path(profile_cfg, query_path, "schema_bridge.resources")
+    query_text = load_text(query_path, "schema_bridge.resources")
     data = fetch_graphql(
         base_url,
         schema,
@@ -104,7 +103,7 @@ def convert(
     input_path: Path = typer.Argument(..., help="Input GraphQL JSON or RML mapping file"),
     profile: str = typer.Option(
         os.getenv("SCHEMA_BRIDGE_PROFILE", "dcat"),
-        help="Profile name or YAML path",
+        help="Profile name, folder, or YAML path",
     ),
     mapping: Path | None = typer.Option(None, help="YAML mapping override path"),
     from_format: str = typer.Option(
@@ -126,11 +125,11 @@ def convert(
     ),
     select: str | None = typer.Option(
         None,
-        help="SPARQL SELECT query file under resources/sparql/ (overrides profile)",
+        help="SPARQL SELECT query file (overrides profile)",
     ),
     construct: str | None = typer.Option(
         None,
-        help="SPARQL CONSTRUCT query file under resources/sparql/ (overrides profile)",
+        help="SPARQL CONSTRUCT query file (overrides profile)",
     ),
     rml_mapping: str | None = typer.Option(
         None,
@@ -198,11 +197,11 @@ def run(
     ),
     profile: str = typer.Option(
         os.getenv("SCHEMA_BRIDGE_PROFILE", "dcat"),
-        help="Profile name or YAML path",
+        help="Profile name, folder, or YAML path",
     ),
     query: str | None = typer.Option(
         None,
-        help="Query file under resources/graphql/ (overrides profile)",
+        help="GraphQL query file path (overrides profile)",
     ),
     root_key: str | None = typer.Option(
         None,
@@ -210,11 +209,11 @@ def run(
     ),
     select: str | None = typer.Option(
         None,
-        help="SPARQL SELECT query file under resources/sparql/ (overrides profile)",
+        help="SPARQL SELECT query file (overrides profile)",
     ),
     construct: str | None = typer.Option(
         None,
-        help="SPARQL CONSTRUCT query file under resources/sparql/ (overrides profile)",
+        help="SPARQL CONSTRUCT query file (overrides profile)",
     ),
     mapping: Path | None = typer.Option(None, help="YAML mapping override path"),
     output_format: str = typer.Option(
@@ -270,11 +269,9 @@ def run(
         validate_override=validate,
     )
     pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
-    query_path = query or export.profile.graphql_query or "graphql/resources.graphql"
-    query_text = load_text(
-        query_path if "/" in query_path else f"graphql/{query_path}",
-        "schema_bridge.resources",
-    )
+    query_path = query or export.profile.graphql_query or "profiles/dcat/graphql/query.graphql"
+    query_path = resolve_profile_path(export.profile, query_path, "schema_bridge.resources")
+    query_text = load_text(query_path, "schema_bridge.resources")
     graphql_data = fetch_graphql(
         base_url,
         schema,

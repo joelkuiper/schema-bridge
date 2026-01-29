@@ -1,15 +1,11 @@
 name: dcat
 description: DCAT dataset export
 fetch:
-  graphql: graphql/resources.graphql
+  graphql: graphql/query.graphql
   root_key: Resources
 export:
-  select: resources_select.sparql
-  construct: dcat_construct.sparql
-mapping:
-  entity_name: Resource
-  subject_path: resource
-  id_field: id
+  select: sparql/select.sparql
+  construct: sparql/construct.sparql
 mapping:
   entity_name: Resource
   subject_path: resource

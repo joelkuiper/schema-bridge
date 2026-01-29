@@ -4,9 +4,8 @@ This folder contains all packaged inputs for the CLI.
 
 ```
 resources/
-  graphql/     # GraphQL queries
-  sparql/      # SPARQL SELECT/CONSTRUCT queries
-  profiles/    # YAML profiles
+  profiles/    # profile folders (profile.yml + graphql/sparql)
+  sparql/      # shared SPARQL queries (mostly ingest)
   shacl/       # SHACL shapes
   rml/         # RML mappings (optional)
 ```
@@ -14,6 +13,6 @@ resources/
 Conventions:
 
 - Use paired `*_select.sparql` and `*_construct.sparql` for the same use case.
-- Profiles should reference files by relative path (e.g. `graphql/resources.graphql`).
+- Profiles should reference files by relative path inside their folder (e.g. `graphql/query.graphql`).
 - Keep mapping YAML minimal: only add `field_paths` when needed for nested flattening.
 - RML examples live under `rml/` and are derived from the RML spec.

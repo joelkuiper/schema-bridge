@@ -19,6 +19,7 @@ stack or Beacon services.
 Install dependencies: `uv sync --extra test`.
 
 Profiles are the primary entry point. A profile wires together the fetch, export, mapping, and validation steps.
+You can pass a profile name, a profile folder, or a direct path to `profile.yml`.
 
 - `uv run schema-bridge run --profile dcat --format ttl`
 - `uv run schema-bridge run --profile fdp --format ttl`
@@ -43,13 +44,13 @@ Profiles are YAML files with explicit sections:
 
 Common keys:
 
-- `fetch.graphql`: GraphQL file (under `resources/graphql/`)
+- `fetch.graphql`: GraphQL file (relative to the profile folder)
 - `fetch.root_key`: GraphQL data root
-- `export.select` / `export.construct`: SPARQL files (under `resources/sparql/`)
+- `export.select` / `export.construct`: SPARQL files (relative to the profile folder)
 - `validate.shacl`: shape path (under `resources/shacl/`)
 - `validate.enabled`: enable/disable validation
 
-Profiles live under `src/schema_bridge/resources/profiles/`.
+Profiles live under `src/schema_bridge/resources/profiles/<profile>/profile.yml`.
 
 Available export profiles in this repo:
 
@@ -96,9 +97,8 @@ redirect to a file when you need a saved artifact.
 
 ```
 src/schema_bridge/resources/
-  graphql/          # GraphQL queries
-  sparql/           # SPARQL SELECT/CONSTRUCT queries
-  profiles/         # export profiles (YAML)
+  profiles/         # export profile folders (profile.yml + graphql/sparql)
+  sparql/           # shared SPARQL queries (mostly ingest)
   ingest_profiles/  # ingest profiles (YAML)
   shacl/            # SHACL shapes
   rml/              # RML mappings (optional)
