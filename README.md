@@ -232,7 +232,7 @@ mapping:
   field_paths: <field mappings>     # see Architecture > How mappings work
 
 export:
-  select: <SPARQL SELECT>           # use one of select or construct
+  select: <SPARQL SELECT>
   construct: <SPARQL CONSTRUCT>
 
 validate:
@@ -278,7 +278,7 @@ upload:
 graphql:
   base_url: <base URL>
   schema: <schema name>
-  token: <auth token>               # optional
+  token: <auth token>
 ```
 
 ---
