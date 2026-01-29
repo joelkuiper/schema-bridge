@@ -64,6 +64,21 @@ def write_json(data: object, path: Path) -> None:
     path.write_text(render_json(data), encoding="utf-8")
 
 
+def _normalize_export_format(value: str) -> str:
+    normalized = value.strip().lower()
+    aliases = {
+        "turtle": "ttl",
+        "json-ld": "jsonld",
+        "rdfxml": "rdfxml",
+        "rdf/xml": "rdfxml",
+        "xml": "rdfxml",
+        "rdf": "rdfxml",
+        "ntriples": "nt",
+        "n-triples": "nt",
+    }
+    return aliases.get(normalized, normalized)
+
+
 def export_formats(
     raw_graph: Graph,
     out_dir: Path | None,
@@ -72,7 +87,7 @@ def export_formats(
     targets: list[str],
     emit: callable | None = None,
 ) -> Graph | None:
-    targets_set = {target.strip().lower() for target in targets if target.strip()}
+    targets_set = {_normalize_export_format(target) for target in targets if target.strip()}
     if out_dir is None and len(targets_set) != 1:
         raise ValueError("Stdout output requires exactly one target format")
     if out_dir is not None:
@@ -97,9 +112,10 @@ def export_formats(
             else:
                 write_csv(selected, out_dir / "resources.csv")
     construct = None
-    if "ttl" in targets_set or "jsonld" in targets_set:
+    rdf_targets = {"ttl", "jsonld", "rdfxml", "nt"} & targets_set
+    if rdf_targets:
         if not construct_query:
-            raise ValueError("Construct query is required for TTL/JSON-LD outputs")
+            raise ValueError("Construct query is required for RDF outputs")
         resolved = construct_query if "/" in construct_query else f"sparql/{construct_query}"
         construct = raw_graph.query(load_text(resolved, "schema_bridge.resources")).graph
         if "ttl" in targets_set:
@@ -109,6 +125,20 @@ def export_formats(
                 emit(construct.serialize(format="turtle"))
             else:
                 construct.serialize(out_dir / "resources.ttl", format="turtle")
+        if "rdfxml" in targets_set:
+            if out_dir is None:
+                if emit is None:
+                    raise ValueError("Stdout output requested but no emitter provided")
+                emit(construct.serialize(format="xml"))
+            else:
+                construct.serialize(out_dir / "resources.rdf", format="xml")
+        if "nt" in targets_set:
+            if out_dir is None:
+                if emit is None:
+                    raise ValueError("Stdout output requested but no emitter provided")
+                emit(construct.serialize(format="nt"))
+            else:
+                construct.serialize(out_dir / "resources.nt", format="nt")
     if "jsonld" in targets_set:
         if out_dir is None:
             if emit is None:

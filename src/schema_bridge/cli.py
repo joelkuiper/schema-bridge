@@ -95,7 +95,7 @@ def convert(
         ...,
         "--format",
         "-f",
-        help="Output format: csv, json, jsonld, ttl",
+        help="Output format: csv, json, jsonld, ttl, rdfxml, nt",
         case_sensitive=False,
     ),
     root_key: str | None = typer.Option(
@@ -191,7 +191,7 @@ def run(
         ...,
         "--format",
         "-f",
-        help="Output format: csv, json, jsonld, ttl",
+        help="Output format: csv, json, jsonld, ttl, rdfxml, nt",
         case_sensitive=False,
     ),
     limit: int = typer.Option(

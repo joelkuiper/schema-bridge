@@ -116,14 +116,36 @@ def resolve_ingest_path(profile: IngestProfile, path: str) -> str:
     return str((Path(__file__).parent / "resources" / path).resolve())
 
 
+def _normalize_rdf_format(value: str) -> str:
+    normalized = value.strip().lower()
+    aliases = {
+        "turtle": "turtle",
+        "ttl": "turtle",
+        "json-ld": "json-ld",
+        "jsonld": "json-ld",
+        "rdfxml": "xml",
+        "rdf/xml": "xml",
+        "xml": "xml",
+        "rdf": "xml",
+        "ntriples": "nt",
+        "n-triples": "nt",
+        "nt": "nt",
+    }
+    return aliases.get(normalized, normalized)
+
+
 def _infer_format(path: Path, explicit: str | None) -> str:
     if explicit:
-        return explicit
+        return _normalize_rdf_format(explicit)
     suffix = path.suffix.lower()
     if suffix in {".ttl", ".turtle"}:
         return "turtle"
     if suffix in {".jsonld", ".json"}:
         return "json-ld"
+    if suffix in {".rdf", ".xml"}:
+        return "xml"
+    if suffix in {".nt"}:
+        return "nt"
     raise ValueError("Unable to infer RDF format; use --format")
 
 
@@ -216,7 +238,9 @@ def _graphql_post(
 
 @app.command()
 def ingest(
-    input_path: Path = typer.Argument(..., help="Input RDF file (TTL or JSON-LD)"),
+    input_path: Path = typer.Argument(
+        ..., help="Input RDF file (TTL, JSON-LD, RDF/XML, or N-Triples)"
+    ),
     base_url: str | None = typer.Option(
         None,
         help="Base URL for the EMX2 server (overrides profile)",
@@ -235,7 +259,7 @@ def ingest(
         None,
         "--format",
         "-f",
-        help="RDF format (turtle or json-ld); inferred from file suffix when omitted",
+        help="RDF format (turtle, json-ld, rdfxml, nt); inferred from file suffix when omitted",
     ),
     select: str | None = typer.Option(
         None,

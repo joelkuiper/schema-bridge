@@ -10,9 +10,9 @@ stack or Beacon services.
 
 - Fetch EMX2 rows via GraphQL.
 - Build a canonical RDF graph from those rows.
-- Export RDF (TTL/JSON-LD) and tabular formats via SPARQL queries.
+- Export RDF (TTL/JSON-LD/RDF/XML/N-Triples) and tabular formats via SPARQL queries.
 - Validate outputs with SHACL (optional, on by default).
-- (Optionally) Ingest RDF (TTL/JSON-LD) into EMX2 via GraphQL mutations.
+- (Optionally) Ingest RDF (TTL/JSON-LD/RDF/XML/N-Triples) into EMX2 via GraphQL mutations.
 
 ## Quick start (export)
 
@@ -81,7 +81,7 @@ Caveats (current catalogue schema limitations):
 
 ## Ingest (RDF -> EMX2 via GraphQL)
 
-Use ingest when you already have DCAT/Health-DCAT RDF (TTL/JSON-LD) and want to push it into EMX2. Validation is
+Use ingest when you already have DCAT/Health-DCAT RDF (TTL/JSON-LD/RDF/XML/N-Triples) and want to push it into EMX2. Validation is
 enabled by default.
 
 Ingest profiles are smaller and only describe ingest steps. They live under
@@ -132,7 +132,7 @@ Convert a previously fetched GraphQL JSON file:
 
 ## Output formats
 
-Use `--format` to choose a single output format (`csv`, `json`, `jsonld`, `ttl`). Export commands write to stdout, so
+Use `--format` to choose a single output format (`csv`, `json`, `jsonld`, `ttl`, `rdfxml`, `nt`). Export commands write to stdout, so
 redirect to a file when you need a saved artifact.
 
 Example: `uv run schema-bridge run --profile dcat --format ttl > out/resources.ttl`
