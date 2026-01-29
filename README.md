@@ -5,12 +5,12 @@
 ## Table of Contents
 
 * [Summary](#summary)
+* [Installation](#installation)
 * [Example: MOLGENIS Catalogue → Health-DCAT-AP + Schema.org](#example-molgenis-catalogue--health-dcat-ap--schemaorg)
 * [Architecture](#architecture)
   * [Pipeline overview](#pipeline-overview)
   * [Why a canonical RDF layer?](#why-a-canonical-rdf-layer)
   * [How mappings bridge GraphQL and RDF](#how-mappings-bridge-graphql-and-rdf)
-* [Installation](#installation)
 * [Quick start](#quick-start)
 * [Profiles](#profiles)
   * [Export profiles](#export-profiles)
