@@ -12,11 +12,11 @@
   * [How mappings bridge GraphQL and RDF](#how-mappings-bridge-graphql-and-rdf)
 * [Installation](#installation)
 * [Quick start](#quick-start)
+* [Output formats](#output-formats)
 * [Profiles](#profiles)
   * [Export profiles](#export-profiles)
   * [Ingest profiles](#ingest-profiles)
 * [GraphQL endpoint resolution](#graphql-endpoint-resolution)
-* [Output formats](#output-formats)
 
 ---
 
@@ -270,6 +270,23 @@ Notes:
 
 ---
 
+## Output formats
+
+Use `--format` to select an output format for export:
+
+| Format | Extension |
+|--------|-----------|
+| `csv` | Tabular CSV |
+| `json` | JSON |
+| `jsonld` | JSON-LD |
+| `ttl` | Turtle |
+| `rdfxml` | RDF/XML |
+| `nt` | N-Triples |
+
+Export commands write to `stdout`. Redirect to a file to persist output.
+
+---
+
 ## Profiles
 
 Profiles are the primary configuration unit. Packaged profiles live under:
@@ -415,20 +432,3 @@ If a full endpoint is provided, `base_url/schema` are ignored. Otherwise the end
 ```text
 {base_url}/{schema}/graphql
 ```
-
----
-
-## Output formats
-
-Use `--format` to select an output format for export:
-
-| Format | Extension |
-|--------|-----------|
-| `csv` | Tabular CSV |
-| `json` | JSON |
-| `jsonld` | JSON-LD |
-| `ttl` | Turtle |
-| `rdfxml` | RDF/XML |
-| `nt` | N-Triples |
-
-Export commands write to `stdout`. Redirect to a file to persist output.
