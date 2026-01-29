@@ -32,7 +32,9 @@ FIELD = Namespace("https://catalogue.org/field/")
 ENTITY = Namespace("https://catalogue.org/entity/")
 
 
-def _with_id_strategy(mapping: MappingConfig, fallback_fields: list[str]) -> MappingConfig:
+def _with_id_strategy(
+    mapping: MappingConfig, fallback_fields: list[str]
+) -> MappingConfig:
     mapping.id_strategy = IdStrategy(
         template="{base_uri}{path}/{id}",
         fallback_fields=fallback_fields,
@@ -100,7 +102,9 @@ def test_catalogs_use_case_dcat_fields():
         rows,
         raw,
         _with_id_strategy(
-            MappingConfig(raw=RawMapping(entity_name="Dataset", subject_path="catalog")),
+            MappingConfig(
+                raw=RawMapping(entity_name="Dataset", subject_path="catalog")
+            ),
             ["id"],
         ),
     )
@@ -150,7 +154,9 @@ def test_select_rows():
             "description": "Other resource",
         },
     ]
-    load_raw_from_rows(rows, raw, _with_id_strategy(MappingConfig(raw=RawMapping()), ["id"]))
+    load_raw_from_rows(
+        rows, raw, _with_id_strategy(MappingConfig(raw=RawMapping()), ["id"])
+    )
 
     result = select_rows(raw, "profiles/dcat/sparql/select.sparql")
     assert len(result) == 2
@@ -206,7 +212,9 @@ def test_rml_materialize_csv():
 def test_stdout_requires_single_target():
     raw = new_graph()
     rows = [{"id": "R1", "name": "Example", "description": "Desc"}]
-    load_raw_from_rows(rows, raw, _with_id_strategy(MappingConfig(raw=RawMapping()), ["id"]))
+    load_raw_from_rows(
+        rows, raw, _with_id_strategy(MappingConfig(raw=RawMapping()), ["id"])
+    )
     with pytest.raises(ValueError):
         export_formats(
             raw,

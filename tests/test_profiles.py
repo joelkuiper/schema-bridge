@@ -6,7 +6,11 @@ import sys
 from pathlib import Path
 
 import pytest
-from schema_bridge.profiles import load_profile, load_ingest_profile, resolve_profile_path
+from schema_bridge.profiles import (
+    load_profile,
+    load_ingest_profile,
+    resolve_profile_path,
+)
 
 
 def _fixture_for_profile(profile: str) -> Path:
@@ -100,7 +104,9 @@ def test_profile_directory_resolution() -> None:
     resources = Path(__file__).parent / "resources" / "minimal"
     profile = load_profile(str(resources), expected_kind="export")
     assert profile.graphql_query is not None
-    resolved = resolve_profile_path(profile, profile.graphql_query, "schema_bridge.resources")
+    resolved = resolve_profile_path(
+        profile, profile.graphql_query, "schema_bridge.resources"
+    )
     assert Path(resolved).exists()
 
 

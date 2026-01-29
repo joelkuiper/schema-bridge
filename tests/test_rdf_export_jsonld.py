@@ -2,7 +2,13 @@ from __future__ import annotations
 
 import json
 
-from schema_bridge.rdf import MappingConfig, RawMapping, export_formats, load_raw_from_rows, new_graph
+from schema_bridge.rdf import (
+    MappingConfig,
+    RawMapping,
+    export_formats,
+    load_raw_from_rows,
+    new_graph,
+)
 from schema_bridge.rdf.mapping import IdStrategy
 
 

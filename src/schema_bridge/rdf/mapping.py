@@ -181,8 +181,12 @@ class IdStrategy:
         return cls(
             mode=str(data.get("mode", "template")),
             template=str(data.get("template")) if data.get("template") else None,
-            pid_fields=[str(item) for item in pid_fields] if isinstance(pid_fields, list) else [],
-            fallback_fields=[str(item) for item in fallback_fields] if isinstance(fallback_fields, list) else [],
+            pid_fields=[str(item) for item in pid_fields]
+            if isinstance(pid_fields, list)
+            else [],
+            fallback_fields=[str(item) for item in fallback_fields]
+            if isinstance(fallback_fields, list)
+            else [],
             normalize=NormalizeConfig.from_dict(
                 raw_normalize if isinstance(raw_normalize, Mapping) else None
             ),
@@ -202,8 +206,12 @@ class NodeDefaults:
         id_fields = data.get("id_fields")
         raw_normalize = data.get("normalize")
         return cls(
-            subject_template=str(data.get("subject_template")) if data.get("subject_template") else None,
-            id_fields=[str(item) for item in id_fields] if isinstance(id_fields, list) else [],
+            subject_template=str(data.get("subject_template"))
+            if data.get("subject_template")
+            else None,
+            id_fields=[str(item) for item in id_fields]
+            if isinstance(id_fields, list)
+            else [],
             normalize=NormalizeConfig.from_dict(
                 raw_normalize if isinstance(raw_normalize, Mapping) else None
             ),
@@ -276,12 +284,16 @@ def _format_subject(
 def _subject_from_row(row: Mapping[str, object], mapping: MappingConfig) -> URIRef:
     strategy = mapping.id_strategy
     if not strategy.pid_fields and not strategy.fallback_fields:
-        raise ValueError("Missing id_strategy configuration (pid_fields or fallback_fields)")
+        raise ValueError(
+            "Missing id_strategy configuration (pid_fields or fallback_fields)"
+        )
     pid = _select_id_value(row, strategy.pid_fields)
     fallback = _select_id_value(row, strategy.fallback_fields)
     chosen = pid or fallback
     if not chosen:
-        raise ValueError("Missing stable identifier; configure id_strategy.pid_fields/fallback_fields")
+        raise ValueError(
+            "Missing stable identifier; configure id_strategy.pid_fields/fallback_fields"
+        )
     return _format_subject(
         template=strategy.template,
         base_uri=mapping.raw.base_uri,
@@ -502,7 +514,9 @@ def _auto_node_subject(
     )
 
 
-def _add_auto_nodes(subject: URIRef, row: dict, graph: Graph, mapping: MappingConfig) -> None:
+def _add_auto_nodes(
+    subject: URIRef, row: dict, graph: Graph, mapping: MappingConfig
+) -> None:
     if not mapping.auto_nodes:
         return
     for key, value in row.items():
