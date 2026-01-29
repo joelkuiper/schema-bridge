@@ -66,7 +66,7 @@ To export from molgeniscatalogue.org, point `--base-url` to `https://molgeniscat
 
 Caveats (demo profile):
 
-- The construct is trimmed for speed and does not emit every optional Health-DCAT-AP enrichment.
+- The construct is limited and does not emit every optional Health-DCAT-AP enrichment.
 - Fields like detailed age-group hierarchy, inclusion criteria details, and design publications are not fully materialized.
 - Access-rights and policy nodes are derived from URI fields only; vocabulary labels/definitions may be omitted.
 
