@@ -9,9 +9,10 @@ It is profile-driven (in yaml): the same pipeline can target different GraphQL s
 
 Core implementation locations:
 
-* CLI entrypoint: `src/schema_bridge/cli.py`
-* Profile loading and resolution: `src/schema_bridge/pipeline/profiles.py`
-* Packaged profiles: `src/schema_bridge/resources/profiles/`
+* CLI entrypoint and commands: [`src/schema_bridge/cli.py`](src/schema_bridge/cli.py)
+* Profile definitions and assets (YAML, GraphQL, SPARQL, SHACL): [`src/schema_bridge/resources/profiles/`](src/schema_bridge/resources/profiles/)
+* Tests (unit + integration): [`tests/`](tests/)
+* Pipeline implementation (fetch, mapping, export, ingest helpers): [`src/schema_bridge/pipeline/`](src/schema_bridge/pipeline/)
 
 ---
 
