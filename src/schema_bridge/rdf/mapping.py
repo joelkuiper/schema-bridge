@@ -8,7 +8,7 @@ from rdflib import Graph, Namespace, URIRef, Literal, BNode
 from rdflib.namespace import RDF, SKOS, OWL
 import logging
 
-logger = logging.getLogger("schema_bridge.pipeline.mapping")
+logger = logging.getLogger("schema_bridge.rdf.mapping")
 
 EX = Namespace("https://catalogue.org/")
 FIELD = Namespace("https://catalogue.org/field/")

@@ -12,7 +12,7 @@ from gql.transport.exceptions import TransportQueryError
 from gql.transport.requests import RequestsHTTPTransport
 import logging
 
-logger = logging.getLogger("schema_bridge.pipeline.graphql")
+logger = logging.getLogger("schema_bridge.graphql.client")
 
 
 @dataclass(frozen=True)

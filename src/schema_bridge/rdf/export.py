@@ -8,11 +8,11 @@ from typing import Callable, Iterable
 
 from rdflib import Graph
 
-from .resources import load_text
-from .sparql import select_rows as sparql_select_rows, construct_graph
+from schema_bridge.resources.loader import load_text
+from schema_bridge.rdf.sparql import select_rows as sparql_select_rows, construct_graph
 import logging
 
-logger = logging.getLogger("schema_bridge.pipeline.export")
+logger = logging.getLogger("schema_bridge.rdf.export")
 
 
 def construct_dcat(raw_graph: Graph) -> Graph:

@@ -9,21 +9,19 @@ import logging
 from schema_bridge.logging import configure_logging
 from schema_bridge.cli_helpers import resolve_graphql_target
 from schema_bridge.rdf import new_graph
-from schema_bridge.pipeline import (
-    export_and_validate,
-    fetch_graphql,
-    load_text,
-    extract_rows,
+from schema_bridge.workflows.export import export_and_validate
+from schema_bridge.graphql.client import PaginationConfig, extract_rows, fetch_graphql
+from schema_bridge.resources.loader import load_text
+from schema_bridge.profiles.loader import (
     load_profile,
     load_ingest_profile,
-    load_raw_from_rows,
     resolve_export,
     resolve_profile_path,
-    _materialize_graph,
-    write_json,
-    PaginationConfig,
 )
-from schema_bridge.pipeline.ingest import (
+from schema_bridge.rdf.mapping import load_raw_from_rows
+from schema_bridge.rdf.export import write_json
+from schema_bridge.workflows.materialize import _materialize_graph
+from schema_bridge.workflows.ingest import (
     infer_rdf_format,
     load_rdf_graph,
     rows_from_rdf,

@@ -5,13 +5,13 @@ from pathlib import Path
 import morph_kgc
 from rdflib import Graph
 
-from .graphql import extract_rows, load_graphql_file
-from .mapping import MappingConfig, load_raw_from_rows
-from .profiles import ProfileConfig, resolve_profile_path
+from schema_bridge.graphql.client import extract_rows, load_graphql_file
+from schema_bridge.rdf.mapping import MappingConfig, load_raw_from_rows
+from schema_bridge.profiles.loader import ProfileConfig, resolve_profile_path
 from schema_bridge.rdf import new_graph
 import logging
 
-logger = logging.getLogger("schema_bridge.pipeline.rml")
+logger = logging.getLogger("schema_bridge.workflows.materialize")
 
 
 def materialize_rml(mapping_path: str, source_path: str | None = None) -> Graph:

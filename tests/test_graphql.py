@@ -1,4 +1,4 @@
-from schema_bridge.pipeline.graphql import (
+from schema_bridge.graphql.client import (
     PaginationConfig,
     _build_updated_filter,
     _paginate_graphql,

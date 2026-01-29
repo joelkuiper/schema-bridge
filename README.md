@@ -28,13 +28,21 @@ More abstractly, Schema Bridge attempts to solve the problem of "bidirectional i
 
 It is profile-driven (YAML): the same pipeline can target different GraphQL schemas, mapping conventions, and output standards without code changes.
 
-Core implementation locations:
+Module map:
 
-* CLI entrypoint and commands: [`src/schema_bridge/cli.py`](src/schema_bridge/cli.py)
-* Profile definitions and assets (YAML, GraphQL, SPARQL, SHACL): [`src/schema_bridge/resources/profiles/`](src/schema_bridge/resources/profiles/)
-* Tests (unit + integration): [`tests/`](tests/)
-* Pipeline implementation (fetch, mapping, export, ingest helpers): [`src/schema_bridge/pipeline/`](src/schema_bridge/pipeline/)
-* RDF backend helper ([Oxigraph](https://github.com/oxigraph/oxigraph) store via [oxrdflib](https://github.com/oxigraph/oxrdflib)): [`src/schema_bridge/rdf.py`](src/schema_bridge/rdf.py)
+```
+src/schema_bridge/
+  cli.py                   CLI entrypoint and commands
+  profiles/                profile loading + resolution
+  graphql/                 GraphQL client + pagination
+  rdf/                     mapping, SPARQL, SHACL, export helpers
+  workflows/               export/ingest/materialize orchestration
+  resources/               resource loading utilities
+resources/profiles/        packaged profiles (YAML, GraphQL, SPARQL, SHACL)
+tests/                     unit + integration tests
+```
+
+RDF backend: Schema Bridge uses the [Oxigraph](https://github.com/oxigraph/oxigraph) store via [oxrdflib](https://github.com/oxigraph/oxrdflib).
 
 ---
 

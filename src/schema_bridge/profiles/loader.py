@@ -4,9 +4,9 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Protocol, cast
 
-from .mapping import MappingConfig
-from .resources import load_yaml, resolve_resource_path
-from .shacl import ShaclConfig
+from schema_bridge.rdf.mapping import MappingConfig
+from schema_bridge.resources.loader import load_yaml, resolve_resource_path
+from schema_bridge.rdf.shacl import ShaclConfig
 
 
 @dataclass

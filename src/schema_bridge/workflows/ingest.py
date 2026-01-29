@@ -10,13 +10,12 @@ from rdflib import Graph
 
 import logging
 
-from .profiles import IngestProfileConfig
-from .shacl import ShaclConfig, validate_graph
-from .profiles import resolve_profile_path
-from .sparql import select_rows as sparql_select_rows
+from schema_bridge.profiles.loader import IngestProfileConfig, resolve_profile_path
+from schema_bridge.rdf.shacl import ShaclConfig, validate_graph
+from schema_bridge.rdf.sparql import select_rows as sparql_select_rows
 from schema_bridge.rdf import new_graph
 
-logger = logging.getLogger("schema_bridge.pipeline.ingest")
+logger = logging.getLogger("schema_bridge.workflows.ingest")
 
 
 def normalize_rdf_format(value: str) -> str:

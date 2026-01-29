@@ -1,3 +1,3 @@
-from . import pipeline
+from . import graphql, profiles, rdf, resources, workflows
 
-__all__ = ["pipeline"]
+__all__ = ["graphql", "profiles", "rdf", "resources", "workflows"]

@@ -3,10 +3,10 @@ from __future__ import annotations
 from rdflib import Graph
 from typing import Any, Iterable, cast
 
-from .resources import load_text
+from schema_bridge.resources.loader import load_text
 import logging
 
-logger = logging.getLogger("schema_bridge.pipeline.sparql")
+logger = logging.getLogger("schema_bridge.rdf.sparql")
 
 
 def select_rows(graph: Graph, query_path: str) -> list[dict]:

@@ -7,23 +7,20 @@ from rdflib.namespace import RDF
 from schema_bridge.rdf import new_graph
 
 import pytest
-from schema_bridge.pipeline import (
+from schema_bridge.rdf import (
     MappingConfig,
     RawMapping,
     construct_dcat,
     export_formats,
-    load_text,
-    load_yaml,
     load_raw_from_rows,
-    load_mapping_override,
-    load_profile,
-    materialize_rml,
     render_csv,
-    resolve_profile_path,
     select_rows,
     validate_graph,
 )
-from schema_bridge.pipeline.mapping import ConceptField, NodeField
+from schema_bridge.rdf.mapping import ConceptField, NodeField
+from schema_bridge.resources import load_text, load_yaml
+from schema_bridge.profiles import load_mapping_override, load_profile, resolve_profile_path
+from schema_bridge.workflows import materialize_rml
 
 EX = Namespace("https://catalogue.org/")
 FIELD = Namespace("https://catalogue.org/field/")

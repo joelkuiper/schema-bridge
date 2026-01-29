@@ -5,12 +5,12 @@ from typing import cast
 
 from rdflib import Graph
 
-from schema_bridge.rdf import new_graph
+from schema_bridge.rdf.store import new_graph
 
-from .resources import load_text
+from schema_bridge.resources.loader import load_text
 import logging
 
-logger = logging.getLogger("schema_bridge.pipeline.shacl")
+logger = logging.getLogger("schema_bridge.rdf.shacl")
 
 
 @dataclass

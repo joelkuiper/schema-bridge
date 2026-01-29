@@ -5,13 +5,13 @@ from typing import Callable
 
 from rdflib import Graph
 
-from .export import export_formats
-from .resources import load_text
-from .shacl import validate_graph
-from .profiles import ResolvedExport
+from schema_bridge.rdf.export import export_formats
+from schema_bridge.resources.loader import load_text
+from schema_bridge.rdf.shacl import validate_graph
+from schema_bridge.profiles.loader import ResolvedExport
 import logging
 
-logger = logging.getLogger("schema_bridge.pipeline.orchestrate")
+logger = logging.getLogger("schema_bridge.workflows.export")
 
 
 def export_and_validate(
