@@ -11,6 +11,7 @@ from schema_bridge.pipeline import (
     construct_dcat,
     export_formats,
     load_text,
+    load_yaml,
     load_raw_from_rows,
     load_mapping_override,
     load_profile,
@@ -138,8 +139,8 @@ def test_select_rows():
     ids = {row["id"] for row in result}
     assert ids == {"R1", "R2"}
 
-def test_profile_load_and_shacl_validation():
-    profile = load_profile("dcat")
+def test_export_profile_load_and_shacl_validation():
+    profile = load_profile("dcat", expected_kind="export")
     raw = Graph()
     rows = [
         {
@@ -309,10 +310,13 @@ def test_node_fields_create_distribution_nodes():
 
 
 
-def test_profiles_reference_existing_queries():
+def test_export_profiles_reference_existing_queries():
     profiles_dir = Path(__file__).parents[1] / "src" / "schema_bridge" / "resources" / "profiles"
     for profile_path in profiles_dir.glob("**/profile.yml"):
-        profile = load_profile(str(profile_path))
+        data = load_yaml(str(profile_path), "schema_bridge.resources")
+        if str(data.get("kind", "")).lower() != "export":
+            continue
+        profile = load_profile(str(profile_path), expected_kind="export")
         if profile.graphql_query:
             load_text(
                 resolve_profile_path(

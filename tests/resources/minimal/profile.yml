@@ -1,4 +1,5 @@
 name: minimal-demo
+kind: export
 description: Minimal demo profile for smoke tests
 fetch:
   graphql: graphql/query.graphql

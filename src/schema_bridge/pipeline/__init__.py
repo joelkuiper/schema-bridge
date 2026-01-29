@@ -13,10 +13,12 @@ from .graphql import PaginationConfig, extract_rows, fetch_graphql, load_graphql
 from .mapping import MappingConfig, RawMapping, load_raw_from_rows
 from .orchestrate import export_and_validate
 from .profiles import (
+    IngestProfileConfig,
     ProfileConfig,
     ResolvedExport,
     load_mapping_override,
     load_profile,
+    load_ingest_profile,
     resolve_export,
     resolve_profile_path,
 )
@@ -34,11 +36,13 @@ __all__ = [
     "PaginationConfig",
     "load_mapping_override",
     "load_profile",
+    "load_ingest_profile",
     "load_raw_from_rows",
     "load_text",
     "load_yaml",
     "MappingConfig",
     "materialize_rml",
+    "IngestProfileConfig",
     "ProfileConfig",
     "RawMapping",
     "render_csv",

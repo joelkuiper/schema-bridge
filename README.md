@@ -18,22 +18,21 @@ stack or Beacon services.
 
 Install dependencies: `uv sync --extra test`.
 
-Profiles are the primary entry point. A profile wires together the fetch, export, mapping, and validation steps.
-You can pass a profile name, a profile folder, or a direct path to `profile.yml`.
+Profiles are the primary entry point. Export profiles (with `kind: export`) wire together fetch, export, mapping,
+and validation steps. You can pass a profile name, a profile folder, or a direct path to `profile.yml`.
 
-- `uv run schema-bridge run --profile dcat --format ttl`
-- `uv run schema-bridge run --profile fdp --format ttl`
-- `uv run schema-bridge run --profile health-dcat-ap-molgenis --format ttl`
+- `uv run schema-bridge export --profile dcat --format ttl`
+- `uv run schema-bridge export --profile fdp --format ttl`
+- `uv run schema-bridge export --profile health-dcat-ap-molgenis --format ttl`
 
-Add `--debug` to any command to enable verbose logging (both `schema-bridge` and `schema-bridge-ingest`). It can be
-placed before or after the subcommand.
+Add `--debug` to any command to enable verbose logging. It can be placed before or after the subcommand.
 
 You can set a limit (`--limit`) to adjust the number of GraphQL results to be fetched.
-Use the command-line help, e.g. `uv run schema-bridge run --help`, for detailed information about parameters.
+Use the command-line help, e.g. `uv run schema-bridge export --help`, for detailed information about parameters.
 
-### GraphQL endpoint resolution
+### GraphQL endpoint resolution (export)
 
-For `fetch`/`run`, the GraphQL endpoint is resolved in this order (highest wins):
+For `fetch`/`export`, the GraphQL endpoint is resolved in this order (highest wins):
 
 1. CLI `--graphql-endpoint`
 2. Profile `fetch.endpoint`
@@ -46,9 +45,14 @@ For `fetch`/`run`, the GraphQL endpoint is resolved in this order (highest wins)
 If an endpoint is provided, `base_url/schema` are ignored. Otherwise they are combined as
 `{base_url}/{schema}/graphql`.
 
-## Profiles (export)
+## Profiles
 
-Profiles are YAML files with explicit sections:
+All profiles live under `src/schema_bridge/resources/profiles/<profile>/profile.yml` and include a `kind` field
+(`export` or `ingest`) to indicate which pipeline they drive.
+
+### Export profiles
+
+Export profiles are YAML files with explicit sections:
 
 - `fetch`: GraphQL query + root key
 - `export`: SPARQL select/construct
@@ -64,8 +68,6 @@ Common keys:
 - `export.select` / `export.construct`: SPARQL files (relative to the profile folder)
 - `validate.shacl`: shape path (relative to the profile folder, or an absolute path)
 - `validate.enabled`: enable/disable validation
-
-Profiles live under `src/schema_bridge/resources/profiles/<profile>/profile.yml`.
 
 Available export profiles in this repo:
 
@@ -88,10 +90,43 @@ Caveats (demo profile):
 Use `--format` to choose a single output format (`csv`, `json`, `jsonld`, `ttl`, `rdfxml`, `nt`). Export commands write to stdout, so
 redirect to a file when you need a saved artifact.
 
+## Quick start (ingest)
+
+Ingest profiles (with `kind: ingest`) control how RDF gets converted into rows and uploaded via GraphQL mutations.
+Use `--profile` to select a packaged profile, profile folder, or `profile.yml`.
+
+- `uv run schema-bridge ingest path/to/input.ttl --profile ingest-dcat --base-url https://emx2.dev.molgenis.org/ --schema catalogue-demo --dry-run`
+- `uv run schema-bridge ingest path/to/input.ttl --profile ingest-dcat --out out/rows.json --dry-run`
+
+`--format` is optional; if omitted, the RDF format is inferred from the input file extension.
+Use `--dry-run` or `--out` to inspect the generated rows without uploading them.
+GraphQL targets are resolved in this order: CLI `--base-url/--schema`, ingest profile `graphql.base_url/graphql.schema`,
+environment (`SCHEMA_BRIDGE_BASE_URL`/`SCHEMA_BRIDGE_SCHEMA`), and finally the built-in defaults.
+
+### Ingest profiles
+
+Ingest profiles are YAML files with explicit sections:
+
+- `validate`: SHACL shapes + toggle
+- `extract`: SPARQL select query used to extract rows from RDF
+- `upload`: target table + mutation settings
+- `graphql`: base URL/schema defaults (optional)
+
+Common keys:
+
+- `validate.shacl`: shape path (relative to the profile folder, or an absolute path)
+- `validate.enabled`: enable/disable validation
+- `extract.sparql`: SPARQL SELECT file (relative to the profile folder)
+- `upload.table`: target EMX2 table name
+- `upload.mode`: mutation mode (`upsert` or `insert`)
+- `upload.id_prefix`: prefix for generated EMX2 ids
+- `upload.batch_size`: rows per mutation batch
+- `graphql.base_url` + `graphql.schema`: default GraphQL location (optional)
+- `graphql.token`: bearer token for auth (optional)
+
 ## Resource tree
 
 ```
 src/schema_bridge/resources/
-  profiles/         # export profile folders (profile.yml + graphql/sparql, SHACL shapes)
-  ingest_profiles/  # ingest profile folders (profile.yml + graphql/sparql, SHACL shapes)
+  profiles/  # profile folders (profile.yml + graphql/sparql, SHACL shapes)
 ```

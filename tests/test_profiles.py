@@ -45,14 +45,14 @@ def _run_convert(profile: str, output_format: str) -> subprocess.CompletedProces
     )
 
 
-def _run_run(profile: str, output_format: str, limit: int) -> subprocess.CompletedProcess[str]:
+def _run_export(profile: str, output_format: str, limit: int) -> subprocess.CompletedProcess[str]:
     env = _env_for_profile(profile)
     return subprocess.run(
         [
             sys.executable,
             "-m",
             "schema_bridge.cli",
-            "run",
+            "export",
             "--profile",
             profile,
             "--format",
@@ -85,8 +85,8 @@ def test_profile_outputs_to_stdout(
 
 
 @pytest.mark.integration
-def test_molgenis_profile_run_uses_fixture() -> None:
-    completed = _run_run("health-dcat-ap-molgenis", "ttl", limit=50)
+def test_molgenis_profile_export_uses_fixture() -> None:
+    completed = _run_export("health-dcat-ap-molgenis", "ttl", limit=50)
     assert completed.returncode == 0, (
         f"run failed:\nSTDOUT: {completed.stdout}\nSTDERR: {completed.stderr}"
     )

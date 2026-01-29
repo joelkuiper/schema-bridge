@@ -1,4 +1,5 @@
 name: ingest-demo
+kind: ingest
 validate:
   enabled: false
 extract:

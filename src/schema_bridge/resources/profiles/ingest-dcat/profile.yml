@@ -1,4 +1,5 @@
 name: ingest-dcat
+kind: ingest
 validate:
   shacl: shacl.ttl
   enabled: true

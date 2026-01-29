@@ -23,6 +23,7 @@ def _prepare_command(cmd: str, workdir: Path) -> list[str]:
     cmd = cmd.replace("path/to/mapping.yml", str(Path(__file__).parent / "resources" / "mapping.yml"))
     cmd = cmd.replace("path/to/mapping.rml.ttl", str(Path(__file__).parent / "resources" / "rml_pkg" / "airport_mapping.rml.ttl"))
     cmd = cmd.replace("path/to/data.csv", str(Path(__file__).parent / "resources" / "rml_pkg" / "airport.csv"))
+    cmd = cmd.replace("path/to/input.ttl", str(Path(__file__).parent / "resources" / "profiles" / "ingest-demo" / "input.ttl"))
     return shlex.split(cmd)
 
 
@@ -53,7 +54,7 @@ def test_readme_commands(tmp_path: Path) -> None:
         workdir = tmp_path / "case"
         workdir.mkdir(parents=True, exist_ok=True)
         subcommand = _subcommand(cmd)
-        if "out/graphql.json" in cmd and subcommand not in {"fetch", "run"}:
+        if "out/graphql.json" in cmd and subcommand not in {"fetch", "export"}:
             out_dir = workdir / "out"
             out_dir.mkdir(parents=True, exist_ok=True)
             fixture = _fixture_for_command(cmd)

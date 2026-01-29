@@ -1,4 +1,5 @@
 name: health-dcat-ap-molgenis
+kind: export
 description: Health-DCAT-AP export tuned for molgeniscatalogue.org (fast demo construct)
 fetch:
   graphql: graphql/query.graphql

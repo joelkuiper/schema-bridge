@@ -48,7 +48,7 @@ def test_minimal_profile_smoke(tmp_path: Path) -> None:
             sys.executable,
             "-m",
             "schema_bridge.cli",
-            "run",
+            "export",
             "--profile",
             str(profile_dir),
             "--format",
@@ -67,13 +67,13 @@ def test_minimal_profile_smoke(tmp_path: Path) -> None:
     assert run.returncode == 0, f"run failed:\nSTDERR: {run.stderr}"
     assert "\"rows\"" in run.stdout
 
-    ingest_profile = resources / "ingest"
+    ingest_profile = resources / "profiles" / "ingest-demo"
     ingest_input = ingest_profile / "input.ttl"
     ingest = subprocess.run(
         [
             sys.executable,
             "-m",
-            "schema_bridge.ingest_cli",
+            "schema_bridge.cli",
             "ingest",
             str(ingest_input),
             "--profile",

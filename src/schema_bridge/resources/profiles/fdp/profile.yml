@@ -1,4 +1,5 @@
 name: fdp
+kind: export
 description: FDP-compatible RDF output (metadata service + catalog + datasets)
 fetch:
   graphql: graphql/query.graphql

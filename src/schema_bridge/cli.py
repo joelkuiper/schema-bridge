@@ -1,11 +1,16 @@
 from __future__ import annotations
 
 from pathlib import Path
+import json
 import os
 import typer
 import logging
+import uuid
 
 from rdflib import Graph
+from gql import Client, gql
+from gql.transport.exceptions import TransportQueryError
+from gql.transport.requests import RequestsHTTPTransport
 
 from schema_bridge.logging import configure_logging
 from schema_bridge.pipeline import (
@@ -14,15 +19,18 @@ from schema_bridge.pipeline import (
     load_text,
     extract_rows,
     load_profile,
+    load_ingest_profile,
     load_raw_from_rows,
     resolve_export,
     resolve_profile_path,
     _materialize_graph,
     write_json,
     PaginationConfig,
+    ShaclConfig,
+    validate_graph,
 )
 
-app = typer.Typer(help="Schema Bridge CLI (GraphQL -> RDF canonical graph -> exports)")
+app = typer.Typer(help="Schema Bridge CLI (profile-driven export + ingest)")
 logger = logging.getLogger("schema_bridge.cli")
 
 
@@ -86,6 +94,7 @@ def fetch(
     ),
     profile: str = typer.Option(
         os.getenv("SCHEMA_BRIDGE_PROFILE", "dcat"),
+        "--profile",
         help="Profile name, folder, or YAML path",
     ),
     query: str | None = typer.Option(
@@ -116,7 +125,7 @@ def fetch(
 ) -> None:
     configure_logging(debug)
     logger.debug("Starting fetch: base_url=%s schema=%s profile=%s endpoint=%s", base_url, schema, profile, endpoint)
-    profile_cfg = load_profile(profile)
+    profile_cfg = load_profile(profile, expected_kind="export")
     resolved_endpoint, resolved_base_url, resolved_schema = _resolve_graphql_target(
         profile=profile_cfg,
         base_url=base_url,
@@ -146,6 +155,7 @@ def convert(
     input_path: Path = typer.Argument(..., help="Input GraphQL JSON or RML mapping file"),
     profile: str = typer.Option(
         os.getenv("SCHEMA_BRIDGE_PROFILE", "dcat"),
+        "--profile",
         help="Profile name, folder, or YAML path",
     ),
     mapping: Path | None = typer.Option(None, help="YAML mapping override path"),
@@ -229,7 +239,7 @@ def convert(
 
 
 @app.command()
-def run(
+def export(
     base_url: str | None = typer.Option(
         None,
         help="Base URL for the EMX2 server (overrides profile/environment)",
@@ -245,6 +255,7 @@ def run(
     ),
     profile: str = typer.Option(
         os.getenv("SCHEMA_BRIDGE_PROFILE", "dcat"),
+        "--profile",
         help="Profile name, folder, or YAML path",
     ),
     query: str | None = typer.Option(
@@ -304,16 +315,16 @@ def run(
 ) -> None:
     configure_logging(debug)
     logger.debug(
-        "Starting run: base_url=%s schema=%s profile=%s format=%s endpoint=%s",
+        "Starting export: base_url=%s schema=%s profile=%s format=%s endpoint=%s",
         base_url,
         schema,
         profile,
         output_format,
         endpoint,
     )
-    profile_cfg = load_profile(profile)
+    profile_cfg = load_profile(profile, expected_kind="export")
     if profile_cfg.mapping_format == "rml":
-        raise SystemExit("RML profiles are not supported with run; use convert instead.")
+        raise SystemExit("RML profiles are not supported with export; use convert instead.")
     export = resolve_export(
         profile_name=profile,
         mapping_override=mapping,
@@ -353,7 +364,250 @@ def run(
         shacl_report,
         emit=lambda text: typer.echo(text, nl=False),
     )
-    logger.debug("Run complete")
+    logger.debug("Export complete")
+
+
+def _normalize_rdf_format(value: str) -> str:
+    normalized = value.strip().lower()
+    aliases = {
+        "turtle": "turtle",
+        "ttl": "turtle",
+        "json-ld": "json-ld",
+        "jsonld": "json-ld",
+        "rdfxml": "xml",
+        "rdf/xml": "xml",
+        "xml": "xml",
+        "rdf": "xml",
+        "ntriples": "nt",
+        "n-triples": "nt",
+        "nt": "nt",
+    }
+    return aliases.get(normalized, normalized)
+
+
+def _infer_format(path: Path, explicit: str | None) -> str:
+    if explicit:
+        return _normalize_rdf_format(explicit)
+    suffix = path.suffix.lower()
+    if suffix in {".ttl", ".turtle"}:
+        return "turtle"
+    if suffix in {".jsonld", ".json"}:
+        return "json-ld"
+    if suffix in {".rdf", ".xml"}:
+        return "xml"
+    if suffix in {".nt"}:
+        return "nt"
+    raise ValueError("Unable to infer RDF format; use --format")
+
+
+def _load_rdf_graph(path: Path, rdf_format: str) -> Graph:
+    logger.debug("Loading RDF graph: %s (format=%s)", path, rdf_format)
+    graph = Graph()
+    graph.parse(path.as_posix(), format=rdf_format)
+    return graph
+
+
+def _select_rows(graph: Graph, query_path: str) -> list[dict]:
+    query = load_text(query_path, "schema_bridge.resources")
+    rows: list[dict] = []
+    for row in graph.query(query):
+        rows.append({k: str(v) if v is not None else "" for k, v in row.asdict().items()})
+    return rows
+
+
+def _sanitize_email(value: str) -> str:
+    if value.startswith("mailto:"):
+        return value[len("mailto:") :]
+    return value
+
+
+def _rows_from_rdf(
+    graph: Graph,
+    *,
+    profile: "IngestProfileConfig",
+    select_override: str | None,
+    id_prefix: str,
+) -> list[dict]:
+    select_query = select_override or profile.select_query
+    if not select_query:
+        raise ValueError("Ingest requires a select query (set in profile or via --select)")
+    resolved_select = resolve_profile_path(profile, select_query, "schema_bridge.resources")
+    raw_rows = _select_rows(graph, resolved_select)
+    rows: list[dict] = []
+    for raw in raw_rows:
+        name = raw.get("name", "").strip()
+        if not name:
+            continue
+        row: dict[str, str] = {"id": f"{id_prefix}{uuid.uuid4().hex}", "name": name}
+        description = raw.get("description", "").strip()
+        if description:
+            row["description"] = description
+        website = raw.get("website", "").strip()
+        if website:
+            row["website"] = website
+        contact = raw.get("contactEmail", "").strip()
+        if contact:
+            row["contactEmail"] = _sanitize_email(contact)
+        rows.append(row)
+    return rows
+
+
+def _validate_if_requested(
+    graph: Graph,
+    profile: "IngestProfileConfig",
+    validate: bool,
+) -> None:
+    shacl = profile.shacl
+    if not validate or not shacl:
+        return
+    logger.debug("Validating ingest graph with SHACL: %s", shacl.shapes)
+    conforms, report = validate_graph(graph, ShaclConfig(shapes=shacl.shapes, validate=True))
+    if not conforms:
+        report_text = report.serialize(format="turtle")
+        raise SystemExit(f"SHACL validation failed:\n{report_text}")
+
+
+def _graphql_post(
+    base_url: str,
+    schema: str,
+    payload: dict,
+    token: str | None,
+) -> dict:
+    logger.debug("Posting GraphQL to %s/%s/graphql", base_url.rstrip("/"), schema)
+    endpoint = f"{base_url.rstrip('/')}/{schema}/graphql"
+    headers = {"Content-Type": "application/json"}
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    transport = RequestsHTTPTransport(url=endpoint, headers=headers, timeout=30)
+    client = Client(transport=transport, fetch_schema_from_transport=False)
+    try:
+        result = client.execute(
+            gql(payload["query"]),
+            variable_values=payload.get("variables") or {},
+        )
+    except TransportQueryError as exc:
+        raise RuntimeError(f"GraphQL errors: {exc.errors}") from exc
+    return {"data": result}
+
+
+@app.command()
+def ingest(
+    input_path: Path = typer.Argument(
+        ..., help="Input RDF file (TTL, JSON-LD, RDF/XML, or N-Triples)"
+    ),
+    base_url: str | None = typer.Option(
+        None,
+        help="Base URL for the EMX2 server (overrides profile)",
+    ),
+    schema: str | None = typer.Option(
+        None,
+        help="Schema name for the catalogue (overrides profile)",
+    ),
+    profile: str = typer.Option(
+        os.getenv("SCHEMA_BRIDGE_PROFILE", "ingest-dcat"),
+        "--profile",
+        help="Profile name, folder, or YAML path",
+    ),
+    table: str | None = typer.Option(None, help="Target EMX2 table name (overrides profile)"),
+    mode: str | None = typer.Option(None, help="Mutation mode: upsert or insert (overrides profile)"),
+    rdf_format: str | None = typer.Option(
+        None,
+        "--format",
+        "-f",
+        help="RDF format (turtle, json-ld, rdfxml, nt); inferred from file suffix when omitted",
+    ),
+    select: str | None = typer.Option(
+        None,
+        help="SPARQL SELECT query file (overrides profile)",
+    ),
+    mutation_file: str | None = typer.Option(
+        None,
+        help="GraphQL mutation file (overrides profile)",
+    ),
+    id_prefix: str | None = typer.Option(
+        None,
+        help="Prefix to use for generated EMX2 ids (overrides profile)",
+    ),
+    validate: bool | None = typer.Option(
+        None,
+        "--validate/--no-validate",
+        help="Enable/disable SHACL validation (overrides profile, defaults to enabled)",
+    ),
+    batch_size: int | None = typer.Option(
+        None,
+        help="Rows per GraphQL mutation (overrides profile)",
+    ),
+    token: str | None = typer.Option(
+        None,
+        help="Bearer token for GraphQL auth (overrides profile)",
+    ),
+    dry_run: bool = typer.Option(False, help="Do not upload, print rows as JSON"),
+    out: Path | None = typer.Option(
+        None,
+        "--out",
+        "-o",
+        help="Optional path to write the generated rows as JSON",
+    ),
+    debug: bool = typer.Option(
+        False,
+        "--debug",
+        help="Enable debug logging",
+    ),
+) -> None:
+    configure_logging(debug)
+    logger.debug("Starting ingest: input=%s profile=%s", input_path, profile)
+    profile_cfg = load_ingest_profile(profile)
+    final_base_url = base_url or profile_cfg.base_url or os.getenv(
+        "SCHEMA_BRIDGE_BASE_URL",
+        "https://emx2.dev.molgenis.org/",
+    )
+    final_schema = schema or profile_cfg.schema or os.getenv(
+        "SCHEMA_BRIDGE_SCHEMA",
+        "catalogue-demo",
+    )
+    final_table = table or profile_cfg.table or "Resource"
+    final_mode = (mode or profile_cfg.mode or "upsert").lower()
+    final_id_prefix = id_prefix or profile_cfg.id_prefix or "import-"
+    final_batch_size = batch_size or int(profile_cfg.batch_size or 100)
+    final_token = token or profile_cfg.token or os.getenv("SCHEMA_BRIDGE_TOKEN")
+    final_validate = validate if validate is not None else profile_cfg.validate
+    final_mutation_file = mutation_file or profile_cfg.graphql_mutation
+
+    resolved_format = _infer_format(input_path, rdf_format)
+    graph = _load_rdf_graph(input_path, resolved_format)
+    _validate_if_requested(graph, profile_cfg, final_validate)
+
+    rows = _rows_from_rdf(
+        graph,
+        profile=profile_cfg,
+        select_override=select,
+        id_prefix=final_id_prefix,
+    )
+    logger.debug("Prepared %s row(s) for ingest", len(rows))
+    if out:
+        write_json({"rows": rows}, out)
+    if dry_run:
+        typer.echo(json.dumps({"rows": rows}, indent=2))
+        return
+    if not rows:
+        typer.echo("No rows to upload")
+        return
+
+    if final_mode not in {"upsert", "insert"}:
+        raise ValueError("Mode must be 'upsert' or 'insert'")
+
+    if final_mutation_file:
+        mutation_path = resolve_profile_path(profile_cfg, final_mutation_file, "schema_bridge.resources")
+        query = Path(mutation_path).read_text(encoding="utf-8")
+    else:
+        query = f"mutation ingest($value:[{final_table}Input]){{{final_mode}({final_table}:$value){{message}}}}"
+
+    for i in range(0, len(rows), final_batch_size):
+        batch = rows[i : i + final_batch_size]
+        payload = {"query": query, "variables": {"value": batch}}
+        _graphql_post(final_base_url, final_schema, payload, final_token)
+    typer.echo(f"Uploaded {len(rows)} row(s) to {final_schema}.{final_table} via {final_mode}")
+    logger.debug("Ingest complete")
 
 
 def main() -> None:

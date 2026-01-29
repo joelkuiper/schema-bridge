@@ -1,4 +1,5 @@
 name: dcat
+kind: export
 description: DCAT dataset export
 fetch:
   graphql: graphql/query.graphql
