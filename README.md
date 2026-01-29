@@ -222,7 +222,7 @@ Export profiles are YAML files with four sections:
 
 ```yaml
 fetch:
-  graphql: <query file or inline>
+  graphql: <query file>
   root_key: <path to data in response>
   endpoint: <full URL>              # optional, overrides base_url + schema
   base_url: <base URL>              # optional
@@ -232,11 +232,11 @@ mapping:
   field_paths: <field mappings>     # see Architecture > How mappings work
 
 export:
-  select: <SPARQL SELECT>
-  construct: <SPARQL CONSTRUCT>
+  select: <path to SPARQL SELECT>
+  construct: <path to SPARQL CONSTRUCT>
 
 validate:
-  shacl: <shapes file>
+  shacl: <path to shapes file>
   enabled: true|false
 ```
 
@@ -267,7 +267,7 @@ validate:
   enabled: true|false
 
 extract:
-  sparql: <SPARQL SELECT>
+  sparql: <path to SPARQL SELECT>
 
 upload:
   table: <target table>
