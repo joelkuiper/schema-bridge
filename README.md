@@ -12,7 +12,6 @@
   * [How mappings bridge GraphQL and RDF](#how-mappings-bridge-graphql-and-rdf)
 * [Installation](#installation)
 * [Quick start](#quick-start)
-* [Output formats](#output-formats)
 * [Profiles](#profiles)
   * [Export profiles](#export-profiles)
   * [Ingest profiles](#ingest-profiles)
@@ -238,11 +237,26 @@ uv run schema-bridge export --profile healthdcat-ap-r5-molgenis --format ttl
 
 Useful options:
 
-* `--format` — output format (see [Output formats](#output-formats))
+* `--format` — output format (see table below)
 * `--limit` — limit GraphQL rows fetched
 * `--debug` — verbose logging
 
 For full CLI options: `uv run schema-bridge export --help`
+
+**Output formats:**
+
+Use `--format` to select an output format for export:
+
+| Format | Extension |
+|--------|-----------|
+| `csv` | Tabular CSV |
+| `json` | JSON |
+| `jsonld` | JSON-LD |
+| `ttl` | Turtle |
+| `rdfxml` | RDF/XML |
+| `nt` | N-Triples |
+
+Export commands write to `stdout`. Redirect to a file to persist output.
 
 ### Ingest
 
@@ -267,23 +281,6 @@ Notes:
 
 * `--format` is optional; RDF format is inferred from the file extension
 * Use `--dry-run` or `--out` to inspect rows without uploading
-
----
-
-## Output formats
-
-Use `--format` to select an output format for export:
-
-| Format | Extension |
-|--------|-----------|
-| `csv` | Tabular CSV |
-| `json` | JSON |
-| `jsonld` | JSON-LD |
-| `ttl` | Turtle |
-| `rdfxml` | RDF/XML |
-| `nt` | N-Triples |
-
-Export commands write to `stdout`. Redirect to a file to persist output.
 
 ---
 
