@@ -59,12 +59,12 @@ def fetch(
     ),
 ) -> None:
     profile_cfg = load_profile(profile)
+    pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
     query_path = query or profile_cfg.graphql_query or "graphql/resources.graphql"
     query_text = load_text(
         query_path if "/" in query_path else f"graphql/{query_path}",
         "schema_bridge.resources",
     )
-    pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
     data = fetch_graphql(
         base_url,
         schema,
@@ -225,12 +225,12 @@ def run(
         targets_override=None,
         validate_override=validate,
     )
+    pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
     query_path = query or export.profile.graphql_query or "graphql/resources.graphql"
     query_text = load_text(
         query_path if "/" in query_path else f"graphql/{query_path}",
         "schema_bridge.resources",
     )
-    pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
     graphql_data = fetch_graphql(
         base_url,
         schema,

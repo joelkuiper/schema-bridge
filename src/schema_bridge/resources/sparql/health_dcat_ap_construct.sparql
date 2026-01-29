@@ -48,14 +48,22 @@ WHERE {
   }
   OPTIONAL {
     ?res field:contactEmail ?contactEmail .
-    BIND(IRI(CONCAT("mailto:", STR(?contactEmail))) AS ?contactEmailIri)
-    BIND(IRI(CONCAT("https://catalogue.org/contact/", ENCODE_FOR_URI(STR(?contactEmail)))) AS ?contact)
+    BIND(STR(?contactEmail) AS ?contactEmailRaw)
+    BIND(IF(CONTAINS(?contactEmailRaw, ","), STRBEFORE(?contactEmailRaw, ","), ?contactEmailRaw) AS ?contactEmailTmp)
+    BIND(IF(CONTAINS(?contactEmailTmp, ";"), STRBEFORE(?contactEmailTmp, ";"), ?contactEmailTmp) AS ?contactEmailTmp2)
+    BIND(REPLACE(?contactEmailTmp2, "^mailto:", "") AS ?contactEmailClean)
+    BIND(IRI(CONCAT("mailto:", ?contactEmailClean)) AS ?contactEmailIri)
+    BIND(IRI(CONCAT("https://catalogue.org/contact/", ENCODE_FOR_URI(?contactEmailClean))) AS ?contact)
   }
   OPTIONAL { ?res field:contactName ?contactName . }
 
+  OPTIONAL { ?res field:leadOrganisationAcronym ?leadOrgName . }
+  OPTIONAL { ?res field:publisherName ?publisherName . }
+  BIND(COALESCE(?publisherName, ?leadOrgName) AS ?publisherLabel)
   OPTIONAL {
-    ?res field:leadOrganisationAcronym ?publisherName .
-    BIND(IRI(CONCAT("https://catalogue.org/org/", ENCODE_FOR_URI(STR(?publisherName)))) AS ?publisher)
+    FILTER(BOUND(?publisherLabel))
+    BIND(IRI(CONCAT("https://catalogue.org/org/", ENCODE_FOR_URI(STR(?publisherLabel)))) AS ?publisher)
+    BIND(?publisherLabel AS ?publisherName)
   }
 
   OPTIONAL {

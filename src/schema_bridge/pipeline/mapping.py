@@ -27,7 +27,7 @@ class MappingConfig:
     raw: RawMapping = field(default_factory=RawMapping)
     field_aliases: dict[str, str] = field(default_factory=dict)
     iri_fields: set[str] = field(default_factory=set)
-    field_paths: dict[str, str] = field(default_factory=dict)
+    field_paths: dict[str, list[str] | str] = field(default_factory=dict)
     concept_fields: dict[str, "ConceptField"] = field(default_factory=dict)
     node_fields: dict[str, "NodeField"] = field(default_factory=dict)
     concept_ns: str = "https://catalogue.org/concept/"
@@ -50,10 +50,12 @@ class MappingConfig:
             for k, v in (data.get("field_aliases") or {}).items()  # type: ignore[union-attr]
         }
         iri_fields = {str(item) for item in (data.get("iri_fields") or [])}  # type: ignore[arg-type]
-        field_paths = {
-            str(k): str(v)
-            for k, v in (data.get("field_paths") or {}).items()  # type: ignore[union-attr]
-        }
+        field_paths: dict[str, list[str] | str] = {}
+        for key, value in (data.get("field_paths") or {}).items():  # type: ignore[union-attr]
+            if isinstance(value, list):
+                field_paths[str(key)] = [str(item) for item in value]
+            else:
+                field_paths[str(key)] = str(value)
         concept_fields = {}
         for key, raw_cfg in (data.get("concept_fields") or {}).items():  # type: ignore[union-attr]
             if isinstance(raw_cfg, dict):
@@ -184,14 +186,28 @@ def _is_nested(value: object) -> bool:
 
 def _normalized_row(row: dict, mapping: MappingConfig) -> dict:
     normalized = dict(row)
-    for out_key, path in mapping.field_paths.items():
-        values = _values_from_path(row, path)
-        if not values:
+    for out_key, path_spec in mapping.field_paths.items():
+        paths = path_spec if isinstance(path_spec, list) else [path_spec]
+        merged: list[object] = []
+        for path in paths:
+            values = _values_from_path(row, path)
+            if values:
+                merged.extend(values)
+        merged = [value for value in merged if not isinstance(value, (dict, list))]
+        if not merged:
             continue
-        if len(values) == 1:
-            normalized[out_key] = values[0]
+        existing = normalized.get(out_key)
+        if existing is None:
+            if len(merged) == 1:
+                normalized[out_key] = merged[0]
+            else:
+                normalized[out_key] = merged
+            continue
+        if isinstance(existing, list):
+            existing.extend(merged)
+            normalized[out_key] = existing
         else:
-            normalized[out_key] = values
+            normalized[out_key] = [existing, *merged]
     if mapping.drop_nested:
         normalized = {k: v for k, v in normalized.items() if not _is_nested(v)}
     return normalized

@@ -6,6 +6,10 @@ query HealthDcatApResources($limit: Int, $offset: Int, $filter: ResourcesFilter)
     description
     website
     contactEmail
+    publisher {
+      name
+      website
+    }
     leadOrganisation {
       acronym
     }
@@ -35,10 +39,6 @@ query HealthDcatApResources($limit: Int, $offset: Int, $filter: ResourcesFilter)
     design {
       definition
       name
-    }
-    designPaper {
-      title
-      doi
     }
     inclusionCriteria {
       code

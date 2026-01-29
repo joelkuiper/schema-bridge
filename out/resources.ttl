@@ -1,867 +1,851 @@
-@prefix ns1: <https://catalogue.org/field/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<https://catalogue.org/dataset/ANAGRAFICA> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "ANAGRAFICA" ;
-    ns1:name "ANAGRAFICA" ;
-    ns1:resourceId "ANAGRAFICA" ;
-    ns1:resourceName "ANAGRAFICA" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/AP> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "AP" ;
-    ns1:mappedToSourceNames "AP" ;
-    ns1:mappedToTargetNames "OOM" ;
-    ns1:name "AP" ;
-    ns1:resourceId "AP" ;
-    ns1:resourceName "AP" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/ARS_ANAG_MED_RES_storico> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "ARS_ANAG_MED_RES_storico" ;
-    ns1:mappedToSourceNames "ARS_ANAG_MED_RES_storico" ;
-    ns1:mappedToTargetNames "OOM" ;
-    ns1:name "ARS_ANAG_MED_RES_storico" ;
-    ns1:resourceId "ARS_ANAG_MED_RES_storico" ;
-    ns1:resourceName "ARS_ANAG_MED_RES_storico" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/ATHLETE_fetal_growth_standardized> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "ATHLETE_fetal_growth_standardized" ;
-    ns1:label "ATHLETE Harmonised dataset with standardized fetal growth data: ATHLETE_fetal_growth_standardized" ;
-    ns1:name "ATHLETE_fetal_growth_standardized" ;
-    ns1:resourceId "GenR" ;
-    ns1:resourceName "The Generation R Study" ;
-    ns1:sinceVersion "1.0.0" .
-
-<https://catalogue.org/dataset/BDD_OP> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years" ;
-    ns1:id "BDD_OP" ;
-    ns1:label "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years" ;
-    ns1:name "BDD_OP" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/BDD_cotinine> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years" ;
-    ns1:id "BDD_cotinine" ;
-    ns1:label "database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years" ;
-    ns1:name "BDD_cotinine" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/BDD_creatinine> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years" ;
-    ns1:id "BDD_creatinine" ;
-    ns1:label "database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years" ;
-    ns1:name "BDD_creatinine" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/BDD_ethers> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years" ;
-    ns1:id "BDD_ethers" ;
-    ns1:label "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years" ;
-    ns1:name "BDD_ethers" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/BDD_mercure> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "database with measurement of metals in a sample of mothers' hair during the third trimester" ;
-    ns1:id "BDD_mercure" ;
-    ns1:label "database with measurement of metals in a sample of mothers' hair during the third trimester" ;
-    ns1:name "BDD_mercure" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/BDD_perfluores> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "database with PFASs measurement from cord blood and in the blood of children at 12 years" ;
-    ns1:id "BDD_perfluores" ;
-    ns1:label "database with PFASs measurement from cord blood and in the blood of children at 12 years" ;
-    ns1:name "BDD_perfluores" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/BDD_phtalates_phenols> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "database with phtalates and phenols measurement from maternal urine sample" ;
-    ns1:id "BDD_phtalates_phenols" ;
-    ns1:label "database with phtalates and phenols measurement from maternal urine sample" ;
-    ns1:name "BDD_phtalates_phenols" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/BDD_pop> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "database with POPs measurement from cord blood and in the blood of children at 12 years" ;
-    ns1:id "BDD_pop" ;
-    ns1:label "database with POPs measurement from cord blood and in the blood of children at 12 years" ;
-    ns1:name "BDD_pop" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/CDM_SOURCE> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "CDM_SOURCE" ;
-    ns1:name "CDM_SOURCE" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/CHILD-ALLGENERALDATA_12112020> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "CHILD-ALLGENERALDATA_12112020" ;
-    ns1:label "DataWiki dataset CHILD-ALLGENERALDATA_12112020" ;
-    ns1:name "CHILD-ALLGENERALDATA_12112020" ;
-    ns1:resourceId "GenR" ;
-    ns1:resourceName "The Generation R Study" ;
-    ns1:sinceVersion "1.0.0" .
-
-<https://catalogue.org/dataset/COD_FARMACI_SPF> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "COD_FARMACI_SPF" ;
-    ns1:mappedToSourceNames "COD_FARMACI_SPF" ;
-    ns1:mappedToTargetNames "OOM" ;
-    ns1:name "COD_FARMACI_SPF" ;
-    ns1:resourceId "COD_FARMACI_SPF" ;
-    ns1:resourceName "COD_FARMACI_SPF" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/CPA1> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "CPA1" ;
-    ns1:mappedToSourceNames "Dutch institute for health and welfare" ;
-    ns1:mappedToTargetNames "OOM" ;
-    ns1:name "CPA1" ;
-    ns1:resourceId "DHL" ;
-    ns1:resourceName "Dutch institute for health and welfare" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/CPA2> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "CPA2" ;
-    ns1:mappedToSourceNames "Dutch institute for health and welfare" ;
-    ns1:mappedToTargetNames "OOM" ;
-    ns1:name "CPA2" ;
-    ns1:resourceId "DHL" ;
-    ns1:resourceName "Dutch institute for health and welfare" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/DIAGNOSTIC> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "DIAGNOSTIC" ;
-    ns1:name "DIAGNOSTIC" ;
-    ns1:resourceId "DIAGNOSTIC" ;
-    ns1:resourceName "DIAGNOSTIC" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/EFEMERIS_PRESCRIPTION> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "EFEMERIS_PRESCRIPTION" ;
-    ns1:name "EFEMERIS_PRESCRIPTION" ;
-    ns1:resourceId "EFEMERIS_PRESCRIPTION" ;
-    ns1:resourceName "EFEMERIS_PRESCRIPTION" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/EUROCAT> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "EUROCAT" ;
-    ns1:name "EUROCAT" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/EVENTS> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "EVENTS" ;
-    ns1:mappedFromSourceNames "ARS_PS",
-        "Dutch institute for health and welfare",
-        "SALM",
-        "SEA" ;
-    ns1:mappedFromTargetNames "OOM" ;
-    ns1:name "EVENTS" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/EXE> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "EXE" ;
-    ns1:name "EXE" ;
-    ns1:resourceId "EXE" ;
-    ns1:resourceName "EXE" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/FARMACEUTICA> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "FARMACEUTICA" ;
-    ns1:name "FARMACEUTICA" ;
-    ns1:resourceId "FARMACEUTICA" ;
-    ns1:resourceName "FARMACEUTICA" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/FETALCRL_22112016> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "FETALCRL_22112016" ;
-    ns1:label "DataWiki dataset FETALCRL_22112016" ;
-    ns1:name "FETALCRL_22112016" ;
-    ns1:resourceId "GenR" ;
-    ns1:resourceName "The Generation R Study" ;
-    ns1:sinceVersion "1.0.0" .
-
-<https://catalogue.org/dataset/FETALGROWTH_22112016> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "FETALGROWTH_22112016" ;
-    ns1:label "DataWiki dataset FETALGROWTH_22112016" ;
-    ns1:name "FETALGROWTH_22112016" ;
-    ns1:resourceId "GenR" ;
-    ns1:resourceName "The Generation R Study" ;
-    ns1:sinceVersion "1.0.0" .
-
-<https://catalogue.org/dataset/FETALPLACENTA_22112016> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "FETALPLACENTA_22112016" ;
-    ns1:label "DataWiki dataset FETALPLACENTA_22112016" ;
-    ns1:name "FETALPLACENTA_22112016" ;
-    ns1:resourceId "GenR" ;
-    ns1:resourceName "The Generation R Study" ;
-    ns1:sinceVersion "1.0.0" .
-
-<https://catalogue.org/dataset/INSTANCE> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "INSTANCE" ;
-    ns1:name "INSTANCE" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/MBRN> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "MBRN" ;
-    ns1:name "MBRN" ;
-    ns1:resourceId "MBRN" ;
-    ns1:resourceName "MBRN" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/MBRN_child> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "MBRN_child" ;
-    ns1:name "MBRN_child" ;
-    ns1:resourceId "MBRN" ;
-    ns1:resourceName "MBRN" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/MBRN_mother> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "MBRN_mother" ;
-    ns1:name "MBRN_mother" ;
-    ns1:resourceId "MBRN" ;
-    ns1:resourceName "MBRN" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/MEDICAL_OBSERVATIONS> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "MEDICAL_OBSERVATIONS" ;
-    ns1:mappedFromSourceNames "AP" ;
-    ns1:mappedFromTargetNames "OOM" ;
-    ns1:name "MEDICAL_OBSERVATIONS" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/MEDICINES> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "MEDICINES" ;
-    ns1:mappedFromSourceNames "SPF" ;
-    ns1:mappedFromTargetNames "OOM" ;
-    ns1:name "MEDICINES" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/METADATA> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "METADATA" ;
-    ns1:name "METADATA" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/OBSERVATION_PERIODS> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "OBSERVATION_PERIODS" ;
-    ns1:mappedFromSourceNames "ARS_ANAG_MED_RES_storico" ;
-    ns1:mappedFromTargetNames "OOM" ;
-    ns1:name "OBSERVATION_PERIODS" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/PERSONS> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "PERSONS" ;
-    ns1:mappedFromSourceNames "ARS_ANAG_MED_RES_storico" ;
-    ns1:mappedFromTargetNames "OOM" ;
-    ns1:name "PERSONS" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/PERSON_RELATIONSHIPS> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "PERSON_RELATIONSHIPS" ;
-    ns1:name "PERSON_RELATIONSHIPS" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/PE_preg_mr_2021-12-02_379> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Table containing data concerning assessment of phenols and phtalates during pregnancy" ;
-    ns1:id "PE_preg_mr_2021-12-02_379" ;
-    ns1:label "phenols_phthalates_pregnancy_data" ;
-    ns1:name "PE_preg_mr_2021-12-02_379" ;
-    ns1:numberOfRows 479 ;
-    ns1:resourceId "Sepages" ;
-    ns1:resourceName "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "person" .
-
-<https://catalogue.org/dataset/PHT> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "PHT" ;
-    ns1:name "PHT" ;
-    ns1:resourceId "PHT" ;
-    ns1:resourceName "PHT" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/PROCEDURES> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "PROCEDURES" ;
-    ns1:mappedFromSourceNames "SPA" ;
-    ns1:mappedFromTargetNames "OOM" ;
-    ns1:name "PROCEDURES" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/PRODUCTS> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "PRODUCTS" ;
-    ns1:mappedFromSourceNames "COD_FARMACI_SPF" ;
-    ns1:mappedFromTargetNames "OOM" ;
-    ns1:name "PRODUCTS" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/PS> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "PS" ;
-    ns1:mappedToSourceNames "ARS_PS" ;
-    ns1:mappedToTargetNames "OOM" ;
-    ns1:name "PS" ;
-    ns1:resourceId "ARS_PS" ;
-    ns1:resourceName "ARS_PS" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/RMR> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "RMR" ;
-    ns1:mappedToSourceNames "RMR" ;
-    ns1:mappedToTargetNames "OOM" ;
-    ns1:name "RMR" ;
-    ns1:resourceId "RMR" ;
-    ns1:resourceName "RMR" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/SALM> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "SALM" ;
-    ns1:mappedToSourceNames "SALM" ;
-    ns1:mappedToTargetNames "OOM" ;
-    ns1:name "SALM" ;
-    ns1:resourceId "SALM" ;
-    ns1:resourceName "SALM" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/SEA> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "SEA" ;
-    ns1:mappedToSourceNames "SEA" ;
-    ns1:mappedToTargetNames "OOM" ;
-    ns1:name "SEA" ;
-    ns1:resourceId "SEA" ;
-    ns1:resourceName "SEA" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/SPA> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "SPA" ;
-    ns1:mappedToSourceNames "SPA" ;
-    ns1:mappedToTargetNames "OOM" ;
-    ns1:name "SPA" ;
-    ns1:resourceId "SPA" ;
-    ns1:resourceName "SPA" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/SPECIALISTICA> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "SPECIALISTICA" ;
-    ns1:name "SPECIALISTICA" ;
-    ns1:resourceId "SPECIALISTICA" ;
-    ns1:resourceName "SPECIALISTICA" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/SPF> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "SPF" ;
-    ns1:mappedToSourceNames "SPF" ;
-    ns1:mappedToTargetNames "OOM" ;
-    ns1:name "SPF" ;
-    ns1:resourceId "SPF" ;
-    ns1:resourceName "SPF" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/SURVEY_ID> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "SURVEY_ID" ;
-    ns1:mappedFromSourceNames "RMR" ;
-    ns1:mappedFromTargetNames "OOM" ;
-    ns1:name "SURVEY_ID" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/SURVEY_OBSERVATIONS> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "SURVEY_OBSERVATIONS" ;
-    ns1:mappedFromSourceNames "RMR" ;
-    ns1:mappedFromTargetNames "OOM" ;
-    ns1:name "SURVEY_OBSERVATIONS" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/Ultrasound_all_SLC_20220428_893> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Table containing data concerning ultrasound" ;
-    ns1:id "Ultrasound_all_SLC_20220428_893" ;
-    ns1:label "ultrasound_data" ;
-    ns1:name "Ultrasound_all_SLC_20220428_893" ;
-    ns1:numberOfRows 458 ;
-    ns1:resourceId "Sepages" ;
-    ns1:resourceName "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "person" .
-
-<https://catalogue.org/dataset/Urban_ISGlobal> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Urban exposome dataset generated by Montserrat de Castro (ISGlobal)" ;
-    ns1:id "Urban_ISGlobal" ;
-    ns1:label "Urban exposome dataset generated by Montserrat de Castro (ISGlobal)" ;
-    ns1:name "Urban_ISGlobal" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/VACCINES> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "VACCINES" ;
-    ns1:mappedFromSourceNames "VCN" ;
-    ns1:mappedFromTargetNames "OOM" ;
-    ns1:name "VACCINES" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/VCN> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "VCN" ;
-    ns1:mappedToSourceNames "VCN" ;
-    ns1:mappedToTargetNames "OOM" ;
-    ns1:name "VCN" ;
-    ns1:resourceId "VCN" ;
-    ns1:resourceName "VCN" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/VISIT_OCCURRENCE> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "VISIT_OCCURRENCE" ;
-    ns1:mappedFromSourceNames "AP",
-        "SPA" ;
-    ns1:mappedFromTargetNames "OOM" ;
-    ns1:name "VISIT_OCCURRENCE" ;
-    ns1:resourceId "OOM" ;
-    ns1:resourceName "OOM" ;
-    ns1:sinceVersion "2.2" .
-
-<https://catalogue.org/dataset/avo_toimenpide> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "avo_toimenpide" ;
-    ns1:name "avo_toimenpide" ;
-    ns1:resourceId "AVOHILMO" ;
-    ns1:resourceName "Register of Primary Health Care Visits (AVOHILMO)" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/base_respi_enfant_20210326> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Table containing data concerning respiratory health questionnaires for children up to 3 years old" ;
-    ns1:id "base_respi_enfant_20210326" ;
-    ns1:label "Respiratory_child_data" ;
-    ns1:name "base_respi_enfant_20210326" ;
-    ns1:numberOfRows 484 ;
-    ns1:resourceId "Sepages" ;
-    ns1:resourceName "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "person" .
-
-<https://catalogue.org/dataset/bdd_1a_v1_1> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Table containing data concerning first year of life of the child" ;
-    ns1:id "bdd_1a_v1_1" ;
-    ns1:label "child_data" ;
-    ns1:name "bdd_1a_v1_1" ;
-    ns1:numberOfRows 484 ;
-    ns1:resourceId "Sepages" ;
-    ns1:resourceName "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "person" .
-
-<https://catalogue.org/dataset/bdd_2a_v_1_0> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Table containing  data concerning  second year of life of the child" ;
-    ns1:id "bdd_2a_v_1_0" ;
-    ns1:label "child_data" ;
-    ns1:name "bdd_2a_v_1_0" ;
-    ns1:numberOfRows 484 ;
-    ns1:resourceId "Sepages" ;
-    ns1:resourceName "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "person" .
-
-<https://catalogue.org/dataset/bdd_grossesse_v5_1> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Table containing data concerning pregnancy" ;
-    ns1:id "bdd_grossesse_v5_1" ;
-    ns1:label "pregnancy_data" ;
-    ns1:name "bdd_grossesse_v5_1" ;
-    ns1:numberOfRows 484 ;
-    ns1:resourceId "Sepages" ;
-    ns1:resourceName "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "person" .
-
-<https://catalogue.org/dataset/bdd_pere_1_2> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Table containing data concerning father of the child SEPAGES" ;
-    ns1:id "bdd_pere_1_2" ;
-    ns1:label "father_data" ;
-    ns1:name "bdd_pere_1_2" ;
-    ns1:numberOfRows 410 ;
-    ns1:resourceId "Sepages" ;
-    ns1:resourceName "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "person" .
-
-<https://catalogue.org/dataset/blood_pressure> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "blood pressure of the child measured during G21 cohort follow-ups" ;
-    ns1:id "blood_pressure" ;
-    ns1:label "blood pressure" ;
-    ns1:name "blood_pressure" ;
-    ns1:resourceId "G21" ;
-    ns1:resourceName "Generation 21" ;
-    ns1:sinceVersion "1.0.0" .
-
-<https://catalogue.org/dataset/bloodpressure%20after%20birth> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "bloodpressure after birth" ;
-    ns1:name "bloodpressure after birth" ;
-    ns1:resourceId "ENVIRONAGE" ;
-    ns1:resourceName "ENVIRonmental influence ON early AGEing" .
-
-<https://catalogue.org/dataset/cdm_1> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "cdm_1" ;
-    ns1:name "cdm_1" ;
-    ns1:resourceId "testNetwork1" ;
-    ns1:resourceName "name for test network1" .
-
-<https://catalogue.org/dataset/ch_bf_mr%26ag_2021-12-02_5> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Table containing data concerning breastfeeding" ;
-    ns1:id "ch_bf_mr&ag_2021-12-02_5" ;
-    ns1:label "breastfeeding_data" ;
-    ns1:name "ch_bf_mr&ag_2021-12-02_5" ;
-    ns1:numberOfRows 484 ;
-    ns1:resourceId "Sepages" ;
-    ns1:resourceName "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "person" .
-
-<https://catalogue.org/dataset/chemicals_ath> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "chemicals_ath" ;
-    ns1:label "Chemicals (ATHLETE)" ;
-    ns1:name "chemicals_ath" ;
-    ns1:resourceId "ATHLETE" ;
-    ns1:resourceName "Advancing Tools for Human Early Lifecourse Exposome Research and Translation" ;
-    ns1:sinceVersion "1.1.0" .
-
-<https://catalogue.org/dataset/child> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "child" ;
-    ns1:label "child" ;
-    ns1:name "child" ;
-    ns1:resourceId "G21" ;
-    ns1:resourceName "Generation 21" ;
-    ns1:sinceVersion "1" ;
-    ns1:unitOfObservationName "person" .
-
-<https://catalogue.org/dataset/code_helix_athlete> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Table containing Ids" ;
-    ns1:id "code_helix_athlete" ;
-    ns1:label "Id_data" ;
-    ns1:name "code_helix_athlete" ;
-    ns1:numberOfRows 484 ;
-    ns1:resourceId "Sepages" ;
-    ns1:resourceName "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "person" .
-
-<https://catalogue.org/dataset/core> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "core" ;
-    ns1:name "core" ;
-    ns1:resourceId "GenR",
-        "LifeCycle",
-        "NFBC1966" ;
-    ns1:resourceName "NFBC1966",
-        "The Generation R Study",
-        "The LifeCycle Project" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/datenaisspere> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Father date of birth from 6 and 12 years old follow-ups" ;
-    ns1:id "datenaisspere" ;
-    ns1:label "Father date of birth" ;
-    ns1:name "datenaisspere" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/ddn_pere> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Table containing date of birth of the father" ;
-    ns1:id "ddn_pere" ;
-    ns1:label "ddn_father" ;
-    ns1:name "ddn_pere" ;
-    ns1:numberOfRows 484 ;
-    ns1:resourceId "Sepages" ;
-    ns1:resourceName "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "person" .
-
-<https://catalogue.org/dataset/efr_mere_LMAB_20210902_26> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Table containing data concerning mother's respiratory examination" ;
-    ns1:id "efr_mere_LMAB_20210902_26" ;
-    ns1:label "Respiratory_function_test_mother" ;
-    ns1:name "efr_mere_LMAB_20210902_26" ;
-    ns1:numberOfRows 484 ;
-    ns1:resourceId "Sepages" ;
-    ns1:resourceName "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "person" .
-
-<https://catalogue.org/dataset/efr_pere_LMAB_20210902_26> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Table containing data concerning  father's respiratory examination" ;
-    ns1:id "efr_pere_LMAB_20210902_26" ;
-    ns1:label "Respiratory_function_test_father" ;
-    ns1:name "efr_pere_LMAB_20210902_26" ;
-    ns1:numberOfRows 484 ;
-    ns1:resourceId "Sepages" ;
-    ns1:resourceName "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "person" .
-
-<https://catalogue.org/dataset/geocodes> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "database with geocodes of the participants" ;
-    ns1:id "geocodes" ;
-    ns1:label "database with geocodes of the participants" ;
-    ns1:name "geocodes" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/harmonized> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Non existing variables created for ATHLETE" ;
-    ns1:id "harmonized" ;
-    ns1:label "Variables harmonized for ATHLETE or LifeCycle" ;
-    ns1:name "harmonized" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/kayntisyy_icd10> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "kayntisyy_icd10" ;
-    ns1:name "kayntisyy_icd10" ;
-    ns1:resourceId "AVOHILMO" ;
-    ns1:resourceName "Register of Primary Health Care Visits (AVOHILMO)" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/kayntisyy_icpc2> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "kayntisyy_icpc2" ;
-    ns1:name "kayntisyy_icpc2" ;
-    ns1:resourceId "AVOHILMO" ;
-    ns1:resourceName "Register of Primary Health Care Visits (AVOHILMO)" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/maj_ddn_2021> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Date of birth updated in 2021" ;
-    ns1:id "maj_ddn_2021" ;
-    ns1:label "Update of the date of birth" ;
-    ns1:name "maj_ddn_2021" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/measurements%20after%20birth> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "measurements after birth" ;
-    ns1:name "measurements after birth" ;
-    ns1:resourceId "ENVIRONAGE" ;
-    ns1:resourceName "ENVIRonmental influence ON early AGEing" .
-
-<https://catalogue.org/dataset/measurements%20at%20FU1> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "measurements at FU1" ;
-    ns1:name "measurements at FU1" ;
-    ns1:resourceId "ENVIRONAGE" ;
-    ns1:resourceName "ENVIRonmental influence ON early AGEing" .
-
-<https://catalogue.org/dataset/new> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Non existing variables created for ATHLETE" ;
-    ns1:id "new" ;
-    ns1:label "Created variables for ATHLETE" ;
-    ns1:name "new" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/outcome> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "outcome" ;
-    ns1:name "outcome" ;
-    ns1:resourceId "LifeCycle" ;
-    ns1:resourceName "The LifeCycle Project" ;
-    ns1:sinceVersion "1.0.0" .
-
-<https://catalogue.org/dataset/outcome_ath> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "outcome_ath" ;
-    ns1:label "Outcome (ATHLETE)" ;
-    ns1:name "outcome_ath" ;
-    ns1:resourceId "ATHLETE" ;
-    ns1:resourceName "Advancing Tools for Human Early Lifecourse Exposome Research and Translation" ;
-    ns1:sinceVersion "1.1.0" .
-
-<https://catalogue.org/dataset/outcomes> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "outcomes" ;
-    ns1:name "outcomes" ;
-    ns1:resourceId "LifeCycle" ;
-    ns1:resourceName "The LifeCycle Project" ;
-    ns1:sinceVersion "1.0.0" .
-
-<https://catalogue.org/dataset/palvelutapahtuma> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "palvelutapahtuma" ;
-    ns1:name "palvelutapahtuma" ;
-    ns1:resourceId "AVOHILMO" ;
-    ns1:resourceName "Register of Primary Health Care Visits (AVOHILMO)" ;
-    ns1:sinceVersion "1.0" .
-
-<https://catalogue.org/dataset/pelagie_GC_q11> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Questionnaire at 11 years old of the child (Grandir et Changer)" ;
-    ns1:id "pelagie_GC_q11" ;
-    ns1:label "Questionnaire at 11 years old of the child" ;
-    ns1:name "pelagie_GC_q11" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/pelagie_dosage12> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "database with blood concentrations of effect biomarkers at 12 years old" ;
-    ns1:id "pelagie_dosage12" ;
-    ns1:label "database with blood concentrations of effect biomarkers at 12 years old" ;
-    ns1:name "pelagie_dosage12" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/pelagie_exam12> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Clinical examination at 12 years old" ;
-    ns1:id "pelagie_exam12" ;
-    ns1:label "Clinical examination at 12 years old" ;
-    ns1:name "pelagie_exam12" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/pelagie_q0> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "This table contains the variables collected at baseline for PELAGIE (pregnancy and birth)" ;
-    ns1:id "pelagie_q0" ;
-    ns1:label "Baseline questionnaire in early pregnancy and data at birth" ;
-    ns1:name "pelagie_q0" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/pelagie_q12> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Questionnaire at 12 years old of the child" ;
-    ns1:id "pelagie_q12" ;
-    ns1:label "Questionnaire at 12 years old of the child" ;
-    ns1:name "pelagie_q12" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/pelagie_q2> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Questionnaire at 2 years old of the child" ;
-    ns1:id "pelagie_q2" ;
-    ns1:label "Questionnaire at 2 years old of the child" ;
-    ns1:name "pelagie_q2" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/pelagie_q6> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Questionnaire at 6 years old of the child" ;
-    ns1:id "pelagie_q6" ;
-    ns1:label "Questionnaire at 6 years old of the child" ;
-    ns1:name "pelagie_q6" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/pepsy> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Neuropsychological tests at 6 years old" ;
-    ns1:id "pepsy" ;
-    ns1:label "Neuropsychological tests at 6 years old" ;
-    ns1:name "pepsy" ;
-    ns1:resourceId "PELAGIE" ;
-    ns1:resourceName "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "Patient" .
-
-<https://catalogue.org/dataset/quest_mt1raa1> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Table containing data concerning mother's educational level" ;
-    ns1:id "quest_mt1raa1" ;
-    ns1:label "educational_level_mother_data" ;
-    ns1:name "quest_mt1raa1" ;
-    ns1:numberOfRows 484 ;
-    ns1:resourceId "Sepages" ;
-    ns1:resourceName "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "person" .
-
-<https://catalogue.org/dataset/tabac_passif_enf> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Table containing data concerning child's Exposure to Tobacco Smoke" ;
-    ns1:id "tabac_passif_enf" ;
-    ns1:label "ETS_data" ;
-    ns1:name "tabac_passif_enf" ;
-    ns1:numberOfRows 484 ;
-    ns1:resourceId "Sepages" ;
-    ns1:resourceName "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la" ;
-    ns1:sinceVersion "1.0.0" ;
-    ns1:unitOfObservationName "person" .
-
-<https://catalogue.org/dataset/test%20dataset%20for%20testCohort3> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "test dataset for testCohort3" ;
-    ns1:name "test dataset for testCohort3" ;
-    ns1:resourceId "testCohort3" ;
-    ns1:resourceName "testCohort3C" .
-
-<https://catalogue.org/dataset/test%20dataset%20for%20testCohort4> a <https://catalogue.org/entity/Dataset> ;
-    ns1:id "test dataset for testCohort4" ;
-    ns1:name "test dataset for testCohort4" ;
-    ns1:resourceId "testCohort4" ;
-    ns1:resourceName "testCohort4" .
-
-<https://catalogue.org/dataset/wave_01> a <https://catalogue.org/entity/Dataset> ;
-    ns1:description "Table of wave 1 variables for LongITools",
-        "Wave 1 variables for NFBC1966" ;
-    ns1:id "wave_01" ;
-    ns1:label "Wave 1 variables",
-        "wave 1 variables" ;
-    ns1:name "wave_01" ;
-    ns1:resourceId "LongITools",
-        "NFBC1966" ;
-    ns1:resourceName "LongITools health & environment dynamics",
-        "NFBC1966" ;
-    ns1:sinceVersion "1.0.0" .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://catalogue.org/dataset/ANAGRAFICA> a dcat:Dataset ;
+    dcterms:identifier "ANAGRAFICA" ;
+    dcterms:isPartOf <https://catalogue.org/resource/ANAGRAFICA> ;
+    dcterms:title "ANAGRAFICA" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/AP> a dcat:Dataset ;
+    dcterms:identifier "AP" ;
+    dcterms:isPartOf <https://catalogue.org/resource/AP> ;
+    dcterms:title "AP" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/ARS_ANAG_MED_RES_storico> a dcat:Dataset ;
+    dcterms:identifier "ARS_ANAG_MED_RES_storico" ;
+    dcterms:isPartOf <https://catalogue.org/resource/ARS_ANAG_MED_RES_storico> ;
+    dcterms:title "ARS_ANAG_MED_RES_storico" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/ATHLETE_fetal_growth_standardized> a dcat:Dataset ;
+    dcterms:identifier "ATHLETE_fetal_growth_standardized" ;
+    dcterms:isPartOf <https://catalogue.org/resource/GenR> ;
+    dcterms:title "ATHLETE Harmonised dataset with standardized fetal growth data: ATHLETE_fetal_growth_standardized" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/BDD_OP> a dcat:Dataset ;
+    dcterms:description "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years" ;
+    dcterms:identifier "BDD_OP" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/BDD_cotinine> a dcat:Dataset ;
+    dcterms:description "database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years" ;
+    dcterms:identifier "BDD_cotinine" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/BDD_creatinine> a dcat:Dataset ;
+    dcterms:description "database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years" ;
+    dcterms:identifier "BDD_creatinine" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/BDD_ethers> a dcat:Dataset ;
+    dcterms:description "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years" ;
+    dcterms:identifier "BDD_ethers" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/BDD_mercure> a dcat:Dataset ;
+    dcterms:description "database with measurement of metals in a sample of mothers' hair during the third trimester" ;
+    dcterms:identifier "BDD_mercure" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "database with measurement of metals in a sample of mothers' hair during the third trimester" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/BDD_perfluores> a dcat:Dataset ;
+    dcterms:description "database with PFASs measurement from cord blood and in the blood of children at 12 years" ;
+    dcterms:identifier "BDD_perfluores" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "database with PFASs measurement from cord blood and in the blood of children at 12 years" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/BDD_phtalates_phenols> a dcat:Dataset ;
+    dcterms:description "database with phtalates and phenols measurement from maternal urine sample" ;
+    dcterms:identifier "BDD_phtalates_phenols" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "database with phtalates and phenols measurement from maternal urine sample" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/BDD_pop> a dcat:Dataset ;
+    dcterms:description "database with POPs measurement from cord blood and in the blood of children at 12 years" ;
+    dcterms:identifier "BDD_pop" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "database with POPs measurement from cord blood and in the blood of children at 12 years" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/CDM_SOURCE> a dcat:Dataset ;
+    dcterms:identifier "CDM_SOURCE" ;
+    dcterms:isPartOf <https://catalogue.org/resource/OOM> ;
+    dcterms:title "CDM_SOURCE" ;
+    dcat:version "2.2" .
+
+<https://catalogue.org/dataset/CHILD-ALLGENERALDATA_12112020> a dcat:Dataset ;
+    dcterms:identifier "CHILD-ALLGENERALDATA_12112020" ;
+    dcterms:isPartOf <https://catalogue.org/resource/GenR> ;
+    dcterms:title "DataWiki dataset CHILD-ALLGENERALDATA_12112020" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/COD_FARMACI_SPF> a dcat:Dataset ;
+    dcterms:identifier "COD_FARMACI_SPF" ;
+    dcterms:isPartOf <https://catalogue.org/resource/COD_FARMACI_SPF> ;
+    dcterms:title "COD_FARMACI_SPF" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/CPA1> a dcat:Dataset ;
+    dcterms:identifier "CPA1" ;
+    dcterms:isPartOf <https://catalogue.org/resource/DHL> ;
+    dcterms:title "CPA1" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/CPA2> a dcat:Dataset ;
+    dcterms:identifier "CPA2" ;
+    dcterms:isPartOf <https://catalogue.org/resource/DHL> ;
+    dcterms:title "CPA2" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/DIAGNOSTIC> a dcat:Dataset ;
+    dcterms:identifier "DIAGNOSTIC" ;
+    dcterms:isPartOf <https://catalogue.org/resource/DIAGNOSTIC> ;
+    dcterms:title "DIAGNOSTIC" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/EFEMERIS_PRESCRIPTION> a dcat:Dataset ;
+    dcterms:identifier "EFEMERIS_PRESCRIPTION" ;
+    dcterms:isPartOf <https://catalogue.org/resource/EFEMERIS_PRESCRIPTION> ;
+    dcterms:title "EFEMERIS_PRESCRIPTION" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/EUROCAT> a dcat:Dataset ;
+    dcterms:identifier "EUROCAT" ;
+    dcterms:isPartOf <https://catalogue.org/resource/OOM> ;
+    dcterms:title "EUROCAT" ;
+    dcat:version "2.2" .
+
+<https://catalogue.org/dataset/EVENTS> a dcat:Dataset ;
+    dcterms:identifier "EVENTS" ;
+    dcterms:isPartOf <https://catalogue.org/resource/OOM> ;
+    dcterms:title "EVENTS" ;
+    dcat:version "2.2" .
+
+<https://catalogue.org/dataset/EXE> a dcat:Dataset ;
+    dcterms:identifier "EXE" ;
+    dcterms:isPartOf <https://catalogue.org/resource/EXE> ;
+    dcterms:title "EXE" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/FARMACEUTICA> a dcat:Dataset ;
+    dcterms:identifier "FARMACEUTICA" ;
+    dcterms:isPartOf <https://catalogue.org/resource/FARMACEUTICA> ;
+    dcterms:title "FARMACEUTICA" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/FETALCRL_22112016> a dcat:Dataset ;
+    dcterms:identifier "FETALCRL_22112016" ;
+    dcterms:isPartOf <https://catalogue.org/resource/GenR> ;
+    dcterms:title "DataWiki dataset FETALCRL_22112016" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/FETALGROWTH_22112016> a dcat:Dataset ;
+    dcterms:identifier "FETALGROWTH_22112016" ;
+    dcterms:isPartOf <https://catalogue.org/resource/GenR> ;
+    dcterms:title "DataWiki dataset FETALGROWTH_22112016" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/FETALPLACENTA_22112016> a dcat:Dataset ;
+    dcterms:identifier "FETALPLACENTA_22112016" ;
+    dcterms:isPartOf <https://catalogue.org/resource/GenR> ;
+    dcterms:title "DataWiki dataset FETALPLACENTA_22112016" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/INSTANCE> a dcat:Dataset ;
+    dcterms:identifier "INSTANCE" ;
+    dcterms:isPartOf <https://catalogue.org/resource/OOM> ;
+    dcterms:title "INSTANCE" ;
+    dcat:version "2.2" .
+
+<https://catalogue.org/dataset/MBRN> a dcat:Dataset ;
+    dcterms:identifier "MBRN" ;
+    dcterms:isPartOf <https://catalogue.org/resource/MBRN> ;
+    dcterms:title "MBRN" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/MBRN_child> a dcat:Dataset ;
+    dcterms:identifier "MBRN_child" ;
+    dcterms:isPartOf <https://catalogue.org/resource/MBRN> ;
+    dcterms:title "MBRN_child" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/MBRN_mother> a dcat:Dataset ;
+    dcterms:identifier "MBRN_mother" ;
+    dcterms:isPartOf <https://catalogue.org/resource/MBRN> ;
+    dcterms:title "MBRN_mother" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/MEDICAL_OBSERVATIONS> a dcat:Dataset ;
+    dcterms:identifier "MEDICAL_OBSERVATIONS" ;
+    dcterms:isPartOf <https://catalogue.org/resource/OOM> ;
+    dcterms:title "MEDICAL_OBSERVATIONS" ;
+    dcat:version "2.2" .
+
+<https://catalogue.org/dataset/MEDICINES> a dcat:Dataset ;
+    dcterms:identifier "MEDICINES" ;
+    dcterms:isPartOf <https://catalogue.org/resource/OOM> ;
+    dcterms:title "MEDICINES" ;
+    dcat:version "2.2" .
+
+<https://catalogue.org/dataset/METADATA> a dcat:Dataset ;
+    dcterms:identifier "METADATA" ;
+    dcterms:isPartOf <https://catalogue.org/resource/OOM> ;
+    dcterms:title "METADATA" ;
+    dcat:version "2.2" .
+
+<https://catalogue.org/dataset/OBSERVATION_PERIODS> a dcat:Dataset ;
+    dcterms:identifier "OBSERVATION_PERIODS" ;
+    dcterms:isPartOf <https://catalogue.org/resource/OOM> ;
+    dcterms:title "OBSERVATION_PERIODS" ;
+    dcat:version "2.2" .
+
+<https://catalogue.org/dataset/PERSONS> a dcat:Dataset ;
+    dcterms:identifier "PERSONS" ;
+    dcterms:isPartOf <https://catalogue.org/resource/OOM> ;
+    dcterms:title "PERSONS" ;
+    dcat:version "2.2" .
+
+<https://catalogue.org/dataset/PERSON_RELATIONSHIPS> a dcat:Dataset ;
+    dcterms:identifier "PERSON_RELATIONSHIPS" ;
+    dcterms:isPartOf <https://catalogue.org/resource/OOM> ;
+    dcterms:title "PERSON_RELATIONSHIPS" ;
+    dcat:version "2.2" .
+
+<https://catalogue.org/dataset/PE_preg_mr_2021-12-02_379> a dcat:Dataset ;
+    dcterms:description "Table containing data concerning assessment of phenols and phtalates during pregnancy" ;
+    dcterms:identifier "PE_preg_mr_2021-12-02_379" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "phenols_phthalates_pregnancy_data" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/PFAS_2021_12_10> a dcat:Dataset ;
+    dcterms:description "Table containing data concerning assessment of pfas" ;
+    dcterms:identifier "PFAS_2021_12_10" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "pfas_data" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/PHT> a dcat:Dataset ;
+    dcterms:identifier "PHT" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PHT> ;
+    dcterms:title "PHT" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/PROCEDURES> a dcat:Dataset ;
+    dcterms:identifier "PROCEDURES" ;
+    dcterms:isPartOf <https://catalogue.org/resource/OOM> ;
+    dcterms:title "PROCEDURES" ;
+    dcat:version "2.2" .
+
+<https://catalogue.org/dataset/PRODUCTS> a dcat:Dataset ;
+    dcterms:identifier "PRODUCTS" ;
+    dcterms:isPartOf <https://catalogue.org/resource/OOM> ;
+    dcterms:title "PRODUCTS" ;
+    dcat:version "2.2" .
+
+<https://catalogue.org/dataset/PS> a dcat:Dataset ;
+    dcterms:identifier "PS" ;
+    dcterms:isPartOf <https://catalogue.org/resource/ARS_PS> ;
+    dcterms:title "PS" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/RMR> a dcat:Dataset ;
+    dcterms:identifier "RMR" ;
+    dcterms:isPartOf <https://catalogue.org/resource/RMR> ;
+    dcterms:title "RMR" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/SALM> a dcat:Dataset ;
+    dcterms:identifier "SALM" ;
+    dcterms:isPartOf <https://catalogue.org/resource/SALM> ;
+    dcterms:title "SALM" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/SEA> a dcat:Dataset ;
+    dcterms:identifier "SEA" ;
+    dcterms:isPartOf <https://catalogue.org/resource/SEA> ;
+    dcterms:title "SEA" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/SPA> a dcat:Dataset ;
+    dcterms:identifier "SPA" ;
+    dcterms:isPartOf <https://catalogue.org/resource/SPA> ;
+    dcterms:title "SPA" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/SPECIALISTICA> a dcat:Dataset ;
+    dcterms:identifier "SPECIALISTICA" ;
+    dcterms:isPartOf <https://catalogue.org/resource/SPECIALISTICA> ;
+    dcterms:title "SPECIALISTICA" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/SPF> a dcat:Dataset ;
+    dcterms:identifier "SPF" ;
+    dcterms:isPartOf <https://catalogue.org/resource/SPF> ;
+    dcterms:title "SPF" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/SURVEY_ID> a dcat:Dataset ;
+    dcterms:identifier "SURVEY_ID" ;
+    dcterms:isPartOf <https://catalogue.org/resource/OOM> ;
+    dcterms:title "SURVEY_ID" ;
+    dcat:version "2.2" .
+
+<https://catalogue.org/dataset/SURVEY_OBSERVATIONS> a dcat:Dataset ;
+    dcterms:identifier "SURVEY_OBSERVATIONS" ;
+    dcterms:isPartOf <https://catalogue.org/resource/OOM> ;
+    dcterms:title "SURVEY_OBSERVATIONS" ;
+    dcat:version "2.2" .
+
+<https://catalogue.org/dataset/Ultrasound_all_SLC_20220428_893> a dcat:Dataset ;
+    dcterms:description "Table containing data concerning ultrasound" ;
+    dcterms:identifier "Ultrasound_all_SLC_20220428_893" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "ultrasound_data" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/Urban_ISGlobal> a dcat:Dataset ;
+    dcterms:description "Urban exposome dataset generated by Montserrat de Castro (ISGlobal)" ;
+    dcterms:identifier "Urban_ISGlobal" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "Urban exposome dataset generated by Montserrat de Castro (ISGlobal)" .
+
+<https://catalogue.org/dataset/avo_toimenpide> a dcat:Dataset ;
+    dcterms:identifier "avo_toimenpide" ;
+    dcterms:isPartOf <https://catalogue.org/resource/AVOHILMO> ;
+    dcterms:title "avo_toimenpide" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/base_respi_enfant_20210326> a dcat:Dataset ;
+    dcterms:description "Table containing data concerning respiratory health questionnaires for children up to 3 years old" ;
+    dcterms:identifier "base_respi_enfant_20210326" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "Respiratory_child_data" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/bdd_1a_v1_1> a dcat:Dataset ;
+    dcterms:description "Table containing data concerning first year of life of the child" ;
+    dcterms:identifier "bdd_1a_v1_1" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "child_data" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/bdd_2a_v_1_0> a dcat:Dataset ;
+    dcterms:description "Table containing  data concerning  second year of life of the child" ;
+    dcterms:identifier "bdd_2a_v_1_0" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "child_data" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/bdd_grossesse_v5_1> a dcat:Dataset ;
+    dcterms:description "Table containing data concerning pregnancy" ;
+    dcterms:identifier "bdd_grossesse_v5_1" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "pregnancy_data" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/bdd_pere_1_2> a dcat:Dataset ;
+    dcterms:description "Table containing data concerning father of the child SEPAGES" ;
+    dcterms:identifier "bdd_pere_1_2" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "father_data" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/blood_pressure> a dcat:Dataset ;
+    dcterms:description "blood pressure of the child measured during G21 cohort follow-ups" ;
+    dcterms:identifier "blood_pressure" ;
+    dcterms:isPartOf <https://catalogue.org/resource/G21> ;
+    dcterms:title "blood pressure" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/bloodpressure%20after%20birth> a dcat:Dataset ;
+    dcterms:identifier "bloodpressure after birth" ;
+    dcterms:isPartOf <https://catalogue.org/resource/ENVIRONAGE> ;
+    dcterms:title "bloodpressure after birth" .
+
+<https://catalogue.org/dataset/cdm_1> a dcat:Dataset ;
+    dcterms:identifier "cdm_1" ;
+    dcterms:isPartOf <https://catalogue.org/resource/testNetwork1> ;
+    dcterms:title "cdm_1" .
+
+<https://catalogue.org/dataset/ch_bf_mr%26ag_2021-12-02_5> a dcat:Dataset ;
+    dcterms:description "Table containing data concerning breastfeeding" ;
+    dcterms:identifier "ch_bf_mr&ag_2021-12-02_5" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "breastfeeding_data" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/chemicals_ath> a dcat:Dataset ;
+    dcterms:identifier "chemicals_ath" ;
+    dcterms:isPartOf <https://catalogue.org/resource/ATHLETE> ;
+    dcterms:title "Chemicals (ATHLETE)" ;
+    dcat:version "1.1.0" .
+
+<https://catalogue.org/dataset/child> a dcat:Dataset ;
+    dcterms:identifier "child" ;
+    dcterms:isPartOf <https://catalogue.org/resource/G21> ;
+    dcterms:title "child" ;
+    dcat:version "1" .
+
+<https://catalogue.org/dataset/code_helix_athlete> a dcat:Dataset ;
+    dcterms:description "Table containing Ids" ;
+    dcterms:identifier "code_helix_athlete" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "Id_data" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/core> a dcat:Dataset ;
+    dcterms:identifier "core" ;
+    dcterms:isPartOf <https://catalogue.org/resource/GenR>,
+        <https://catalogue.org/resource/LifeCycle>,
+        <https://catalogue.org/resource/NFBC1966> ;
+    dcterms:title "core" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/datenaisspere> a dcat:Dataset ;
+    dcterms:description "Father date of birth from 6 and 12 years old follow-ups" ;
+    dcterms:identifier "datenaisspere" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "Father date of birth" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/ddn_pere> a dcat:Dataset ;
+    dcterms:description "Table containing date of birth of the father" ;
+    dcterms:identifier "ddn_pere" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "ddn_father" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/efr_mere_LMAB_20210902_26> a dcat:Dataset ;
+    dcterms:description "Table containing data concerning mother's respiratory examination" ;
+    dcterms:identifier "efr_mere_LMAB_20210902_26" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "Respiratory_function_test_mother" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/efr_pere_LMAB_20210902_26> a dcat:Dataset ;
+    dcterms:description "Table containing data concerning  father's respiratory examination" ;
+    dcterms:identifier "efr_pere_LMAB_20210902_26" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "Respiratory_function_test_father" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/geocodes> a dcat:Dataset ;
+    dcterms:description "database with geocodes of the participants" ;
+    dcterms:identifier "geocodes" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "database with geocodes of the participants" .
+
+<https://catalogue.org/dataset/harmonized> a dcat:Dataset ;
+    dcterms:description "Non existing variables created for ATHLETE" ;
+    dcterms:identifier "harmonized" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "Variables harmonized for ATHLETE or LifeCycle" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/kayntisyy_icd10> a dcat:Dataset ;
+    dcterms:identifier "kayntisyy_icd10" ;
+    dcterms:isPartOf <https://catalogue.org/resource/AVOHILMO> ;
+    dcterms:title "kayntisyy_icd10" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/kayntisyy_icpc2> a dcat:Dataset ;
+    dcterms:identifier "kayntisyy_icpc2" ;
+    dcterms:isPartOf <https://catalogue.org/resource/AVOHILMO> ;
+    dcterms:title "kayntisyy_icpc2" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/maj_ddn_2021> a dcat:Dataset ;
+    dcterms:description "Date of birth updated in 2021" ;
+    dcterms:identifier "maj_ddn_2021" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "Update of the date of birth" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/measurements%20after%20birth> a dcat:Dataset ;
+    dcterms:identifier "measurements after birth" ;
+    dcterms:isPartOf <https://catalogue.org/resource/ENVIRONAGE> ;
+    dcterms:title "measurements after birth" .
+
+<https://catalogue.org/dataset/measurements%20at%20FU1> a dcat:Dataset ;
+    dcterms:identifier "measurements at FU1" ;
+    dcterms:isPartOf <https://catalogue.org/resource/ENVIRONAGE> ;
+    dcterms:title "measurements at FU1" .
+
+<https://catalogue.org/dataset/name%20of%20test%20dataset%202%20for%20test%20cohort%201> a dcat:Dataset ;
+    dcterms:description "description for test dataset 2 for test cohort 1" ;
+    dcterms:identifier "name of test dataset 2 for test cohort 1" ;
+    dcterms:isPartOf <https://catalogue.org/resource/testCohort1> ;
+    dcterms:title "label for test dataset 2 for test cohort 1" ;
+    dcat:keyword "Alcohol",
+        "DASH diet index",
+        "DASH diet index (F)",
+        "DASH diet index (M)",
+        "Dietary behavior (Preschool)",
+        "Dietary behavior (School)",
+        "Drugs",
+        "Exact age at dietary assessment (Preschool)",
+        "Exact age at dietary assessment (School)",
+        "Food groups (F)",
+        "Food groups (M)",
+        "Food groups (Preschool)",
+        "Food groups (School)",
+        "Gestational week at dietary assessment",
+        "Leisure activities",
+        "Lifestyle and behaviours",
+        "Maternal smoking",
+        "Method of dietary assessment (F)",
+        "Method of dietary assessment (M)",
+        "Method of dietary assessment (Preschool)",
+        "Method of dietary assessment (School)",
+        "Misbehaviour and criminality",
+        "Nutrients (F)",
+        "Nutrients (M)",
+        "Nutrients (Preschool)",
+        "Nutrients (School)",
+        "Nutrition",
+        "Other and unspecified lifestyle information",
+        "Paternal smoking",
+        "Personal hygiene",
+        "Physical activity",
+        "Preschool age",
+        "Preschool age - Dietary behavior",
+        "Preschool age - Food groups",
+        "Preschool age - Method of dietary assessment",
+        "Preschool age - Nutrients",
+        "Preschool age - Supplements",
+        "School age",
+        "School age - DASH diet index",
+        "School age - Dietary behavior",
+        "School age - Exact age at dietary assessment",
+        "School age - Food groups",
+        "School age - Method of dietary assessment",
+        "School age - Nutrients",
+        "School age - Supplements",
+        "Sexual behaviours and orientation",
+        "Sleep",
+        "Supplements (F)",
+        "Supplements (M)",
+        "Supplements (Preschool)",
+        "Supplements (School)",
+        "Technological devices",
+        "Tobacco",
+        "Transportation" ;
+    dcat:version "1980" .
+
+<https://catalogue.org/dataset/new> a dcat:Dataset ;
+    dcterms:description "Non existing variables created for ATHLETE" ;
+    dcterms:identifier "new" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "Created variables for ATHLETE" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/outcome> a dcat:Dataset ;
+    dcterms:identifier "outcome" ;
+    dcterms:isPartOf <https://catalogue.org/resource/LifeCycle> ;
+    dcterms:title "outcome" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/outcome_ath> a dcat:Dataset ;
+    dcterms:identifier "outcome_ath" ;
+    dcterms:isPartOf <https://catalogue.org/resource/ATHLETE> ;
+    dcterms:title "Outcome (ATHLETE)" ;
+    dcat:version "1.1.0" .
+
+<https://catalogue.org/dataset/outcomes> a dcat:Dataset ;
+    dcterms:identifier "outcomes" ;
+    dcterms:isPartOf <https://catalogue.org/resource/LifeCycle> ;
+    dcterms:title "outcomes" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/palvelutapahtuma> a dcat:Dataset ;
+    dcterms:identifier "palvelutapahtuma" ;
+    dcterms:isPartOf <https://catalogue.org/resource/AVOHILMO> ;
+    dcterms:title "palvelutapahtuma" ;
+    dcat:version "1.0" .
+
+<https://catalogue.org/dataset/pelagie_GC_q11> a dcat:Dataset ;
+    dcterms:description "Questionnaire at 11 years old of the child (Grandir et Changer)" ;
+    dcterms:identifier "pelagie_GC_q11" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "Questionnaire at 11 years old of the child" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/pelagie_dosage12> a dcat:Dataset ;
+    dcterms:description "database with blood concentrations of effect biomarkers at 12 years old" ;
+    dcterms:identifier "pelagie_dosage12" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "database with blood concentrations of effect biomarkers at 12 years old" .
+
+<https://catalogue.org/dataset/pelagie_exam12> a dcat:Dataset ;
+    dcterms:description "Clinical examination at 12 years old" ;
+    dcterms:identifier "pelagie_exam12" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "Clinical examination at 12 years old" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/pelagie_q0> a dcat:Dataset ;
+    dcterms:description "This table contains the variables collected at baseline for PELAGIE (pregnancy and birth)" ;
+    dcterms:identifier "pelagie_q0" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "Baseline questionnaire in early pregnancy and data at birth" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/pelagie_q12> a dcat:Dataset ;
+    dcterms:description "Questionnaire at 12 years old of the child" ;
+    dcterms:identifier "pelagie_q12" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "Questionnaire at 12 years old of the child" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/pelagie_q2> a dcat:Dataset ;
+    dcterms:description "Questionnaire at 2 years old of the child" ;
+    dcterms:identifier "pelagie_q2" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "Questionnaire at 2 years old of the child" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/pelagie_q6> a dcat:Dataset ;
+    dcterms:description "Questionnaire at 6 years old of the child" ;
+    dcterms:identifier "pelagie_q6" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "Questionnaire at 6 years old of the child" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/pepsy> a dcat:Dataset ;
+    dcterms:description "Neuropsychological tests at 6 years old" ;
+    dcterms:identifier "pepsy" ;
+    dcterms:isPartOf <https://catalogue.org/resource/PELAGIE> ;
+    dcterms:title "Neuropsychological tests at 6 years old" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/phenols_phthalates_infancy_mr_585_2021-12-02> a dcat:Dataset ;
+    dcterms:description "Table containing data concerning assessment of phenols and phtalates during infancy" ;
+    dcterms:identifier "phenols_phthalates_infancy_mr_585_2021-12-02" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "phenols_phthalates_infancy_data" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/quest_mt1raa1> a dcat:Dataset ;
+    dcterms:description "Table containing data concerning mother's educational level" ;
+    dcterms:identifier "quest_mt1raa1" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "educational_level_mother_data" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/tabac_passif_enf> a dcat:Dataset ;
+    dcterms:description "Table containing data concerning child's Exposure to Tobacco Smoke" ;
+    dcterms:identifier "tabac_passif_enf" ;
+    dcterms:isPartOf <https://catalogue.org/resource/Sepages> ;
+    dcterms:title "ETS_data" ;
+    dcat:version "1.0.0" .
+
+<https://catalogue.org/dataset/test%20dataset%20for%20testCohort1> a dcat:Dataset ;
+    dcterms:description "test description for dataset 1" ;
+    dcterms:identifier "test dataset for testCohort1" ;
+    dcterms:isPartOf <https://catalogue.org/resource/testCohort1> ;
+    dcterms:title "label for test dataset 1" ;
+    dcat:keyword "Family mental health",
+        "Other social environment characteristics",
+        "Parenting and familial environment",
+        "Social environment and relationships",
+        "Social network",
+        "Social participation",
+        "Social support" ;
+    dcat:version "1959" .
+
+<https://catalogue.org/dataset/test%20dataset%20for%20testCohort2> a dcat:Dataset ;
+    dcterms:description "test description of dataset for cohort 2" ;
+    dcterms:identifier "test dataset for testCohort2" ;
+    dcterms:isPartOf <https://catalogue.org/resource/testCohort2> ;
+    dcterms:title "label for test dataset for cohort 2" ;
+    dcat:keyword "Air pollution",
+        "Allergic sensitization",
+        "Allergy",
+        "Anaphylaxis",
+        "Any allergy",
+        "Any food allergic sensitization (IgE)",
+        "Any food allergic sensitization (Skin prick test)",
+        "Any inhalant allergic sensitization  (Skin prick test)",
+        "Any inhalant allergic sensitization (IgE)",
+        "Biological exposure",
+        "Built environment/neighbourhood characteristics",
+        "Cat (IgE)",
+        "Cat (Skin prick test)",
+        "Cats (any)",
+        "Cats (number)",
+        "Chemical exposure",
+        "Chemicals",
+        "Chicken egg",
+        "Cotinine",
+        "Cow milk",
+        "Creatinine",
+        "DNA_damage_UV_dose",
+        "Dog",
+        "Dogs (any)",
+        "Dogs (number)",
+        "Fish",
+        "Food",
+        "Food allergy",
+        "Food_IgE",
+        "Food_Skin prick test",
+        "Fruit",
+        "Furry Pets",
+        "Glycolethers",
+        "Grass",
+        "House dust mite (IgE)",
+        "House dust mite (Skin prick test)",
+        "Housing characteristics",
+        "IgE (Food)",
+        "IgE (Inhalant)",
+        "IgE - Any food allergic sensitization",
+        "IgE - Any inhalant allergic sensitization",
+        "IgE - Cat",
+        "IgE - House dust mite",
+        "Inhalant",
+        "Inhalant allergy",
+        "Inhalant_IgE",
+        "Inhalant_Skin prick test",
+        "Metals",
+        "Meteorology",
+        "Mould",
+        "Natural spaces",
+        "Noise",
+        "Nut",
+        "OCs & PBDEs",
+        "OPs",
+        "Other pesticides",
+        "Other physical environment characteristics",
+        "PAHs",
+        "PFASs",
+        "Passive smoking",
+        "Peanut",
+        "Pets",
+        "Phenols",
+        "Phthalates",
+        "Physical environment",
+        "Radiation exposure",
+        "Rye",
+        "Sesame",
+        "Shellfish",
+        "Skin prick test (Food)",
+        "Skin prick test (Inhalant)",
+        "Skin prick test - Any food allergic sensitization",
+        "Skin prick test - Any inhalant allergic sensitization",
+        "Skin prick test - Cat",
+        "Skin prick test - House dust mite",
+        "Social context",
+        "Traffic",
+        "Tree",
+        "Unhealthy food environment",
+        "Urticaria",
+        "Wheat",
+        "Workplace characteristics",
+        "access_to_public_transport_lines100",
+        "access_to_public_transport_lines300",
+        "access_to_public_transport_lines500",
+        "access_to_public_transport_stops100",
+        "access_to_public_transport_stops300",
+        "access_to_public_transport_stops500",
+        "area_level_ses_quintiles",
+        "area_level_ses_tertiles",
+        "blue_access",
+        "blue_distance",
+        "blue_size",
+        "building_density100",
+        "building_density300",
+        "connectivity_density100",
+        "connectivity_density300",
+        "distance (noise)",
+        "distance (traffic)",
+        "distance_traffic",
+        "erythemal_UV_dose",
+        "facilities_density",
+        "facilities_richness",
+        "green_access",
+        "green_distance",
+        "green_size",
+        "land_surface_temperature",
+        "land_use_mix",
+        "lden",
+        "lden_categorical",
+        "ln",
+        "ln_categorical",
+        "main_land_use_agricultural",
+        "main_land_use_airports",
+        "main_land_use_continuous_urban_fabric",
+        "main_land_use_forests",
+        "main_land_use_green_urban",
+        "main_land_use_industrial",
+        "main_land_use_low_density",
+        "main_land_use_medium_urban_fabric",
+        "main_land_use_other",
+        "main_land_use_port",
+        "main_land_use_transports",
+        "main_land_use_water",
+        "maximum_relative_humidity",
+        "maximum_temperature",
+        "mean_relative_humidity",
+        "mean_temperature",
+        "meteo_distance",
+        "minimum_relative_humidity",
+        "minimum_temperature",
+        "ndvi100",
+        "ndvi300",
+        "ndvi500",
+        "no2",
+        "nox",
+        "pm10",
+        "pm10cu",
+        "pm10fe",
+        "pm10k",
+        "pm10ni",
+        "pm10s",
+        "pm10si",
+        "pm10v",
+        "pm10zn",
+        "pm25",
+        "pm25abs",
+        "pm25cu",
+        "pm25fe",
+        "pm25k",
+        "pm25ni",
+        "pm25s",
+        "pm25si",
+        "pm25v",
+        "pm25zn",
+        "pmcoarse",
+        "population_density",
+        "traffic_density",
+        "traffic_load_all_roads",
+        "traffic_load_major_roads",
+        "unhealthy_facilities_density",
+        "unhealthy_facilities_density_osm",
+        "vitamin_d_UV_dose",
+        "walkability" ;
+    dcat:version "1959" .
+
+<https://catalogue.org/dataset/test%20dataset%20for%20testCohort3> a dcat:Dataset ;
+    dcterms:identifier "test dataset for testCohort3" ;
+    dcterms:isPartOf <https://catalogue.org/resource/testCohort3> ;
+    dcterms:title "test dataset for testCohort3" .
+
+<https://catalogue.org/dataset/test%20dataset%20for%20testCohort4> a dcat:Dataset ;
+    dcterms:identifier "test dataset for testCohort4" ;
+    dcterms:isPartOf <https://catalogue.org/resource/testCohort4> ;
+    dcterms:title "test dataset for testCohort4" .
 

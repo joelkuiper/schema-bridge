@@ -1,7 +1,7 @@
 name: health-dcat-ap
 description: Health-oriented DCAT-AP resource export with rich access and cohort metadata
 fetch:
-  graphql: graphql/health_dcat_ap.graphql
+  graphql: graphql/health_dcat_ap_fallback.graphql
   root_key: Resources
 export:
   select: health_dcat_ap_select.sparql
@@ -19,7 +19,10 @@ mapping:
   iri_fields:
     - website
   field_paths:
-    leadOrganisationAcronym: leadOrganisation.acronym
+    leadOrganisationAcronym:
+      - leadOrganisation.acronym
+      - publisher.name
+    publisherWebsite: publisher.website
     typeName: type.name
     collectionTypeName: collectionType.name
     populationAgeGroupCodes: populationAgeGroups[].code

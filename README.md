@@ -198,3 +198,91 @@ Example: DCAT Turtle to stdout (truncated):
     dcterms:title "Advancing Tools for Human Early Lifecourse Exposome Research and Translation" ;
     dcat:landingPage <https://athleteproject.eu/> .
 ```
+
+## Examples (captured output)
+
+The following examples are generated from the bundled test fixtures to keep them reproducible.
+
+### DCAT all-attributes (Turtle)
+
+Command:
+
+```bash
+uv run schema-bridge run --profile dcat-all-attributes -o out
+```
+
+Output (truncated):
+
+```turtle
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns1: <http://www.w3.org/2006/vcard/ns#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://catalogue.org/contact/support%40example.org> a ns1:Individual ;
+    ns1:fn "Support" ;
+    ns1:hasEmail <mailto:support@example.org> .
+
+<https://catalogue.org/distribution/REL-1> a dcat:Distribution ;
+    dcterms:accessRights <http://example.org/access/public> ;
+    dcterms:conformsTo <http://example.org/criteria/adult> ;
+    dcterms:description "Initial release" ;
+    dcterms:issued "2023-01-01" ;
+    dcterms:license "CC-BY" ;
+    dcterms:title "v1" ;
+    dcat:accessURL <https://example.org/docs/data-dictionary> ;
+    dcat:version "v1" .
+
+<https://catalogue.org/resource/R-DCAT-1> a dcat:Catalog,
+        dcat:Dataset,
+        dcat:Resource ;
+    dcterms:accessRights <http://example.org/access/public> ;
+    dcterms:conformsTo <http://example.org/criteria/adult> ;
+    dcterms:description "Resource with rich DCAT metadata" ;
+    dcterms:identifier "RDC1" ;
+    dcterms:title "Comprehensive Resource" ;
+    dcat:distribution <https://catalogue.org/distribution/REL-1> ;
+    dcat:keyword "genomics" ;
+    dcat:landingPage <https://example.org/resources/R-DCAT-1> ;
+    dcat:theme <http://example.org/themes/genomics> ;
+    dcat:version "v1" .
+```
+
+### Health-DCAT-AP (Turtle)
+
+Command:
+
+```bash
+uv run schema-bridge run --profile health-dcat-ap -o out
+```
+
+Output (truncated):
+
+```turtle
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns1: <http://www.w3.org/2006/vcard/ns#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://catalogue.org/resource/H1> a dcat:Dataset ;
+    dcterms:accessRights <http://example.org/dac> ;
+    dcterms:conformsTo <https://catalogue.org/criteria/IC1> ;
+    dcterms:description "Health DCAT-AP example" ;
+    dcterms:identifier "H1" ;
+    dcterms:publisher <https://catalogue.org/org/HLTH> ;
+    dcterms:rights "Access fee: 0" ;
+    dcterms:spatial <https://catalogue.org/geo/EU> ;
+    dcterms:temporal [ a dcterms:PeriodOfTime ;
+            dcat:endDate "2020"^^xsd:gYear ;
+            dcat:startDate "2001"^^xsd:gYear ] ;
+    dcterms:title "Health Dataset" ;
+    dcat:contactPoint <https://catalogue.org/contact/contact%40health.example.org> ;
+    dcat:keyword "Population" ;
+    dcat:landingPage <https://health.example.org> ;
+    dcat:theme <https://catalogue.org/theme/Population> ;
+    odrl:hasPolicy <http://example.org/duc> .
+```

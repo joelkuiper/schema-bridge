@@ -1,1337 +1,180 @@
 [
   {
-    "@id": "https://catalogue.org/dataset/bloodpressure%20after%20birth",
+    "@id": "https://catalogue.org/dataset/BDD_creatinine",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/description": [
       {
-        "@value": "bloodpressure after birth"
+        "@value": "database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "bloodpressure after birth"
+        "@value": "BDD_creatinine"
       }
     ],
-    "https://catalogue.org/field/resourceId": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "ENVIRONAGE"
+        "@id": "https://catalogue.org/resource/PELAGIE"
       }
     ],
-    "https://catalogue.org/field/resourceName": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "ENVIRonmental influence ON early AGEing"
+        "@value": "database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
       }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/OBSERVATION_PERIODS",
+    "@id": "https://catalogue.org/dataset/MEDICINES",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "OBSERVATION_PERIODS"
+        "@value": "MEDICINES"
       }
     ],
-    "https://catalogue.org/field/mappedFromSourceNames": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "ARS_ANAG_MED_RES_storico"
+        "@id": "https://catalogue.org/resource/OOM"
       }
     ],
-    "https://catalogue.org/field/mappedFromTargetNames": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "OOM"
+        "@value": "MEDICINES"
       }
     ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "OBSERVATION_PERIODS"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "2.2"
       }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/pelagie_exam12",
+    "@id": "https://catalogue.org/dataset/new",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/description": [
+    "http://purl.org/dc/terms/description": [
       {
-        "@value": "Clinical examination at 12 years old"
+        "@value": "Non existing variables created for ATHLETE"
       }
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "pelagie_exam12"
+        "@value": "new"
       }
     ],
-    "https://catalogue.org/field/label": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "Clinical examination at 12 years old"
+        "@id": "https://catalogue.org/resource/PELAGIE"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "pelagie_exam12"
+        "@value": "Created variables for ATHLETE"
       }
     ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/measurements%20at%20FU1",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "measurements at FU1"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "measurements at FU1"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "ENVIRONAGE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "ENVIRonmental influence ON early AGEing"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/bdd_2a_v_1_0",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Table containing  data concerning  second year of life of the child"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "bdd_2a_v_1_0"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "child_data"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "bdd_2a_v_1_0"
-      }
-    ],
-    "https://catalogue.org/field/numberOfRows": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 484
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "Sepages"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "person"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/pelagie_q12",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Questionnaire at 12 years old of the child"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "pelagie_q12"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "Questionnaire at 12 years old of the child"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "pelagie_q12"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/outcomes",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "outcomes"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "outcomes"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "LifeCycle"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "The LifeCycle Project"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/BDD_mercure",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "database with measurement of metals in a sample of mothers' hair during the third trimester"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "BDD_mercure"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "database with measurement of metals in a sample of mothers' hair during the third trimester"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "BDD_mercure"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/bdd_pere_1_2",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Table containing data concerning father of the child SEPAGES"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "bdd_pere_1_2"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "father_data"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "bdd_pere_1_2"
-      }
-    ],
-    "https://catalogue.org/field/numberOfRows": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 410
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "Sepages"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "person"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/INSTANCE",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "INSTANCE"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "INSTANCE"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "2.2"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/kayntisyy_icd10",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "kayntisyy_icd10"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "kayntisyy_icd10"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "AVOHILMO"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Register of Primary Health Care Visits (AVOHILMO)"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/Urban_ISGlobal",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Urban exposome dataset generated by Montserrat de Castro (ISGlobal)"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "Urban_ISGlobal"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "Urban exposome dataset generated by Montserrat de Castro (ISGlobal)"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "Urban_ISGlobal"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/PROCEDURES",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "PROCEDURES"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromSourceNames": [
-      {
-        "@value": "SPA"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "PROCEDURES"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "2.2"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/blood_pressure",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "blood pressure of the child measured during G21 cohort follow-ups"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "blood_pressure"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "blood pressure"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "blood_pressure"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "G21"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Generation 21"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/efr_mere_LMAB_20210902_26",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Table containing data concerning mother's respiratory examination"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "efr_mere_LMAB_20210902_26"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "Respiratory_function_test_mother"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "efr_mere_LMAB_20210902_26"
-      }
-    ],
-    "https://catalogue.org/field/numberOfRows": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 484
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "Sepages"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "person"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/SALM",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "SALM"
-      }
-    ],
-    "https://catalogue.org/field/mappedToSourceNames": [
-      {
-        "@value": "SALM"
-      }
-    ],
-    "https://catalogue.org/field/mappedToTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "SALM"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "SALM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "SALM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/pelagie_dosage12",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "database with blood concentrations of effect biomarkers at 12 years old"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "pelagie_dosage12"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "database with blood concentrations of effect biomarkers at 12 years old"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "pelagie_dosage12"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/BDD_cotinine",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "BDD_cotinine"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "BDD_cotinine"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/BDD_OP",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "BDD_OP"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "BDD_OP"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
       }
     ]
   },
   {
     "@id": "https://catalogue.org/dataset/pelagie_q0",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/description": [
+    "http://purl.org/dc/terms/description": [
       {
         "@value": "This table contains the variables collected at baseline for PELAGIE (pregnancy and birth)"
       }
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
         "@value": "pelagie_q0"
       }
     ],
-    "https://catalogue.org/field/label": [
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PELAGIE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
       {
         "@value": "Baseline questionnaire in early pregnancy and data at birth"
       }
     ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "pelagie_q0"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0.0"
       }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/code_helix_athlete",
+    "@id": "https://catalogue.org/dataset/bdd_2a_v_1_0",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/description": [
+    "http://purl.org/dc/terms/description": [
       {
-        "@value": "Table containing Ids"
+        "@value": "Table containing  data concerning  second year of life of the child"
       }
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "code_helix_athlete"
+        "@value": "bdd_2a_v_1_0"
       }
     ],
-    "https://catalogue.org/field/label": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "Id_data"
+        "@id": "https://catalogue.org/resource/Sepages"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "code_helix_athlete"
+        "@value": "child_data"
       }
     ],
-    "https://catalogue.org/field/numberOfRows": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 484
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "Sepages"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0.0"
       }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "person"
-      }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/AP",
+    "@id": "https://catalogue.org/dataset/phenols_phthalates_infancy_mr_585_2021-12-02",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/description": [
       {
-        "@value": "AP"
+        "@value": "Table containing data concerning assessment of phenols and phtalates during infancy"
       }
     ],
-    "https://catalogue.org/field/mappedToSourceNames": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "AP"
+        "@value": "phenols_phthalates_infancy_mr_585_2021-12-02"
       }
     ],
-    "https://catalogue.org/field/mappedToTargetNames": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "OOM"
+        "@id": "https://catalogue.org/resource/Sepages"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "AP"
+        "@value": "phenols_phthalates_infancy_data"
       }
     ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "AP"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "AP"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/PERSON_RELATIONSHIPS",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "PERSON_RELATIONSHIPS"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "PERSON_RELATIONSHIPS"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "2.2"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/ch_bf_mr%26ag_2021-12-02_5",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Table containing data concerning breastfeeding"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "ch_bf_mr&ag_2021-12-02_5"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "breastfeeding_data"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "ch_bf_mr&ag_2021-12-02_5"
-      }
-    ],
-    "https://catalogue.org/field/numberOfRows": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 484
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "Sepages"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "person"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/SURVEY_OBSERVATIONS",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "SURVEY_OBSERVATIONS"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromSourceNames": [
-      {
-        "@value": "RMR"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "SURVEY_OBSERVATIONS"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "2.2"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/CPA1",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "CPA1"
-      }
-    ],
-    "https://catalogue.org/field/mappedToSourceNames": [
-      {
-        "@value": "Dutch institute for health and welfare"
-      }
-    ],
-    "https://catalogue.org/field/mappedToTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "CPA1"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "DHL"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Dutch institute for health and welfare"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/ANAGRAFICA",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "ANAGRAFICA"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "ANAGRAFICA"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "ANAGRAFICA"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "ANAGRAFICA"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/METADATA",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "METADATA"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "METADATA"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "2.2"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/PS",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "PS"
-      }
-    ],
-    "https://catalogue.org/field/mappedToSourceNames": [
-      {
-        "@value": "ARS_PS"
-      }
-    ],
-    "https://catalogue.org/field/mappedToTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "PS"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "ARS_PS"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "ARS_PS"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/kayntisyy_icpc2",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "kayntisyy_icpc2"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "kayntisyy_icpc2"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "AVOHILMO"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Register of Primary Health Care Visits (AVOHILMO)"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/BDD_phtalates_phenols",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "database with phtalates and phenols measurement from maternal urine sample"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "BDD_phtalates_phenols"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "database with phtalates and phenols measurement from maternal urine sample"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "BDD_phtalates_phenols"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/VACCINES",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "VACCINES"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromSourceNames": [
-      {
-        "@value": "VCN"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "VACCINES"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "2.2"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/CHILD-ALLGENERALDATA_12112020",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "CHILD-ALLGENERALDATA_12112020"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "DataWiki dataset CHILD-ALLGENERALDATA_12112020"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "CHILD-ALLGENERALDATA_12112020"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "GenR"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "The Generation R Study"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0.0"
       }
@@ -1340,1617 +183,309 @@
   {
     "@id": "https://catalogue.org/dataset/FARMACEUTICA",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
         "@value": "FARMACEUTICA"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/FARMACEUTICA"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
       {
         "@value": "FARMACEUTICA"
       }
     ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "FARMACEUTICA"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "FARMACEUTICA"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0"
       }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/COD_FARMACI_SPF",
+    "@id": "https://catalogue.org/dataset/pelagie_q6",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/description": [
       {
-        "@value": "COD_FARMACI_SPF"
+        "@value": "Questionnaire at 6 years old of the child"
       }
     ],
-    "https://catalogue.org/field/mappedToSourceNames": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "COD_FARMACI_SPF"
+        "@value": "pelagie_q6"
       }
     ],
-    "https://catalogue.org/field/mappedToTargetNames": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "OOM"
+        "@id": "https://catalogue.org/resource/PELAGIE"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "COD_FARMACI_SPF"
+        "@value": "Questionnaire at 6 years old of the child"
       }
     ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "COD_FARMACI_SPF"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "COD_FARMACI_SPF"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/BDD_perfluores",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "database with PFASs measurement from cord blood and in the blood of children at 12 years"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "BDD_perfluores"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "database with PFASs measurement from cord blood and in the blood of children at 12 years"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "BDD_perfluores"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/datenaisspere",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Father date of birth from 6 and 12 years old follow-ups"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "datenaisspere"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "Father date of birth"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "datenaisspere"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/EXE",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "EXE"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "EXE"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "EXE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "EXE"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/BDD_creatinine",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "BDD_creatinine"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "database with measurement of creatinine from a maternal urine sample and in children's urine at 6 years"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "BDD_creatinine"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/outcome_ath",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "outcome_ath"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "Outcome (ATHLETE)"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "outcome_ath"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "ATHLETE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Advancing Tools for Human Early Lifecourse Exposome Research and Translation"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/SPA",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "SPA"
-      }
-    ],
-    "https://catalogue.org/field/mappedToSourceNames": [
-      {
-        "@value": "SPA"
-      }
-    ],
-    "https://catalogue.org/field/mappedToTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "SPA"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "SPA"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "SPA"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/pepsy",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Neuropsychological tests at 6 years old"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "pepsy"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "Neuropsychological tests at 6 years old"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "pepsy"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/harmonized",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Non existing variables created for ATHLETE"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "harmonized"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "Variables harmonized for ATHLETE or LifeCycle"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "harmonized"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/child",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "child"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "child"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "child"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "G21"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Generation 21"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "person"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/SEA",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "SEA"
-      }
-    ],
-    "https://catalogue.org/field/mappedToSourceNames": [
-      {
-        "@value": "SEA"
-      }
-    ],
-    "https://catalogue.org/field/mappedToTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "SEA"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "SEA"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "SEA"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/DIAGNOSTIC",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "DIAGNOSTIC"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "DIAGNOSTIC"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "DIAGNOSTIC"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "DIAGNOSTIC"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/test%20dataset%20for%20testCohort4",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "test dataset for testCohort4"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "test dataset for testCohort4"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "testCohort4"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "testCohort4"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/SPF",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "SPF"
-      }
-    ],
-    "https://catalogue.org/field/mappedToSourceNames": [
-      {
-        "@value": "SPF"
-      }
-    ],
-    "https://catalogue.org/field/mappedToTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "SPF"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "SPF"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "SPF"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/MEDICINES",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "MEDICINES"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromSourceNames": [
-      {
-        "@value": "SPF"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "MEDICINES"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "2.2"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/tabac_passif_enf",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Table containing data concerning child's Exposure to Tobacco Smoke"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "tabac_passif_enf"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "ETS_data"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "tabac_passif_enf"
-      }
-    ],
-    "https://catalogue.org/field/numberOfRows": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 484
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "Sepages"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "person"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/MBRN_child",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "MBRN_child"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "MBRN_child"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "MBRN"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "MBRN"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/measurements%20after%20birth",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "measurements after birth"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "measurements after birth"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "ENVIRONAGE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "ENVIRonmental influence ON early AGEing"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/PE_preg_mr_2021-12-02_379",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Table containing data concerning assessment of phenols and phtalates during pregnancy"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "PE_preg_mr_2021-12-02_379"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "phenols_phthalates_pregnancy_data"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "PE_preg_mr_2021-12-02_379"
-      }
-    ],
-    "https://catalogue.org/field/numberOfRows": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 479
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "Sepages"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "person"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/efr_pere_LMAB_20210902_26",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Table containing data concerning  father's respiratory examination"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "efr_pere_LMAB_20210902_26"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "Respiratory_function_test_father"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "efr_pere_LMAB_20210902_26"
-      }
-    ],
-    "https://catalogue.org/field/numberOfRows": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 484
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "Sepages"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "person"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/BDD_pop",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "database with POPs measurement from cord blood and in the blood of children at 12 years"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "BDD_pop"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "database with POPs measurement from cord blood and in the blood of children at 12 years"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "BDD_pop"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
       }
     ]
   },
   {
     "@id": "https://catalogue.org/dataset/ARS_ANAG_MED_RES_storico",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
         "@value": "ARS_ANAG_MED_RES_storico"
       }
     ],
-    "https://catalogue.org/field/mappedToSourceNames": [
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/ARS_ANAG_MED_RES_storico"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
       {
         "@value": "ARS_ANAG_MED_RES_storico"
       }
     ],
-    "https://catalogue.org/field/mappedToTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "ARS_ANAG_MED_RES_storico"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "ARS_ANAG_MED_RES_storico"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "ARS_ANAG_MED_RES_storico"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0"
       }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/new",
+    "@id": "https://catalogue.org/dataset/EFEMERIS_PRESCRIPTION",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/description": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "Non existing variables created for ATHLETE"
+        "@value": "EFEMERIS_PRESCRIPTION"
       }
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "new"
+        "@id": "https://catalogue.org/resource/EFEMERIS_PRESCRIPTION"
       }
     ],
-    "https://catalogue.org/field/label": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "Created variables for ATHLETE"
+        "@value": "EFEMERIS_PRESCRIPTION"
       }
     ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "new"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/BDD_ethers",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "BDD_ethers"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "BDD_ethers"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/palvelutapahtuma",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "palvelutapahtuma"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "palvelutapahtuma"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "AVOHILMO"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Register of Primary Health Care Visits (AVOHILMO)"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0"
       }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/PERSONS",
+    "@id": "https://catalogue.org/dataset/BDD_phtalates_phenols",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/description": [
       {
-        "@value": "PERSONS"
+        "@value": "database with phtalates and phenols measurement from maternal urine sample"
       }
     ],
-    "https://catalogue.org/field/mappedFromSourceNames": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "ARS_ANAG_MED_RES_storico"
+        "@value": "BDD_phtalates_phenols"
       }
     ],
-    "https://catalogue.org/field/mappedFromTargetNames": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "OOM"
+        "@id": "https://catalogue.org/resource/PELAGIE"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "PERSONS"
+        "@value": "database with phtalates and phenols measurement from maternal urine sample"
       }
     ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "2.2"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/FETALCRL_22112016",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "FETALCRL_22112016"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "DataWiki dataset FETALCRL_22112016"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "FETALCRL_22112016"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "GenR"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "The Generation R Study"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0.0"
       }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/quest_mt1raa1",
+    "@id": "https://catalogue.org/dataset/outcome_ath",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/description": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "Table containing data concerning mother's educational level"
+        "@value": "outcome_ath"
       }
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "quest_mt1raa1"
+        "@id": "https://catalogue.org/resource/ATHLETE"
       }
     ],
-    "https://catalogue.org/field/label": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "educational_level_mother_data"
+        "@value": "Outcome (ATHLETE)"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://www.w3.org/ns/dcat#version": [
       {
-        "@value": "quest_mt1raa1"
+        "@value": "1.1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/pelagie_q12",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Questionnaire at 12 years old of the child"
       }
     ],
-    "https://catalogue.org/field/numberOfRows": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 484
+        "@value": "pelagie_q12"
       }
     ],
-    "https://catalogue.org/field/resourceId": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "Sepages"
+        "@id": "https://catalogue.org/resource/PELAGIE"
       }
     ],
-    "https://catalogue.org/field/resourceName": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
+        "@value": "Questionnaire at 12 years old of the child"
       }
     ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "person"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/wave_01",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Table of wave 1 variables for LongITools"
-      },
-      {
-        "@value": "Wave 1 variables for NFBC1966"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "wave_01"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "Wave 1 variables"
-      },
-      {
-        "@value": "wave 1 variables"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "wave_01"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "LongITools"
-      },
-      {
-        "@value": "NFBC1966"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "LongITools health & environment dynamics"
-      },
-      {
-        "@value": "NFBC1966"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/MEDICAL_OBSERVATIONS",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "MEDICAL_OBSERVATIONS"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromSourceNames": [
-      {
-        "@value": "AP"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "MEDICAL_OBSERVATIONS"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "2.2"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/SPECIALISTICA",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "SPECIALISTICA"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "SPECIALISTICA"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "SPECIALISTICA"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "SPECIALISTICA"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/outcome",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "outcome"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "outcome"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "LifeCycle"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "The LifeCycle Project"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/avo_toimenpide",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "avo_toimenpide"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "avo_toimenpide"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "AVOHILMO"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Register of Primary Health Care Visits (AVOHILMO)"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/base_respi_enfant_20210326",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Table containing data concerning respiratory health questionnaires for children up to 3 years old"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "base_respi_enfant_20210326"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "Respiratory_child_data"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "base_respi_enfant_20210326"
-      }
-    ],
-    "https://catalogue.org/field/numberOfRows": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 484
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "Sepages"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "person"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/EUROCAT",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "EUROCAT"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "EUROCAT"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "2.2"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/RMR",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "RMR"
-      }
-    ],
-    "https://catalogue.org/field/mappedToSourceNames": [
-      {
-        "@value": "RMR"
-      }
-    ],
-    "https://catalogue.org/field/mappedToTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "RMR"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "RMR"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "RMR"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/core",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "core"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "core"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "GenR"
-      },
-      {
-        "@value": "LifeCycle"
-      },
-      {
-        "@value": "NFBC1966"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "The Generation R Study"
-      },
-      {
-        "@value": "The LifeCycle Project"
-      },
-      {
-        "@value": "NFBC1966"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/PRODUCTS",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "PRODUCTS"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromSourceNames": [
-      {
-        "@value": "COD_FARMACI_SPF"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "PRODUCTS"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "2.2"
       }
     ]
   },
   {
     "@id": "https://catalogue.org/dataset/FETALPLACENTA_22112016",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
         "@value": "FETALPLACENTA_22112016"
       }
     ],
-    "https://catalogue.org/field/label": [
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/GenR"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
       {
         "@value": "DataWiki dataset FETALPLACENTA_22112016"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://www.w3.org/ns/dcat#version": [
       {
-        "@value": "FETALPLACENTA_22112016"
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/datenaisspere",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Father date of birth from 6 and 12 years old follow-ups"
       }
     ],
-    "https://catalogue.org/field/resourceId": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "GenR"
+        "@value": "datenaisspere"
       }
     ],
-    "https://catalogue.org/field/resourceName": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "The Generation R Study"
+        "@id": "https://catalogue.org/resource/PELAGIE"
       }
     ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Father date of birth"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/outcomes",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "outcomes"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/LifeCycle"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "outcomes"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/efr_pere_LMAB_20210902_26",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Table containing data concerning  father's respiratory examination"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "efr_pere_LMAB_20210902_26"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/Sepages"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Respiratory_function_test_father"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0.0"
       }
@@ -2959,612 +494,195 @@
   {
     "@id": "https://catalogue.org/dataset/pelagie_q2",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/description": [
+    "http://purl.org/dc/terms/description": [
       {
         "@value": "Questionnaire at 2 years old of the child"
       }
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
         "@value": "pelagie_q2"
       }
     ],
-    "https://catalogue.org/field/label": [
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PELAGIE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
       {
         "@value": "Questionnaire at 2 years old of the child"
       }
     ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "pelagie_q2"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0.0"
       }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/PHT",
+    "@id": "https://catalogue.org/dataset/MEDICAL_OBSERVATIONS",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "PHT"
+        "@value": "MEDICAL_OBSERVATIONS"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "PHT"
+        "@id": "https://catalogue.org/resource/OOM"
       }
     ],
-    "https://catalogue.org/field/resourceId": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "PHT"
+        "@value": "MEDICAL_OBSERVATIONS"
       }
     ],
-    "https://catalogue.org/field/resourceName": [
+    "http://www.w3.org/ns/dcat#version": [
       {
-        "@value": "PHT"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/cdm_1",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "cdm_1"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "cdm_1"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "testNetwork1"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "name for test network1"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/maj_ddn_2021",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Date of birth updated in 2021"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "maj_ddn_2021"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "Update of the date of birth"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "maj_ddn_2021"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/bdd_grossesse_v5_1",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Table containing data concerning pregnancy"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "bdd_grossesse_v5_1"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "pregnancy_data"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "bdd_grossesse_v5_1"
-      }
-    ],
-    "https://catalogue.org/field/numberOfRows": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 484
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "Sepages"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "person"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/EFEMERIS_PRESCRIPTION",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "EFEMERIS_PRESCRIPTION"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "EFEMERIS_PRESCRIPTION"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "EFEMERIS_PRESCRIPTION"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "EFEMERIS_PRESCRIPTION"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
+        "@value": "2.2"
       }
     ]
   },
   {
     "@id": "https://catalogue.org/dataset/ATHLETE_fetal_growth_standardized",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
         "@value": "ATHLETE_fetal_growth_standardized"
       }
     ],
-    "https://catalogue.org/field/label": [
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/GenR"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
       {
         "@value": "ATHLETE Harmonised dataset with standardized fetal growth data: ATHLETE_fetal_growth_standardized"
       }
     ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "ATHLETE_fetal_growth_standardized"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "GenR"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "The Generation R Study"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0.0"
       }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/geocodes",
+    "@id": "https://catalogue.org/dataset/Urban_ISGlobal",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/description": [
+    "http://purl.org/dc/terms/description": [
       {
-        "@value": "database with geocodes of the participants"
+        "@value": "Urban exposome dataset generated by Montserrat de Castro (ISGlobal)"
       }
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "geocodes"
+        "@value": "Urban_ISGlobal"
       }
     ],
-    "https://catalogue.org/field/label": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "database with geocodes of the participants"
+        "@id": "https://catalogue.org/resource/PELAGIE"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "geocodes"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
+        "@value": "Urban exposome dataset generated by Montserrat de Castro (ISGlobal)"
       }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/Ultrasound_all_SLC_20220428_893",
+    "@id": "https://catalogue.org/dataset/bdd_pere_1_2",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/description": [
+    "http://purl.org/dc/terms/description": [
       {
-        "@value": "Table containing data concerning ultrasound"
+        "@value": "Table containing data concerning father of the child SEPAGES"
       }
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "Ultrasound_all_SLC_20220428_893"
+        "@value": "bdd_pere_1_2"
       }
     ],
-    "https://catalogue.org/field/label": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "ultrasound_data"
+        "@id": "https://catalogue.org/resource/Sepages"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "Ultrasound_all_SLC_20220428_893"
+        "@value": "father_data"
       }
     ],
-    "https://catalogue.org/field/numberOfRows": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 458
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "Sepages"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0.0"
       }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "person"
-      }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/pelagie_q6",
+    "@id": "https://catalogue.org/dataset/blood_pressure",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/description": [
+    "http://purl.org/dc/terms/description": [
       {
-        "@value": "Questionnaire at 6 years old of the child"
+        "@value": "blood pressure of the child measured during G21 cohort follow-ups"
       }
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "pelagie_q6"
+        "@value": "blood_pressure"
       }
     ],
-    "https://catalogue.org/field/label": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "Questionnaire at 6 years old of the child"
+        "@id": "https://catalogue.org/resource/G21"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "pelagie_q6"
+        "@value": "blood pressure"
       }
     ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0.0"
       }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/CDM_SOURCE",
+    "@id": "https://catalogue.org/dataset/SPA",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "CDM_SOURCE"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "CDM_SOURCE"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "2.2"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/VISIT_OCCURRENCE",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "VISIT_OCCURRENCE"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromSourceNames": [
-      {
-        "@value": "AP"
-      },
+    "http://purl.org/dc/terms/identifier": [
       {
         "@value": "SPA"
       }
     ],
-    "https://catalogue.org/field/mappedFromTargetNames": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "OOM"
+        "@id": "https://catalogue.org/resource/SPA"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "VISIT_OCCURRENCE"
+        "@value": "SPA"
       }
     ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "2.2"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/EVENTS",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "EVENTS"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromSourceNames": [
-      {
-        "@value": "Dutch institute for health and welfare"
-      },
-      {
-        "@value": "ARS_PS"
-      },
-      {
-        "@value": "SALM"
-      },
-      {
-        "@value": "SEA"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "EVENTS"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "2.2"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/VCN",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "VCN"
-      }
-    ],
-    "https://catalogue.org/field/mappedToSourceNames": [
-      {
-        "@value": "VCN"
-      }
-    ],
-    "https://catalogue.org/field/mappedToTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "VCN"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "VCN"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "VCN"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/CPA2",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "CPA2"
-      }
-    ],
-    "https://catalogue.org/field/mappedToSourceNames": [
-      {
-        "@value": "Dutch institute for health and welfare"
-      }
-    ],
-    "https://catalogue.org/field/mappedToTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "CPA2"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "DHL"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Dutch institute for health and welfare"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0"
       }
@@ -3573,194 +691,1474 @@
   {
     "@id": "https://catalogue.org/dataset/pelagie_GC_q11",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/description": [
+    "http://purl.org/dc/terms/description": [
       {
         "@value": "Questionnaire at 11 years old of the child (Grandir et Changer)"
       }
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
         "@value": "pelagie_GC_q11"
       }
     ],
-    "https://catalogue.org/field/label": [
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PELAGIE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
       {
         "@value": "Questionnaire at 11 years old of the child"
       }
     ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "pelagie_GC_q11"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "PELAGIE"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Perturbateurs Endocriniens: Étude Longitudinale sur les Anomalies de la Grossesse, l’Infertilit"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0.0"
       }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "Patient"
-      }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/test%20dataset%20for%20testCohort3",
+    "@id": "https://catalogue.org/dataset/PRODUCTS",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "test dataset for testCohort3"
+        "@value": "PRODUCTS"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "test dataset for testCohort3"
+        "@id": "https://catalogue.org/resource/OOM"
       }
     ],
-    "https://catalogue.org/field/resourceId": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "testCohort3"
+        "@value": "PRODUCTS"
       }
     ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "testCohort3C"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/bdd_1a_v1_1",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/description": [
-      {
-        "@value": "Table containing data concerning first year of life of the child"
-      }
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "bdd_1a_v1_1"
-      }
-    ],
-    "https://catalogue.org/field/label": [
-      {
-        "@value": "child_data"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "bdd_1a_v1_1"
-      }
-    ],
-    "https://catalogue.org/field/numberOfRows": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 484
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "Sepages"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
-      {
-        "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "person"
-      }
-    ]
-  },
-  {
-    "@id": "https://catalogue.org/dataset/SURVEY_ID",
-    "@type": [
-      "https://catalogue.org/entity/Dataset"
-    ],
-    "https://catalogue.org/field/id": [
-      {
-        "@value": "SURVEY_ID"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromSourceNames": [
-      {
-        "@value": "RMR"
-      }
-    ],
-    "https://catalogue.org/field/mappedFromTargetNames": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "SURVEY_ID"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "OOM"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "2.2"
       }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/MBRN_mother",
+    "@id": "https://catalogue.org/dataset/OBSERVATION_PERIODS",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "MBRN_mother"
+        "@value": "OBSERVATION_PERIODS"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "MBRN_mother"
+        "@id": "https://catalogue.org/resource/OOM"
       }
     ],
-    "https://catalogue.org/field/resourceId": [
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "OBSERVATION_PERIODS"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/CDM_SOURCE",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "CDM_SOURCE"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/OOM"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "CDM_SOURCE"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/SEA",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "SEA"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/SEA"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "SEA"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/chemicals_ath",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "chemicals_ath"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/ATHLETE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Chemicals (ATHLETE)"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/SPECIALISTICA",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "SPECIALISTICA"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/SPECIALISTICA"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "SPECIALISTICA"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/BDD_cotinine",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "BDD_cotinine"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PELAGIE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "database with measurement of cotinine from a maternal urine sample and in children's urine at 6 years"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/pepsy",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Neuropsychological tests at 6 years old"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "pepsy"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PELAGIE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Neuropsychological tests at 6 years old"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/ch_bf_mr%26ag_2021-12-02_5",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Table containing data concerning breastfeeding"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "ch_bf_mr&ag_2021-12-02_5"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/Sepages"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "breastfeeding_data"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/SURVEY_OBSERVATIONS",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "SURVEY_OBSERVATIONS"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/OOM"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "SURVEY_OBSERVATIONS"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/EVENTS",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "EVENTS"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/OOM"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "EVENTS"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/quest_mt1raa1",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Table containing data concerning mother's educational level"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "quest_mt1raa1"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/Sepages"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "educational_level_mother_data"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/bdd_grossesse_v5_1",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Table containing data concerning pregnancy"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "bdd_grossesse_v5_1"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/Sepages"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "pregnancy_data"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/COD_FARMACI_SPF",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "COD_FARMACI_SPF"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/COD_FARMACI_SPF"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "COD_FARMACI_SPF"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/SURVEY_ID",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "SURVEY_ID"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/OOM"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "SURVEY_ID"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/kayntisyy_icpc2",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "kayntisyy_icpc2"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/AVOHILMO"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "kayntisyy_icpc2"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/avo_toimenpide",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "avo_toimenpide"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/AVOHILMO"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "avo_toimenpide"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/BDD_ethers",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "BDD_ethers"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PELAGIE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/SALM",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "SALM"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/SALM"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "SALM"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/efr_mere_LMAB_20210902_26",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Table containing data concerning mother's respiratory examination"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "efr_mere_LMAB_20210902_26"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/Sepages"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Respiratory_function_test_mother"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/cdm_1",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "cdm_1"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/testNetwork1"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "cdm_1"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/DIAGNOSTIC",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "DIAGNOSTIC"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/DIAGNOSTIC"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "DIAGNOSTIC"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/PROCEDURES",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "PROCEDURES"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/OOM"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "PROCEDURES"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/PE_preg_mr_2021-12-02_379",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Table containing data concerning assessment of phenols and phtalates during pregnancy"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "PE_preg_mr_2021-12-02_379"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/Sepages"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "phenols_phthalates_pregnancy_data"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/name%20of%20test%20dataset%202%20for%20test%20cohort%201",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "description for test dataset 2 for test cohort 1"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "name of test dataset 2 for test cohort 1"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/testCohort1"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "label for test dataset 2 for test cohort 1"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#keyword": [
+      {
+        "@value": "Supplements (M)"
+      },
+      {
+        "@value": "School age"
+      },
+      {
+        "@value": "Preschool age - Dietary behavior"
+      },
+      {
+        "@value": "School age - Method of dietary assessment"
+      },
+      {
+        "@value": "School age - Exact age at dietary assessment"
+      },
+      {
+        "@value": "School age - Supplements"
+      },
+      {
+        "@value": "School age - Food groups"
+      },
+      {
+        "@value": "School age - Nutrients"
+      },
+      {
+        "@value": "Technological devices"
+      },
+      {
+        "@value": "DASH diet index"
+      },
+      {
+        "@value": "Method of dietary assessment (M)"
+      },
+      {
+        "@value": "Method of dietary assessment (F)"
+      },
+      {
+        "@value": "Gestational week at dietary assessment"
+      },
+      {
+        "@value": "Food groups (M)"
+      },
+      {
+        "@value": "Leisure activities"
+      },
+      {
+        "@value": "School age - Dietary behavior"
+      },
+      {
+        "@value": "Food groups (F)"
+      },
+      {
+        "@value": "Nutrients (M)"
+      },
+      {
+        "@value": "Nutrients (F)"
+      },
+      {
+        "@value": "Supplements (F)"
+      },
+      {
+        "@value": "Other and unspecified lifestyle information"
+      },
+      {
+        "@value": "School age - DASH diet index"
+      },
+      {
+        "@value": "DASH diet index (M)"
+      },
+      {
+        "@value": "DASH diet index (F)"
+      },
+      {
+        "@value": "Physical activity"
+      },
+      {
+        "@value": "Transportation"
+      },
+      {
+        "@value": "Personal hygiene"
+      },
+      {
+        "@value": "Sleep"
+      },
+      {
+        "@value": "Misbehaviour and criminality"
+      },
+      {
+        "@value": "Preschool age - Method of dietary assessment"
+      },
+      {
+        "@value": "Preschool age - Food groups"
+      },
+      {
+        "@value": "Preschool age - Supplements"
+      },
+      {
+        "@value": "Preschool age - Nutrients"
+      },
+      {
+        "@value": "Lifestyle and behaviours"
+      },
+      {
+        "@value": "Tobacco"
+      },
+      {
+        "@value": "Maternal smoking"
+      },
+      {
+        "@value": "Paternal smoking"
+      },
+      {
+        "@value": "Alcohol"
+      },
+      {
+        "@value": "Drugs"
+      },
+      {
+        "@value": "Nutrition"
+      },
+      {
+        "@value": "Preschool age"
+      },
+      {
+        "@value": "Method of dietary assessment (Preschool)"
+      },
+      {
+        "@value": "Exact age at dietary assessment (Preschool)"
+      },
+      {
+        "@value": "Food groups (Preschool)"
+      },
+      {
+        "@value": "Supplements (Preschool)"
+      },
+      {
+        "@value": "Nutrients (Preschool)"
+      },
+      {
+        "@value": "Dietary behavior (Preschool)"
+      },
+      {
+        "@value": "Method of dietary assessment (School)"
+      },
+      {
+        "@value": "Exact age at dietary assessment (School)"
+      },
+      {
+        "@value": "Supplements (School)"
+      },
+      {
+        "@value": "Sexual behaviours and orientation"
+      },
+      {
+        "@value": "Food groups (School)"
+      },
+      {
+        "@value": "Nutrients (School)"
+      },
+      {
+        "@value": "Dietary behavior (School)"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1980"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/AP",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "AP"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/AP"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "AP"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/MBRN_child",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "MBRN_child"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/MBRN"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "MBRN_child"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/PFAS_2021_12_10",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Table containing data concerning assessment of pfas"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "PFAS_2021_12_10"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/Sepages"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "pfas_data"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/BDD_mercure",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "database with measurement of metals in a sample of mothers' hair during the third trimester"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "BDD_mercure"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PELAGIE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "database with measurement of metals in a sample of mothers' hair during the third trimester"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/maj_ddn_2021",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Date of birth updated in 2021"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "maj_ddn_2021"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PELAGIE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Update of the date of birth"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/base_respi_enfant_20210326",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Table containing data concerning respiratory health questionnaires for children up to 3 years old"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "base_respi_enfant_20210326"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/Sepages"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Respiratory_child_data"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/MBRN",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
       {
         "@value": "MBRN"
       }
     ],
-    "https://catalogue.org/field/resourceName": [
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/MBRN"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
       {
         "@value": "MBRN"
       }
     ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/tabac_passif_enf",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Table containing data concerning child's Exposure to Tobacco Smoke"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "tabac_passif_enf"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/Sepages"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "ETS_data"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/BDD_OP",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "BDD_OP"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PELAGIE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "database with measurement of OPs from a maternal urine sample and in children's urine at 6 years"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/code_helix_athlete",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Table containing Ids"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "code_helix_athlete"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/Sepages"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Id_data"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/outcome",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "outcome"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/LifeCycle"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "outcome"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/bdd_1a_v1_1",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Table containing data concerning first year of life of the child"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "bdd_1a_v1_1"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/Sepages"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "child_data"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/EXE",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "EXE"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/EXE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "EXE"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/pelagie_exam12",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Clinical examination at 12 years old"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "pelagie_exam12"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PELAGIE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Clinical examination at 12 years old"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/test%20dataset%20for%20testCohort3",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "test dataset for testCohort3"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/testCohort3"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "test dataset for testCohort3"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/Ultrasound_all_SLC_20220428_893",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Table containing data concerning ultrasound"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "Ultrasound_all_SLC_20220428_893"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/Sepages"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "ultrasound_data"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/CPA2",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "CPA2"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/DHL"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "CPA2"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/child",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "child"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/G21"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "child"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/pelagie_dosage12",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "database with blood concentrations of effect biomarkers at 12 years old"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "pelagie_dosage12"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PELAGIE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "database with blood concentrations of effect biomarkers at 12 years old"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/METADATA",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "METADATA"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/OOM"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "METADATA"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/PHT",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "PHT"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PHT"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "PHT"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0"
       }
@@ -3769,155 +2167,1235 @@
   {
     "@id": "https://catalogue.org/dataset/FETALGROWTH_22112016",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
         "@value": "FETALGROWTH_22112016"
       }
     ],
-    "https://catalogue.org/field/label": [
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/GenR"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
       {
         "@value": "DataWiki dataset FETALGROWTH_22112016"
       }
     ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "FETALGROWTH_22112016"
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "GenR"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "The Generation R Study"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0.0"
       }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/chemicals_ath",
+    "@id": "https://catalogue.org/dataset/core",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "chemicals_ath"
+        "@value": "core"
       }
     ],
-    "https://catalogue.org/field/label": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "Chemicals (ATHLETE)"
+        "@id": "https://catalogue.org/resource/NFBC1966"
+      },
+      {
+        "@id": "https://catalogue.org/resource/GenR"
+      },
+      {
+        "@id": "https://catalogue.org/resource/LifeCycle"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "chemicals_ath"
+        "@value": "core"
       }
     ],
-    "https://catalogue.org/field/resourceId": [
+    "http://www.w3.org/ns/dcat#version": [
       {
-        "@value": "ATHLETE"
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/PERSONS",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "PERSONS"
       }
     ],
-    "https://catalogue.org/field/resourceName": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "Advancing Tools for Human Early Lifecourse Exposome Research and Translation"
+        "@id": "https://catalogue.org/resource/OOM"
       }
     ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "1.1.0"
+        "@value": "PERSONS"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/measurements%20after%20birth",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "measurements after birth"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/ENVIRONAGE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "measurements after birth"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/CPA1",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "CPA1"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/DHL"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "CPA1"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/SPF",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "SPF"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/SPF"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "SPF"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/PERSON_RELATIONSHIPS",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "PERSON_RELATIONSHIPS"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/OOM"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "PERSON_RELATIONSHIPS"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/test%20dataset%20for%20testCohort1",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "test description for dataset 1"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "test dataset for testCohort1"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/testCohort1"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "label for test dataset 1"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#keyword": [
+      {
+        "@value": "Social environment and relationships"
+      },
+      {
+        "@value": "Social network"
+      },
+      {
+        "@value": "Social participation"
+      },
+      {
+        "@value": "Social support"
+      },
+      {
+        "@value": "Parenting and familial environment"
+      },
+      {
+        "@value": "Other social environment characteristics"
+      },
+      {
+        "@value": "Family mental health"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1959"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/kayntisyy_icd10",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "kayntisyy_icd10"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/AVOHILMO"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "kayntisyy_icd10"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/BDD_pop",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "database with POPs measurement from cord blood and in the blood of children at 12 years"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "BDD_pop"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PELAGIE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "database with POPs measurement from cord blood and in the blood of children at 12 years"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/PS",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "PS"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/ARS_PS"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "PS"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/bloodpressure%20after%20birth",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "bloodpressure after birth"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/ENVIRONAGE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "bloodpressure after birth"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/RMR",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "RMR"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/RMR"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "RMR"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/MBRN_mother",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "MBRN_mother"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/MBRN"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "MBRN_mother"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/palvelutapahtuma",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "palvelutapahtuma"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/AVOHILMO"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "palvelutapahtuma"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/test%20dataset%20for%20testCohort2",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "test description of dataset for cohort 2"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "test dataset for testCohort2"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/testCohort2"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "label for test dataset for cohort 2"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#keyword": [
+      {
+        "@value": "distance (traffic)"
+      },
+      {
+        "@value": "IgE (Food)"
+      },
+      {
+        "@value": "Any food allergic sensitization (IgE)"
+      },
+      {
+        "@value": "Skin prick test (Food)"
+      },
+      {
+        "@value": "Fish"
+      },
+      {
+        "@value": "Allergy"
+      },
+      {
+        "@value": "Fruit"
+      },
+      {
+        "@value": "Food allergy"
+      },
+      {
+        "@value": "Inhalant allergy"
+      },
+      {
+        "@value": "Any allergy"
+      },
+      {
+        "@value": "Allergic sensitization"
+      },
+      {
+        "@value": "Food"
+      },
+      {
+        "@value": "Food_IgE"
+      },
+      {
+        "@value": "IgE - Any food allergic sensitization"
+      },
+      {
+        "@value": "Food_Skin prick test"
+      },
+      {
+        "@value": "Skin prick test - Any food allergic sensitization"
+      },
+      {
+        "@value": "Chicken egg"
+      },
+      {
+        "@value": "Cow milk"
+      },
+      {
+        "@value": "Rye"
+      },
+      {
+        "@value": "Inhalant_Skin prick test"
+      },
+      {
+        "@value": "Nut"
+      },
+      {
+        "@value": "Peanut"
+      },
+      {
+        "@value": "Sesame"
+      },
+      {
+        "@value": "Shellfish"
+      },
+      {
+        "@value": "Wheat"
+      },
+      {
+        "@value": "Inhalant"
+      },
+      {
+        "@value": "Inhalant_IgE"
+      },
+      {
+        "@value": "IgE - Any inhalant allergic sensitization"
+      },
+      {
+        "@value": "IgE - Cat"
+      },
+      {
+        "@value": "IgE - House dust mite"
+      },
+      {
+        "@value": "Mould"
+      },
+      {
+        "@value": "Skin prick test - Any inhalant allergic sensitization"
+      },
+      {
+        "@value": "Skin prick test - Cat"
+      },
+      {
+        "@value": "Dog"
+      },
+      {
+        "@value": "Skin prick test - House dust mite"
+      },
+      {
+        "@value": "Grass"
+      },
+      {
+        "@value": "Tree"
+      },
+      {
+        "@value": "Urticaria"
+      },
+      {
+        "@value": "Anaphylaxis"
+      },
+      {
+        "@value": "Cat (Skin prick test)"
+      },
+      {
+        "@value": "Physical environment"
+      },
+      {
+        "@value": "Pets"
+      },
+      {
+        "@value": "Cats (any)"
+      },
+      {
+        "@value": "main_land_use_continuous_urban_fabric"
+      },
+      {
+        "@value": "Cats (number)"
+      },
+      {
+        "@value": "Dogs (any)"
+      },
+      {
+        "@value": "Dogs (number)"
+      },
+      {
+        "@value": "Furry Pets"
+      },
+      {
+        "@value": "Housing characteristics"
+      },
+      {
+        "@value": "Built environment/neighbourhood characteristics"
+      },
+      {
+        "@value": "Social context"
+      },
+      {
+        "@value": "area_level_ses_tertiles"
+      },
+      {
+        "@value": "area_level_ses_quintiles"
+      },
+      {
+        "@value": "population_density"
+      },
+      {
+        "@value": "building_density100"
+      },
+      {
+        "@value": "building_density300"
+      },
+      {
+        "@value": "connectivity_density100"
+      },
+      {
+        "@value": "connectivity_density300"
+      },
+      {
+        "@value": "access_to_public_transport_lines100"
+      },
+      {
+        "@value": "access_to_public_transport_lines300"
+      },
+      {
+        "@value": "main_land_use_industrial"
+      },
+      {
+        "@value": "Any food allergic sensitization (Skin prick test)"
+      },
+      {
+        "@value": "IgE (Inhalant)"
+      },
+      {
+        "@value": "main_land_use_forests"
+      },
+      {
+        "@value": "main_land_use_other"
+      },
+      {
+        "@value": "access_to_public_transport_lines500"
+      },
+      {
+        "@value": "access_to_public_transport_stops100"
+      },
+      {
+        "@value": "access_to_public_transport_stops300"
+      },
+      {
+        "@value": "access_to_public_transport_stops500"
+      },
+      {
+        "@value": "main_land_use_medium_urban_fabric"
+      },
+      {
+        "@value": "Any inhalant allergic sensitization (IgE)"
+      },
+      {
+        "@value": "Chemicals"
+      },
+      {
+        "@value": "Phenols"
+      },
+      {
+        "@value": "facilities_density"
+      },
+      {
+        "@value": "facilities_richness"
+      },
+      {
+        "@value": "land_use_mix"
+      },
+      {
+        "@value": "walkability"
+      },
+      {
+        "@value": "main_land_use_agricultural"
+      },
+      {
+        "@value": "main_land_use_airports"
+      },
+      {
+        "@value": "main_land_use_port"
+      },
+      {
+        "@value": "main_land_use_transports"
+      },
+      {
+        "@value": "main_land_use_green_urban"
+      },
+      {
+        "@value": "main_land_use_low_density"
+      },
+      {
+        "@value": "main_land_use_water"
+      },
+      {
+        "@value": "Workplace characteristics"
+      },
+      {
+        "@value": "Radiation exposure"
+      },
+      {
+        "@value": "Chemical exposure"
+      },
+      {
+        "@value": "House dust mite (Skin prick test)"
+      },
+      {
+        "@value": "Phthalates"
+      },
+      {
+        "@value": "PFASs"
+      },
+      {
+        "@value": "Creatinine"
+      },
+      {
+        "@value": "OCs & PBDEs"
+      },
+      {
+        "@value": "Metals"
+      },
+      {
+        "@value": "OPs"
+      },
+      {
+        "@value": "Cotinine"
+      },
+      {
+        "@value": "PAHs"
+      },
+      {
+        "@value": "Glycolethers"
+      },
+      {
+        "@value": "Other pesticides"
+      },
+      {
+        "@value": "Passive smoking"
+      },
+      {
+        "@value": "Air pollution"
+      },
+      {
+        "@value": "no2"
+      },
+      {
+        "@value": "nox"
+      },
+      {
+        "@value": "pm25"
+      },
+      {
+        "@value": "pm25fe"
+      },
+      {
+        "@value": "Biological exposure"
+      },
+      {
+        "@value": "Other physical environment characteristics"
+      },
+      {
+        "@value": "Meteorology"
+      },
+      {
+        "@value": "Cat (IgE)"
+      },
+      {
+        "@value": "pm25k"
+      },
+      {
+        "@value": "pm25cu"
+      },
+      {
+        "@value": "pm25ni"
+      },
+      {
+        "@value": "pm25s"
+      },
+      {
+        "@value": "Noise"
+      },
+      {
+        "@value": "House dust mite (IgE)"
+      },
+      {
+        "@value": "Skin prick test (Inhalant)"
+      },
+      {
+        "@value": "Any inhalant allergic sensitization  (Skin prick test)"
+      },
+      {
+        "@value": "pm25si"
+      },
+      {
+        "@value": "pm25v"
+      },
+      {
+        "@value": "pm25zn"
+      },
+      {
+        "@value": "pm25abs"
+      },
+      {
+        "@value": "pm10"
+      },
+      {
+        "@value": "pm10si"
+      },
+      {
+        "@value": "pm10v"
+      },
+      {
+        "@value": "pm10zn"
+      },
+      {
+        "@value": "pm10cu"
+      },
+      {
+        "@value": "pm10fe"
+      },
+      {
+        "@value": "pm10k"
+      },
+      {
+        "@value": "pm10ni"
+      },
+      {
+        "@value": "pm10s"
+      },
+      {
+        "@value": "pmcoarse"
+      },
+      {
+        "@value": "mean_temperature"
+      },
+      {
+        "@value": "minimum_temperature"
+      },
+      {
+        "@value": "maximum_temperature"
+      },
+      {
+        "@value": "mean_relative_humidity"
+      },
+      {
+        "@value": "minimum_relative_humidity"
+      },
+      {
+        "@value": "maximum_relative_humidity"
+      },
+      {
+        "@value": "DNA_damage_UV_dose"
+      },
+      {
+        "@value": "erythemal_UV_dose"
+      },
+      {
+        "@value": "vitamin_d_UV_dose"
+      },
+      {
+        "@value": "land_surface_temperature"
+      },
+      {
+        "@value": "meteo_distance"
+      },
+      {
+        "@value": "Natural spaces"
+      },
+      {
+        "@value": "blue_distance"
+      },
+      {
+        "@value": "green_distance"
+      },
+      {
+        "@value": "blue_size"
+      },
+      {
+        "@value": "green_size"
+      },
+      {
+        "@value": "blue_access"
+      },
+      {
+        "@value": "green_access"
+      },
+      {
+        "@value": "ndvi100"
+      },
+      {
+        "@value": "ndvi300"
+      },
+      {
+        "@value": "ndvi500"
+      },
+      {
+        "@value": "lden"
+      },
+      {
+        "@value": "ln"
+      },
+      {
+        "@value": "lden_categorical"
+      },
+      {
+        "@value": "ln_categorical"
+      },
+      {
+        "@value": "distance (noise)"
+      },
+      {
+        "@value": "Traffic"
+      },
+      {
+        "@value": "distance_traffic"
+      },
+      {
+        "@value": "traffic_load_all_roads"
+      },
+      {
+        "@value": "traffic_load_major_roads"
+      },
+      {
+        "@value": "traffic_density"
+      },
+      {
+        "@value": "Unhealthy food environment"
+      },
+      {
+        "@value": "unhealthy_facilities_density"
+      },
+      {
+        "@value": "unhealthy_facilities_density_osm"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1959"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/INSTANCE",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "INSTANCE"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/OOM"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "INSTANCE"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "2.2"
       }
     ]
   },
   {
     "@id": "https://catalogue.org/dataset/ddn_pere",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/description": [
+    "http://purl.org/dc/terms/description": [
       {
         "@value": "Table containing date of birth of the father"
       }
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
         "@value": "ddn_pere"
       }
     ],
-    "https://catalogue.org/field/label": [
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/Sepages"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
       {
         "@value": "ddn_father"
       }
     ],
-    "https://catalogue.org/field/name": [
-      {
-        "@value": "ddn_pere"
-      }
-    ],
-    "https://catalogue.org/field/numberOfRows": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 484
-      }
-    ],
-    "https://catalogue.org/field/resourceId": [
-      {
-        "@value": "Sepages"
-      }
-    ],
-    "https://catalogue.org/field/resourceName": [
-      {
-        "@value": "Suivi de l'Exposition à la Pollution Atmosphérique et Effet sur la"
-      }
-    ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0.0"
-      }
-    ],
-    "https://catalogue.org/field/unitOfObservationName": [
-      {
-        "@value": "person"
       }
     ]
   },
   {
-    "@id": "https://catalogue.org/dataset/MBRN",
+    "@id": "https://catalogue.org/dataset/test%20dataset%20for%20testCohort4",
     "@type": [
-      "https://catalogue.org/entity/Dataset"
+      "http://www.w3.org/ns/dcat#Dataset"
     ],
-    "https://catalogue.org/field/id": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@value": "MBRN"
+        "@value": "test dataset for testCohort4"
       }
     ],
-    "https://catalogue.org/field/name": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "MBRN"
+        "@id": "https://catalogue.org/resource/testCohort4"
       }
     ],
-    "https://catalogue.org/field/resourceId": [
+    "http://purl.org/dc/terms/title": [
       {
-        "@value": "MBRN"
+        "@value": "test dataset for testCohort4"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/CHILD-ALLGENERALDATA_12112020",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "CHILD-ALLGENERALDATA_12112020"
       }
     ],
-    "https://catalogue.org/field/resourceName": [
+    "http://purl.org/dc/terms/isPartOf": [
       {
-        "@value": "MBRN"
+        "@id": "https://catalogue.org/resource/GenR"
       }
     ],
-    "https://catalogue.org/field/sinceVersion": [
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "DataWiki dataset CHILD-ALLGENERALDATA_12112020"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/measurements%20at%20FU1",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "measurements at FU1"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/ENVIRONAGE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "measurements at FU1"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/EUROCAT",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "EUROCAT"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/OOM"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "EUROCAT"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "2.2"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/geocodes",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "database with geocodes of the participants"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "geocodes"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PELAGIE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "database with geocodes of the participants"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/FETALCRL_22112016",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "FETALCRL_22112016"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/GenR"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "DataWiki dataset FETALCRL_22112016"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/harmonized",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Non existing variables created for ATHLETE"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "harmonized"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PELAGIE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Variables harmonized for ATHLETE or LifeCycle"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/ANAGRAFICA",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "ANAGRAFICA"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/ANAGRAFICA"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "ANAGRAFICA"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
       {
         "@value": "1.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://catalogue.org/dataset/BDD_perfluores",
+    "@type": [
+      "http://www.w3.org/ns/dcat#Dataset"
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "database with PFASs measurement from cord blood and in the blood of children at 12 years"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "BDD_perfluores"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://catalogue.org/resource/PELAGIE"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "database with PFASs measurement from cord blood and in the blood of children at 12 years"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@value": "1.0.0"
       }
     ]
   }

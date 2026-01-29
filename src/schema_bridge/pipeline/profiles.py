@@ -49,9 +49,17 @@ def load_profile(name_or_path: str) -> ProfileConfig:
             shapes=str(shacl_data["shacl"]),
             validate=bool(shacl_data.get("enabled", shacl_data.get("validate", True))),
         )
+    graphql_fallbacks = list(
+        profile_data.get("graphql_fallbacks", fetch_data.get("graphql_fallbacks", []))
+    )
+    graphql_query = (
+        graphql_fallbacks[0]
+        if graphql_fallbacks
+        else profile_data.get("graphql_query") or fetch_data.get("graphql")
+    )
     return ProfileConfig(
         name=str(profile_data.get("name", name_or_path)),
-        graphql_query=profile_data.get("graphql_query") or fetch_data.get("graphql"),
+        graphql_query=graphql_query,
         root_key=str(profile_data.get("root_key", fetch_data.get("root_key", "Resources"))),
         select_query=profile_data.get("select_query") or export_data.get("select"),
         construct_query=profile_data.get("construct_query") or export_data.get("construct"),

@@ -1,7 +1,7 @@
 name: dcat-all-attributes
 description: Comprehensive DCAT attribute mapping (best-effort) from Molgenis catalogue resources
 fetch:
-  graphql: graphql/dcat_all_resources.graphql
+  graphql: graphql/dcat_all_resources_fallback.graphql
   root_key: Resources
 export:
   construct: sparql/dcat_all_construct.sparql
@@ -25,15 +25,25 @@ mapping:
     typeNames: type[].name
     typeCodes: type[].code
     typeUris: type[].ontologyTermURI
-    keywordNames: keywords[].name
+    keywordNames:
+      - keywords[].name
+      - keywords[]
     keywordCodes: keywords[].code
     keywordUris: keywords[].ontologyTermURI
     contactNames: contact[].name
-    contactEmails: contact[].email
+    contactEmails:
+      - contact[].email
+      - contactEmail
     contactHomepages: contact[].homepage
-    institutionNames: institution[].name
+    institutionNames:
+      - institution[].name
+      - organisationsInvolved[].name
+      - publisher.name
     institutionAcronyms: institution[].acronym
-    institutionHomepages: institution[].homepage
+    institutionHomepages:
+      - institution[].homepage
+      - organisationsInvolved[].website
+      - publisher.website
     conditionNames: conditions[].name
     conditionUris: conditions[].ontologyTermURI
     populationNames: population[].name

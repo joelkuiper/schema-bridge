@@ -25,7 +25,11 @@ WHERE {
   }
   OPTIONAL {
     ?res field:contactEmail ?email .
-    BIND(IRI(CONCAT("mailto:", STR(?email))) AS ?emailIri)
-    BIND(IRI(CONCAT("https://catalogue.org/contact/", ENCODE_FOR_URI(STR(?email)))) AS ?contact)
+    BIND(STR(?email) AS ?emailRaw)
+    BIND(IF(CONTAINS(?emailRaw, ","), STRBEFORE(?emailRaw, ","), ?emailRaw) AS ?emailTmp)
+    BIND(IF(CONTAINS(?emailTmp, ";"), STRBEFORE(?emailTmp, ";"), ?emailTmp) AS ?emailTmp2)
+    BIND(REPLACE(?emailTmp2, "^mailto:", "") AS ?emailClean)
+    BIND(IRI(CONCAT("mailto:", ?emailClean)) AS ?emailIri)
+    BIND(IRI(CONCAT("https://catalogue.org/contact/", ENCODE_FOR_URI(?emailClean))) AS ?contact)
   }
 }
