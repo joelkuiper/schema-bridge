@@ -2,6 +2,8 @@ name: health-dcat-ap-molgenis
 description: Health-DCAT-AP export tuned for molgeniscatalogue.org (fast demo construct)
 fetch:
   graphql: graphql/query.graphql
+  base_url: https://molgeniscatalogue.org/
+  schema: catalogue
   root_key: Resources
 export:
   select: sparql/select.sparql

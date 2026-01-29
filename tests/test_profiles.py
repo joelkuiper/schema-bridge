@@ -15,13 +15,18 @@ def _fixture_for_profile(profile: str) -> Path:
     return resources / "graphql_resources.json"
 
 
-def _run_convert(
-    tmp_path: Path, profile: str, output_format: str
-) -> subprocess.CompletedProcess[str]:
+def _env_for_profile(profile: str) -> dict[str, str]:
     fixture = _fixture_for_profile(profile)
     env = os.environ.copy()
     src_path = Path(__file__).parents[1] / "src"
     env["PYTHONPATH"] = f"{src_path}{os.pathsep}{env.get('PYTHONPATH', '')}"
+    env["SCHEMA_BRIDGE_GRAPHQL_FIXTURE"] = str(fixture)
+    return env
+
+
+def _run_convert(profile: str, output_format: str) -> subprocess.CompletedProcess[str]:
+    fixture = _fixture_for_profile(profile)
+    env = _env_for_profile(profile)
     return subprocess.run(
         [
             sys.executable,
@@ -40,6 +45,27 @@ def _run_convert(
     )
 
 
+def _run_run(profile: str, output_format: str, limit: int) -> subprocess.CompletedProcess[str]:
+    env = _env_for_profile(profile)
+    return subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "schema_bridge.cli",
+            "run",
+            "--profile",
+            profile,
+            "--format",
+            output_format,
+            "--limit",
+            str(limit),
+        ],
+        env=env,
+        capture_output=True,
+        text=True,
+    )
+
+
 @pytest.mark.parametrize(
     ("profile", "output_format", "marker"),
     [
@@ -51,8 +77,17 @@ def _run_convert(
 def test_profile_outputs_to_stdout(
     tmp_path: Path, profile: str, output_format: str, marker: str
 ) -> None:
-    completed = _run_convert(tmp_path, profile, output_format)
+    completed = _run_convert(profile, output_format)
     assert completed.returncode == 0, (
         f"{profile} failed:\nSTDOUT: {completed.stdout}\nSTDERR: {completed.stderr}"
     )
     assert marker in completed.stdout
+
+
+@pytest.mark.integration
+def test_molgenis_profile_run_uses_fixture() -> None:
+    completed = _run_run("health-dcat-ap-molgenis", "ttl", limit=50)
+    assert completed.returncode == 0, (
+        f"run failed:\nSTDOUT: {completed.stdout}\nSTDERR: {completed.stderr}"
+    )
+    assert "@prefix" in completed.stdout

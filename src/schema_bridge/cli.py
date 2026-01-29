@@ -26,6 +26,37 @@ app = typer.Typer(help="Schema Bridge CLI (GraphQL -> RDF canonical graph -> exp
 logger = logging.getLogger("schema_bridge.cli")
 
 
+def _resolve_graphql_target(
+    *,
+    profile: "ProfileConfig",
+    base_url: str | None,
+    schema: str | None,
+    endpoint: str | None,
+) -> tuple[str | None, str | None, str | None]:
+    resolved_endpoint = (
+        endpoint
+        or profile.graphql_endpoint
+        or os.getenv("SCHEMA_BRIDGE_GRAPHQL_ENDPOINT")
+    )
+    resolved_base_url = (
+        base_url
+        or profile.base_url
+        or os.getenv("SCHEMA_BRIDGE_BASE_URL")
+    )
+    resolved_schema = (
+        schema
+        or profile.schema
+        or os.getenv("SCHEMA_BRIDGE_SCHEMA")
+    )
+    if not resolved_endpoint and (not resolved_base_url or not resolved_schema):
+        if not os.getenv("SCHEMA_BRIDGE_GRAPHQL_FIXTURE"):
+            raise SystemExit(
+                "GraphQL endpoint is required. Provide --graphql-endpoint or "
+                "--base-url/--schema (or set them in the profile or environment)."
+            )
+    return resolved_endpoint, resolved_base_url, resolved_schema
+
+
 @app.callback()
 def _main(
     debug: bool = typer.Option(
@@ -40,13 +71,18 @@ def _main(
 @app.command()
 def fetch(
     out: Path = typer.Option(..., "--out", "-o", help="Output JSON path"),
-    base_url: str = typer.Option(
-        os.getenv("SCHEMA_BRIDGE_BASE_URL", "https://emx2.dev.molgenis.org/"),
-        help="Base URL for the EMX2 server",
+    base_url: str | None = typer.Option(
+        None,
+        help="Base URL for the EMX2 server (overrides profile/environment)",
     ),
-    schema: str = typer.Option(
-        os.getenv("SCHEMA_BRIDGE_SCHEMA", "catalogue-demo"),
-        help="Schema name for the catalogue",
+    schema: str | None = typer.Option(
+        None,
+        help="Schema name for the catalogue (overrides profile/environment)",
+    ),
+    endpoint: str | None = typer.Option(
+        None,
+        "--graphql-endpoint",
+        help="Full GraphQL endpoint URL (overrides base_url/schema)",
     ),
     profile: str = typer.Option(
         os.getenv("SCHEMA_BRIDGE_PROFILE", "dcat"),
@@ -79,20 +115,27 @@ def fetch(
     ),
 ) -> None:
     configure_logging(debug)
-    logger.debug("Starting fetch: base_url=%s schema=%s profile=%s", base_url, schema, profile)
+    logger.debug("Starting fetch: base_url=%s schema=%s profile=%s endpoint=%s", base_url, schema, profile, endpoint)
     profile_cfg = load_profile(profile)
+    resolved_endpoint, resolved_base_url, resolved_schema = _resolve_graphql_target(
+        profile=profile_cfg,
+        base_url=base_url,
+        schema=schema,
+        endpoint=endpoint,
+    )
     pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
     query_path = query or profile_cfg.graphql_query or "profiles/dcat/graphql/query.graphql"
     query_path = resolve_profile_path(profile_cfg, query_path, "schema_bridge.resources")
     query_text = load_text(query_path, "schema_bridge.resources")
     data = fetch_graphql(
-        base_url,
-        schema,
+        resolved_base_url,
+        resolved_schema,
         query_text,
         root_key=profile_cfg.root_key,
         pagination=pagination,
         updated_since=updated_since,
         updated_until=updated_until,
+        endpoint=resolved_endpoint,
     )
     write_json(data, out)
     logger.debug("Fetch complete: wrote %s", out)
@@ -187,13 +230,18 @@ def convert(
 
 @app.command()
 def run(
-    base_url: str = typer.Option(
-        os.getenv("SCHEMA_BRIDGE_BASE_URL", "https://emx2.dev.molgenis.org/"),
-        help="Base URL for the EMX2 server",
+    base_url: str | None = typer.Option(
+        None,
+        help="Base URL for the EMX2 server (overrides profile/environment)",
     ),
-    schema: str = typer.Option(
-        os.getenv("SCHEMA_BRIDGE_SCHEMA", "catalogue-demo"),
-        help="Schema name for the catalogue",
+    schema: str | None = typer.Option(
+        None,
+        help="Schema name for the catalogue (overrides profile/environment)",
+    ),
+    endpoint: str | None = typer.Option(
+        None,
+        "--graphql-endpoint",
+        help="Full GraphQL endpoint URL (overrides base_url/schema)",
     ),
     profile: str = typer.Option(
         os.getenv("SCHEMA_BRIDGE_PROFILE", "dcat"),
@@ -255,7 +303,14 @@ def run(
     ),
 ) -> None:
     configure_logging(debug)
-    logger.debug("Starting run: base_url=%s schema=%s profile=%s format=%s", base_url, schema, profile, output_format)
+    logger.debug(
+        "Starting run: base_url=%s schema=%s profile=%s format=%s endpoint=%s",
+        base_url,
+        schema,
+        profile,
+        output_format,
+        endpoint,
+    )
     profile_cfg = load_profile(profile)
     if profile_cfg.mapping_format == "rml":
         raise SystemExit("RML profiles are not supported with run; use convert instead.")
@@ -269,17 +324,24 @@ def run(
         validate_override=validate,
     )
     pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
+    resolved_endpoint, resolved_base_url, resolved_schema = _resolve_graphql_target(
+        profile=export.profile,
+        base_url=base_url,
+        schema=schema,
+        endpoint=endpoint,
+    )
     query_path = query or export.profile.graphql_query or "profiles/dcat/graphql/query.graphql"
     query_path = resolve_profile_path(export.profile, query_path, "schema_bridge.resources")
     query_text = load_text(query_path, "schema_bridge.resources")
     graphql_data = fetch_graphql(
-        base_url,
-        schema,
+        resolved_base_url,
+        resolved_schema,
         query_text,
         root_key=export.root_key,
         pagination=pagination,
         updated_since=updated_since,
         updated_until=updated_until,
+        endpoint=resolved_endpoint,
     )
     rows = extract_rows(graphql_data, export.root_key)
     raw_graph = Graph()

@@ -12,6 +12,9 @@ from .shacl import ShaclConfig
 class ProfileConfig:
     name: str
     graphql_query: str | None = None
+    graphql_endpoint: str | None = None
+    base_url: str | None = None
+    schema: str | None = None
     root_key: str = "Resources"
     select_query: str | None = None
     construct_query: str | None = None
@@ -87,6 +90,9 @@ def load_profile(name_or_path: str) -> ProfileConfig:
     return ProfileConfig(
         name=str(profile_data.get("name", name_or_path)),
         graphql_query=graphql_query,
+        graphql_endpoint=fetch_data.get("endpoint") or profile_data.get("graphql_endpoint"),
+        base_url=fetch_data.get("base_url") or profile_data.get("base_url"),
+        schema=fetch_data.get("schema") or profile_data.get("schema"),
         root_key=str(profile_data.get("root_key", fetch_data.get("root_key", "Resources"))),
         select_query=profile_data.get("select_query") or export_data.get("select"),
         construct_query=profile_data.get("construct_query") or export_data.get("construct"),

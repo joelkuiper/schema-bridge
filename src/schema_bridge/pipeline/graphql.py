@@ -94,8 +94,8 @@ def _paginate_graphql(
 
 
 def fetch_graphql(
-    base_url: str,
-    schema: str,
+    base_url: str | None,
+    schema: str | None,
     query: str,
     variables: dict | None = None,
     *,
@@ -103,14 +103,20 @@ def fetch_graphql(
     pagination: PaginationConfig | None = None,
     updated_since: str | None = None,
     updated_until: str | None = None,
+    endpoint: str | None = None,
 ) -> dict:
     fixture = os.getenv("SCHEMA_BRIDGE_GRAPHQL_FIXTURE")
     if fixture:
         logger.debug("Using GraphQL fixture from SCHEMA_BRIDGE_GRAPHQL_FIXTURE")
         return load_graphql_file(Path(fixture))
-    endpoint = f"{base_url.rstrip('/')}/{schema}/graphql"
-    logger.debug("Fetching GraphQL from %s (root_key=%s)", endpoint, root_key)
-    transport = RequestsHTTPTransport(url=endpoint, timeout=30)
+    if endpoint:
+        url = endpoint
+    else:
+        if not base_url or not schema:
+            raise ValueError("GraphQL base_url and schema are required when endpoint is not set")
+        url = f"{base_url.rstrip('/')}/{schema}/graphql"
+    logger.debug("Fetching GraphQL from %s (root_key=%s)", url, root_key)
+    transport = RequestsHTTPTransport(url=url, timeout=30)
     client = Client(transport=transport, fetch_schema_from_transport=False)
     updated_filter = _build_updated_filter(updated_since, updated_until)
     if pagination:

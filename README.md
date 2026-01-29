@@ -31,6 +31,21 @@ placed before or after the subcommand.
 You can set a limit (`--limit`) to adjust the number of GraphQL results to be fetched.
 Use the command-line help, e.g. `uv run schema-bridge run --help`, for detailed information about parameters.
 
+### GraphQL endpoint resolution
+
+For `fetch`/`run`, the GraphQL endpoint is resolved in this order (highest wins):
+
+1. CLI `--graphql-endpoint`
+2. Profile `fetch.endpoint`
+3. Environment `SCHEMA_BRIDGE_GRAPHQL_ENDPOINT`
+4. CLI `--base-url` + `--schema`
+5. Profile `fetch.base_url` + `fetch.schema`
+6. Environment `SCHEMA_BRIDGE_BASE_URL` + `SCHEMA_BRIDGE_SCHEMA`
+7. No defaults are assumed; if nothing is provided, the CLI errors.
+
+If an endpoint is provided, `base_url/schema` are ignored. Otherwise they are combined as
+`{base_url}/{schema}/graphql`.
+
 ## Profiles (export)
 
 Profiles are YAML files with explicit sections:
@@ -43,6 +58,8 @@ Profiles are YAML files with explicit sections:
 Common keys:
 
 - `fetch.graphql`: GraphQL file (relative to the profile folder)
+- `fetch.endpoint`: full GraphQL endpoint URL (optional)
+- `fetch.base_url` + `fetch.schema`: base URL + schema name (optional)
 - `fetch.root_key`: GraphQL data root
 - `export.select` / `export.construct`: SPARQL files (relative to the profile folder)
 - `validate.shacl`: shape path (relative to the profile folder, or an absolute path)
@@ -76,6 +93,5 @@ redirect to a file when you need a saved artifact.
 ```
 src/schema_bridge/resources/
   profiles/         # export profile folders (profile.yml + graphql/sparql, SHACL shapes)
-  ingest_profiles/  # ingest profile folders (profile.yml + graphq/sparql)
-  rml/              # RML mappings (optional)
+  ingest_profiles/  # ingest profile folders (profile.yml + graphql/sparql, SHACL shapes)
 ```
