@@ -60,12 +60,16 @@ def _load_yaml(path: Path) -> dict:
 def _ingest_profile_path(name_or_path: str) -> Path:
     candidate = Path(name_or_path)
     if candidate.exists():
-        return candidate
+        return candidate / "profile.yml" if candidate.is_dir() else candidate
     if not candidate.suffix:
         candidate = candidate.with_suffix(".yml")
-    resource_candidate = Path(__file__).parent / "resources" / "ingest_profiles" / candidate.name
+    resource_root = Path(__file__).parent / "resources" / "ingest_profiles"
+    resource_candidate = resource_root / candidate.name
     if resource_candidate.exists():
         return resource_candidate
+    folder_candidate = resource_root / candidate.stem / "profile.yml"
+    if folder_candidate.exists():
+        return folder_candidate
     raise FileNotFoundError(f"Ingest profile not found: {name_or_path}")
 
 
@@ -268,7 +272,7 @@ def ingest(
     ),
     profile: str = typer.Option(
         os.getenv("SCHEMA_BRIDGE_PROFILE", "ingest-dcat"),
-        help="Ingest profile name or YAML path",
+        help="Ingest profile name, folder, or YAML path",
     ),
     table: str | None = typer.Option(None, help="Target EMX2 table name (overrides profile)"),
     mode: str | None = typer.Option(None, help="Mutation mode: upsert or insert (overrides profile)"),

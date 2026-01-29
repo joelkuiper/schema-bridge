@@ -71,23 +71,6 @@ Caveats (demo profile):
 - Fields like detailed age-group hierarchy, inclusion criteria details, and design publications are not fully materialized.
 - Access-rights and policy nodes are derived from URI fields only; vocabulary labels/definitions may be omitted.
 
-## CLI flags (pagination + incremental sync)
-
-The `fetch` and `run` commands support paging and updated-since filters:
-
-- `--page-size` rows per GraphQL page (default: 200)
-- `--limit` max rows to fetch (`0` means all rows)
-- `--updated-since` ISO-8601 timestamp to filter on `mg_updatedOn` (inclusive)
-- `--updated-until` ISO-8601 timestamp to cap the range
-Note: `--updated-since/--updated-until` require `mg_updatedOn` filter support in the server schema.
-
-## Ingest (RDF -> EMX2 via GraphQL)
-
-Use ingest when you already have DCAT/Health-DCAT RDF (TTL/JSON-LD/RDF/XML/N-Triples) and want to push it into EMX2. Validation is
-enabled by default.
-
-Ingest profiles live under `src/schema_bridge/resources/ingest_profiles/`.
-
 ## Output formats
 
 Use `--format` to choose a single output format (`csv`, `json`, `jsonld`, `ttl`, `rdfxml`, `nt`). Export commands write to stdout, so
@@ -98,8 +81,7 @@ redirect to a file when you need a saved artifact.
 ```
 src/schema_bridge/resources/
   profiles/         # export profile folders (profile.yml + graphql/sparql)
-  sparql/           # shared SPARQL queries (mostly ingest)
-  ingest_profiles/  # ingest profiles (YAML)
+  ingest_profiles/  # ingest profile folders (profile.yml + graphq/sparql)
   shacl/            # SHACL shapes
   rml/              # RML mappings (optional)
 ```
