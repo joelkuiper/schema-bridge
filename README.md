@@ -27,7 +27,9 @@ Profiles are the primary entry point. A profile wires together the fetch, export
 - `uv run schema-bridge run --profile health-dcat-ap -o out`
 - `uv run schema-bridge run --profile health-ri-core-v2 -o out`
 
-You can set a limit (`--limit`) to adjust the number of GraphQL results to be fetched.
+You can set a limit (`--limit`) to adjust the number of GraphQL results to be fetched. For large
+catalogues, `--page-size` enables server-side paging, and `--updated-since`/`--updated-until` allow
+incremental syncs based on the `mg_updatedOn` system column.
 
 ## Profiles (export)
 
@@ -48,6 +50,15 @@ Common keys:
 - `validate.enabled`: enable/disable validation
 
 Profiles live under `src/schema_bridge/resources/profiles/`.
+
+## CLI flags (pagination + incremental sync)
+
+The `fetch` and `run` commands support paging and updated-since filters:
+
+- `--page-size` rows per GraphQL page (default: 200)
+- `--limit` max rows to fetch (`0` means all rows)
+- `--updated-since` ISO-8601 timestamp to filter on `mg_updatedOn` (inclusive)
+- `--updated-until` ISO-8601 timestamp to cap the range
 
 ## DCAT all-attributes use case (catalogue schema)
 
@@ -111,6 +122,7 @@ Profiles are the intended route. Use `fetch` only when you want to inspect or pi
 or CI use.
 
 - `uv run schema-bridge fetch --base-url https://emx2.dev.molgenis.org/ --schema catalogue-demo --limit 5 -o out/graphql.json`
+- `uv run schema-bridge fetch --base-url https://emx2.dev.molgenis.org/ --schema catalogue-demo --page-size 200 --limit 0 --updated-since 2025-01-01T00:00:00Z -o out/graphql.json`
 
 ## Convert (advanced)
 
@@ -141,6 +153,13 @@ src/schema_bridge/resources/
   ingest_profiles/  # ingest profiles (YAML)
   shacl/            # SHACL shapes
   rml/              # RML mappings (optional)
+
+## Concept-aware mappings
+
+Profiles can define `concept_fields` to preserve ontology structure (URI/code/label) as SKOS concepts
+instead of flattening to strings. This is important for DUO/ICD/SNOMED and similar vocabularies in
+biobank and longitudinal study catalogues. The `dcat-all-attributes` profile now emits richer
+concept nodes and links releases as explicit `dcat:Distribution` resources.
 ```
 
 ## Stdout output

@@ -19,6 +19,7 @@ from schema_bridge.pipeline import (
     select_rows,
     validate_graph,
 )
+from schema_bridge.pipeline.mapping import ConceptField, NodeField
 
 EX = Namespace("https://catalogue.org/")
 FIELD = Namespace("https://catalogue.org/field/")
@@ -368,6 +369,79 @@ def test_field_paths_flatten_nested():
     res = URIRef("https://catalogue.org/resource/R2")
     assert (res, FIELD["leadOrganisationAcronym"], None) in raw
     assert (res, FIELD["countryNames"], None) in raw
+
+
+def test_concept_fields_create_skos_nodes():
+    mapping = MappingConfig(
+        raw=RawMapping(),
+        concept_fields={
+            "keywords": ConceptField(
+                path="keywords[]",
+                predicate="keywordConcept",
+                uri_path="ontologyTermURI",
+                code_path="code",
+                label_path="name",
+                lang="en",
+            )
+        },
+    )
+    raw = Graph()
+    rows = [
+        {
+            "id": "R3",
+            "name": "Concept Resource",
+            "keywords": [
+                {
+                    "name": "genomics",
+                    "code": "GEN",
+                    "ontologyTermURI": "http://example.org/terms/genomics",
+                }
+            ],
+        }
+    ]
+    load_raw_from_rows(rows, raw, mapping)
+    res = URIRef("https://catalogue.org/resource/R3")
+    concept = URIRef("http://example.org/terms/genomics")
+    assert (res, FIELD["keywordConcept"], concept) in raw
+    assert (concept, RDF.type, Namespace("http://www.w3.org/2004/02/skos/core#")["Concept"]) in raw
+    assert (
+        concept,
+        Namespace("http://www.w3.org/2004/02/skos/core#")["prefLabel"],
+        None,
+    ) in raw
+
+
+def test_node_fields_create_distribution_nodes():
+    mapping = MappingConfig(
+        raw=RawMapping(),
+        node_fields={
+            "releases": NodeField(
+                path="releases[]",
+                predicate="distribution",
+                subject_path="distribution",
+                id_field="id",
+                fields={
+                    "version": "releaseVersion",
+                    "date": "releaseDate",
+                    "description": "releaseDescription",
+                },
+            )
+        },
+    )
+    raw = Graph()
+    rows = [
+        {
+            "id": "R4",
+            "name": "Release Resource",
+            "releases": [{"id": "REL-2", "version": "v2", "date": "2024-01-01"}],
+        }
+    ]
+    load_raw_from_rows(rows, raw, mapping)
+    res = URIRef("https://catalogue.org/resource/R4")
+    dist = URIRef("https://catalogue.org/distribution/REL-2")
+    assert (res, FIELD["distribution"], dist) in raw
+    assert (dist, FIELD["releaseVersion"], None) in raw
+    assert (dist, FIELD["releaseDate"], None) in raw
 
 
 def test_catalogue_variables_select():

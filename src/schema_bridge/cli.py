@@ -16,6 +16,7 @@ from schema_bridge.pipeline import (
     resolve_export,
     _materialize_graph,
     write_json,
+    PaginationConfig,
 )
 
 app = typer.Typer(help="Schema Bridge CLI (GraphQL -> RDF canonical graph -> exports)")
@@ -42,7 +43,19 @@ def fetch(
     ),
     limit: int = typer.Option(
         int(os.getenv("SCHEMA_BRIDGE_LIMIT", "5")),
-        help="Maximum number of resources to fetch",
+        help="Maximum number of resources to fetch (0 for all)",
+    ),
+    page_size: int = typer.Option(
+        int(os.getenv("SCHEMA_BRIDGE_PAGE_SIZE", "200")),
+        help="Rows per page for GraphQL paging",
+    ),
+    updated_since: str | None = typer.Option(
+        None,
+        help="Only fetch rows updated on/after this timestamp (ISO 8601)",
+    ),
+    updated_until: str | None = typer.Option(
+        None,
+        help="Only fetch rows updated before this timestamp (ISO 8601)",
     ),
 ) -> None:
     profile_cfg = load_profile(profile)
@@ -51,7 +64,16 @@ def fetch(
         query_path if "/" in query_path else f"graphql/{query_path}",
         "schema_bridge.resources",
     )
-    data = fetch_graphql(base_url, schema, query_text, {"limit": limit})
+    pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
+    data = fetch_graphql(
+        base_url,
+        schema,
+        query_text,
+        root_key=profile_cfg.root_key,
+        pagination=pagination,
+        updated_since=updated_since,
+        updated_until=updated_until,
+    )
     write_json(data, out)
 
 
@@ -167,7 +189,11 @@ def run(
     mapping: Path | None = typer.Option(None, help="YAML mapping override path"),
     limit: int = typer.Option(
         int(os.getenv("SCHEMA_BRIDGE_LIMIT", "5")),
-        help="Maximum number of resources to fetch",
+        help="Maximum number of resources to fetch (0 for all)",
+    ),
+    page_size: int = typer.Option(
+        int(os.getenv("SCHEMA_BRIDGE_PAGE_SIZE", "200")),
+        help="Rows per page for GraphQL paging",
     ),
     validate: bool | None = typer.Option(
         None,
@@ -177,6 +203,14 @@ def run(
     shacl_report: Path | None = typer.Option(
         None,
         help="Optional path to write SHACL validation report (TTL)",
+    ),
+    updated_since: str | None = typer.Option(
+        None,
+        help="Only fetch rows updated on/after this timestamp (ISO 8601)",
+    ),
+    updated_until: str | None = typer.Option(
+        None,
+        help="Only fetch rows updated before this timestamp (ISO 8601)",
     ),
 ) -> None:
     profile_cfg = load_profile(profile)
@@ -196,7 +230,16 @@ def run(
         query_path if "/" in query_path else f"graphql/{query_path}",
         "schema_bridge.resources",
     )
-    graphql_data = fetch_graphql(base_url, schema, query_text, {"limit": limit})
+    pagination = PaginationConfig(page_size=page_size, max_rows=None if limit <= 0 else limit)
+    graphql_data = fetch_graphql(
+        base_url,
+        schema,
+        query_text,
+        root_key=export.root_key,
+        pagination=pagination,
+        updated_since=updated_since,
+        updated_until=updated_until,
+    )
     out_dir.mkdir(parents=True, exist_ok=True)
     write_json(graphql_data, out_dir / "graphql.json")
 

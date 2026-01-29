@@ -9,7 +9,7 @@ from .export import (
     write_csv,
     write_json,
 )
-from .graphql import extract_rows, fetch_graphql, load_graphql_file
+from .graphql import PaginationConfig, extract_rows, fetch_graphql, load_graphql_file
 from .mapping import MappingConfig, RawMapping, load_raw_from_rows
 from .orchestrate import export_and_validate
 from .profiles import (
@@ -31,6 +31,7 @@ __all__ = [
     "extract_rows",
     "fetch_graphql",
     "load_graphql_file",
+    "PaginationConfig",
     "load_mapping_override",
     "load_profile",
     "load_raw_from_rows",
