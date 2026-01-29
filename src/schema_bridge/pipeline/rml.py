@@ -12,6 +12,8 @@ from .profiles import ProfileConfig, resolve_profile_path
 
 def materialize_rml(mapping_path: str, source_path: str | None = None) -> Graph:
     config = [
+        "[CONFIGURATION]",
+        "number_of_processes=1",
         "[DataSource1]",
         f"mappings: {mapping_path}",
     ]

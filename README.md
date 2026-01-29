@@ -21,6 +21,7 @@ Install dependencies: `uv sync --extra test`.
 Profiles are the primary entry point. A profile wires together the fetch, export, mapping, and validation steps.
 
 - `uv run schema-bridge run --profile dcat -o out`
+- `uv run schema-bridge run --profile dcat-all-attributes -o out`
 - `uv run schema-bridge run --profile dcat-ap-3.0.1 -o out`
 - `uv run schema-bridge run --profile fdp -o out`
 - `uv run schema-bridge run --profile health-dcat-ap -o out`
@@ -45,6 +46,25 @@ Common keys:
 - `validate.enabled`: enable/disable validation
 
 Profiles live under `src/schema_bridge/resources/profiles/`.
+
+## DCAT all-attributes use case (catalogue schema)
+
+The `dcat-all-attributes` profile is a best-effort, comprehensive mapping that attempts to populate every
+property shown in the [DCAT “all attributes” diagram](https://www.w3.org/TR/vocab-dcat/images/dcat-all-attributes.svg). It flattens nested EMX2 catalogue fields and emits
+`dcat:Resource`, `dcat:Dataset`, `dcat:Catalog`, `dcat:DataService`, `dcat:Distribution`, `dcat:CatalogRecord`,
+`dcat:Relationship`, and `dcat:DatasetSeries` where possible.
+
+Example usage:
+
+- `uv run schema-bridge run --profile dcat-all-attributes -o out`
+
+Caveats (current catalogue schema limitations):
+
+- Distribution/service fields like `downloadURL`, `accessURL`, `mediaType`, `byteSize`, `checksum`,
+  `endpointURL`, and `endpointDescription` are not present in the default EMX2 catalogue schema.
+- Releases are flattened when exported from `Resources`, so per-release fields (version/date/description)
+  may not align with each distribution node unless you model Releases separately.
+- Some class assignments (Catalog/DataService/DatasetSeries) are inferred from type names and are heuristic.
 
 ## Ingest (RDF -> EMX2 via GraphQL)
 

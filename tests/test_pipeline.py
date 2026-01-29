@@ -112,6 +112,72 @@ def test_catalogs_use_case_dcat_fields():
     assert (None, RDF.type, VCARD["Individual"]) in dcat
 
 
+def test_dcat_all_attributes_construct():
+    profile = load_profile("dcat-all-attributes")
+    raw = Graph()
+    rows = [
+        {
+            "id": "R-ALL-1",
+            "acronym": "RA1",
+            "name": "All Attributes Resource",
+            "description": "Resource with comprehensive DCAT fields",
+            "homepage": "https://example.org/resources/R-ALL-1",
+            "type": [{"name": "catalog", "ontologyTermURI": "http://example.org/types/catalog"}],
+            "keywords": [
+                {"name": "genomics", "ontologyTermURI": "http://example.org/themes/genomics"}
+            ],
+            "contact": [{"name": "Support", "email": "support@example.org"}],
+            "institution": [{"name": "Example Org"}],
+            "conditions": [{"ontologyTermURI": "http://example.org/access/public"}],
+            "conditionsDescription": "CC-BY",
+            "startYear": 2000,
+            "endYear": 2020,
+            "releases": [{"id": "REL-1", "version": "v1", "date": "2023-01-01"}],
+            "contributors": [
+                {
+                    "contact": {"name": "Jane Doe", "email": "jane@example.org"},
+                    "contributionType": [
+                        {"ontologyTermURI": "http://example.org/roles/curator"}
+                    ],
+                    "contributionDescription": "Curated metadata",
+                }
+            ],
+        }
+    ]
+    load_raw_from_rows(rows, raw, profile.mapping)
+
+    dcat_all = load_text("sparql/dcat_all_construct.sparql", "schema_bridge.resources")
+    graph = raw.query(dcat_all).graph
+
+    DCAT = Namespace("http://www.w3.org/ns/dcat#")
+    DCT = Namespace("http://purl.org/dc/terms/")
+    VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
+    PROV = Namespace("http://www.w3.org/ns/prov#")
+
+    res = EX["resource/R-ALL-1"]
+    assert (res, RDF.type, DCAT["Resource"]) in graph
+    assert (res, RDF.type, DCAT["Dataset"]) in graph
+    assert (res, DCT["identifier"], None) in graph
+    assert (res, DCT["title"], None) in graph
+    assert (res, DCAT["keyword"], None) in graph
+    assert (res, DCAT["theme"], None) in graph
+    assert (res, DCT["accessRights"], None) in graph
+    assert (res, DCT["license"], None) in graph
+
+    assert (None, RDF.type, VCARD["Individual"]) in graph
+    assert (None, VCARD["hasEmail"], None) in graph
+
+    assert (None, RDF.type, DCAT["Distribution"]) in graph
+    assert (None, DCT["issued"], None) in graph
+
+    assert (None, RDF.type, DCT["PeriodOfTime"]) in graph
+    assert (None, DCAT["startDate"], None) in graph
+    assert (None, DCAT["endDate"], None) in graph
+
+    assert (None, RDF.type, PROV["Attribution"]) in graph
+    assert (None, PROV["agent"], None) in graph
+
+
 def test_select_rows():
     raw = Graph()
     rows = [

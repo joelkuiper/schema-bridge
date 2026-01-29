@@ -1,0 +1,93 @@
+query DcatAllResources($limit: Int) {
+  Resources(limit: $limit) {
+    id
+    acronym
+    name
+    description
+    homepage
+    type {
+      name
+      code
+      ontologyTermURI
+    }
+    keywords {
+      name
+      code
+      ontologyTermURI
+    }
+    contact {
+      name
+      email
+      homepage
+    }
+    institution {
+      acronym
+      name
+      homepage
+    }
+    startYear
+    endYear
+    conditions {
+      name
+      code
+      ontologyTermURI
+    }
+    conditionsDescription
+    publications {
+      title
+      doi
+      url
+    }
+    population {
+      name
+      code
+      ontologyTermURI
+    }
+    inclusionCriteria {
+      name
+      code
+      ontologyTermURI
+    }
+    releases {
+      id
+      version
+      date
+      description
+    }
+    documentation {
+      name
+      url
+      description
+      type {
+        name
+        code
+        ontologyTermURI
+      }
+    }
+    partners {
+      institution {
+        acronym
+        name
+        homepage
+      }
+      role {
+        name
+        code
+        ontologyTermURI
+      }
+      roleDescription
+    }
+    contributors {
+      contact {
+        name
+        email
+      }
+      contributionType {
+        name
+        code
+        ontologyTermURI
+      }
+      contributionDescription
+    }
+  }
+}

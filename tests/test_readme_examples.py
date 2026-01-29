@@ -16,6 +16,8 @@ def _fixture_for_command(cmd: str) -> Path:
         return resources / "graphql_health_dcat_ap.json"
     if "--profile health-ri-core-v2" in cmd:
         return resources / "graphql_health_ri_core_v2.json"
+    if "--profile dcat-all-attributes" in cmd:
+        return resources / "graphql_dcat_all_resources.json"
     return resources / "graphql_resources.json"
 
 
@@ -50,6 +52,8 @@ def test_readme_commands(tmp_path: Path) -> None:
     for cmd in commands:
         env = os.environ.copy()
         env["SCHEMA_BRIDGE_GRAPHQL_FIXTURE"] = str(_fixture_for_command(cmd))
+        src_path = Path(__file__).parents[1] / "src"
+        env["PYTHONPATH"] = f"{src_path}{os.pathsep}{env.get('PYTHONPATH', '')}"
         workdir = tmp_path / "case"
         workdir.mkdir(parents=True, exist_ok=True)
         subcommand = _subcommand(cmd)
@@ -57,7 +61,10 @@ def test_readme_commands(tmp_path: Path) -> None:
             out_dir = workdir / "out"
             out_dir.mkdir(parents=True, exist_ok=True)
             fixture = _fixture_for_command(cmd)
-            (out_dir / "graphql.json").write_text(fixture.read_text(encoding="utf-8"), encoding="utf-8")
+            (out_dir / "graphql.json").write_text(
+                fixture.read_text(encoding="utf-8"),
+                encoding="utf-8",
+            )
         completed = subprocess.run(
             _prepare_command(cmd, workdir),
             cwd=workdir,

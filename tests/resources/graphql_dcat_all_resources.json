@@ -1,0 +1,128 @@
+{
+  "data": {
+    "Resources": [
+      {
+        "id": "R-DCAT-1",
+        "acronym": "RDC1",
+        "name": "Comprehensive Resource",
+        "description": "Resource with rich DCAT metadata",
+        "homepage": "https://example.org/resources/R-DCAT-1",
+        "type": [
+          {
+            "name": "catalog",
+            "code": "CAT",
+            "ontologyTermURI": "http://example.org/types/catalog"
+          },
+          {
+            "name": "dataset",
+            "code": "DATASET",
+            "ontologyTermURI": "http://example.org/types/dataset"
+          }
+        ],
+        "keywords": [
+          {
+            "name": "genomics",
+            "code": "GEN",
+            "ontologyTermURI": "http://example.org/themes/genomics"
+          }
+        ],
+        "contact": [
+          {
+            "name": "Support",
+            "email": "support@example.org",
+            "homepage": "https://example.org/contact"
+          }
+        ],
+        "institution": [
+          {
+            "acronym": "EXORG",
+            "name": "Example Org",
+            "homepage": "https://example.org"
+          }
+        ],
+        "startYear": 2001,
+        "endYear": 2020,
+        "conditions": [
+          {
+            "name": "Public",
+            "code": "PUBLIC",
+            "ontologyTermURI": "http://example.org/access/public"
+          }
+        ],
+        "conditionsDescription": "CC-BY",
+        "publications": [
+          {
+            "title": "Example paper",
+            "doi": "10.1000/182",
+            "url": "https://doi.org/10.1000/182"
+          }
+        ],
+        "population": [
+          {
+            "name": "Europe",
+            "code": "EU",
+            "ontologyTermURI": "http://example.org/regions/eu"
+          }
+        ],
+        "inclusionCriteria": [
+          {
+            "name": "Adults",
+            "code": "ADULT",
+            "ontologyTermURI": "http://example.org/criteria/adult"
+          }
+        ],
+        "releases": [
+          {
+            "id": "REL-1",
+            "version": "v1",
+            "date": "2023-01-01",
+            "description": "Initial release"
+          }
+        ],
+        "documentation": [
+          {
+            "name": "Data dictionary",
+            "url": "https://example.org/docs/data-dictionary",
+            "description": "Fields and definitions",
+            "type": {
+              "name": "Protocol",
+              "code": "PROTO",
+              "ontologyTermURI": "http://example.org/doc-types/protocol"
+            }
+          }
+        ],
+        "partners": [
+          {
+            "institution": {
+              "acronym": "PART",
+              "name": "Partner Org",
+              "homepage": "https://partner.example.org"
+            },
+            "role": {
+              "name": "Contributor",
+              "code": "CONTRIB",
+              "ontologyTermURI": "http://example.org/roles/contributor"
+            },
+            "roleDescription": "Data provider"
+          }
+        ],
+        "contributors": [
+          {
+            "contact": {
+              "name": "Jane Doe",
+              "email": "jane@example.org"
+            },
+            "contributionType": [
+              {
+                "name": "Curation",
+                "code": "CUR",
+                "ontologyTermURI": "http://example.org/contrib/curation"
+              }
+            ],
+            "contributionDescription": "Curated metadata"
+          }
+        ]
+      }
+    ]
+  }
+}
