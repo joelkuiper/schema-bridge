@@ -1,24 +1,28 @@
 # Schema Bridge
 
-Schema Bridge is a small, standalone pipeline for turning EMX2 data into standard metadata formats (DCAT, DCAT-AP,
-Health-DCAT, FDP), and for doing the reverse: ingesting RDF metadata back into EMX2.
+Schema Bridge is a small, standalone pipeline for turning GraphQL-backed catalog data into RDF (DCAT, DCAT-AP,
+Health-DCAT, FDP) and for ingesting RDF metadata back into a GraphQL backend. It is profile-driven, so the same
+pipeline can target different schemas, mappings, and outputs without code changes.
 
-It exists to make export and interchange easy, and optionally offline, without needing the full server-side RDF
-stack or Beacon services.
+The core concepts are implemented in the CLI and pipeline modules:
+
+- CLI entrypoint: [`src/schema_bridge/cli.py`](src/schema_bridge/cli.py)
+- Profile loading and resolution: [`src/schema_bridge/pipeline/profiles.py`](src/schema_bridge/pipeline/profiles.py)
+- Packaged profiles: [`src/schema_bridge/resources/profiles`](src/schema_bridge/resources/profiles)
 
 ## What it does
 
-- Fetch EMX2 rows via GraphQL.
+- Fetch rows via GraphQL.
 - Build a canonical RDF graph from those rows.
 - Export RDF (TTL/JSON-LD/RDF/XML/N-Triples) and tabular formats via SPARQL queries.
 - Validate outputs with SHACL (optional).
-- Or, optionally, ingest RDF (TTL/JSON-LD/RDF/XML/N-Triples) into EMX2 via GraphQL mutations.
+- Ingest RDF (TTL/JSON-LD/RDF/XML/N-Triples) back into a GraphQL backend via mutations.
 
 ## Quick start (export)
 
 Install dependencies: `uv sync --extra test`.
 
-Profiles ([profile directory](./src/schema_bridge/resources/profiles)] are the primary entry point. Export profiles (with `kind: export`) wire together fetch, export, mapping,
+Profiles are the primary entry point. Export profiles (with `kind: export`) wire together fetch, export, mapping,
 and validation steps. You can pass a profile name, a profile folder, or a direct path to `profile.yml`.
 
 - `uv run schema-bridge export --profile dcat --format ttl`
@@ -48,7 +52,8 @@ If an endpoint is provided, `base_url/schema` are ignored. Otherwise they are co
 ## Profiles
 
 All profiles live under `src/schema_bridge/resources/profiles/<profile>/profile.yml` and include a `kind` field
-(`export` or `ingest`) to indicate which pipeline they drive.
+(`export` or `ingest`) to indicate which pipeline they drive. See the directory structure in
+[`src/schema_bridge/resources/`](src/schema_bridge/resources/).
 
 ### Export profiles
 
@@ -71,37 +76,9 @@ Common keys:
 
 Available export profiles in this repo:
 
-- `dcat`
-- `fdp`
-- `health-dcat-ap-molgenis`
-
-## MOLGENIS Catalogue (Health-DCAT-AP)
-
-For molgeniscatalogue.org, use the `health-dcat-ap-molgenis` profile.
-
-Caveats (demo profile):
-
-- The construct is limited and does not emit every optional Health-DCAT-AP enrichment.
-- Fields like detailed age-group hierarchy, inclusion criteria details, and design publications are not fully materialized.
-- Access-rights and policy nodes are derived from URI fields only; vocabulary labels/definitions may be omitted.
-
-## Output formats
-
-Use `--format` to choose a single output format (`csv`, `json`, `jsonld`, `ttl`, `rdfxml`, `nt`). Export commands write to stdout, so
-redirect to a file when you need a saved artifact.
-
-## Quick start (ingest)
-
-Ingest profiles (with `kind: ingest`) control how RDF gets converted into rows and uploaded via GraphQL mutations.
-Use `--profile` to select a packaged profile, profile folder, or `profile.yml`.
-
-- `uv run schema-bridge ingest path/to/input.ttl --profile ingest-dcat --base-url https://emx2.dev.molgenis.org/ --schema catalogue-demo --dry-run`
-- `uv run schema-bridge ingest path/to/input.ttl --profile ingest-dcat --out out/rows.json --dry-run`
-
-`--format` is optional; if omitted, the RDF format is inferred from the input file extension.
-Use `--dry-run` or `--out` to inspect the generated rows without uploading them.
-GraphQL targets are resolved in this order: CLI `--base-url/--schema`, ingest profile `graphql.base_url/graphql.schema`,
-environment (`SCHEMA_BRIDGE_BASE_URL`/`SCHEMA_BRIDGE_SCHEMA`), and finally the built-in defaults.
+- `dcat` (demo)
+- `fdp` (demo)
+- `health-dcat-ap-molgenis` (slightly more comprehensive)
 
 ### Ingest profiles
 
@@ -117,9 +94,36 @@ Common keys:
 - `validate.shacl`: shape path (relative to the profile folder, or an absolute path)
 - `validate.enabled`: enable/disable validation
 - `extract.sparql`: SPARQL SELECT file (relative to the profile folder)
-- `upload.table`: target EMX2 table name
+- `upload.table`: target table name
 - `upload.mode`: mutation mode (`upsert` or `insert`)
-- `upload.id_prefix`: prefix for generated EMX2 ids
+- `upload.id_prefix`: prefix for generated ids
 - `upload.batch_size`: rows per mutation batch
 - `graphql.base_url` + `graphql.schema`: default GraphQL location (optional)
 - `graphql.token`: bearer token for auth (optional)
+
+## Quick start (ingest)
+
+Ingest profiles (with `kind: ingest`) control how RDF gets converted into rows and uploaded via GraphQL mutations.
+Use `--profile` to select a packaged profile, profile folder, or `profile.yml`.
+
+- `uv run schema-bridge ingest path/to/input.ttl --profile ingest-dcat --base-url https://emx2.dev.molgenis.org/ --schema catalogue-demo --dry-run`
+- `uv run schema-bridge ingest path/to/input.ttl --profile ingest-dcat --out out/rows.json --dry-run`
+
+`--format` is optional; if omitted, the RDF format is inferred from the input file extension.
+Use `--dry-run` or `--out` to inspect the generated rows without uploading them.
+GraphQL targets are resolved in this order: CLI `--base-url/--schema`, ingest profile `graphql.base_url/graphql.schema`,
+environment (`SCHEMA_BRIDGE_BASE_URL`/`SCHEMA_BRIDGE_SCHEMA`), and finally the built-in defaults.
+
+## MOLGENIS Catalogue (Health-DCAT-AP)
+
+For molgeniscatalogue.org, use the `health-dcat-ap-molgenis` profile as a demonstration.
+
+Caveats:
+
+- The construct is limited and does not emit every optional Health-DCAT-AP enrichment.
+- Fields like detailed age-group hierarchy, inclusion criteria details, and design publications are not fully materialized.
+- Access-rights and policy nodes are derived from URI fields only; vocabulary labels/definitions may be omitted.
+
+## Output formats
+
+Use `--format` to choose a single output format (`csv`, `json`, `jsonld`, `ttl`, `rdfxml`, `nt`). Export commands write to stdout, so redirect to a file when you need a saved artifact.
