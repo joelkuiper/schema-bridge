@@ -49,6 +49,18 @@ RDF backend: [Oxigraph](https://github.com/oxigraph/oxigraph) store via [oxrdfli
 
 ---
 
+## Installation
+
+Install [uv](https://docs.astral.sh/uv/guides/projects/). Clone the repository, `cd` into it, then: 
+
+```bash
+uv sync --extra test
+```
+
+Tests can be ran with `uv run pytest`. 
+
+---
+
 ## Example: MOLGENIS Catalogue → Health-DCAT-AP + Schema.org
 
 A concrete use case is the export of the **MOLGENIS Catalogue** to **Health-DCAT-AP Release 5** ([ref](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-5/)) to support FAIR and policy-aligned metadata publication, alongside a **Schema.org Dataset/DataCatalog** representation ([ref](https://schema.org/Dataset)) for web-scale discovery, as used in production by [https://molgeniscatalogue.org](https://molgeniscatalogue.org).
@@ -213,13 +225,6 @@ Across a full profile, mappings typically flatten nested collections into repeat
 
 ---
 
-## Installation
-
-```bash
-uv sync --extra test
-```
-
----
 
 ## Quick start
 
