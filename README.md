@@ -21,7 +21,7 @@
 
 ## Summary
 
-Schema Bridge is a small, standalone pipeline for transforming GraphQL-shaped data into RDF (e.g. Health-DCAT-AP, FDP) or tabular formats, and for ingesting RDF metadata back into a GraphQL backend.
+Schema Bridge is a small, standalone pipeline for transforming GraphQL-shaped data into RDF (e.g. Health-DCAT-AP, Schema.org) or tabular formats, and for ingesting RDF metadata back into a GraphQL backend.
 
 More abstractly, Schema Bridge attempts to solve the problem of "bidirectional interchange between concrete API-shaped data and standardised metadata representations", without hard-coding schemas or mappings into application logic. In other words: it separates how data is exposed by an API from how that same information is represented for interchange, allowing the two to evolve independently while remaining convertible in both directions.
 
