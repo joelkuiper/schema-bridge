@@ -345,8 +345,6 @@ ex:resource/ABC123 a dcat:Dataset ;
   dct:description "Short description." .
 ```
 
-That’s the idea: normalize once, then transform declaratively.
-
 ---
 
 ## Quick start
