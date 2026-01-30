@@ -173,7 +173,7 @@ Rather than translating directly between those shapes, Schema Bridge introduces 
 
 Schema Bridge uses RDF as an intermediate representation because it provides a stable, schema-flexible graph model well suited to heterogeneous metadata.
 
-GraphQL results are first lifted into a canonical RDF graph. That graph can then be transformed, queried, or validated declaratively, before being serialized to standard formats or re-materialized back into GraphQL mutations. RDF is used strictly as an interchange layer; no persistent triple store, reasoning engine, or ontology commitment is assumed.
+GraphQL results are first lifted into a canonical RDF graph. That graph can then be transformed, queried, or validated declaratively, before being serialized to standard formats or re-materialized back into GraphQL mutations.
 
 At a basic level, RDF expresses information as explicit relationships. Each statement is a triple—subject, predicate, object—identified by URIs. Taken together, these triples form a directed, labeled graph in which meaning is expressed by named relations rather than by structural position.
 
