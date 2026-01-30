@@ -39,7 +39,7 @@ src/schema_bridge/
   graphql/                 GraphQL client + pagination
   rdf/                     mapping, SPARQL, SHACL, export helpers
   workflows/               export/ingest/materialize orchestration
-  resources/               resources (including bundled profiles)
+  resources/               resources (including packaged profiles)
 resources/profiles/        packaged profiles (YAML, GraphQL, SPARQL, SHACL)
 tests/                     unit + integration tests
 ```
