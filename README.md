@@ -11,6 +11,7 @@
   * [Pipeline overview](#pipeline-overview)
   * [Why a canonical RDF layer?](#why-a-canonical-rdf-layer)
   * [How mappings bridge GraphQL and RDF](#how-mappings-bridge-graphql-and-rdf)
+  * [Canonical RDF graph shape and querying](#canonical-rdf-graph-shape-and-querying)
 * [Quick start](#quick-start)
 * [Profiles](#profiles)
   * [Export profiles](#export-profiles)
@@ -50,13 +51,13 @@ RDF backend: [Oxigraph](https://github.com/oxigraph/oxigraph) store via [oxrdfli
 
 ## Installation
 
-Install [uv](https://docs.astral.sh/uv/getting-started/installation/). Clone the repository, `cd` into it, then: 
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/). Clone the repository, `cd` into it, then:
 
 ```bash
 uv sync --extra test
 ```
 
-Tests can be ran with `uv run pytest`. 
+Tests can be ran with `uv run pytest`.
 
 ---
 
@@ -220,10 +221,141 @@ What this expresses:
 
 Across a full profile, mappings typically flatten nested collections into repeatable fields, unify multiple source paths under a single canonical field, and mark selected fields as IRIs rather than literals.
 
-
-
 ---
 
+
+## Canonical RDF mapping
+
+Schema Bridge maps GraphQL-shaped data into a flat, canonical RDF graph with predictable identifiers and predicates. This graph is designed to be easy to query with SPARQL and easy to transform into downstream standards such as DCAT or Schema.org.
+
+### Namespaces and identifiers
+
+By default, Schema Bridge uses a small set of fixed namespaces:
+
+* Subjects live under a base URI (for example `https://catalogue.org/`)
+* Canonical predicates live under `/field/`
+* Entity types live under `/entity/`
+
+### Subjects and types
+
+Each GraphQL row becomes one RDF subject.
+
+The subject IRI is generated from a stable identifier field (for example `id`), and the subject is given a type based on the profile configuration.
+
+Example:
+
+```
+ex:resource/ABC123 a entity:Resource .
+```
+
+This means: “there is a Resource with identifier `ABC123`”.
+
+### Fields become predicates
+
+GraphQL fields are projected into canonical RDF predicates in a flat, uniform way.
+
+* Each canonical field becomes a predicate under `field:`
+* Values are literals by default
+* Selected fields can be emitted as IRIs instead of literals
+
+Example mapping:
+
+```yaml
+mapping:
+  field_paths:
+    landingPage: website
+    contactEmail:
+      - contactPoint.email
+      - contactEmail
+  iri_fields:
+    - landingPage
+```
+
+Produces:
+
+```
+ex:resource/ABC123 field:landingPage <https://example.org/> .
+ex:resource/ABC123 field:contactEmail "team@example.org" .
+```
+
+This keeps predicates stable and avoids encoding meaning in nested structure.
+
+### Nested objects
+
+Nested GraphQL objects are lifted into explicit RDF nodes.
+
+By default, Schema Bridge does this automatically:
+
+* Nested objects become linked nodes
+* If a stable identifier is available, the node gets an IRI
+* Otherwise, it becomes a blank node
+
+Example:
+
+```
+ex:resource/ABC123 field:publisher _:pub .
+_:pub field:name "Example Org" .
+```
+
+This preserves structure without forcing you to predefine schemas.
+
+### Concepts and controlled vocabularies
+
+Fields marked as concepts are represented as `skos:Concept` nodes and linked to the subject.
+
+If the source provides a URI, it is preserved and linked using `owl:sameAs`.
+
+This allows controlled vocabularies to be carried through the pipeline without special handling downstream.
+
+### Querying and export
+
+Because the canonical graph is flat and stable, SPARQL queries are simple and reusable.
+
+Example:
+
+```sparql
+SELECT ?id ?title ?description WHERE {
+  ?res field:id ?id ;
+       field:title ?title .
+  OPTIONAL { ?res field:description ?description }
+}
+```
+
+Profiles then use SPARQL CONSTRUCT queries to transform this canonical graph into target standards such as DCAT or Schema.org, without referencing GraphQL-specific structure.
+
+### End-to-end example
+
+GraphQL input:
+
+```json
+{
+  "id": "ABC123",
+  "title": "Example Dataset",
+  "description": "Short description."
+}
+```
+
+Canonical RDF:
+
+```ttl
+ex:resource/ABC123 a entity:Resource ;
+  field:id "ABC123" ;
+  field:title "Example Dataset" ;
+  field:description "Short description." .
+```
+
+Constructed DCAT:
+
+```ttl
+ex:resource/ABC123 a dcat:Dataset ;
+  dct:identifier "ABC123" ;
+  dct:title "Example Dataset" ;
+  dct:description "Short description." .
+```
+
+That’s the idea: normalize once, then transform declaratively.
+
+---
 
 ## Quick start
 
@@ -415,7 +547,7 @@ Schema Bridge resolves the GraphQL endpoint the same way across export and inges
 
 Resolution order (highest priority first):
 
-1. CLI full endpoint `--graphql-endpoint` 
+1. CLI full endpoint `--graphql-endpoint`
 2. Profile full endpoint (e.g. `fetch.endpoint` or `graphql.endpoint`)
 3. Environment `SCHEMA_BRIDGE_GRAPHQL_ENDPOINT`
 4. CLI `--base-url` + `--schema`
