@@ -62,7 +62,7 @@ Tests can be ran with `uv run pytest`.
 
 ## Example: MOLGENIS Catalogue → Health-DCAT-AP + Schema.org
 
-A concrete use case is the export of the **MOLGENIS Catalogue** to **Health-DCAT-AP Release 5** ([ref](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-5/)) to support FAIR and policy-aligned metadata publication, alongside a **Schema.org Dataset/DataCatalog** representation ([ref](https://schema.org/Dataset)) for web-scale discovery, as used in production by [https://molgeniscatalogue.org](https://molgeniscatalogue.org).
+A concrete use case is the export of the **MOLGENIS Catalogue** ([https://molgeniscatalogue.org](https://molgeniscatalogue.org)) to **Health-DCAT-AP Release 5** ([ref](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-5/)) to support FAIR and policy-aligned metadata publication, alongside a **Schema.org Dataset/DataCatalog** representation ([ref](https://schema.org/Dataset)) for web-scale discovery.
 
 Schema Bridge provides two packaged profiles for this catalogue:
 
