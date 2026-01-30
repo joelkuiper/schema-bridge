@@ -45,7 +45,7 @@ resources/profiles/        packaged profiles (YAML, GraphQL, SPARQL, SHACL)
 tests/                     unit + integration tests
 ```
 
-RDF backend: [Oxigraph](https://github.com/oxigraph/oxigraph) store via [oxrdflib](https://github.com/oxigraph/oxrdflib).
+RDF backend: [Oxigraph](https://github.com/oxigraph/oxigraph) via [oxrdflib](https://github.com/oxigraph/oxrdflib).
 
 ---
 
