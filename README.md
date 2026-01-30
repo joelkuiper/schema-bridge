@@ -299,14 +299,6 @@ _:pub field:name "Example Org" .
 
 This preserves structure without forcing you to predefine schemas.
 
-### Concepts and controlled vocabularies
-
-Fields marked as concepts are represented as `skos:Concept` nodes and linked to the subject.
-
-If the source provides a URI, it is preserved and linked using `owl:sameAs`.
-
-This allows controlled vocabularies to be carried through the pipeline without special handling downstream.
-
 ### Querying and export
 
 Because the canonical graph is flat and stable, SPARQL queries are simple and reusable.
