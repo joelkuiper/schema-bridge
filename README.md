@@ -11,7 +11,7 @@
   * [Pipeline overview](#pipeline-overview)
   * [Why a canonical RDF layer?](#why-a-canonical-rdf-layer)
   * [How mappings bridge GraphQL and RDF](#how-mappings-bridge-graphql-and-rdf)
-  * [Canonical RDF graph shape and querying](#canonical-rdf-graph-shape-and-querying)
+  * [Canonical RDF graph shape and querying](##canonical-rdf-mapping)
 * [Quick start](#quick-start)
 * [Profiles](#profiles)
   * [Export profiles](#export-profiles)
