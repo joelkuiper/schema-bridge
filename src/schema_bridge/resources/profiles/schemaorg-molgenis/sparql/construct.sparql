@@ -84,14 +84,41 @@ WHERE {
     BIND(IRI(STR(?publisherWebsite)) AS ?publisherWebsiteIri)
   }
 
-  OPTIONAL { ?res field:contactName ?contactName . }
   OPTIONAL {
-    ?res field:contactEmail ?contactEmail .
-    BIND(REPLACE(STR(?contactEmail), "^mailto:", "") AS ?contactEmailLiteral)
-  }
-  OPTIONAL {
-    FILTER(BOUND(?contactName) || BOUND(?contactEmailLiteral))
-    BIND(BNODE() AS ?contactPoint)
+    {
+      ?res field:contactEmail ?contactEmail .
+      BIND(REPLACE(STR(?contactEmail), "^mailto:", "") AS ?contactEmailLiteral)
+      OPTIONAL { ?res field:contactName ?contactName . }
+      BIND(
+        IRI(
+          CONCAT(
+            STR(?res),
+            "/contact-point/",
+            ENCODE_FOR_URI(
+              CONCAT(
+                STR(?contactEmailLiteral),
+                "|",
+                IF(BOUND(?contactName), STR(?contactName), "")
+              )
+            )
+          )
+        ) AS ?contactPoint
+      )
+    }
+    UNION
+    {
+      ?res field:contactName ?contactName .
+      FILTER NOT EXISTS { ?res field:contactEmail ?_anyContactEmail . }
+      BIND(
+        IRI(
+          CONCAT(
+            STR(?res),
+            "/contact-point/",
+            ENCODE_FOR_URI(CONCAT("|", STR(?contactName)))
+          )
+        ) AS ?contactPoint
+      )
+    }
   }
 
   OPTIONAL {

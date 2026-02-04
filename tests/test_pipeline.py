@@ -10,6 +10,7 @@ import pytest
 from schema_bridge.rdf import (
     MappingConfig,
     RawMapping,
+    construct_graph,
     construct_dcat,
     export_formats,
     load_raw_from_rows,
@@ -118,6 +119,48 @@ def test_catalogs_use_case_dcat_fields():
     assert (res, DCAT["keyword"], None) in dcat
     assert (res, DCAT["theme"], None) in dcat
     assert (res, DCAT["landingPage"], None) in dcat
+
+
+def test_schemaorg_contact_point_uses_stable_uri_under_cross_product():
+    raw = new_graph()
+    rows = [
+        {
+            "id": "R1",
+            "name": "Dataset One",
+            "description": "Example description",
+            "keywords": ["k1", "k2"],
+            "themeUris": ["https://example.org/theme/a", "https://example.org/theme/b"],
+            "accessRightsUris": [
+                "https://example.org/access/a",
+                "https://example.org/access/b",
+            ],
+            "contactEmail": "person@example.org",
+            "contactName": "Person Example",
+        }
+    ]
+    load_raw_from_rows(
+        rows,
+        raw,
+        _with_id_strategy(MappingConfig(raw=RawMapping()), ["id"]),
+    )
+
+    graph = construct_graph(raw, "profiles/schemaorg-molgenis/sparql/construct.sparql")
+    SCHEMA = Namespace("http://schema.org/")
+    res = EX["resource/R1"]
+
+    contact_points = set(graph.objects(res, SCHEMA["contactPoint"]))
+    assert len(contact_points) == 1
+    assert all(isinstance(contact_point, URIRef) for contact_point in contact_points)
+
+
+def test_profile_construct_queries_avoid_bnode_generation():
+    profile_construct_queries = [
+        "profiles/schemaorg-molgenis/sparql/construct.sparql",
+        "profiles/healthdcat-ap-r5-molgenis/sparql/construct.sparql",
+    ]
+    for query_path in profile_construct_queries:
+        query = load_text(query_path, "schema_bridge.resources")
+        assert "BNODE(" not in query.upper()
 
 
 def test_select_rows():

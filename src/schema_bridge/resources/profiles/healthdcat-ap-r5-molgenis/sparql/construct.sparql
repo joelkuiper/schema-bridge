@@ -156,7 +156,21 @@ WHERE {
   }
   OPTIONAL {
     FILTER(BOUND(?startDateValue) || BOUND(?endDateValue))
-    BIND(BNODE() AS ?temporal)
+    BIND(
+      IRI(
+        CONCAT(
+          STR(?res),
+          "/temporal/",
+          ENCODE_FOR_URI(
+            CONCAT(
+              COALESCE(STR(?startDateValue), ""),
+              "|",
+              COALESCE(STR(?endDateValue), "")
+            )
+          )
+        )
+      ) AS ?temporal
+    )
   }
 
   OPTIONAL {
@@ -248,7 +262,21 @@ WHERE {
   OPTIONAL { ?res field:designPublicationDois ?publicationDoi . }
   OPTIONAL {
     FILTER(BOUND(?publicationTitle) || BOUND(?publicationDoi))
-    BIND(BNODE() AS ?publication)
+    BIND(
+      IRI(
+        CONCAT(
+          STR(?res),
+          "/publication/",
+          ENCODE_FOR_URI(
+            CONCAT(
+              COALESCE(STR(?publicationDoi), ""),
+              "|",
+              COALESCE(STR(?publicationTitle), "")
+            )
+          )
+        )
+      ) AS ?publication
+    )
   }
 
   BIND(
