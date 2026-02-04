@@ -8,6 +8,7 @@ from pathlib import Path
 
 import pytest
 from rdflib import Namespace
+from rdflib.namespace import RDF
 
 from schema_bridge.rdf import new_graph
 
@@ -120,6 +121,45 @@ def test_cli_export_healthdcat_ap_r5_uses_fixture() -> None:
     dcat = Namespace("http://www.w3.org/ns/dcat#")
     rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
     assert (res, rdf["type"], dcat["Dataset"]) in graph
+
+
+@pytest.mark.integration
+def test_cli_export_canonical_only_uses_fixture() -> None:
+    resources = Path(__file__).parent / "resources"
+    fixture = resources / "graphql_resources.json"
+    env = _base_env()
+    env["SCHEMA_BRIDGE_GRAPHQL_FIXTURE"] = str(fixture)
+
+    completed = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "schema_bridge.cli",
+            "export",
+            "--profile",
+            "dcat",
+            "--format",
+            "ttl",
+            "--canonical-only",
+            "--limit",
+            "2",
+        ],
+        env=env,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, (
+        f"canonical export failed:\nSTDOUT: {completed.stdout}\nSTDERR: {completed.stderr}"
+    )
+    graph = new_graph()
+    graph.parse(data=completed.stdout, format="turtle")
+    res = Namespace("https://catalogue.org/")["resource/R1"]
+    field = Namespace("https://catalogue.org/field/")
+    entity = Namespace("https://catalogue.org/entity/")
+    dct = Namespace("http://purl.org/dc/terms/")
+    assert (res, RDF.type, entity["Resource"]) in graph
+    assert (res, field["name"], None) in graph
+    assert (res, dct["title"], None) not in graph
 
 
 @pytest.mark.integration

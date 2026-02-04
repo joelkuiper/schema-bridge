@@ -33,6 +33,29 @@ app = typer.Typer(help="Schema Bridge CLI (profile-driven export + ingest)")
 logger = logging.getLogger("schema_bridge.cli")
 
 
+def _normalize_rdf_format(value: str) -> str:
+    normalized = value.strip().lower()
+    aliases = {
+        "ttl": "turtle",
+        "turtle": "turtle",
+        "jsonld": "json-ld",
+        "json-ld": "json-ld",
+        "rdfxml": "xml",
+        "rdf/xml": "xml",
+        "xml": "xml",
+        "rdf": "xml",
+        "nt": "nt",
+        "ntriples": "nt",
+        "n-triples": "nt",
+    }
+    resolved = aliases.get(normalized)
+    if resolved is None:
+        raise typer.BadParameter(
+            "Unsupported RDF format. Use one of: ttl, jsonld, rdfxml, nt."
+        )
+    return resolved
+
+
 @app.callback()
 def _main(
     debug: bool = typer.Option(
@@ -299,6 +322,22 @@ def export(
         "--debug",
         help="Enable debug logging",
     ),
+    canonical_out: Path | None = typer.Option(
+        None,
+        "--canonical-out",
+        help="Optional path to write the canonical RDF graph before SPARQL export",
+    ),
+    canonical_only: bool = typer.Option(
+        False,
+        "--canonical-only",
+        help="Emit the canonical RDF graph and skip SPARQL export/SHACL validation",
+    ),
+    canonical_format: str = typer.Option(
+        "ttl",
+        "--canonical-format",
+        help="Canonical RDF format: ttl, jsonld, rdfxml, nt",
+        case_sensitive=False,
+    ),
 ) -> None:
     configure_logging(debug)
     logger.debug(
@@ -352,6 +391,13 @@ def export(
     rows = extract_rows(graphql_data, export.root_key)
     raw_graph = new_graph()
     load_raw_from_rows(rows, raw_graph, export.mapping)
+    canonical_rdf_format = _normalize_rdf_format(canonical_format)
+    if canonical_out is not None:
+        canonical_out.parent.mkdir(parents=True, exist_ok=True)
+        raw_graph.serialize(canonical_out, format=canonical_rdf_format)
+    if canonical_only:
+        typer.echo(raw_graph.serialize(format=canonical_rdf_format), nl=False)
+        return
     export_and_validate(
         raw_graph,
         export,
