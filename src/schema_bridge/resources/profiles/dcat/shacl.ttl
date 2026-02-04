@@ -13,6 +13,5 @@ dcat:DatasetShape
   ] ;
   sh:property [
     sh:path dct:description ;
-    sh:minCount 1 ;
     sh:datatype xsd:string ;
   ] .
