@@ -86,39 +86,23 @@ WHERE {
 
   OPTIONAL {
     {
-      ?res field:contactEmail ?contactEmail .
-      BIND(REPLACE(STR(?contactEmail), "^mailto:", "") AS ?contactEmailLiteral)
-      OPTIONAL { ?res field:contactName ?contactName . }
-      BIND(
-        IRI(
-          CONCAT(
-            STR(?res),
-            "/contact-point/",
-            ENCODE_FOR_URI(
-              CONCAT(
-                STR(?contactEmailLiteral),
-                "|",
-                IF(BOUND(?contactName), STR(?contactName), "")
-              )
-            )
-          )
-        ) AS ?contactPoint
-      )
+      SELECT ?res ?contactEmailLiteral (MAX(?contactNameValue) AS ?contactName)
+      WHERE {
+        ?res field:contactEmail ?contactEmailRaw .
+        BIND(REPLACE(STR(?contactEmailRaw), "^mailto:", "") AS ?contactEmailLiteral)
+        OPTIONAL { ?res field:contactName ?contactNameValue . }
+      }
+      GROUP BY ?res ?contactEmailLiteral
     }
-    UNION
-    {
-      ?res field:contactName ?contactName .
-      FILTER NOT EXISTS { ?res field:contactEmail ?_anyContactEmail . }
-      BIND(
-        IRI(
-          CONCAT(
-            STR(?res),
-            "/contact-point/",
-            ENCODE_FOR_URI(CONCAT("|", STR(?contactName)))
-          )
-        ) AS ?contactPoint
-      )
-    }
+    BIND(
+      IRI(
+        CONCAT(
+          STR(?res),
+          "/contact-point/",
+          ENCODE_FOR_URI(STR(?contactEmailLiteral))
+        )
+      ) AS ?contactPoint
+    )
   }
 
   OPTIONAL {
