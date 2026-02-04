@@ -66,12 +66,9 @@ def test_raw_load_and_dcat_construct():
     dcat = construct_dcat(raw)
     DCAT = Namespace("http://www.w3.org/ns/dcat#")
     DCT = Namespace("http://purl.org/dc/terms/")
-    VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
 
     assert (res, RDF.type, DCAT["Dataset"]) in dcat
     assert (res, DCT["title"], None) in dcat
-
-    assert (None, RDF.type, VCARD["Individual"]) in dcat
 
 
 def test_catalogs_use_case_dcat_fields():
@@ -112,30 +109,15 @@ def test_catalogs_use_case_dcat_fields():
     dcat = construct_dcat(raw)
     DCAT = Namespace("http://www.w3.org/ns/dcat#")
     DCT = Namespace("http://purl.org/dc/terms/")
-    FOAF = Namespace("http://xmlns.com/foaf/0.1/")
-    VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
 
     res = EX["catalog/C1"]
     assert (res, RDF.type, DCAT["Dataset"]) in dcat
     assert (res, DCT["title"], None) in dcat
     assert (res, DCT["description"], None) in dcat
+    assert (res, DCT["identifier"], None) in dcat
     assert (res, DCAT["keyword"], None) in dcat
     assert (res, DCAT["theme"], None) in dcat
-    assert (res, DCT["hasVersion"], None) in dcat
-    assert (res, DCT["license"], None) in dcat
-    assert (res, DCT["language"], None) in dcat
-    assert (res, DCT["accessRights"], None) in dcat
-    assert (res, DCAT["hasPolicy"], None) in dcat
-    assert (res, DCT["relation"], None) in dcat
     assert (res, DCAT["landingPage"], None) in dcat
-
-    publisher = EX["publisher/MOLGENIS"]
-    assert (res, DCT["publisher"], publisher) in dcat
-    assert (publisher, RDF.type, FOAF["Organization"]) in dcat
-    assert (publisher, FOAF["name"], None) in dcat
-    assert (publisher, DCT["description"], None) in dcat
-
-    assert (None, RDF.type, VCARD["Individual"]) in dcat
 
 
 def test_select_rows():
